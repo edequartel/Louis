@@ -14,9 +14,6 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "person")
                     Text("Instellingen")
-                    Text("Label")
-                    Text("labels")
-                    Text("And more")
                 }
             InformationView()
                 .tabItem {
