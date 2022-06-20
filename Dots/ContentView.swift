@@ -16,6 +16,7 @@ struct ContentView: View {
                     Text("Instellingen")
                     Text("Label")
                     Text("labels")
+                    Text("And more")
                 }
             InformationView()
                 .tabItem {
