@@ -29,6 +29,9 @@
 		47EBF7C2285AECD000E8F230 /* Symphony No.6 (1st movement).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47EBF7BD285AECD000E8F230 /* Symphony No.6 (1st movement).mp3 */; };
 		47EBF7C42860D80D00E8F230 /* jsonmanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EBF7C32860D80D00E8F230 /* jsonmanager.swift */; };
 		47EBF7C62860D84200E8F230 /* methods.json in Resources */ = {isa = PBXBuildFile; fileRef = 47EBF7C52860D84200E8F230 /* methods.json */; };
+		47EBF805286200CA00E8F230 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EBF804286200CA00E8F230 /* LottieView.swift */; };
+		47EBF808286200F700E8F230 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 47EBF807286200F700E8F230 /* Lottie */; };
+		47EBF80A2862011900E8F230 /* 16607-dots.json in Resources */ = {isa = PBXBuildFile; fileRef = 47EBF8092862011900E8F230 /* 16607-dots.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +77,8 @@
 		47EBF7BD285AECD000E8F230 /* Symphony No.6 (1st movement).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Symphony No.6 (1st movement).mp3"; sourceTree = "<group>"; };
 		47EBF7C32860D80D00E8F230 /* jsonmanager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jsonmanager.swift; sourceTree = "<group>"; };
 		47EBF7C52860D84200E8F230 /* methods.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = methods.json; sourceTree = "<group>"; };
+		47EBF804286200CA00E8F230 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		47EBF8092862011900E8F230 /* 16607-dots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "16607-dots.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47DC7BF92858FDDA0095EC8F /* Subsonic in Frameworks */,
+				47EBF808286200F700E8F230 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +136,7 @@
 				47192A3C2858BFA4004FD2F3 /* Info.plist */,
 				47192A0E2858893C004FD2F3 /* DotsApp.swift */,
 				47192A102858893C004FD2F3 /* ContentView.swift */,
+				47EBF804286200CA00E8F230 /* LottieView.swift */,
 				47192A452858C086004FD2F3 /* AudioView.swift */,
 				47192A3D2858C057004FD2F3 /* SettingsView.swift */,
 				47192A412858C073004FD2F3 /* PlaygroundView.swift */,
@@ -171,6 +178,7 @@
 		47192A572858CAD6004FD2F3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				47EBF8092862011900E8F230 /* 16607-dots.json */,
 				47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */,
 				47EBF7C32860D80D00E8F230 /* jsonmanager.swift */,
 				47EBF7C52860D84200E8F230 /* methods.json */,
@@ -208,6 +216,7 @@
 			name = Dots;
 			packageProductDependencies = (
 				47DC7BF82858FDDA0095EC8F /* Subsonic */,
+				47EBF807286200F700E8F230 /* Lottie */,
 			);
 			productName = Dots;
 			productReference = 47192A0B2858893C004FD2F3 /* Dots.app */;
@@ -283,6 +292,7 @@
 			mainGroup = 47192A022858893C004FD2F3;
 			packageReferences = (
 				47DC7BF72858FDDA0095EC8F /* XCRemoteSwiftPackageReference "Subsonic" */,
+				47EBF806286200F700E8F230 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 47192A0C2858893C004FD2F3 /* Products */;
 			projectDirPath = "";
@@ -306,6 +316,7 @@
 				47EBF7BF285AECD000E8F230 /* sample3.mp3 in Resources */,
 				47EBF7C2285AECD000E8F230 /* Symphony No.6 (1st movement).mp3 in Resources */,
 				47EBF7C1285AECD000E8F230 /* sample1.mp3 in Resources */,
+				47EBF80A2862011900E8F230 /* 16607-dots.json in Resources */,
 				47192A5B2858CB8F004FD2F3 /* bartimeus6dots.ttf in Resources */,
 				47192A132858893D004FD2F3 /* Assets.xcassets in Resources */,
 				47EBF7C62860D84200E8F230 /* methods.json in Resources */,
@@ -340,6 +351,7 @@
 				47192A3E2858C057004FD2F3 /* SettingsView.swift in Sources */,
 				47192A0F2858893C004FD2F3 /* DotsApp.swift in Sources */,
 				47EBF7C42860D80D00E8F230 /* jsonmanager.swift in Sources */,
+				47EBF805286200CA00E8F230 /* LottieView.swift in Sources */,
 				47192A392858BE7D004FD2F3 /* SplashScreenView.swift in Sources */,
 				47192A462858C086004FD2F3 /* AudioView.swift in Sources */,
 			);
@@ -680,6 +692,14 @@
 				minimumVersion = 0.2.0;
 			};
 		};
+		47EBF806286200F700E8F230 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -687,6 +707,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 47DC7BF72858FDDA0095EC8F /* XCRemoteSwiftPackageReference "Subsonic" */;
 			productName = Subsonic;
+		};
+		47EBF807286200F700E8F230 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 47EBF806286200F700E8F230 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

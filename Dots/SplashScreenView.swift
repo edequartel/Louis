@@ -13,31 +13,35 @@ struct SplashScreenView: View {
     @State private var opacity = 0.5
     
     var body: some View {
+        
+        
         if isActive {
             ContentView()
         } else {
             VStack {
-                VStack {
-                    Image(systemName: "hand.point.up.braille.fill")
-                        .font(.system(size:100))
-                        .foregroundColor(.red)
-                    Text("dots")
-                        .font(.custom(
-                            "bartimeus6dots",
-                            fixedSize: 64))
-                        .foregroundColor(.blue.opacity(0.80))
-                }
-                .scaleEffect(size)
-                .opacity(opacity)
-                .onAppear {
-                    withAnimation(.easeIn(duration: 0.80)) {
-                        self.size = 0.9
-                        self.opacity = 1.0
-                    }
-                }
+//                VStack {
+                    LottieView(lottieFile: "16607-dots")
+                        .frame(width: 300, height: 300)
+//                    Image(systemName: "hand.point.up.braille.fill")
+//                        .font(.system(size:100))
+//                        .foregroundColor(.red)
+//                    Text("dots")
+//                        .font(.custom(
+//                            "bartimeus6dots",
+//                            fixedSize: 64))
+//                        .foregroundColor(.blue.opacity(0.80))
+//                }
+//                .scaleEffect(size)
+//                .opacity(opacity)
+//                .onAppear {
+//                    withAnimation(.easeIn(duration: 2.2)) {
+//                        self.size = 0.9
+//                        self.opacity = 1.0
+//                    }
+//                }
             }
             .onAppear {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                                 withAnimation {
                                     self.isActive = true
                                 }
