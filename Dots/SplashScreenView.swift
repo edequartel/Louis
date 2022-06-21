@@ -20,7 +20,7 @@ struct SplashScreenView: View {
         } else {
             VStack {
 //                VStack {
-                    LottieView(lottieFile: "16607-dots")
+                    LottieView(lottieFile: "samplelogo")
                         .frame(width: 300, height: 300)
 //                    Image(systemName: "hand.point.up.braille.fill")
 //                        .font(.system(size:100))
