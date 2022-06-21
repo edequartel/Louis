@@ -27,6 +27,8 @@
 		47EBF7C0285AECD000E8F230 /* sample2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47EBF7BB285AECD000E8F230 /* sample2.mp3 */; };
 		47EBF7C1285AECD000E8F230 /* sample1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47EBF7BC285AECD000E8F230 /* sample1.mp3 */; };
 		47EBF7C2285AECD000E8F230 /* Symphony No.6 (1st movement).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47EBF7BD285AECD000E8F230 /* Symphony No.6 (1st movement).mp3 */; };
+		47EBF7C42860D80D00E8F230 /* jsonmanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EBF7C32860D80D00E8F230 /* jsonmanager.swift */; };
+		47EBF7C62860D84200E8F230 /* methods.json in Resources */ = {isa = PBXBuildFile; fileRef = 47EBF7C52860D84200E8F230 /* methods.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,14 +66,14 @@
 		47192A412858C073004FD2F3 /* PlaygroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
 		47192A432858C07B004FD2F3 /* SearchWordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchWordView.swift; sourceTree = "<group>"; };
 		47192A452858C086004FD2F3 /* AudioView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
-		47192A582858CAD6004FD2F3 /* methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = methods.swift; sourceTree = "<group>"; };
-		47192A592858CAD6004FD2F3 /* methods.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = methods.json; sourceTree = "<group>"; };
 		47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bartimeus6dots.ttf; sourceTree = "<group>"; };
 		47EBF7B9285AECD000E8F230 /* sample4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample4.mp3; sourceTree = "<group>"; };
 		47EBF7BA285AECD000E8F230 /* sample3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample3.mp3; sourceTree = "<group>"; };
 		47EBF7BB285AECD000E8F230 /* sample2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample2.mp3; sourceTree = "<group>"; };
 		47EBF7BC285AECD000E8F230 /* sample1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample1.mp3; sourceTree = "<group>"; };
 		47EBF7BD285AECD000E8F230 /* Symphony No.6 (1st movement).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Symphony No.6 (1st movement).mp3"; sourceTree = "<group>"; };
+		47EBF7C32860D80D00E8F230 /* jsonmanager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jsonmanager.swift; sourceTree = "<group>"; };
+		47EBF7C52860D84200E8F230 /* methods.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = methods.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,9 +171,9 @@
 		47192A572858CAD6004FD2F3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				47192A582858CAD6004FD2F3 /* methods.swift */,
-				47192A592858CAD6004FD2F3 /* methods.json */,
 				47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */,
+				47EBF7C32860D80D00E8F230 /* jsonmanager.swift */,
+				47EBF7C52860D84200E8F230 /* methods.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -306,6 +308,7 @@
 				47EBF7C1285AECD000E8F230 /* sample1.mp3 in Resources */,
 				47192A5B2858CB8F004FD2F3 /* bartimeus6dots.ttf in Resources */,
 				47192A132858893D004FD2F3 /* Assets.xcassets in Resources */,
+				47EBF7C62860D84200E8F230 /* methods.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +339,7 @@
 				47192A112858893C004FD2F3 /* ContentView.swift in Sources */,
 				47192A3E2858C057004FD2F3 /* SettingsView.swift in Sources */,
 				47192A0F2858893C004FD2F3 /* DotsApp.swift in Sources */,
+				47EBF7C42860D80D00E8F230 /* jsonmanager.swift in Sources */,
 				47192A392858BE7D004FD2F3 /* SplashScreenView.swift in Sources */,
 				47192A462858C086004FD2F3 /* AudioView.swift in Sources */,
 			);

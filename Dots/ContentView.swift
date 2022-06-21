@@ -8,34 +8,57 @@
 import SwiftUI
 
 struct ContentView: View {
+    private var countries: [Country] = Country.allCountries
+    
+    
+    
     var body: some View {
-        TabView {
-            SettingsView()
-                .tabItem {
-                    Image(systemName: "person")
-                    Text("Instellingen")
+        NavigationView {
+            List {
+                Text("Country")
+                ForEach(countries, id: \.id) {
+                    country in Text("\(country.language)")
                 }
-            InformationView()
-                .tabItem {
-                    Image(systemName: "text.bubble")
-                    Text("Informatie")
+                Text("Methods")
+                Spacer()
+                ForEach(countries[0].method, id: \.id) {
+                    method in Text("\(method.name)")
                 }
-            PlaygroundView()
-                .tabItem {
-                    Image(systemName: "circle.square")
-                    Text("Speelveld")
+                Text("Lessons")
+                Spacer()
+                ForEach(countries[0].method[0].lesson, id: \.id) {
+                    lesson in Text("\(lesson.name)")
                 }
-            SearchWordView()
-                .tabItem {
-                    Image(systemName: "circle.square")
-                    Text("Search Word")
-                }
-            AudioView()
-                .tabItem {
-                    Image(systemName: "play")
-                    Text("Audio")
-                }
+                
+            }
         }
+        //        TabView {
+        //            SettingsView()
+        //                .tabItem {
+        //                    Image(systemName: "person")
+        //                    Text("Instellingen")
+        //                }
+        //            InformationView()
+        //                .tabItem {
+        //                    Image(systemName: "text.bubble")
+        //                    Text("Informatie")
+        //                }
+        //            PlaygroundView()
+        //                .tabItem {
+        //                    Image(systemName: "circle.square")
+        //                    Text("Speelveld")
+        //                }
+        //            SearchWordView()
+        //                .tabItem {
+        //                    Image(systemName: "circle.square")
+        //                    Text("Search Word")
+        //                }
+        //            AudioView()
+        //                .tabItem {
+        //                    Image(systemName: "play")
+        //                    Text("Audio")
+        //                }
+        //        }
     }
 }
 
