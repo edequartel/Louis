@@ -26,6 +26,7 @@ struct SettingsView: View {
     
     var body: some View {
         NavigationView {
+            
             Form {
                 List {
                     Picker("Country", selection: $selectedCountry) {
@@ -56,48 +57,50 @@ struct SettingsView: View {
                     Picker("Lesson \(selectedLesson)", selection: $selectedLesson) {
                         ForEach(countries[selectedCountry].method[selectedMethod].lesson, id: \.id) { lesson in
                             Text(lesson.name)
+                                .foregroundColor(.gray)
                                 .font(.custom(
                                     "bartimeus6dots",
-                                    fixedSize: 32))
-//                            Text(lesson.name)
-//                                .font(.custom(
-//                                    "bartimeus6dots",
-//                                    fixedSize: 32))
+                                    fixedSize: 32)) +
+                            //                                .font(.largeTitle) +
+                            
+                            Text(" "+lesson.name)
+                            
                         }
                     }
                     .onChange(of: selectedLesson) { _ in
                         UserDefaults.standard.set(self.selectedLesson, forKey: "LessonIndex")
                     }
                     
-                    Toggle(isOn: $isToggle){
-                        Text("Auto increment")
-                    }
                     
-                    Section(header: Text("Moeilijkheid")) {
-                        Button("Letters \(lettersCnt)") {
-                            lettersCnt += 1
-                            if lettersCnt > 10 {
-                                lettersCnt = 1
-                            }
-                        }
-                        Button("Woorden \(wordCnt)") {
-                            wordCnt += 1
-                            if  wordCnt > 10 {
-                                wordCnt = 1
-                            }
-                            
+                }
+                Toggle(isOn: $isToggle){
+                    Text("Auto increment")
+                }
+                
+                Section(header: Text("Moeilijkheid")) {
+                    Button("Letters \(lettersCnt)") {
+                        lettersCnt += 1
+                        if lettersCnt > 10 {
+                            lettersCnt = 1
                         }
                     }
-                    
-                    
-                    Section(header: Text("Oefening")) {
-                        Button("Oefening \(actionIdx+1) \(action[actionIdx])") {
-                            actionIdx += 1
-                            if  actionIdx >= action.count {
-                                actionIdx = 0
-                            }
-                            
+                    Button("Woorden \(wordCnt)") {
+                        wordCnt += 1
+                        if  wordCnt > 10 {
+                            wordCnt = 1
                         }
+                        
+                    }
+                }
+                
+                
+                Section(header: Text("Oefening")) {
+                    Button("Oefening \(actionIdx+1) \(action[actionIdx])") {
+                        actionIdx += 1
+                        if  actionIdx >= action.count {
+                            actionIdx = 0
+                        }
+                        
                     }
                 }
             }
