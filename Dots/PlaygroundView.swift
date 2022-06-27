@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct PlaygroundView: View {
+    @EnvironmentObject var settings: Settings
+    
+    private var countries: [Country] = Country.allCountries
+    
     @State var text1 = ""
     @State var isEditing1 = true
     @State var text2 = ""
@@ -17,7 +21,6 @@ struct PlaygroundView: View {
     @State var y=0
     
     @State var tekst: String = ""
-
     
     var body: some View {
         
@@ -28,7 +31,20 @@ struct PlaygroundView: View {
                 }
                 Section {
                     TextField("Placeholder", text: .constant("This is text data"))
-              
+                    Button("counter \(settings.counter)") {
+                        settings.counter += 1
+                        UserDefaults.standard.set(settings.counter, forKey: "counter")
+                    }
+                    
+                    let str = countries[settings.selectedCountry].method[settings.selectedMethod].lesson[settings.selectedLesson].words
+                    let items = str.components(separatedBy: " ")
+                    List {
+                        ForEach(items, id: \.self) { item in
+                            Text(item)
+                        }
+
+                    }
+                    
                 }
             }
             .navigationTitle("Speelveld")

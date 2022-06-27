@@ -21,6 +21,7 @@
 		47192A442858C07B004FD2F3 /* SearchWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47192A432858C07B004FD2F3 /* SearchWordView.swift */; };
 		47192A462858C086004FD2F3 /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47192A452858C086004FD2F3 /* AudioView.swift */; };
 		47192A5B2858CB8F004FD2F3 /* bartimeus6dots.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */; };
+		4739DDFD2862D641004537BE /* logobartimeus.json in Resources */ = {isa = PBXBuildFile; fileRef = 4739DDFC2862D640004537BE /* logobartimeus.json */; };
 		47588E3D28621122003BBB6B /* samplelogo.json in Resources */ = {isa = PBXBuildFile; fileRef = 47588E3C28621122003BBB6B /* samplelogo.json */; };
 		47DC7BF92858FDDA0095EC8F /* Subsonic in Frameworks */ = {isa = PBXBuildFile; productRef = 47DC7BF82858FDDA0095EC8F /* Subsonic */; };
 		47EBF7BE285AECD000E8F230 /* sample4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47EBF7B9285AECD000E8F230 /* sample4.mp3 */; };
@@ -72,6 +73,7 @@
 		47192A432858C07B004FD2F3 /* SearchWordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchWordView.swift; sourceTree = "<group>"; };
 		47192A452858C086004FD2F3 /* AudioView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
 		47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bartimeus6dots.ttf; sourceTree = "<group>"; };
+		4739DDFC2862D640004537BE /* logobartimeus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = logobartimeus.json; sourceTree = "<group>"; };
 		47588E3C28621122003BBB6B /* samplelogo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = samplelogo.json; sourceTree = "<group>"; };
 		47EBF7B9285AECD000E8F230 /* sample4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample4.mp3; sourceTree = "<group>"; };
 		47EBF7BA285AECD000E8F230 /* sample3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample3.mp3; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		47192A572858CAD6004FD2F3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4739DDFC2862D640004537BE /* logobartimeus.json */,
 				47EBF80B2862031200E8F230 /* dotsloader.json */,
 				47EBF8092862011900E8F230 /* 16607-dots.json */,
 				47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */,
@@ -316,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4739DDFD2862D641004537BE /* logobartimeus.json in Resources */,
 				47EBF7BE285AECD000E8F230 /* sample4.mp3 in Resources */,
 				47192A162858893D004FD2F3 /* Preview Assets.xcassets in Resources */,
 				47EBF7C0285AECD000E8F230 /* sample2.mp3 in Resources */,

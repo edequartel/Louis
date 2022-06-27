@@ -7,10 +7,17 @@
 
 import SwiftUI
 
+class Settings: ObservableObject {
+    @Published var counter: Int =  UserDefaults.standard.integer(forKey: "counter")
+    @Published var selectedCountry: Int = UserDefaults.standard.integer(forKey: "CountryIndex")
+    @Published var selectedMethod: Int = UserDefaults.standard.integer(forKey: "MethodIndex")
+    @Published var selectedLesson: Int = UserDefaults.standard.integer(forKey: "LessonIndex")
+}
+
 struct ContentView: View {
+    @EnvironmentObject var settings: Settings
+
     private var countries: [Country] = Country.allCountries
-    
-    
     
     var body: some View {
                 TabView {

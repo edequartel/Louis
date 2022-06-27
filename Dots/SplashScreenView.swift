@@ -13,15 +13,15 @@ struct SplashScreenView: View {
     @State private var opacity = 0.5
     
     var body: some View {
-        
-        
         if isActive {
-            ContentView()
+//            ContentView()
+            let settings = Settings()
+            ContentView().environmentObject(settings)
         } else {
             VStack {
 //                VStack {
-                    LottieView(lottieFile: "samplelogo")
-                        .frame(width: 300, height: 300)
+                    LottieView(lottieFile: "logobartimeus")
+                        .frame(width: 150, height: 150)
 //                    Image(systemName: "hand.point.up.braille.fill")
 //                        .font(.system(size:100))
 //                        .foregroundColor(.red)

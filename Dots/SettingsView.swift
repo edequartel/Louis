@@ -9,12 +9,10 @@ import SwiftUI
 import Subsonic
 
 struct SettingsView: View {
+    @EnvironmentObject var settings: Settings
+    
     private var countries: [Country] = Country.allCountries
-    
-    @State var selectedCountry: Int = UserDefaults.standard.integer(forKey: "CountryIndex")
-    @State var selectedMethod: Int = UserDefaults.standard.integer(forKey: "MethodIndex")
-    @State var selectedLesson: Int = UserDefaults.standard.integer(forKey: "LessonIndex")
-    
+       
     @State private var lettersCnt=1
     @State private var wordCnt=3
     
@@ -29,47 +27,47 @@ struct SettingsView: View {
             
             Form {
                 List {
-                    Picker("Country", selection: $selectedCountry) {
+                    Picker("Country", selection: $settings.selectedCountry) {
                         ForEach(countries, id: \.id) { country in
                             Text(country.language)
                         }
                     }
-                    .onChange(of: selectedCountry) { _ in
-                        UserDefaults.standard.set(self.selectedCountry, forKey: "CountryIndex")
-                        selectedMethod = 0
-                        UserDefaults.standard.set(self.selectedMethod, forKey: "MethodIndex")
-                        selectedLesson = 0
-                        UserDefaults.standard.set(self.selectedLesson, forKey: "LessonIndex")
+                    .onChange(of: settings.selectedCountry) { _ in
+                        UserDefaults.standard.set(settings.selectedCountry, forKey: "CountryIndex")
+                        settings.selectedMethod = 0
+                        UserDefaults.standard.set(settings.selectedMethod, forKey: "MethodIndex")
+                        settings.selectedLesson = 0
+                        UserDefaults.standard.set(settings.selectedLesson, forKey: "LessonIndex")
                     }
                     
                     
-                    Picker("Methode \(selectedMethod)", selection: $selectedMethod) {
-                        ForEach(countries[selectedCountry].method, id: \.id) { method in
+                    Picker("Methode \(settings.selectedMethod)", selection: $settings.selectedMethod) {
+                        ForEach(countries[settings.selectedCountry].method, id: \.id) { method in
                             Text(method.name)
                         }
                     }
-                    .onChange(of: selectedMethod) { _ in
-                        UserDefaults.standard.set(self.selectedMethod, forKey: "MethodIndex")
-                        selectedLesson=0
-                        UserDefaults.standard.set(self.selectedLesson, forKey: "LessonIndex")
+                    .onChange(of: settings.selectedMethod) { _ in
+                        UserDefaults.standard.set(settings.selectedMethod, forKey: "MethodIndex")
+                        settings.selectedLesson=0
+                        UserDefaults.standard.set(settings.selectedLesson, forKey: "LessonIndex")
                     }
                     
-                    Picker("Lesson \(selectedLesson)", selection: $selectedLesson) {
-                        ForEach(countries[selectedCountry].method[selectedMethod].lesson, id: \.id) { lesson in
+                    Picker("Lesson \(settings.selectedLesson)", selection: $settings.selectedLesson) {
+                        ForEach(countries[settings.selectedCountry].method[settings.selectedMethod].lesson, id: \.id) { lesson in
                             Text(lesson.name)
                                 .foregroundColor(.gray)
                                 .font(.custom(
                                     "bartimeus6dots",
                                     fixedSize: 32)) +
-                            //                                .font(.largeTitle) +
                             
                             Text(" "+lesson.name)
-                            
                         }
                     }
-                    .onChange(of: selectedLesson) { _ in
-                        UserDefaults.standard.set(self.selectedLesson, forKey: "LessonIndex")
+                    .onChange(of: settings.selectedLesson) { _ in
+                        UserDefaults.standard.set(settings.selectedLesson, forKey: "LessonIndex")
                     }
+                    
+                  
                     
                     
                 }
@@ -100,7 +98,15 @@ struct SettingsView: View {
                         if  actionIdx >= action.count {
                             actionIdx = 0
                         }
-                        
+                    }
+                    Button("counter \(settings.counter)") {                        
+                        settings.counter += 1
+                        UserDefaults.standard.set(settings.counter, forKey: "counter")
+                    }
+                    
+                    Button("counter reset") {
+                        settings.counter = 0
+                        UserDefaults.standard.set(settings.counter, forKey: "counter")
                     }
                 }
             }
