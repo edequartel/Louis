@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PlaygroundView: View {
     @EnvironmentObject var settings: Settings
-    
     private var countries: [Country] = Country.allCountries
     
     @State var text1 = ""
@@ -27,24 +26,36 @@ struct PlaygroundView: View {
         NavigationView{
             Form {
                 Section {
-                    Text("ababbabbba")
+                    Text("Methode: \(settings.method.name)")
+                        .bold()
+                    Text("Lesson: \(settings.lesson.name)")
+                        .bold()
                 }
                 Section {
-                    TextField("Placeholder", text: .constant("This is text data"))
-                    Button("counter \(settings.counter)") {
-                        settings.counter += 1
-                        UserDefaults.standard.set(settings.counter, forKey: "counter")
-                    }
-                    
-                    let str = countries[settings.selectedCountry].method[settings.selectedMethod].lesson[settings.selectedLesson].words
+                    let str = settings.lesson.words
                     let items = str.components(separatedBy: " ")
                     List {
                         ForEach(items, id: \.self) { item in
+                            HStack {
                             Text(item)
+                                .foregroundColor(.gray)
+                                .font(.custom(
+                                    "bartimeus6dots",
+                                    fixedSize: 32))
+                                
+                            Spacer()
+                            Text(item)
+                            }
                         }
-
+                        
                     }
                     
+                }
+
+                Section {
+                    Button ("selectedLesson inc") {
+                        settings.selectedLesson += 1
+                    }
                 }
             }
             .navigationTitle("Speelveld")
