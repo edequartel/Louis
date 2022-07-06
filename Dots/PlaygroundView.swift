@@ -26,39 +26,43 @@ struct PlaygroundView: View {
         NavigationView{
             Form {
                 Section {
-                    Text("Methode: \(settings.method.name)")
-                        .bold()
-                    Text("Lesson: \(settings.lesson.name)")
-                        .bold()
+                    HStack {
+                    Text("\(settings.method.name)")
+                            .bold()
+                        Spacer()
+                        Text("\(settings.selectedLesson+1) \(settings.lesson.name)")
+                            .bold()
+                    }
                 }
+                
                 Section {
                     let str = settings.lesson.words
                     let items = str.components(separatedBy: " ")
                     List {
                         ForEach(items, id: \.self) { item in
                             HStack {
-                            Text(item)
-                                .foregroundColor(.gray)
-                                .font(.custom(
-                                    "bartimeus6dots",
-                                    fixedSize: 32))
+                                Text(item)
+                                    .foregroundColor(.gray)
+                                    .font(.custom(
+                                        "bartimeus6dots",
+                                        fixedSize: 32))
                                 
-                            Spacer()
-                            Text(item)
+                                Spacer()
+                                Text(item)
                             }
                         }
                         
                     }
                     
                 }
-
+                
                 Section {
                     Button ("selectedLesson inc") {
                         settings.selectedLesson += 1
                     }
                 }
             }
-            .navigationTitle("Speelveld")
+            .navigationTitle("Play")
             .navigationBarTitleDisplayMode(.inline)
         }
         

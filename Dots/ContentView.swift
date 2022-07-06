@@ -45,17 +45,17 @@ struct ContentView: View {
             SettingsView()
                 .tabItem {
                     Image(systemName: "person")
-                    Text("Instellingen")
+                    Text("Settings")
                 }
             InformationView()
                 .tabItem {
                     Image(systemName: "text.bubble")
-                    Text("Informatie")
+                    Text("Information")
                 }
             PlaygroundView()
                 .tabItem {
                     Image(systemName: "circle.square")
-                    Text("Speelveld")
+                    Text("Play")
                 }
             AudioView()
                 .tabItem {
