@@ -19,7 +19,7 @@ struct InformationView: View {
                     })
                 }
             }
-            .navigationTitle("Informatie")
+            .navigationTitle("Information")
             .navigationBarTitleDisplayMode(.inline)
         }
         

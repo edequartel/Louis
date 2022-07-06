@@ -21,7 +21,7 @@ struct SearchWordView: View {
                     TextField("\(woorden.joined(separator: "-"))", text: $tekst)
                 }
             }
-            .navigationTitle("Zoek woord")
+            .navigationTitle("Search word")
             .navigationBarTitleDisplayMode(.inline)
         }
         

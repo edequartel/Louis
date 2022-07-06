@@ -28,12 +28,12 @@ struct AudioView: View {
                     
                     Slider(value: $sound.volume)
                 } header: {
-                    Text("Speler")
+                    Text("Player")
                 }
                 
                 Section {
                     Button("TekstNaarSpraak NL") {
-                        let utterance = AVSpeechUtterance(string: "Het is lente. De bloemetjes bloeien.")
+                        let utterance = AVSpeechUtterance(string: "Let it let go")
                         utterance.voice = AVSpeechSynthesisVoice(language: "nl")
                         utterance.rate = 0.5
                         
@@ -41,7 +41,7 @@ struct AudioView: View {
                         synthesizer.speak(utterance)
                     }
                 }header: {
-                    Text("Tekst naar spraak")
+                    Text("Text To Speech")
                 }
             }
             .navigationTitle("Audio")

@@ -42,25 +42,25 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            SettingsView()
+            PlaygroundView()
                 .tabItem {
-                    Image(systemName: "person")
-                    Text("Settings")
+                    Image(systemName: "hand.point.up.braille.fill")
+                    Text("Play")
                 }
             InformationView()
                 .tabItem {
-                    Image(systemName: "text.bubble")
+                    Image(systemName: "info.circle")
                     Text("Information")
-                }
-            PlaygroundView()
-                .tabItem {
-                    Image(systemName: "circle.square")
-                    Text("Play")
                 }
             AudioView()
                 .tabItem {
-                    Image(systemName: "play")
+                    Image(systemName: "play.square.fill")
                     Text("Audio")
+                }
+            SettingsView()
+                .tabItem {
+                    Image(systemName: "gearshape.fill")
+                    Text("Settings")
                 }
         }
     }

@@ -33,7 +33,7 @@ struct SettingsView: View {
                         }
                     }
                     
-                    Picker("Methode ", selection: $settings.selectedMethod) {
+                    Picker("Method ", selection: $settings.selectedMethod) {
                         ForEach(countries[settings.selectedCountry].method, id: \.id) { method in
                             Text(method.name)
                         }

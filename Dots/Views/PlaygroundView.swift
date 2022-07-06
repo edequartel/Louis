@@ -61,6 +61,12 @@ struct PlaygroundView: View {
                         settings.selectedLesson += 1
                     }
                 }
+                
+//                Section {
+//                    Button("Search word") {
+//                        SearchWordView()
+//                    }
+//                }
             }
             .navigationTitle("Play")
             .navigationBarTitleDisplayMode(.inline)
