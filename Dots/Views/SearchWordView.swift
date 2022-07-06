@@ -11,7 +11,6 @@ struct SearchWordView: View {
     @State var tekst: String = ""
     var woorden = ["bal","bla","lab"]
     var body: some View {
-
         NavigationView{
             Form {
                 Section {

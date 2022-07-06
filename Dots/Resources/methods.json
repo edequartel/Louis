@@ -19,13 +19,13 @@
             "name" : "bal",
             "letters" : "a b l",
             "antiletters" : "b c k",
-            "words" : "bal bla la lal lab",
+            "words" : "bal la lal",
             "antiwords" : "kees sla slap",
             "sentence" : [
               "bal bal bal la bla la",
               "bla lab l b a a la"
             ],
-            "comments" : "",
+            "comments" : "luister eerst, en lees dan de tekst",
             "information" : "de eerste drie letters a b l, worden gevormd uit de eerste drie puntjes aan de linker kant 1 2 3 ",
             "voice" : [
               "bal.mp3",
@@ -40,13 +40,13 @@
             "name" : "kam",
             "letters" : "a b l",
             "antiletters" : "b c k",
-            "words" : "kam mak la ka mak",
+            "words" : "kam mak la mak bal bal la lal",
             "antiwords" : "kees sla slap",
             "sentence" : [
               "bal bal bal la bla la",
               "bla lab l b a a la"
             ],
-            "comments" : "",
+            "comments" : "een andere instructie",
             "information" : "de eerste drie letters a b l, worden gevormd uit de eerste drie puntjes aan de linker kant 1 2 3 ",
             "voice" : [
               "bal.mp3",
@@ -61,13 +61,13 @@
             "name" : "aap",
             "letters" : "a b l",
             "antiletters" : "b c k",
-            "words" : "kam mak la ka balk lab map",
+            "words" : "kam mak la mak bal bal la lal pap papa mama bak kak",
             "antiwords" : "kees sla slap",
             "sentence" : [
               "bal bal bal la bla la",
               "bla lab l b a a la"
             ],
-            "comments" : "",
+            "comments" : "en weer een andere instructie",
             "information" : "de eerste drie letters a b l, worden gevormd uit de eerste drie puntjes aan de linker kant 1 2 3 ",
             "voice" : [
               "bal.mp3",

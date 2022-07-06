@@ -6,20 +6,18 @@
 //
 
 import SwiftUI
+import Subsonic
+
+import AVFoundation
+
 
 struct PlaygroundView: View {
     @EnvironmentObject var settings: Settings
-    private var countries: [Country] = Country.allCountries
     
-    @State var text1 = ""
-    @State var isEditing1 = true
-    @State var text2 = ""
-    @State var isEditing2 = false
-    
-    @State var x=0
-    @State var y=0
-    
-    @State var tekst: String = ""
+    @State private var items =  [""]
+    @State private var item: String = ""
+    @State private var input: String = ""
+    @State private var count: Int = 0
     
     var body: some View {
         
@@ -27,53 +25,91 @@ struct PlaygroundView: View {
             Form {
                 Section {
                     HStack {
-                    Text("\(settings.method.name)")
+                        Text("\(settings.method.name)")
                             .bold()
                         Spacer()
                         Text("\(settings.selectedLesson+1) \(settings.lesson.name)")
                             .bold()
                     }
                 }
+                .accessibilityHidden(true)
                 
                 Section {
-                    let str = settings.lesson.words
-                    let items = str.components(separatedBy: " ")
-                    List {
-                        ForEach(items, id: \.self) { item in
-                            HStack {
-                                Text(item)
-                                    .foregroundColor(.gray)
-                                    .font(.custom(
-                                        "bartimeus6dots",
-                                        fixedSize: 32))
-                                
-                                Spacer()
-                                Text(item)
+                    Text("\(item)")
+                    TextField("Input: ", text:$input)
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
+                        .onSubmit {
+                            if input == item {
+                                play(sound: "applaus.mp3")
+                                count += 1
+                                if (count > 3) {
+                                    Speak(value: "volgende woord")
+                                    settings.selectedLesson += 1
+                                    count = 0
+                                }
+                                //wacht tot sound klaar is voordat er geshuffeld wordt
+                                Shuffle()
+                                input = ""
                             }
+                            else {
+                                Speak(value: "probeer het nog een keer")
+                            }
+                            //textfield is niet gefocues=d hoe dan?
                         }
-                        
-                    }
-                    
                 }
                 
-                Section {
+                Section("TESTVELD") {
+                    Text("aantal keer goed: \(count)")
                     Button ("selectedLesson inc") {
                         settings.selectedLesson += 1
+                        Shuffle()
+                    }
+                    //hier andere views aanroepen maar voor nu alleen hier testen
+                    Button("Huzzle") {
+                        Shuffle()
                     }
                 }
-                
-//                Section {
-//                    Button("Search word") {
-//                        SearchWordView()
-//                    }
-//                }
+                .accessibilityHidden(true)
             }
             .navigationTitle("Play")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(
+                leading: Button("instructie") {
+                    Speak(value: settings.lesson.comments)
+                },
+                trailing: Button("+") {
+                    settings.selectedLesson += 1
+                    Shuffle()
+                }
+            )
+        }
+        .onAppear() {
+//            Speak(value: settings.lesson.comments) //deze later uit de action halen nu ok
+            items = settings.lesson.words.components(separatedBy: " ").shuffled()
+            item=items[0]
+            play(sound: item+".mp3")
         }
         
     }
     
+    func Shuffle() {
+        print("shuffled")
+        while item==items[0] {
+            items = settings.lesson.words.components(separatedBy: " ").shuffled()
+        }
+        item = items[0]
+        play(sound: item+".mp3")
+    }
+    
+    func Speak(value: String) {
+        let utterance = AVSpeechUtterance(string: value)
+        utterance.voice = AVSpeechSynthesisVoice(language: "nl")
+        utterance.rate = 0.5
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.speak(utterance)
+        
+    }
     
     
 }
@@ -84,4 +120,11 @@ struct PlaygroundView_Previews: PreviewProvider {
     }
 }
 
+//                    List {
+//                        ForEach(items, id: \.self) { item in
+//                            HStack {
+//                                Text(item)
+//                            }
+//                        }
+//                    }
 

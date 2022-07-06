@@ -12,33 +12,26 @@ import AVFoundation
 var player: AVAudioPlayer!
 
 struct AudioView: View {
-    @StateObject private var sound = SubsonicPlayer(sound: "sample4.mp3")
+    @State private var isPlaying = false
+    
     var body: some View {
         
         NavigationView{
             Form {
                 Section {
-                    Button("Start") {
-                        sound.play()
+                    Button {
+                        isPlaying.toggle()
+                    } label: {
+                        Image(systemName: isPlaying ? "speaker.wave.3" : "speaker")
                     }
-                    
-                    Button("Stop") {
-                        sound.stop()
-                    }
-                    
-                    Slider(value: $sound.volume)
+                    .sound("sample4.mp3", isPlaying: $isPlaying)
                 } header: {
                     Text("Player")
                 }
                 
                 Section {
                     Button("TekstNaarSpraak NL") {
-                        let utterance = AVSpeechUtterance(string: "Let it let go")
-                        utterance.voice = AVSpeechSynthesisVoice(language: "nl")
-                        utterance.rate = 0.5
-                        
-                        let synthesizer = AVSpeechSynthesizer()
-                        synthesizer.speak(utterance)
+                        Speak(value: "gebruiken voor instructie")
                     }
                 }header: {
                     Text("Text To Speech")
@@ -47,6 +40,15 @@ struct AudioView: View {
             .navigationTitle("Audio")
             .navigationBarTitleDisplayMode(.inline)
         }
+    }
+    
+    func Speak(value: String) {
+        let utterance = AVSpeechUtterance(string: value)
+        utterance.voice = AVSpeechSynthesisVoice(language: "nl")
+        utterance.rate = 0.5
+        
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.speak(utterance)
     }
 }
 
