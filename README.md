@@ -12,3 +12,5 @@ VoiceOver en Braille
 Alle natural voices zijn weggehaald. Deze later gaan gebruiken.
 onFocus TextField
 en achter elkaar afspelen van audio
+omdat er niet meer dan 1000 bestanden in git mogen staan in een folder deze weggehaald.
+github desktop app gebruikt voor committen want xcode kon het niet aan.
