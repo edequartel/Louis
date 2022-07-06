@@ -8,4 +8,7 @@ VoiceOver en Braille
 - er zijn alternatieven drie keer op de achterkant tikken
 - voiceover en braille aan: spraak uit zetten 2 x 3 vingers tikken
 - 3 x 3 vingers tikken op zwart
-staat alle audio erop
+
+Alle natural voices zijn weggehaald. Deze later gaan gebruiken.
+onFocus TextField
+en achter elkaar afspelen van audio
