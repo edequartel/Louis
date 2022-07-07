@@ -19,6 +19,11 @@ struct PlaygroundView: View {
     @State private var input: String = ""
     @State private var count: Int = 0
     
+    private enum Field : Int, Hashable {
+        case name, location, date, addAttendee
+    }
+    @FocusState private var focusedField: Field?
+    
     var body: some View {
         
         NavigationView{
@@ -38,6 +43,7 @@ struct PlaygroundView: View {
                     Text("\(item)")
                     TextField("Input: ", text:$input)
                         .disableAutocorrection(true)
+                        .focused($focusedField, equals: .addAttendee)
                         .autocapitalization(.none)
                         .onSubmit {
                             if input == item {
@@ -89,6 +95,7 @@ struct PlaygroundView: View {
             items = settings.lesson.words.components(separatedBy: " ").shuffled()
             item=items[0]
             play(sound: item+".mp3")
+            focusedField = .addAttendee
         }
         
     }
