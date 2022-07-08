@@ -37,20 +37,13 @@ class Settings: ObservableObject {
 
 struct ContentView: View {
     @EnvironmentObject var settings: Settings
-    
-    
-    
+           
     var body: some View {
         TabView {
             PlaygroundView()
                 .tabItem {
                     Image(systemName: "hand.point.up.braille.fill")
                     Text("Play")
-                }
-            InformationView()
-                .tabItem {
-                    Image(systemName: "info.circle")
-                    Text("Information")
                 }
             AudioView()
                 .tabItem {

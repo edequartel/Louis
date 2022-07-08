@@ -19,12 +19,13 @@ struct AudioView: View {
         NavigationView{
             Form {
                 Section {
+                    Text(isPlaying ? "playing" : "notPlaying")
                     Button {
                         isPlaying.toggle()
                     } label: {
                         Image(systemName: isPlaying ? "speaker.wave.3" : "speaker")
                     }
-                    .sound("sample4.mp3", isPlaying: $isPlaying)
+                    .sound("sample2.mp3", isPlaying: $isPlaying)
                 } header: {
                     Text("Player")
                 }

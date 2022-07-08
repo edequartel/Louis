@@ -41,7 +41,7 @@ struct PlaygroundView: View {
                 
                 Section {
                     Text("\(item)")
-                    TextField("Input: ", text:$input)
+                    TextField("Input", text:$input)
                         .disableAutocorrection(true)
                         .focused($focusedField, equals: .addAttendee)
                         .autocapitalization(.none)
@@ -67,14 +67,14 @@ struct PlaygroundView: View {
                 
                 Section("TESTVELD") {
                     Text("aantal keer goed: \(count)")
-                    Button ("selectedLesson inc") {
-                        settings.selectedLesson += 1
-                        Shuffle()
-                    }
+//                    Button ("selectedLesson inc") {
+//                        settings.selectedLesson += 1
+//                        Shuffle()
+//                    }
                     //hier andere views aanroepen maar voor nu alleen hier testen
-                    Button("Huzzle") {
-                        Shuffle()
-                    }
+//                    Button("Huzzle") {
+//                        Shuffle()
+//                    }
                 }
                 .accessibilityHidden(true)
             }
@@ -84,7 +84,7 @@ struct PlaygroundView: View {
                 leading: Button("instructie") {
                     Speak(value: settings.lesson.comments)
                 },
-                trailing: Button("+") {
+                trailing: Button("plus") {
                     settings.selectedLesson += 1
                     Shuffle()
                 }

@@ -52,6 +52,11 @@ struct SettingsView: View {
                     }
                 }
             }
+            .navigationBarItems(leading:
+                  NavigationLink(destination: InformationView()) {
+                Image(systemName: "info.circle")
+//                       Text("info")
+                  })
         }
     }
 }
