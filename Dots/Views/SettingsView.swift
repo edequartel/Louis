@@ -52,11 +52,11 @@ struct SettingsView: View {
                     }
                 }
             }
-            .navigationBarItems(leading:
-                  NavigationLink(destination: InformationView()) {
-                Image(systemName: "info.circle")
-//                       Text("info")
-                  })
+            .navigationTitle("Settings")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(leading: NavigationLink(destination: InformationView()) {Image(systemName: "info.circle")},
+                                trailing: NavigationLink(destination: AudioView()) {Image(systemName: "play.square")}
+            )
         }
     }
 }

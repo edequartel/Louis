@@ -65,33 +65,26 @@ struct PlaygroundView: View {
                         }
                 }
                 
-                Section("TESTVELD") {
-                    Text("aantal keer goed: \(count)")
-//                    Button ("selectedLesson inc") {
-//                        settings.selectedLesson += 1
-//                        Shuffle()
-//                    }
-                    //hier andere views aanroepen maar voor nu alleen hier testen
-//                    Button("Huzzle") {
-//                        Shuffle()
-//                    }
-                }
-                .accessibilityHidden(true)
+//                Section("TESTVELD") {
+//                    Text("Goed: \(count)")
+//                }
+//                .accessibilityHidden(true)
             }
-            .navigationTitle("Play")
+            .navigationTitle("Play (\(count))")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
-                leading: Button("instructie") {
+                leading: Button(action: {
                     Speak(value: settings.lesson.comments)
-                },
-                trailing: Button("plus") {
+                }) {Image(systemName: "info.circle")}
+                ,
+                trailing: Button( action: {
                     settings.selectedLesson += 1
                     Shuffle()
-                }
+                }) {Image(systemName: "plus.circle")}
             )
         }
         .onAppear() {
-//            Speak(value: settings.lesson.comments) //deze later uit de action halen nu ok
+            //            Speak(value: settings.lesson.comments) //deze later uit de action halen nu ok
             items = settings.lesson.words.components(separatedBy: " ").shuffled()
             item=items[0]
             play(sound: item+".mp3")

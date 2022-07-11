@@ -15,7 +15,7 @@ struct InformationView: View {
                 Section {
                     Link(destination: URL(string: "http://www.tastenbraille.com/wiki")!, label: {
                         Text("Tast en Braille")
-                            .foregroundColor(.orange)
+//                            .foregroundColor(.orange)
                     })
                 }
             }

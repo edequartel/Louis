@@ -45,11 +45,6 @@ struct ContentView: View {
                     Image(systemName: "hand.point.up.braille.fill")
                     Text("Play")
                 }
-            AudioView()
-                .tabItem {
-                    Image(systemName: "play.square.fill")
-                    Text("Audio")
-                }
             SettingsView()
                 .tabItem {
                     Image(systemName: "gearshape.fill")
