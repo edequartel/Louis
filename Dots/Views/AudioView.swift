@@ -12,23 +12,44 @@ import AVFoundation
 var player: AVAudioPlayer!
 
 struct AudioView: View {
+    var sounds=["a.wav","b.wav","c.wav"]
+    
+    @State private var playIndex: Int = 0
     @State private var isPlaying = false
     
     var body: some View {
         
         NavigationView{
             Form {
-                Section {
+                HStack{
                     Text(isPlaying ? "playing" : "notPlaying")
+                    Spacer()
+                    Text("\(sounds[playIndex])")
+                    Spacer()
+                    Text("\(playIndex)")
+                    Spacer()
+                    Image(systemName: isPlaying ? "speaker.wave.3" : "speaker")
+                }
+                
+                
+                Section {
                     Button {
-                        isPlaying.toggle()
+                        isPlaying = true //.toggle()
                     } label: {
-                        Image(systemName: isPlaying ? "speaker.wave.3" : "speaker")
+                        Text("\(sounds[playIndex])")
                     }
-                    .sound("sample2.mp3", isPlaying: $isPlaying)
+                    .sound("\(sounds[playIndex])", isPlaying: $isPlaying) //<<<<
+                    
+                    Button {
+                        playIndex = playIndex >= sounds.count-1 ?  0 : playIndex+1
+                        //isPlaying.toggle()
+                    } label : {
+                        Text("next")
+                    }
                 } header: {
                     Text("Player")
                 }
+                
                 
                 Section {
                     Button("TekstNaarSpraak NL") {
@@ -40,6 +61,7 @@ struct AudioView: View {
             }
             .navigationTitle("Audio")
             .navigationBarTitleDisplayMode(.inline)
+            
         }
     }
     
@@ -55,6 +77,9 @@ struct AudioView: View {
 
 struct AudioView_Previews: PreviewProvider {
     static var previews: some View {
-        AudioView()
+        Group {
+            AudioView()
+            AudioView()
+        }
     }
 }
