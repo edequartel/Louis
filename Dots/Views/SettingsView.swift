@@ -50,6 +50,14 @@ struct SettingsView: View {
                             Text(" "+lesson.name)
                         }
                     }
+                    
+                    Section{
+                        Text("Timer: 3 Sec")
+                        Text("Number of letters: 5")
+                        Text("Number of words: 3")
+                    }
+                    
+                    
                 }
             }
             .navigationTitle("Settings")

@@ -11,41 +11,62 @@ import Subsonic
 import AVFoundation
 var player: AVAudioPlayer!
 
+struct Event {
+    var sounds=["a.wav","b.wav","c.wav"]
+    var playlistIndex: Int = 0
+    var FisSpelend = false
+    var isSpelend: Bool {
+        get {
+            FisSpelend
+        }
+        set(newValue) {
+            playlistIndex = (!newValue && FisSpelend) ? playlistIndex+1 : playlistIndex
+            FisSpelend = newValue
+            print("newvalue \(playlistIndex)")
+        }
+    }
+}
+
 struct AudioView: View {
     var sounds=["a.wav","b.wav","c.wav"]
     
+    @State private var audioEvent = Event()
+    
     @State private var playIndex: Int = 0
-    @State private var isPlaying = false
+    @State private var isSpelend = false
     
     var body: some View {
         
         NavigationView{
             Form {
                 HStack{
-                    Text(isPlaying ? "playing" : "notPlaying")
+                    Text(isSpelend ? "playing" : "notPlaying")
                     Spacer()
                     Text("\(sounds[playIndex])")
                     Spacer()
                     Text("\(playIndex)")
                     Spacer()
-                    Image(systemName: isPlaying ? "speaker.wave.3" : "speaker")
+                    Image(systemName: isSpelend ? "speaker.wave.3" : "speaker")
                 }
                 
                 
                 Section {
                     Button {
-                        isPlaying = true //.toggle()
+                        isSpelend.toggle()
+                        audioEvent.isSpelend.toggle()
                     } label: {
-                        Text("\(sounds[playIndex])")
+                        Text("Play")
                     }
-                    .sound("\(sounds[playIndex])", isPlaying: $isPlaying) //<<<<
+                    .sound(sounds[audioEvent.playlistIndex], isPlaying: $audioEvent.isSpelend)
                     
-                    Button {
-                        playIndex = playIndex >= sounds.count-1 ?  0 : playIndex+1
-                        //isPlaying.toggle()
-                    } label : {
-                        Text("next")
+                    Picker("Sounds \(playIndex)", selection: $playIndex) {
+                        ForEach(0..<sounds.count) {
+                            Text(sounds[$0]) // <3>
+                        }
                     }
+
+                    
+                    
                 } header: {
                     Text("Player")
                 }
