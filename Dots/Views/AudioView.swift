@@ -11,7 +11,7 @@ import Subsonic
 import AVFoundation
 var player: AVAudioPlayer!
 
-struct Event {
+struct AudioEvent {
     var sounds=["a.wav","b.wav","c.wav"]
     var playlistIndex: Int = 0
     var FisSpelend = false
@@ -20,7 +20,7 @@ struct Event {
             FisSpelend
         }
         set(newValue) {
-            playlistIndex = (!newValue && FisSpelend) ? playlistIndex+1 : playlistIndex
+            playlistIndex = !newValue ? playlistIndex+1 : playlistIndex
             FisSpelend = newValue
             print("newvalue \(playlistIndex)")
         }
@@ -30,7 +30,7 @@ struct Event {
 struct AudioView: View {
     var sounds=["a.wav","b.wav","c.wav"]
     
-    @State private var audioEvent = Event()
+    @State private var audioEvent = AudioEvent()
     
     @State private var playIndex: Int = 0
     @State private var isSpelend = false
@@ -57,14 +57,15 @@ struct AudioView: View {
                     } label: {
                         Text("Play")
                     }
-                    .sound(sounds[audioEvent.playlistIndex], isPlaying: $audioEvent.isSpelend)
+                    // .sound(sounds[audioEvent.playlistIndex], isPlaying: $audioEvent.isSpelend)
+                    .sound(sounds[playIndex], isPlaying: $isSpelend)
                     
                     Picker("Sounds \(playIndex)", selection: $playIndex) {
                         ForEach(0..<sounds.count) {
                             Text(sounds[$0]) // <3>
                         }
                     }
-
+                    
                     
                     
                 } header: {
