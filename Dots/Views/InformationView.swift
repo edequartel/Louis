@@ -15,8 +15,10 @@ struct InformationView: View {
                 Section {
                     Link(destination: URL(string: "http://www.tastenbraille.com/wiki")!, label: {
                         Text("Tast en Braille")
-//                            .foregroundColor(.orange)
                     })
+                    Text("Video: aansluiten leesregel op iPhone")
+                    Text("Video: activiteit, lees de tekst en luister")
+                    
                 }
             }
             .navigationTitle("Information")

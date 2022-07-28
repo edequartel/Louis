@@ -14,55 +14,44 @@ var player: AVAudioPlayer!
 struct AudioEvent {
     var sounds=["a.wav","b.wav","c.wav"]
     var playlistIndex: Int = 0
+    
     var FisSpelend = false
     var isSpelend: Bool {
         get {
-            FisSpelend
+            return FisSpelend
+            
         }
         set(newValue) {
-            playlistIndex = !newValue ? playlistIndex+1 : playlistIndex
             FisSpelend = newValue
-            print("newvalue \(playlistIndex)")
         }
     }
 }
 
 struct AudioView: View {
-    var sounds=["a.wav","b.wav","c.wav"]
-    
     @State private var audioEvent = AudioEvent()
-    
-    @State private var playIndex: Int = 0
-    @State private var isSpelend = false
-    
+
     var body: some View {
         
         NavigationView{
             Form {
                 HStack{
-                    Text(isSpelend ? "playing" : "notPlaying")
+                    Text("\(audioEvent.sounds[audioEvent.playlistIndex])")
                     Spacer()
-                    Text("\(sounds[playIndex])")
-                    Spacer()
-                    Text("\(playIndex)")
-                    Spacer()
-                    Image(systemName: isSpelend ? "speaker.wave.3" : "speaker")
+                    Image(systemName: audioEvent.isSpelend ? "speaker.wave.3" : "speaker")
                 }
                 
                 
                 Section {
                     Button {
-                        isSpelend.toggle()
-                        audioEvent.isSpelend.toggle()
+                        audioEvent.isSpelend = true
                     } label: {
                         Text("Play")
                     }
-                    // .sound(sounds[audioEvent.playlistIndex], isPlaying: $audioEvent.isSpelend)
-                    .sound(sounds[playIndex], isPlaying: $isSpelend)
+                    .sound(audioEvent.sounds[audioEvent.playlistIndex], isPlaying: $audioEvent.isSpelend)
                     
-                    Picker("Sounds \(playIndex)", selection: $playIndex) {
-                        ForEach(0..<sounds.count) {
-                            Text(sounds[$0]) // <3>
+                    Picker("Sounds \(audioEvent.playlistIndex)", selection: $audioEvent.playlistIndex) {
+                        ForEach(0..<audioEvent.sounds.count) {
+                            Text(audioEvent.sounds[$0]) // <3>
                         }
                     }
                     
