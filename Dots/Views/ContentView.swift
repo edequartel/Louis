@@ -50,6 +50,12 @@ struct ContentView: View {
                     Image(systemName: "gearshape.fill")
                     Text("Settings")
                 }
+            ProgressView()
+                .tabItem {
+                    Image(systemName: "asterisk")
+                    Text("Progress")
+                }
+            
         }
     }
 }

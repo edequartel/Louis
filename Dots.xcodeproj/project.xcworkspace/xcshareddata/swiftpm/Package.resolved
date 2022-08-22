@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "stepperview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/badrinathvm/StepperView",
+      "state" : {
+        "revision" : "c66fb84c640fbc312f4eead0b7ae2a77f93e0839",
+        "version" : "1.6.7"
+      }
+    },
+    {
       "identity" : "subsonic",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/twostraws/Subsonic",

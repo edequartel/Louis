@@ -102,6 +102,8 @@
 		474CD6712875DC8A00AF7FDE /* m.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD63D2875DC8A00AF7FDE /* m.wav */; };
 		474CFEBA287551170000BF85 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 474CFEB9287551170000BF85 /* README.md */; };
 		47588E3D28621122003BBB6B /* samplelogo.json in Resources */ = {isa = PBXBuildFile; fileRef = 47588E3C28621122003BBB6B /* samplelogo.json */; };
+		4766E4CB28B3519A00852495 /* StepperView in Frameworks */ = {isa = PBXBuildFile; productRef = 4766E4CA28B3519A00852495 /* StepperView */; };
+		4766E4CD28B351B200852495 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766E4CC28B351B200852495 /* ProgressView.swift */; };
 		47DC7BF92858FDDA0095EC8F /* Subsonic in Frameworks */ = {isa = PBXBuildFile; productRef = 47DC7BF82858FDDA0095EC8F /* Subsonic */; };
 		47EBF7BE285AECD000E8F230 /* sample4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47EBF7B9285AECD000E8F230 /* sample4.mp3 */; };
 		47EBF7BF285AECD000E8F230 /* sample3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47EBF7BA285AECD000E8F230 /* sample3.mp3 */; };
@@ -233,6 +235,7 @@
 		474CD63D2875DC8A00AF7FDE /* m.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = m.wav; path = phonetic/Thessa/m.wav; sourceTree = "<group>"; };
 		474CFEB9287551170000BF85 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		47588E3C28621122003BBB6B /* samplelogo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = samplelogo.json; sourceTree = "<group>"; };
+		4766E4CC28B351B200852495 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		47EBF7B9285AECD000E8F230 /* sample4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample4.mp3; sourceTree = "<group>"; };
 		47EBF7BA285AECD000E8F230 /* sample3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample3.mp3; sourceTree = "<group>"; };
 		47EBF7BB285AECD000E8F230 /* sample2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample2.mp3; sourceTree = "<group>"; };
@@ -250,6 +253,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4766E4CB28B3519A00852495 /* StepperView in Frameworks */,
 				47DC7BF92858FDDA0095EC8F /* Subsonic in Frameworks */,
 				47EBF808286200F700E8F230 /* Lottie in Frameworks */,
 			);
@@ -451,6 +455,7 @@
 				47192A432858C07B004FD2F3 /* SearchWordView.swift */,
 				47192A452858C086004FD2F3 /* AudioView.swift */,
 				47192A3F2858C065004FD2F3 /* InformationView.swift */,
+				4766E4CC28B351B200852495 /* ProgressView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -487,6 +492,7 @@
 			packageProductDependencies = (
 				47DC7BF82858FDDA0095EC8F /* Subsonic */,
 				47EBF807286200F700E8F230 /* Lottie */,
+				4766E4CA28B3519A00852495 /* StepperView */,
 			);
 			productName = Dots;
 			productReference = 47192A0B2858893C004FD2F3 /* Dots.app */;
@@ -563,6 +569,7 @@
 			packageReferences = (
 				47DC7BF72858FDDA0095EC8F /* XCRemoteSwiftPackageReference "Subsonic" */,
 				47EBF806286200F700E8F230 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				4766E4C928B3519A00852495 /* XCRemoteSwiftPackageReference "StepperView" */,
 			);
 			productRefGroup = 47192A0C2858893C004FD2F3 /* Products */;
 			projectDirPath = "";
@@ -706,6 +713,7 @@
 				47EBF805286200CA00E8F230 /* LottieView.swift in Sources */,
 				47192A392858BE7D004FD2F3 /* SplashScreenView.swift in Sources */,
 				47192A462858C086004FD2F3 /* AudioView.swift in Sources */,
+				4766E4CD28B351B200852495 /* ProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1042,6 +1050,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4766E4C928B3519A00852495 /* XCRemoteSwiftPackageReference "StepperView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/badrinathvm/StepperView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		47DC7BF72858FDDA0095EC8F /* XCRemoteSwiftPackageReference "Subsonic" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/twostraws/Subsonic";
@@ -1061,6 +1077,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4766E4CA28B3519A00852495 /* StepperView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4766E4C928B3519A00852495 /* XCRemoteSwiftPackageReference "StepperView" */;
+			productName = StepperView;
+		};
 		47DC7BF82858FDDA0095EC8F /* Subsonic */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 47DC7BF72858FDDA0095EC8F /* XCRemoteSwiftPackageReference "Subsonic" */;
