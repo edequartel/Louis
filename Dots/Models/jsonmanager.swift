@@ -39,27 +39,6 @@ struct Lesson: Codable {
 }
 
 
-///
-
-//struct xCountry: Codable{
-//    let firstName, surname, gender: String
-//    let age: Int
-//    let address: Address
-//    let phoneNumbers: [PhoneNumber]
-//    
-//    // Generate samples
-//    static let allPeople: [Country] = Bundle.main.decode(file: "example.json")
-//    static let samplePerson: Country = allPeople[0]
-//}
-//
-//struct Address: Codable {
-//    let streetAddress, city, state, postalCode: String
-//}
-//
-//struct PhoneNumber: Codable {
-//    let type, number: String
-//}
-
 // Extension to decode JSON locally
 extension Bundle {
     func decode<T: Decodable>(file: String) -> T {

@@ -21,7 +21,6 @@
 		47192A442858C07B004FD2F3 /* SearchWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47192A432858C07B004FD2F3 /* SearchWordView.swift */; };
 		47192A462858C086004FD2F3 /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47192A452858C086004FD2F3 /* AudioView.swift */; };
 		47192A5B2858CB8F004FD2F3 /* bartimeus6dots.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */; };
-		4739DDFD2862D641004537BE /* logobartimeus.json in Resources */ = {isa = PBXBuildFile; fileRef = 4739DDFC2862D640004537BE /* logobartimeus.json */; };
 		473DCCAA2891430D00CDFF47 /* spotlight120.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCC902891430D00CDFF47 /* spotlight120.png */; };
 		473DCCAB2891430D00CDFF47 /* ipad76.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCC912891430D00CDFF47 /* ipad76.png */; };
 		473DCCAC2891430D00CDFF47 /* notification40.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCC922891430D00CDFF47 /* notification40.png */; };
@@ -101,7 +100,6 @@
 		474CD6702875DC8A00AF7FDE /* g.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD63C2875DC8A00AF7FDE /* g.wav */; };
 		474CD6712875DC8A00AF7FDE /* m.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD63D2875DC8A00AF7FDE /* m.wav */; };
 		474CFEBA287551170000BF85 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 474CFEB9287551170000BF85 /* README.md */; };
-		47588E3D28621122003BBB6B /* samplelogo.json in Resources */ = {isa = PBXBuildFile; fileRef = 47588E3C28621122003BBB6B /* samplelogo.json */; };
 		4766E4CB28B3519A00852495 /* StepperView in Frameworks */ = {isa = PBXBuildFile; productRef = 4766E4CA28B3519A00852495 /* StepperView */; };
 		4766E4CD28B351B200852495 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766E4CC28B351B200852495 /* ProgressView.swift */; };
 		47DC7BF92858FDDA0095EC8F /* Subsonic in Frameworks */ = {isa = PBXBuildFile; productRef = 47DC7BF82858FDDA0095EC8F /* Subsonic */; };
@@ -114,7 +112,6 @@
 		47EBF7C62860D84200E8F230 /* methods.json in Resources */ = {isa = PBXBuildFile; fileRef = 47EBF7C52860D84200E8F230 /* methods.json */; };
 		47EBF805286200CA00E8F230 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EBF804286200CA00E8F230 /* LottieView.swift */; };
 		47EBF808286200F700E8F230 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 47EBF807286200F700E8F230 /* Lottie */; };
-		47EBF80A2862011900E8F230 /* 16607-dots.json in Resources */ = {isa = PBXBuildFile; fileRef = 47EBF8092862011900E8F230 /* 16607-dots.json */; };
 		47EBF80C2862031200E8F230 /* dotsloader.json in Resources */ = {isa = PBXBuildFile; fileRef = 47EBF80B2862031200E8F230 /* dotsloader.json */; };
 /* End PBXBuildFile section */
 
@@ -154,7 +151,6 @@
 		47192A432858C07B004FD2F3 /* SearchWordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchWordView.swift; sourceTree = "<group>"; };
 		47192A452858C086004FD2F3 /* AudioView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
 		47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bartimeus6dots.ttf; sourceTree = "<group>"; };
-		4739DDFC2862D640004537BE /* logobartimeus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = logobartimeus.json; sourceTree = "<group>"; };
 		473DCC902891430D00CDFF47 /* spotlight120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlight120.png; sourceTree = "<group>"; };
 		473DCC912891430D00CDFF47 /* ipad76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad76.png; sourceTree = "<group>"; };
 		473DCC922891430D00CDFF47 /* notification40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification40.png; sourceTree = "<group>"; };
@@ -234,7 +230,6 @@
 		474CD63C2875DC8A00AF7FDE /* g.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = g.wav; path = phonetic/Thessa/g.wav; sourceTree = "<group>"; };
 		474CD63D2875DC8A00AF7FDE /* m.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = m.wav; path = phonetic/Thessa/m.wav; sourceTree = "<group>"; };
 		474CFEB9287551170000BF85 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		47588E3C28621122003BBB6B /* samplelogo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = samplelogo.json; sourceTree = "<group>"; };
 		4766E4CC28B351B200852495 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		47EBF7B9285AECD000E8F230 /* sample4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample4.mp3; sourceTree = "<group>"; };
 		47EBF7BA285AECD000E8F230 /* sample3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample3.mp3; sourceTree = "<group>"; };
@@ -244,7 +239,6 @@
 		47EBF7C32860D80D00E8F230 /* jsonmanager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jsonmanager.swift; sourceTree = "<group>"; };
 		47EBF7C52860D84200E8F230 /* methods.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = methods.json; sourceTree = "<group>"; };
 		47EBF804286200CA00E8F230 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
-		47EBF8092862011900E8F230 /* 16607-dots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "16607-dots.json"; sourceTree = "<group>"; };
 		47EBF80B2862031200E8F230 /* dotsloader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dotsloader.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -302,6 +296,7 @@
 			children = (
 				47192A0E2858893C004FD2F3 /* DotsApp.swift */,
 				474CFEBB2875B49A0000BF85 /* Views */,
+				4766E4D528B3B88D00852495 /* Models */,
 				47EBF7B8285AECD000E8F230 /* Audio */,
 				47192A3C2858BFA4004FD2F3 /* Info.plist */,
 				47192A122858893D004FD2F3 /* Assets.xcassets */,
@@ -342,12 +337,8 @@
 			children = (
 				474CFEB9287551170000BF85 /* README.md */,
 				47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */,
-				4739DDFC2862D640004537BE /* logobartimeus.json */,
 				47EBF80B2862031200E8F230 /* dotsloader.json */,
-				47EBF8092862011900E8F230 /* 16607-dots.json */,
-				47588E3C28621122003BBB6B /* samplelogo.json */,
 				47EBF7C52860D84200E8F230 /* methods.json */,
-				47EBF7C32860D80D00E8F230 /* jsonmanager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -447,9 +438,9 @@
 		474CFEBB2875B49A0000BF85 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				47192A102858893C004FD2F3 /* ContentView.swift */,
 				47192A382858BE7D004FD2F3 /* SplashScreenView.swift */,
 				47EBF804286200CA00E8F230 /* LottieView.swift */,
-				47192A102858893C004FD2F3 /* ContentView.swift */,
 				47192A3D2858C057004FD2F3 /* SettingsView.swift */,
 				47192A412858C073004FD2F3 /* PlaygroundView.swift */,
 				47192A432858C07B004FD2F3 /* SearchWordView.swift */,
@@ -458,6 +449,14 @@
 				4766E4CC28B351B200852495 /* ProgressView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4766E4D528B3B88D00852495 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				47EBF7C32860D80D00E8F230 /* jsonmanager.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		47EBF7B8285AECD000E8F230 /* Audio */ = {
@@ -613,7 +612,6 @@
 				474CD6512875DC8A00AF7FDE /* d.wav in Resources */,
 				474CD6412875DC8A00AF7FDE /* q.wav in Resources */,
 				474CD6662875DC8A00AF7FDE /* y.wav in Resources */,
-				4739DDFD2862D641004537BE /* logobartimeus.json in Resources */,
 				473DCCBE2891430D00CDFF47 /* ipadSpotlight80.png in Resources */,
 				473DCCB72891430D00CDFF47 /* iphone120.png in Resources */,
 				47EBF7BE285AECD000E8F230 /* sample4.mp3 in Resources */,
@@ -642,7 +640,6 @@
 				474CD63F2875DC8A00AF7FDE /* f.wav in Resources */,
 				47EBF80C2862031200E8F230 /* dotsloader.json in Resources */,
 				47EBF7C1285AECD000E8F230 /* sample1.mp3 in Resources */,
-				47EBF80A2862011900E8F230 /* 16607-dots.json in Resources */,
 				474CD6452875DC8A00AF7FDE /* eeuw.wav in Resources */,
 				474CD64C2875DC8A00AF7FDE /* u.wav in Resources */,
 				473DCCB12891430D00CDFF47 /* ipadPro167.png in Resources */,
@@ -672,7 +669,6 @@
 				474CD64D2875DC8A00AF7FDE /* v.wav in Resources */,
 				474CD66C2875DC8A00AF7FDE /* k.wav in Resources */,
 				473DCCB82891430D00CDFF47 /* Contents.json in Resources */,
-				47588E3D28621122003BBB6B /* samplelogo.json in Resources */,
 				474CD6592875DC8A00AF7FDE /* ng.wav in Resources */,
 				474CD64E2875DC8A00AF7FDE /* h.wav in Resources */,
 				473DCCB62891430D00CDFF47 /* mac128.png in Resources */,
@@ -873,7 +869,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = 278BFDM8KA;
 				ENABLE_PREVIEWS = YES;
@@ -883,14 +879,14 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = www.tastenbraille.com.Dots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -906,7 +902,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = 278BFDM8KA;
 				ENABLE_PREVIEWS = YES;
@@ -916,14 +912,14 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = www.tastenbraille.com.Dots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
