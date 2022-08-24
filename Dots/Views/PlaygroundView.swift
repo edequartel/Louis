@@ -64,13 +64,8 @@ struct PlaygroundView: View {
                             //textfield is niet gefocues=d hoe dan?
                         }
                 }
-                
-//                Section("TESTVELD") {
-//                    Text("Goed: \(count)")
-//                }
-//                .accessibilityHidden(true)
             }
-            .navigationTitle("Play (\(count))")
+            .navigationTitle("Play (\(settings.selectedLesson+1)-\(count+1))")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
                 leading: Button(action: {

@@ -13,7 +13,7 @@ struct Country: Codable {
     let id: Int
     let language, code, comments, information: String
     let method: [Method]
-    let success, failure: [String]
+//    let success, failure: [String]
     
     // Generate samples
     static let allCountries: [Country] = Bundle.main.decode(file: "methods.json")

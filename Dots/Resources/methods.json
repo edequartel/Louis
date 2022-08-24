@@ -25,8 +25,8 @@
               "bal bal bal la bla la",
               "bla lab l b a a la"
             ],
-            "comments" : "luister eerst, en lees dan de tekst",
-            "information" : "de eerste drie letters a b l, worden gevormd uit de eerste drie puntjes aan de linker kant 1 2 3 ",
+            "comments" : "we beginnen hier met de eerste letters, b a l\nvanuit deze letters bouwen we verder",
+            "information" : "met punt op pad blz. 10",
             "voice" : [
               "bal.mp3",
               "bla.mp3"
@@ -38,7 +38,7 @@
           {
             "id" : 1,
             "name" : "kam",
-            "letters" : "a b l",
+            "letters" : "k a m",
             "antiletters" : "b c k",
             "words" : "kam mak la mak bal bal la lal",
             "antiwords" : "kees sla slap",
@@ -46,8 +46,8 @@
               "bal bal bal la bla la",
               "bla lab l b a a la"
             ],
-            "comments" : "een andere instructie",
-            "information" : "de eerste drie letters a b l, worden gevormd uit de eerste drie puntjes aan de linker kant 1 2 3 ",
+            "comments" : "…",
+            "information" : "..",
             "voice" : [
               "bal.mp3",
               "bla.mp3"
@@ -59,7 +59,7 @@
           {
             "id" : 2,
             "name" : "aap",
-            "letters" : "a b l",
+            "letters" : "p",
             "antiletters" : "b c k",
             "words" : "kam mak la mak bal bal la lal pap papa mama bak kak",
             "antiwords" : "kees sla slap",
@@ -67,8 +67,8 @@
               "bal bal bal la bla la",
               "bla lab l b a a la"
             ],
-            "comments" : "en weer een andere instructie",
-            "information" : "de eerste drie letters a b l, worden gevormd uit de eerste drie puntjes aan de linker kant 1 2 3 ",
+            "comments" : "…",
+            "information" : "…",
             "voice" : [
               "bal.mp3",
               "bla.mp3"
@@ -88,8 +88,8 @@
               "bal bal bal la bla la",
               "bla lab l b a a la"
             ],
-            "comments" : "",
-            "information" : "de eerste drie letters a b l, worden gevormd uit de eerste drie puntjes aan de linker kant 1 2 3 ",
+            "comments" : "…",
+            "information" : "…",
             "voice" : [
               "bal.mp3",
               "bla.mp3"
@@ -119,31 +119,8 @@
               "bal bal bal la bla la",
               "bla lab l b a a la"
             ],
-            "comments" : "",
-            "information" : "de eerste drie letters a b l, worden gevormd uit de eerste drie puntjes aan de linker kant 1 2 3 ",
-            "voice" : [
-              "bal.mp3",
-              "bla.mp3"
-            ],
-            "audio" : [
-              "bal.mp3"
-            ]
-          }
-        ],
-        "lesson_copy" : [
-          {
-            "id" : 1,
-            "name" : "cgop",
-            "letters" : "c g o p",
-            "antiletters" : "b c k",
-            "words" : "coc pop mok bok",
-            "antiwords" : "kees sla slap",
-            "sentence" : [
-              "bal bal bal la bla la",
-              "bla lab l b a a la"
-            ],
-            "comments" : "",
-            "information" : "de eerste drie letters a b l, worden gevormd uit de eerste drie puntjes aan de linker kant 1 2 3 ",
+            "comments" : "…",
+            "information" : "…",
             "voice" : [
               "bal.mp3",
               "bla.mp3"
@@ -173,8 +150,8 @@
               "bal bal bal la bla la",
               "bla lab l b a a la"
             ],
-            "comments" : "",
-            "information" : "de eerste drie letters a b l, worden gevormd uit de eerste drie puntjes aan de linker kant 1 2 3 ",
+            "comments" : "…",
+            "information" : "…",
             "voice" : [
               "bal.mp3",
               "bla.mp3"
@@ -185,12 +162,6 @@
           }
         ]
       }
-    ],
-    "success" : [
-      "goed gedaan"
-    ],
-    "failure" : [
-      "jammer"
     ]
   }
 ]
