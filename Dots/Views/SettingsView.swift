@@ -15,6 +15,7 @@ struct SettingsView: View {
     @State private var lettersCnt=1
     @State private var wordCnt=3
     
+    let words = [3, 4, 5, 6, 7]
     let action = ["mengsel","luister-schrijf","lees-schrijf","lees-luister-schrijf"]
     @State private var actionIdx=0
     
@@ -22,9 +23,6 @@ struct SettingsView: View {
     
     var body: some View {
         NavigationView {
-            
-            
-            
             Form {
                 List {
                     Picker("Country", selection: $settings.selectedCountry) {
@@ -33,7 +31,8 @@ struct SettingsView: View {
                         }
                     }
                     
-                    Picker("Method ", selection: $settings.selectedMethod) {
+                    Picker("Method ", selection:
+                            $settings.selectedMethod) {
                         ForEach(countries[settings.selectedCountry].method, id: \.id) { method in
                             Text(method.name)
                         }
@@ -45,16 +44,28 @@ struct SettingsView: View {
                                 .foregroundColor(.gray)
                                 .font(.custom(
                                     "bartimeus6dots",
-                                    fixedSize: 32)) +
-                            
-                            Text(" "+lesson.name)
+                                    fixedSize: 32)) 
                         }
                     }
                     
                     Section{
-                        Text("Timer: 3 Sec")
-                        Text("Number of letters: 5")
-                        Text("Number of words: 3")
+//                        Text("\(settings.nrofWords)")
+                        Picker("Number of Words", selection: $settings.nrofWords) {
+                            ForEach(words, id: \.self) {
+                                Text("\($0)")
+                            }
+                        }
+//                        Text("Timer: 3 Sec")
+//                        Text("Number of letters: 5")
+//                        Text("Number of words: 3")
+                    }
+                    Section{
+                        Button {
+                            settings.nrofWords = 3
+                        } label : {
+                                    Text("Reset")
+                        }
+                             
                     }
                     
                     
@@ -63,7 +74,7 @@ struct SettingsView: View {
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading: NavigationLink(destination: InformationView()) {Image(systemName: "info.circle")},
-                                trailing: NavigationLink(destination: AudioView()) {Image(systemName: "play.square")}
+                                trailing: NavigationLink(destination: AudioView()) {Image(systemName: "music.quarternote.3")}
             )
         }
     }
@@ -71,39 +82,11 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        let settings = Settings()
+        SettingsView().environmentObject(settings)
     }
 }
 
 
-//                Toggle(isOn: $isToggle){
-//                    Text("Auto increment")
-//                }
-//
-//                Section(header: Text("Moeilijkheid")) {
-//                    Button("Letters \(lettersCnt)") {
-//                        lettersCnt += 1
-//                        if lettersCnt > 10 {
-//                            lettersCnt = 1
-//                        }
-//                    }
-//                    Button("Woorden \(wordCnt)") {
-//                        wordCnt += 1
-//                        if  wordCnt > 10 {
-//                            wordCnt = 1
-//                        }
-//
-//                    }
-//                }
-//
-//
-//                Section(header: Text("Oefening")) {
-//                    Button("Oefening \(actionIdx+1) \(action[actionIdx])") {
-//                        actionIdx += 1
-//                        if  actionIdx >= action.count {
-//                            actionIdx = 0
-//                        }
-//                    }
-//                }
-//    .foregroundColor(.gray)
+
 

@@ -19,26 +19,8 @@ struct SplashScreenView: View {
             ContentView().environmentObject(settings)
         } else {
             VStack {
-//                VStack {
                     LottieView(lottieFile: "dotsloader")
                         .frame(width: 150, height: 150)
-//                    Image(systemName: "hand.point.up.braille.fill")
-//                        .font(.system(size:100))
-//                        .foregroundColor(.red)
-//                    Text("dots")
-//                        .font(.custom(
-//                            "bartimeus6dots",
-//                            fixedSize: 64))
-//                        .foregroundColor(.blue.opacity(0.80))
-//                }
-//                .scaleEffect(size)
-//                .opacity(opacity)
-//                .onAppear {
-//                    withAnimation(.easeIn(duration: 2.2)) {
-//                        self.size = 0.9
-//                        self.opacity = 1.0
-//                    }
-//                }
             }
             .onAppear {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {

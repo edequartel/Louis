@@ -49,11 +49,11 @@ struct AudioView: View {
                     }
                     .sound(audioEvent.sounds[audioEvent.playlistIndex], isPlaying: $audioEvent.isSpelend)
                     
-                    Picker("Sounds \(audioEvent.playlistIndex)", selection: $audioEvent.playlistIndex) {
-                        ForEach(0..<audioEvent.sounds.count) {
-                            Text(audioEvent.sounds[$0]) // <3>
-                        }
-                    }
+//                    Picker("Sounds \(audioEvent.playlistIndex)", selection: $audioEvent.playlistIndex) {
+//                        ForEach(0..<audioEvent.sounds.count) {
+//                            Text(audioEvent.sounds[$0]) // <3>
+//                        }
+//                    }
                     
                     
                     
@@ -64,6 +64,7 @@ struct AudioView: View {
                 
                 Section {
                     Button("TekstNaarSpraak NL") {
+                        print("gebruiken voor instructie")
                         Speak(value: "gebruiken voor instructie")
                     }
                 }header: {
@@ -88,9 +89,7 @@ struct AudioView: View {
 
 struct AudioView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
             AudioView()
-            AudioView()
-        }
     }
 }
+

@@ -13,16 +13,16 @@ import AVFoundation
 
 struct PlaygroundView: View {
     @EnvironmentObject var settings: Settings
+    let tink : SystemSoundID = 1057
+    let nextword : SystemSoundID = 1113
+    let nextlevel : SystemSoundID = 1115
     
     @State private var items =  [""]
     @State private var item: String = ""
     @State private var input: String = ""
     @State private var count: Int = 0
     
-    private enum Field : Int, Hashable {
-        case name, location, date, addAttendee
-    }
-    @FocusState private var focusedField: Field?
+    @FocusState private var isFocused: Bool
     
     var body: some View {
         
@@ -34,56 +34,83 @@ struct PlaygroundView: View {
                             .bold()
                         Spacer()
                         Text("\(settings.selectedLesson+1) \(settings.lesson.name)")
-                            .bold()
                     }
                 }
                 .accessibilityHidden(true)
                 
                 Section {
-                    Text("\(item)")
+//                    Button("Toggle Focus") {
+//                                    isFocused.toggle()
+//                                }
+                    
+                    HStack{
+                        Text("\(item)")
+                        Spacer()
+                        Text("\(item)")
+                            .font(Font.custom("bartimeus6dots", size: 32))
+                            .foregroundColor(.blue)
+                    }
                     TextField("Input", text:$input)
                         .disableAutocorrection(true)
-                        .focused($focusedField, equals: .addAttendee)
+                        .focused($isFocused)
                         .autocapitalization(.none)
                         .onSubmit {
+                            //dit is lees en tik//
                             if input == item {
-                                play(sound: "applaus.mp3")
                                 count += 1
-                                if (count > 3) {
+                                if (count >= settings.nrofWords) { //nextlevel
+                                    AudioServicesPlaySystemSound(nextlevel)
                                     Speak(value: "volgende woord")
                                     settings.selectedLesson += 1
                                     count = 0
+                                }
+                                else //nextone
+                                {
+                                    AudioServicesPlaySystemSound(nextword)
                                 }
                                 //wacht tot sound klaar is voordat er geshuffeld wordt
                                 Shuffle()
                                 input = ""
                             }
                             else {
-                                Speak(value: "probeer het nog een keer")
+                                //try it again
+                                AudioServicesPlaySystemSound(tink)
                             }
-                            //textfield is niet gefocues=d hoe dan?
+                           
+                            isFocused = true
+                            //lees en tik//
+                            
                         }
                 }
             }
-            .navigationTitle("Play (\(settings.selectedLesson+1)-\(count+1))")
+            .navigationTitle("Play \(count) - \(settings.nrofWords)")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
                 leading: Button(action: {
-                    Speak(value: settings.lesson.comments)
-                }) {Image(systemName: "info.circle")}
+//                    Speak(value: settings.lesson.comments)
+                    play(sound: "leesenvulin.wav")
+                }) {Image(systemName: "person.wave.2.fill")}
                 ,
-                trailing: Button( action: {
-                    settings.selectedLesson += 1
-                    Shuffle()
-                }) {Image(systemName: "plus.circle")}
+                trailing: HStack {
+                    Button( action: {
+                        AudioServicesPlaySystemSound(nextlevel)
+                        settings.selectedLesson += 1
+                        Shuffle()
+                    }) {Image(systemName: "plus.circle")}
+                    Spacer()
+                    Button( action: {
+                        isFocused.toggle()
+                    }) {Image(systemName: "poweroff")}
+                    
+                }
             )
         }
         .onAppear() {
             //            Speak(value: settings.lesson.comments) //deze later uit de action halen nu ok
             items = settings.lesson.words.components(separatedBy: " ").shuffled()
             item=items[0]
-            play(sound: item+".mp3")
-            focusedField = .addAttendee
+//            play(sound: "leesenvulin.wav")
+            isFocused.toggle()
         }
         
     }
@@ -111,15 +138,8 @@ struct PlaygroundView: View {
 
 struct PlaygroundView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaygroundView()
+        let settings = Settings()
+        PlaygroundView().environmentObject(settings)
     }
 }
-
-//                    List {
-//                        ForEach(items, id: \.self) { item in
-//                            HStack {
-//                                Text(item)
-//                            }
-//                        }
-//                    }
 
