@@ -43,15 +43,15 @@ struct PlaygroundView: View {
                 }
                 .accessibilityHidden(true)
                 
-                Section {
+//                Section {
                     LinearProgress(
                               progress: CGFloat(100*count/settings.nrofWords),
                               foregroundColor: .green,
                               backgroundColor: Color.green.opacity(0.2),
                               fillAxis: .horizontal
                             )
-                            .frame( height: 10)
-                }
+                            .frame(height: 10)
+//                }
                 .accessibilityHidden(true)
                 
                 Section {

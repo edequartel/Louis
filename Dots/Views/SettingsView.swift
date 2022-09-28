@@ -53,6 +53,7 @@ struct SettingsView: View {
                         
                         Toggle("Talking word", isOn: $settings.talkingOn)
                         Toggle("Braille text", isOn: $settings.brailleOn)
+//                        Toggle("Simple words", isOn: $settings.simpleWordsOn)
 
                         
 
