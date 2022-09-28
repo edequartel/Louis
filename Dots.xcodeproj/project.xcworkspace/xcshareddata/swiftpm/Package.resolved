@@ -26,6 +26,15 @@
         "revision" : "156c5742279df5d2315e29534a2410f418c8a772",
         "version" : "0.2.0"
       }
+    },
+    {
+      "identity" : "swiftprogress",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/EnesKaraosman/SwiftProgress.git",
+      "state" : {
+        "revision" : "9e086877c1f4813d5cab8435311ffd288c90fb63",
+        "version" : "0.0.5"
+      }
     }
   ],
   "version" : 2

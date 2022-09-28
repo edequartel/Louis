@@ -32,7 +32,7 @@ struct Method: Codable {
 struct Lesson: Codable {
     let id: Int
     let name, letters, antiletters, words: String
-    let antiwords: String
+    let allwords: String
     let sentence: [String]
     let comments, information: String
     let voice, audio: [String]

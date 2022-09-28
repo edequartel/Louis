@@ -16,10 +16,6 @@ struct SettingsView: View {
     @State private var wordCnt=3
     
     let words = [3, 4, 5, 6, 7]
-    let action = ["mengsel","luister-schrijf","lees-schrijf","lees-luister-schrijf"]
-    @State private var actionIdx=0
-    
-    @State private var isToggle : Bool = false
     
     var body: some View {
         NavigationView {
@@ -49,16 +45,23 @@ struct SettingsView: View {
                     }
                     
                     Section{
-//                        Text("\(settings.nrofWords)")
                         Picker("Number of Words", selection: $settings.nrofWords) {
                             ForEach(words, id: \.self) {
                                 Text("\($0)")
                             }
                         }
+                        
+                        Toggle("Talking word", isOn: $settings.talkingOn)
+                        Toggle("Braille text", isOn: $settings.brailleOn)
+
+                        
+
+
 //                        Text("Timer: 3 Sec")
 //                        Text("Number of letters: 5")
 //                        Text("Number of words: 3")
                     }
+             
                     Section{
                         Button {
                             settings.nrofWords = 3
@@ -67,6 +70,21 @@ struct SettingsView: View {
                         }
                              
                     }
+                  
+                    Section {
+                        Text("""
+                                Bartiméus Education
+                                Eric de Quartel
+                             """)
+    //                        .italic()
+                            .foregroundColor(.primary)
+    //                        .fontWeight(Weight(value: 0.0))
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(5)
+                            .lineSpacing(1.0)
+    //                        .textSelection(.enabled)
+                    }
+                    .accessibilityHidden(true)
                     
                     
                 }

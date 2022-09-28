@@ -30,6 +30,7 @@ struct ContentView: View {
 //                    Text("Progress")
 //                }
         }
+        .accessibilityHidden(true)
     }
 }
 
