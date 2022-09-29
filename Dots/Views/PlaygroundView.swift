@@ -35,33 +35,33 @@ struct PlaygroundView: View {
                     HStack {
                         Text("\(settings.method.name)")
                             .bold()
-                        Spacer()
-                        Text("\(count)/\(settings.nrofWords)")
+                        //                        Spacer()
+                        //                        Text("\(count)/\(settings.nrofWords)")
                         Spacer()
                         Text("\(settings.selectedLesson+1) \(settings.lesson.name)")
                     }
                 }
                 .accessibilityHidden(true)
                 
-//                Section {
-                    LinearProgress(
-                              progress: CGFloat(100*count/settings.nrofWords),
-                              foregroundColor: .green,
-                              backgroundColor: Color.green.opacity(0.2),
-                              fillAxis: .horizontal
-                            )
-                            .frame(height: 10)
-//                }
+                //                Section {
+                
+                //                }
                 .accessibilityHidden(true)
                 
                 Section {
-                    
+                    LinearProgress(
+                        progress: CGFloat(100*count/settings.nrofWords),
+                        foregroundColor: .green,
+                        backgroundColor: Color.green.opacity(0.2),
+                        fillAxis: .horizontal
+                    )
+                    .frame(height: 5)
                     if (settings.brailleOn) {
                         HStack{
                             Text("\(item)")
                                 .accessibilityHidden(true)
                                 .font(Font.custom("bartimeus6dots", size: 32))
-//                                .foregroundColor(.blue)
+                            //                                .foregroundColor(.blue)
                         }
                     }
                     else {
@@ -69,20 +69,20 @@ struct PlaygroundView: View {
                         HStack{
                             Text("\(item)")
                                 .font(.custom(monospacedFont, size: 32))
-//                                .foregroundColor(.blue)
+                            //                                .foregroundColor(.blue)
                                 .accessibilityHidden(true)
-                                
+                            
                             Spacer()
                             Text("\(item)")
                                 .font(Font.custom("bartimeus6dots", size: 32))
-//                                .foregroundColor(.blue)
+                            //                                .foregroundColor(.blue)
                         }
                     }
                     
-//                    Text("\(input)")
-//                        .font(Font.custom("bartimeus6dots", size: 32))
-//                        .foregroundColor(.red)
-                        
+                    //                    Text("\(input)")
+                    //                        .font(Font.custom("bartimeus6dots", size: 32))
+                    //                        .foregroundColor(.red)
+                    
                     
                     TextField("Input", text:$input)
                         .font(.custom(monospacedFont, size: 32))
@@ -100,7 +100,7 @@ struct PlaygroundView: View {
                                     settings.selectedLesson += 1
                                     count = 0
                                 }
-
+                                
                                 //wacht tot sound klaar is voordat er geshuffeld wordt
                                 Shuffle()
                                 input = ""
@@ -108,7 +108,7 @@ struct PlaygroundView: View {
                             else {
                                 //try it again
                                 AudioServicesPlaySystemSound(failure)
-//                                play(sound: "failure.mp3")
+                                //                                play(sound: "failure.mp3")
                                 
                             }
                             isFocused = true
@@ -120,44 +120,38 @@ struct PlaygroundView: View {
                 
                 Section {
                     Text("""
+                            3x sidebutton voiceOver
                             3x3 fingers screen curtain
                             3x2 fingers speechoff
                          """)
-//                        .italic()
-                        .foregroundColor(.primary)
-//                        .fontWeight(Weight(value: 0.0))
-                        .multilineTextAlignment(.leading)
-                        .lineLimit(5)
-                        .lineSpacing(1.0)
-//                        .textSelection(.enabled)
+                    //                        .italic()
+                    .foregroundColor(.primary)
+                    //                        .fontWeight(Weight(value: 0.0))
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(5)
+                    .lineSpacing(1.0)
+                    //                        .textSelection(.enabled)
                 }
                 .accessibilityHidden(true)
                 
-
+                
                 
             }
-//            .navigationTitle("Play \(count) - \(settings.nrofWords)")
-//            .navigationBarTitleDisplayMode(.inline)
+            //            .navigationTitle("Play \(count) - \(settings.nrofWords)")
+            //            .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
-                leading: Button(action: {
-//                    Speak(value: settings.lesson.comments)
-                    play(sound: "leesenvulin.wav")
-                }) {Image(systemName: "person.wave.2.fill")}
-                    .accessibility(label: Text("help"))
+                leading: Button( action: {
+                    AudioServicesPlaySystemSound(nextlevel)
+                    settings.selectedLesson += 1
+                    Shuffle()
+                }) {Image(systemName: "plus.circle")}
+                    .accessibility(label: Text("Next word"))
                     .accessibilityHidden(true)
                 ,
                 trailing: HStack {
                     Button( action: {
-                        AudioServicesPlaySystemSound(nextlevel)
-                        settings.selectedLesson += 1
-                        Shuffle()
-                    }) {Image(systemName: "plus.circle")}
-                        .accessibility(label: Text("Next word"))
-                        .accessibilityHidden(true)
-                    Spacer()
-                    Button( action: {
                         isFocused.toggle()
-                    }) {Image(systemName: "poweroff")
+                    }) {Image(systemName: "keyboard")
                             .accessibilityHidden(true)
                     }
                     
@@ -168,7 +162,7 @@ struct PlaygroundView: View {
             //            Speak(value: settings.lesson.comments) //deze later uit de action halen nu ok
             items = settings.lesson.words.components(separatedBy: " ").shuffled()
             item=items[0]
-//            play(sound: "leesenvulin.wav")
+            //            play(sound: "leesenvulin.wav")
             isFocused.toggle()
         }
         
@@ -186,7 +180,7 @@ struct PlaygroundView: View {
         else //nextone
         {
             AudioServicesPlaySystemSound(nextword)
-//                                    play(sound: "succes.mp3")
+            //                                    play(sound: "succes.mp3")
         }
     }
     

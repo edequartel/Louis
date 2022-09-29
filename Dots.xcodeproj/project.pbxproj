@@ -280,7 +280,6 @@
 		477DBE2B28E1E67B00707239 /* failure.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 477DBE2928E1E67B00707239 /* failure.mp3 */; };
 		477DBE2D28E1E80300707239 /* nextlevel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 477DBE2C28E1E80300707239 /* nextlevel.mp3 */; };
 		47DC7BF92858FDDA0095EC8F /* Subsonic in Frameworks */ = {isa = PBXBuildFile; productRef = 47DC7BF82858FDDA0095EC8F /* Subsonic */; };
-		47E993C528E4261C00D32F53 /* Sono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47E993C428E4261C00D32F53 /* Sono-Regular.ttf */; };
 		47E993CE28E433DD00D32F53 /* SwiftProgress in Frameworks */ = {isa = PBXBuildFile; productRef = 47E993CD28E433DD00D32F53 /* SwiftProgress */; };
 		47EBF7BE285AECD000E8F230 /* sample4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47EBF7B9285AECD000E8F230 /* sample4.mp3 */; };
 		47EBF7BF285AECD000E8F230 /* sample3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47EBF7BA285AECD000E8F230 /* sample3.mp3 */; };
@@ -587,7 +586,6 @@
 		477DBE2828E1E67B00707239 /* succes.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = succes.mp3; sourceTree = "<group>"; };
 		477DBE2928E1E67B00707239 /* failure.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = failure.mp3; sourceTree = "<group>"; };
 		477DBE2C28E1E80300707239 /* nextlevel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nextlevel.mp3; sourceTree = "<group>"; };
-		47E993C428E4261C00D32F53 /* Sono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sono-Regular.ttf"; sourceTree = "<group>"; };
 		47EBF7B9285AECD000E8F230 /* sample4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample4.mp3; sourceTree = "<group>"; };
 		47EBF7BA285AECD000E8F230 /* sample3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample3.mp3; sourceTree = "<group>"; };
 		47EBF7BB285AECD000E8F230 /* sample2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample2.mp3; sourceTree = "<group>"; };
@@ -695,7 +693,6 @@
 		47192A572858CAD6004FD2F3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				47E993C428E4261C00D32F53 /* Sono-Regular.ttf */,
 				474CFEB9287551170000BF85 /* README.md */,
 				47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */,
 				47EBF80B2862031200E8F230 /* dotsloader.json */,
@@ -1288,7 +1285,6 @@
 				47761D3F28E47C5A005B92E6 /* pa.mp3 in Resources */,
 				474CD64B2875DC8A00AF7FDE /* w.wav in Resources */,
 				47761D9028E47C5A005B92E6 /* bepaalde.mp3 in Resources */,
-				47E993C528E4261C00D32F53 /* Sono-Regular.ttf in Resources */,
 				474CD66F2875DC8A00AF7FDE /* eu.wav in Resources */,
 				47761CF428E47C5A005B92E6 /* kaak.mp3 in Resources */,
 				47761D0628E47C5A005B92E6 /* madam.mp3 in Resources */,

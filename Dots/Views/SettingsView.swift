@@ -40,7 +40,7 @@ struct SettingsView: View {
                                 .foregroundColor(.gray)
                                 .font(.custom(
                                     "bartimeus6dots",
-                                    fixedSize: 32)) 
+                                    fixedSize: 32))
                         }
                     }
                     
@@ -53,37 +53,43 @@ struct SettingsView: View {
                         
                         Toggle("Talking word", isOn: $settings.talkingOn)
                         Toggle("Braille text", isOn: $settings.brailleOn)
-//                        Toggle("Simple words", isOn: $settings.simpleWordsOn)
-
+                        //                        Toggle("Simple words", isOn: $settings.simpleWordsOn)
                         
-
-
-//                        Text("Timer: 3 Sec")
-//                        Text("Number of letters: 5")
-//                        Text("Number of words: 3")
+                        
+                        
+                        
+                        //                        Text("Timer: 3 Sec")
+                        //                        Text("Number of letters: 5")
+                        //                        Text("Number of words: 3")
                     }
-             
+                    
                     Section{
                         Button {
                             settings.nrofWords = 3
                         } label : {
-                                    Text("Reset")
+                            Text("Reset")
                         }
-                             
+                        
+                        Button {
+                            Text("Update methods from internet...")
+                        } label : {
+                            Text("Update")
+                        }
+                        
                     }
-                  
+                    
                     Section {
                         Text("""
                                 Bartiméus Education
                                 Eric de Quartel
                              """)
-    //                        .italic()
-                            .foregroundColor(.primary)
-    //                        .fontWeight(Weight(value: 0.0))
-                            .multilineTextAlignment(.leading)
-                            .lineLimit(5)
-                            .lineSpacing(1.0)
-    //                        .textSelection(.enabled)
+                        //                        .italic()
+                        .foregroundColor(.primary)
+                        //                        .fontWeight(Weight(value: 0.0))
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(5)
+                        .lineSpacing(1.0)
+                        //                        .textSelection(.enabled)
                     }
                     .accessibilityHidden(true)
                     
@@ -92,8 +98,11 @@ struct SettingsView: View {
             }
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(leading: NavigationLink(destination: InformationView()) {Image(systemName: "info.circle")},
-                                trailing: NavigationLink(destination: AudioView()) {Image(systemName: "music.quarternote.3")}
+            .navigationBarItems(leading: NavigationLink(destination: InformationView()) {Image(systemName: "info.circle")}
+                                //                                ,
+                                //                                trailing: NavigationLink(destination: AudioView()) {Image(systemName: "music.quarternote.3")
+                                //
+                                //            }
             )
         }
     }
