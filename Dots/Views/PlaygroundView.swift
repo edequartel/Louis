@@ -35,18 +35,12 @@ struct PlaygroundView: View {
                     HStack {
                         Text("\(settings.method.name)")
                             .bold()
-                        //                        Spacer()
-                        //                        Text("\(count)/\(settings.nrofWords)")
                         Spacer()
-                        Text("\(settings.selectedLesson+1) \(settings.lesson.name)")
+                        Text("\(settings.lesson.name)")
                     }
                 }
                 .accessibilityHidden(true)
                 
-                //                Section {
-                
-                //                }
-                .accessibilityHidden(true)
                 
                 Section {
                     LinearProgress(
@@ -79,10 +73,6 @@ struct PlaygroundView: View {
                         }
                     }
                     
-                    //                    Text("\(input)")
-                    //                        .font(Font.custom("bartimeus6dots", size: 32))
-                    //                        .foregroundColor(.red)
-                    
                     
                     TextField("Input", text:$input)
                         .font(.custom(monospacedFont, size: 32))
@@ -106,10 +96,7 @@ struct PlaygroundView: View {
                                 input = ""
                             }
                             else {
-                                //try it again
                                 AudioServicesPlaySystemSound(failure)
-                                //                                play(sound: "failure.mp3")
-                                
                             }
                             isFocused = true
                             //lees en tik//
@@ -137,15 +124,14 @@ struct PlaygroundView: View {
                 
                 
             }
-            //            .navigationTitle("Play \(count) - \(settings.nrofWords)")
-            //            .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
                 leading: Button( action: {
-                    AudioServicesPlaySystemSound(nextlevel)
+                    
+                    play(sound: "nextlevel.mp3")
                     settings.selectedLesson += 1
                     Shuffle()
                 }) {Image(systemName: "plus.circle")}
-                    .accessibility(label: Text("Next word"))
+                    .accessibility(label: Text("Next level"))
                     .accessibilityHidden(true)
                 ,
                 trailing: HStack {

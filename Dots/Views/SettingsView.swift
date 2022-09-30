@@ -77,23 +77,6 @@ struct SettingsView: View {
                         }
                         
                     }
-                    
-                    Section {
-                        Text("""
-                                Bartiméus Education
-                                Eric de Quartel
-                             """)
-                        //                        .italic()
-                        .foregroundColor(.primary)
-                        //                        .fontWeight(Weight(value: 0.0))
-                        .multilineTextAlignment(.leading)
-                        .lineLimit(5)
-                        .lineSpacing(1.0)
-                        //                        .textSelection(.enabled)
-                    }
-                    .accessibilityHidden(true)
-                    
-                    
                 }
             }
             .navigationTitle("Settings")

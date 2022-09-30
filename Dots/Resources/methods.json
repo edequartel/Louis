@@ -20,7 +20,7 @@
             "letters" : "a b l",
             "antiletters" : "b c k",
             "words" : "aal al ba baal bal la lal",
-            "allwords" : "aal al ba baal bal la lal",
+            "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",
               "bla lab l b a a la"
@@ -41,7 +41,7 @@
             "letters" : "k a m",
             "antiletters" : "b c k",
             "words" : "aak kaak kam km ma maak mak mam mama mamma",
-            "allwords" : "aak aal al ba baal bak bal balk kaak kaal kalk klak la lak lal",
+            "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",
               "bla lab l b a a la"
@@ -58,17 +58,17 @@
           },
           {
             "id" : 2,
-            "name" : "aap",
-            "letters" : "p",
+            "name" : "kam+",
+            "letters" : "k a m",
             "antiletters" : "b c k",
-            "words" : "aap pa pap papa pappa",
-            "allwords" : "aak aal aap al kaak kaal kaap kalk kalm kam kamp kap klak klam klamp klap km la lak lal lam lama lamp lap ma maak maal mak mal mam mama mamma map pa paal pak pal palm pap papa pappa plak",
+            "words" : "aak aal al ba baal bak bal balk kaak kaal kalk klak la lak lal",
+            "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",
               "bla lab l b a a la"
             ],
             "comments" : "…",
-            "information" : "…",
+            "information" : "..",
             "voice" : [
               "bal.mp3",
               "bla.mp3"
@@ -79,11 +79,11 @@
           },
           {
             "id" : 3,
-            "name" : "bel",
-            "letters" : "b e l",
+            "name" : "aap",
+            "letters" : "p",
             "antiletters" : "b c k",
-            "words" : "bel eb lel",
-            "allwords" : "aak aal aap al alle allemaal appel ba baal bak bakmeel bal balk beek bek bel bepaal blaam bleek eb elk elke kaak kaal kaap kabel kalk kalm kam kameel kamp kap kapel keek keel keep kek kelk klak klam klamp klap klem klep klepel km la label lak lal lam lama lamel lamp lap leek leem leep lek lekke lel lepel ma maak maal mak mal mam mama mamma map me mee meel meepak mek melk melkpak mep pa paal pak pal palm pap papa pappa pek pekel pel pep plak plek",
+            "words" : "aap pa pap papa pappa",
+            "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",
               "bla lab l b a a la"
@@ -100,11 +100,95 @@
           },
           {
             "id" : 4,
+            "name" : "aap+",
+            "letters" : "p",
+            "antiletters" : "b c k",
+            "words" : "aak aal aap al kaak kaal kaap kalk kalm kam kamp kap klak klam klamp klap km la lak lal lam lama lamp lap ma maak maal mak mal mam mama mamma map pa paal pak pal palm pap papa pappa plak",
+            "allwords" : "",
+            "sentence" : [
+              "bal bal bal la bla la",
+              "bla lab l b a a la"
+            ],
+            "comments" : "…",
+            "information" : "…",
+            "voice" : [
+              "bal.mp3",
+              "bla.mp3"
+            ],
+            "audio" : [
+              "bal.mp3"
+            ]
+          },
+          {
+            "id" : 5,
+            "name" : "bel",
+            "letters" : "b e l",
+            "antiletters" : "b c k",
+            "words" : "bel eb lel",
+            "allwords" : "",
+            "sentence" : [
+              "bal bal bal la bla la",
+              "bla lab l b a a la"
+            ],
+            "comments" : "…",
+            "information" : "…",
+            "voice" : [
+              "bal.mp3",
+              "bla.mp3"
+            ],
+            "audio" : [
+              "bal.mp3"
+            ]
+          },
+          {
+            "id" : 6,
+            "name" : "bel+",
+            "letters" : "b e l",
+            "antiletters" : "b c k",
+            "words" : "aak aal aap al alle allemaal appel ba baal bak bakmeel bal balk beek bek bel bepaal blaam bleek eb elk elke kaak kaal kaap kabel kalk kalm kam kameel kamp kap kapel keek keel keep kek kelk klak klam klamp klap klem klep klepel km la label lak lal lam lama lamel lamp lap leek leem leep lek lekke lel lepel ma maak maal mak mal mam mama mamma map me mee meel meepak mek melk melkpak mep pa paal pak pal palm pap papa pappa pek pekel pel pep plak plek",
+            "allwords" : "",
+            "sentence" : [
+              "bal bal bal la bla la",
+              "bla lab l b a a la"
+            ],
+            "comments" : "…",
+            "information" : "…",
+            "voice" : [
+              "bal.mp3",
+              "bla.mp3"
+            ],
+            "audio" : [
+              "bal.mp3"
+            ]
+          },
+          {
+            "id" : 7,
             "name" : "deeg",
             "letters" : "a b l",
             "antiletters" : "b c k",
             "words" : "de deed deeg eed",
-            "allwords" : "aak aal aambeeld aap adel adem al alle allemaal appel ba baal bad badpak bagage bak bakmeel bal balg balk bed beek beeld bek bel beleg belg bepaal bepaald bepaalde blaam blad bleek daad daal daalde dag dagblad dagdeel dak dal dam dame damp de deed deeg deegbal deel dek dekbed eb eed egaal elk elke ga gaap gal gala galg galm gap gebak gebed gedeeld geel gek gekke geklaag geld gele gemak geplaagd kaak kaal kaap kabel kade kalk kalm kam kameel kamp kap kapel keek keel keep kegel kek kelk klaag klak klam klamp klap kleed klem klep klepel km la laag label lade lag lage lak lal lalde lam lama lamel lamp lap led leed leeg leek leem leemlaag leep leg legaal lege lek lekkage lekke lel lepel ma maag maak maal maalde madam mag mak mal mam mama mamma map me mede mee meega meel meepak mek melk melkpak mep pa paal pad pak pal palm pap papa pappa pek pekel pel pep plaag plak pleeg plek",
+            "allwords" : "",
+            "sentence" : [
+              "bal bal bal la bla la",
+              "bla lab l b a a la"
+            ],
+            "comments" : "…",
+            "information" : "…",
+            "voice" : [
+              "bal.mp3",
+              "bla.mp3"
+            ],
+            "audio" : [
+              "bal.mp3"
+            ]
+          },
+          {
+            "id" : 8,
+            "name" : "deeg+",
+            "letters" : "a b l",
+            "antiletters" : "b c k",
+            "words" : "aak aal aambeeld aap adel adem al alle allemaal appel ba baal bad badpak bagage bak bakmeel bal balg balk bed beek beeld bek bel beleg belg bepaal bepaald bepaalde blaam blad bleek daad daal daalde dag dagblad dagdeel dak dal dam dame damp de deed deeg deegbal deel dek dekbed eb eed egaal elk elke ga gaap gal gala galg galm gap gebak gebed gedeeld geel gek gekke geklaag geld gele gemak geplaagd kaak kaal kaap kabel kade kalk kalm kam kameel kamp kap kapel keek keel keep kegel kek kelk klaag klak klam klamp klap kleed klem klep klepel km la laag label lade lag lage lak lal lalde lam lama lamel lamp lap led leed leeg leek leem leemlaag leep leg legaal lege lek lekkage lekke lel lepel ma maag maak maal maalde madam mag mak mal mam mama mamma map me mede mee meega meel meepak mek melk melkpak mep pa paal pad pak pal palm pap papa pappa pek pekel pel pep plaag plak pleeg plek",
+            "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",
               "bla lab l b a a la"

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		470917A228E6064F008E598C /* Sono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 470917A128E6064F008E598C /* Sono-Regular.ttf */; };
+		470917AF28E6ACEE008E598C /* logobartimeus.png in Resources */ = {isa = PBXBuildFile; fileRef = 470917AE28E6ACEE008E598C /* logobartimeus.png */; };
 		47192A0F2858893C004FD2F3 /* DotsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47192A0E2858893C004FD2F3 /* DotsApp.swift */; };
 		47192A112858893C004FD2F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47192A102858893C004FD2F3 /* ContentView.swift */; };
 		47192A132858893D004FD2F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47192A122858893D004FD2F3 /* Assets.xcassets */; };
@@ -311,6 +313,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		470917A128E6064F008E598C /* Sono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sono-Regular.ttf"; path = "Dots/Resources/Sono-Regular.ttf"; sourceTree = SOURCE_ROOT; };
+		470917AE28E6ACEE008E598C /* logobartimeus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logobartimeus.png; sourceTree = "<group>"; };
 		47192A0B2858893C004FD2F3 /* Dots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47192A0E2858893C004FD2F3 /* DotsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsApp.swift; sourceTree = "<group>"; };
 		47192A102858893C004FD2F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -693,6 +697,8 @@
 		47192A572858CAD6004FD2F3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				470917AE28E6ACEE008E598C /* logobartimeus.png */,
+				470917A128E6064F008E598C /* Sono-Regular.ttf */,
 				474CFEB9287551170000BF85 /* README.md */,
 				47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */,
 				47EBF80B2862031200E8F230 /* dotsloader.json */,
@@ -1211,6 +1217,7 @@
 				47761D6128E47C5A005B92E6 /* mama.mp3 in Resources */,
 				47761D4F28E47C5A005B92E6 /* lalde.mp3 in Resources */,
 				47761D5E28E47C5A005B92E6 /* label.mp3 in Resources */,
+				470917A228E6064F008E598C /* Sono-Regular.ttf in Resources */,
 				47761D2128E47C5A005B92E6 /* bek.mp3 in Resources */,
 				473DCCBF2891430D00CDFF47 /* settings58.png in Resources */,
 				474CD65A2875DC8A00AF7FDE /* ei.wav in Resources */,
@@ -1293,6 +1300,7 @@
 				47761D7128E47C5A005B92E6 /* pleeg.mp3 in Resources */,
 				474CD6602875DC8A00AF7FDE /* ooi.wav in Resources */,
 				47761D0728E47C5A005B92E6 /* lam.mp3 in Resources */,
+				470917AF28E6ACEE008E598C /* logobartimeus.png in Resources */,
 				474CD65F2875DC8A00AF7FDE /* t.wav in Resources */,
 				47761D9228E47C5A005B92E6 /* gele.mp3 in Resources */,
 				47761D3B28E47C5A005B92E6 /* de.mp3 in Resources */,
@@ -1621,7 +1629,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = 278BFDM8KA;
 				ENABLE_PREVIEWS = YES;
@@ -1658,7 +1666,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = 278BFDM8KA;
 				ENABLE_PREVIEWS = YES;
