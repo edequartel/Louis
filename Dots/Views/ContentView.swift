@@ -30,7 +30,7 @@ struct ContentView: View {
 //                    Text("Progress")
 //                }
         }
-        .accessibilityHidden(true)
+        .accessibilityHidden(settings.modeStudent)
     }
 }
 

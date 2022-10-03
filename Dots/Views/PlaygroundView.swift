@@ -22,6 +22,7 @@ struct PlaygroundView: View {
     @State private var item: String = ""
     @State private var input: String = ""
     @State private var count: Int = 0
+    @State private var mode: String = "Student"
     
     @FocusState private var isFocused: Bool
     
@@ -39,7 +40,8 @@ struct PlaygroundView: View {
                         Text("\(settings.lesson.name)")
                     }
                 }
-                .accessibilityHidden(true)
+                .accessibilityHidden(settings.modeStudent)
+               
                 
                 
                 Section {
@@ -53,7 +55,7 @@ struct PlaygroundView: View {
                     if (settings.brailleOn) {
                         HStack{
                             Text("\(item)")
-                                .accessibilityHidden(true)
+                                .accessibilityHidden(settings.modeStudent)
                                 .font(Font.custom("bartimeus6dots", size: 32))
                             //                                .foregroundColor(.blue)
                         }
@@ -64,7 +66,7 @@ struct PlaygroundView: View {
                             Text("\(item)")
                                 .font(.custom(monospacedFont, size: 32))
                             //                                .foregroundColor(.blue)
-                                .accessibilityHidden(true)
+                                .accessibilityHidden(settings.modeStudent)
                             
                             Spacer()
                             Text("\(item)")
@@ -77,10 +79,9 @@ struct PlaygroundView: View {
                     TextField("Input", text:$input)
                         .font(.custom(monospacedFont, size: 32))
                         .foregroundColor(.blue)
-                        .disableAutocorrection(true)
+                        .disableAutocorrection(settings.modeStudent)
                         .focused($isFocused)
                         .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
                         .onSubmit {
                             //dit is lees en tik//
                             if input == item {
@@ -96,6 +97,7 @@ struct PlaygroundView: View {
                                 input = ""
                             }
                             else {
+                                if count>0 {count -= 1}
                                 AudioServicesPlaySystemSound(failure)
                             }
                             isFocused = true
@@ -119,31 +121,46 @@ struct PlaygroundView: View {
                     .lineSpacing(1.0)
                     //                        .textSelection(.enabled)
                 }
-                .accessibilityHidden(true)
+                .accessibilityHidden(settings.modeStudent)
                 
                 
                 
             }
+           
             .navigationBarItems(
-                leading: Button( action: {
-                    
-                    play(sound: "nextlevel.mp3")
-                    settings.selectedLesson += 1
-                    Shuffle()
-                }) {Image(systemName: "plus.circle")}
-                    .accessibility(label: Text("Next level"))
-                    .accessibilityHidden(true)
+                leading: HStack {
+                    Button( action: {
+                        
+                        play(sound: "nextlevel.mp3")
+                        settings.selectedLesson += 1
+                        Shuffle()
+                    }) {Image(systemName: "plus.circle")}
+                        .accessibility(label: Text("Next level"))
+                        .accessibilityHidden(settings.modeStudent)
+                    Spacer()
+                    Text("\(mode)")
+                }
                 ,
                 trailing: HStack {
                     Button( action: {
                         isFocused.toggle()
                     }) {Image(systemName: "keyboard")
-                            .accessibilityHidden(true)
+                            .accessibilityHidden(settings.modeStudent)
                     }
+                    
+                   
                     
                 }
             )
         }
+       
+        
+        
+        .onLongPressGesture(minimumDuration: 2) {
+            print("LongPressed")
+            settings.modeStudent.toggle()
+            mode = settings.modeStudent ? "Coach" : "Student"
+            }
         .onAppear() {
             //            Speak(value: settings.lesson.comments) //deze later uit de action halen nu ok
             items = settings.lesson.words.components(separatedBy: " ").shuffled()

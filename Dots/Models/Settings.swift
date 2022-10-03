@@ -16,6 +16,7 @@ class Settings: ObservableObject {
     @Published var talkingOn : Bool = false
     @Published var brailleOn : Bool = false
     @Published var simpleWordsOn : Bool = false
+    @Published var modeStudent: Bool = false
     
     
     private var countries: [Country] = Country.allCountries
