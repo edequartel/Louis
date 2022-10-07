@@ -21,20 +21,20 @@ struct SettingsView: View {
         NavigationView {
             Form {
                 List {
-                    Picker("Country", selection: $settings.selectedCountry) {
+                    Picker("country".localized(), selection: $settings.selectedCountry) {
                         ForEach(countries, id: \.id) { country in
                             Text(country.language)
                         }
                     }
                     
-                    Picker("Method ", selection:
+                    Picker("method".localized(), selection:
                             $settings.selectedMethod) {
                         ForEach(countries[settings.selectedCountry].method, id: \.id) { method in
                             Text(method.name)
                         }
                     }
                     
-                    Picker("Lesson ", selection: $settings.selectedLesson) {
+                    Picker("lesson".localized(), selection: $settings.selectedLesson) {
                         ForEach(countries[settings.selectedCountry].method[settings.selectedMethod].lesson, id: \.id) { lesson in
                             Text(lesson.name)
                                 .foregroundColor(.gray)
@@ -45,14 +45,14 @@ struct SettingsView: View {
                     }
                     
                     Section{
-                        Picker("Number of Words", selection: $settings.nrofWords) {
+                        Picker("nrofWords".localized(), selection: $settings.nrofWords) {
                             ForEach(words, id: \.self) {
                                 Text("\($0)")
                             }
                         }
                         
-                        Toggle("Talking word", isOn: $settings.talkingOn)
-                        Toggle("Braille text", isOn: $settings.brailleOn)
+                        Toggle("talkingWord".localized(), isOn: $settings.talkingOn)
+                        Toggle("brailleText".localized(), isOn: $settings.brailleOn)
                         //                        Toggle("Simple words", isOn: $settings.simpleWordsOn)
                         
                         
@@ -67,19 +67,19 @@ struct SettingsView: View {
                         Button {
                             settings.nrofWords = 3
                         } label : {
-                            Text("Reset")
+                            Text("reset".localized())
                         }
                         
                         Button {
                             Text("Update methods from internet...")
                         } label : {
-                            Text("Update")
+                            Text("update".localized())
                         }
                         
                     }
                 }
             }
-            .navigationTitle("Settings")
+            .navigationTitle("settings".localized())
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading: NavigationLink(destination: InformationView()) {Image(systemName: "info.circle")}
                                 //                                ,

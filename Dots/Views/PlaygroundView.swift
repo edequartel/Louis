@@ -41,7 +41,7 @@ struct PlaygroundView: View {
                     }
                 }
                 .accessibilityHidden(settings.modeStudent)
-               
+                
                 
                 
                 Section {
@@ -73,17 +73,19 @@ struct PlaygroundView: View {
                                 .font(Font.custom("bartimeus6dots", size: 32))
                             //                                .foregroundColor(.blue)
                         }
+                        
                     }
                     
                     
-                    TextField("Input", text:$input)
+                    TextField("", text:$input)
                         .font(.custom(monospacedFont, size: 32))
                         .foregroundColor(.blue)
-                        .disableAutocorrection(settings.modeStudent)
                         .focused($isFocused)
                         .textInputAutocapitalization(.never)
+                        .disableAutocorrection(true)
                         .onSubmit {
                             //dit is lees en tik//
+//                            if input == "aa" { settings.modeStudent = false } else {settings.modeStudent = true}
                             if input == item {
                                 count += 1
                                 if (count >= settings.nrofWords) { //nextlevel
@@ -108,66 +110,76 @@ struct PlaygroundView: View {
                 }
                 
                 Section {
-                    Text("""
-                            3x sidebutton voiceOver
-                            3x3 fingers screen curtain
-                            3x2 fingers speechoff
-                         """)
-                    //                        .italic()
-                    .foregroundColor(.primary)
-                    //                        .fontWeight(Weight(value: 0.0))
-                    .multilineTextAlignment(.leading)
-                    .lineLimit(5)
-                    .lineSpacing(1.0)
-                    //                        .textSelection(.enabled)
+                    
+                    Image("CircleLogo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 50, height: 50)
+//                        .clipShape(RoundedRectangle(cornerRadius: 5.0))
                 }
                 .accessibilityHidden(settings.modeStudent)
+                
+
+                
+                
+//                Section {
+//                    Text("""
+//                            3x sidebutton voiceOver
+//                            3x3 fingers screen curtain
+//                            3x2 fingers speechoff
+//                         """)
+//                    //                        .italic()
+//                    .foregroundColor(.primary)
+//                    //                        .fontWeight(Weight(value: 0.0))
+//                    .multilineTextAlignment(.leading)
+//                    .lineLimit(5)
+//                    .lineSpacing(1.0)
+                    //                        .textSelection(.enabled)
+//                }
+//                .accessibilityHidden(settings.modeStudent)
                 
                 
                 
             }
-           
+            //            .onLongPressGesture(minimumDuration: 2) {
+            //                print("LongPressed")
+            //                settings.modeStudent.toggle()
+            //                mode = settings.modeStudent ? "Coach" : "Student"
+            //            }
+            
             .navigationBarItems(
                 leading: HStack {
-                    Button( action: {
-                        
-                        play(sound: "nextlevel.mp3")
-                        settings.selectedLesson += 1
-                        Shuffle()
-                    }) {Image(systemName: "plus.circle")}
-                        .accessibility(label: Text("Next level"))
-                        .accessibilityHidden(settings.modeStudent)
-                    Spacer()
-                    Text("\(mode)")
+//                    Button( action: {
+//                        play(sound: "nextlevel.mp3")
+//                        settings.selectedLesson += 1
+//                        Shuffle()
+//                    }) {Image(systemName: "plus.circle")}
+//                        .accessibility(label: Text("Next level"))
+//                        .accessibilityHidden(settings.modeStudent)
+//                    Spacer()
+//                    Image(systemName: settings.modeStudent ? "person": "person.2")
+//                    //                        .accessibility(label: settings.modeStudent ? "student": "coach")
+//                        .accessibilityHidden(settings.modeStudent)
+                    
                 }
                 ,
                 trailing: HStack {
                     Button( action: {
                         isFocused.toggle()
-                    }) {Image(systemName: "keyboard")
-                            .accessibilityHidden(settings.modeStudent)
+                    }) {Image(systemName: "keyboard".localized())
+//                            .accessibilityHidden(settings.modeStudent)
                     }
                     
-                   
                     
                 }
             )
         }
-       
-        
-        
-        .onLongPressGesture(minimumDuration: 2) {
-            print("LongPressed")
-            settings.modeStudent.toggle()
-            mode = settings.modeStudent ? "Coach" : "Student"
-            }
         .onAppear() {
-            //            Speak(value: settings.lesson.comments) //deze later uit de action halen nu ok
             items = settings.lesson.words.components(separatedBy: " ").shuffled()
             item=items[0]
-            //            play(sound: "leesenvulin.wav")
             isFocused.toggle()
         }
+        
         
     }
     

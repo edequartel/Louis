@@ -11,26 +11,51 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var settings: Settings
+    @State private var selectedTab = 0
+    
+    let minDragTranslationForSwipe: CGFloat = 50
+    let numTabs = 2
            
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             PlaygroundView()
                 .tabItem {
                     Image(systemName: "hand.point.up.braille.fill")
-                    Text("Play")
-                }
+                    Text("play".localized())
+                }.tag(0)
+                .highPriorityGesture(DragGesture().onEnded({ self.handleSwipe(translation: $0.translation.width)}))
             SettingsView()
                 .tabItem {
                     Image(systemName: "gearshape.fill")
-                    Text("Settings")
-                }
+                    Text("settings".localized())
+                }.tag(1)
+                .highPriorityGesture(DragGesture().onEnded({ self.handleSwipe(translation: $0.translation.width)}))
 //            ProgressView()
 //                .tabItem {
 //                    Image(systemName: "asterisk")
 //                    Text("Progress")
 //                }
         }
-        .accessibilityHidden(settings.modeStudent)
+//        .accessibilityHidden(settings.modeStudent)
+    }
+    
+    private func handleSwipe(translation: CGFloat) {
+        print("swiping\(selectedTab)")
+        if translation > minDragTranslationForSwipe && selectedTab > 0 {
+            selectedTab -= 1
+        } else  if translation < -minDragTranslationForSwipe && selectedTab < numTabs-1 {
+            selectedTab += 1
+        }
+    }
+}
+
+extension String {
+    func localized() -> String {
+        return NSLocalizedString(self,
+                                 tableName: "Localizable",
+                                 bundle: .main,
+                                 value: self,
+                                 comment: self)
     }
 }
 
