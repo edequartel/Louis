@@ -14,9 +14,7 @@ struct SplashScreenView: View {
     
     var body: some View {
         if isActive {
-//            ContentView()
-            let settings = Settings()
-            ContentView().environmentObject(settings)
+            ContentView()
         } else {
             VStack {
                     LottieView(lottieFile: "dotsloader")

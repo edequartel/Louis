@@ -10,9 +10,8 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @EnvironmentObject var settings: Settings
     @State private var selectedTab = 0
-    
+   
     let minDragTranslationForSwipe: CGFloat = 50
     let numTabs = 2
            
@@ -36,7 +35,6 @@ struct ContentView: View {
 //                    Text("Progress")
 //                }
         }
-//        .accessibilityHidden(settings.modeStudent)
     }
     
     private func handleSwipe(translation: CGFloat) {
@@ -60,8 +58,7 @@ extension String {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        let settings = Settings()
-        ContentView().environmentObject(settings)
+    static var previews: some View {        
+        ContentView()
     }
 }

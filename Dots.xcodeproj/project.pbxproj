@@ -193,7 +193,6 @@
 		47192A442858C07B004FD2F3 /* SearchWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47192A432858C07B004FD2F3 /* SearchWordView.swift */; };
 		47192A462858C086004FD2F3 /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47192A452858C086004FD2F3 /* AudioView.swift */; };
 		47192A5B2858CB8F004FD2F3 /* bartimeus6dots.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */; };
-		472226E028D83AA3002BF9E0 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472226DF28D83AA3002BF9E0 /* Settings.swift */; };
 		472226E228D84628002BF9E0 /* sheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472226E128D84628002BF9E0 /* sheetView.swift */; };
 		473DCCAA2891430D00CDFF47 /* spotlight120.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCC902891430D00CDFF47 /* spotlight120.png */; };
 		473DCCAB2891430D00CDFF47 /* ipad76.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCC912891430D00CDFF47 /* ipad76.png */; };
@@ -500,7 +499,6 @@
 		47192A432858C07B004FD2F3 /* SearchWordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchWordView.swift; sourceTree = "<group>"; };
 		47192A452858C086004FD2F3 /* AudioView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
 		47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bartimeus6dots.ttf; sourceTree = "<group>"; };
-		472226DF28D83AA3002BF9E0 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		472226E128D84628002BF9E0 /* sheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sheetView.swift; sourceTree = "<group>"; };
 		473DCC902891430D00CDFF47 /* spotlight120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlight120.png; sourceTree = "<group>"; };
 		473DCC912891430D00CDFF47 /* ipad76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad76.png; sourceTree = "<group>"; };
@@ -585,6 +583,7 @@
 		4766E4CC28B351B200852495 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		476A36D228F06CDC00F3909B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		476A36D428F06CDE00F3909B /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		476A36D728F076D500F3909B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		47EBF7B9285AECD000E8F230 /* sample4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample4.mp3; sourceTree = "<group>"; };
 		47EBF7BA285AECD000E8F230 /* sample3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample3.mp3; sourceTree = "<group>"; };
 		47EBF7BB285AECD000E8F230 /* sample2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample2.mp3; sourceTree = "<group>"; };
@@ -1015,7 +1014,6 @@
 			isa = PBXGroup;
 			children = (
 				47EBF7C32860D80D00E8F230 /* jsonmanager.swift */,
-				472226DF28D83AA3002BF9E0 /* Settings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1128,6 +1126,7 @@
 				en,
 				Base,
 				nl,
+				de,
 			);
 			mainGroup = 47192A022858893C004FD2F3;
 			packageReferences = (
@@ -1446,7 +1445,6 @@
 				472226E228D84628002BF9E0 /* sheetView.swift in Sources */,
 				47192A3E2858C057004FD2F3 /* SettingsView.swift in Sources */,
 				47192A0F2858893C004FD2F3 /* DotsApp.swift in Sources */,
-				472226E028D83AA3002BF9E0 /* Settings.swift in Sources */,
 				47EBF7C42860D80D00E8F230 /* jsonmanager.swift in Sources */,
 				47EBF805286200CA00E8F230 /* LottieView.swift in Sources */,
 				47192A392858BE7D004FD2F3 /* SplashScreenView.swift in Sources */,
@@ -1493,6 +1491,7 @@
 			children = (
 				476A36D228F06CDC00F3909B /* en */,
 				476A36D428F06CDE00F3909B /* nl */,
+				476A36D728F076D500F3909B /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
