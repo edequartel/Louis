@@ -31,7 +31,7 @@ let pitStopLineOptions = [
 ]
 
 struct ProgressView: View {
-    private var countries: [Country] = Country.allCountries
+    private var Languages: [Language] = Language.Language
     
     var stappen = [Text]()  
     

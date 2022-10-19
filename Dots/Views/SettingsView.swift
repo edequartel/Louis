@@ -9,32 +9,44 @@ import SwiftUI
 import Subsonic
 
 struct SettingsView: View {
-    private var countries: [Country] = Country.allCountries
+    private var Languages: [Language] = Language.Language
     
     @AppStorage("INDEX_METHOD") var indexMethod = 0
     @AppStorage("INDEX_LESSON") var indexLesson = 0
-    @AppStorage("INDEX_COUNTRY") var indexCountry = 0
+    @AppStorage("INDEX_LANGUAGEY") var indexLanguage = 0
     @AppStorage("NROFWORDS") var nrofWords = 3
     @AppStorage("TALKINGON") var talkingOn = false
     @AppStorage("BRAILLEON") var brailleOn = false
     @AppStorage("MODESTUDENT") var modeStudent = true
+    @AppStorage("TYPEACTIVITY") var typeActivity = "character"
+    
+//    let url = URL(string: "https://www.apple.com")!
+//    let task = URLSession.shared.downloadTask(with: url) { localURL, urlResponse, error in
+//            if let localURL = localURL {
+//                    if let string = try? String(contentsOf: localURL) {
+//                            print(string)
+//                    }
+//            }
+//    }
 
     
-    @State private var lettersCnt=1
-    @State private var wordCnt=3
+    @State private var lettersCnt = 1
+//    @State private var wordCnt = 3
     
     let words = [3, 4, 5, 6, 7]
+    let activities = ["character","word","sentence","all"]
+
     
     var body: some View {
         NavigationView {
             Form {
                 List {
-                    Picker("country".localized(), selection: $indexCountry) {
-                        ForEach(countries, id: \.id) { country in
-                            Text(country.language).tag(country.id)
+                    Picker("Language".localized(), selection: $indexLanguage) {
+                        ForEach(Languages, id: \.id) { country in
+                            Text(country.name).tag(country.id)
                         }
                     }
-                    .onChange(of: indexCountry) { tag in
+                    .onChange(of: indexLanguage) { tag in
                         print("Change in tag country: \(tag)")
                         indexLesson = 0
                         indexMethod = 0
@@ -42,7 +54,7 @@ struct SettingsView: View {
                     
                     
                     Picker("method".localized(), selection: $indexMethod) {
-                        ForEach(countries[indexCountry].method, id: \.id) { method in
+                        ForEach(Languages[indexLanguage].method, id: \.id) { method in
                             Text(method.name).tag(method.id)
                         }
                     }
@@ -52,7 +64,7 @@ struct SettingsView: View {
                     }
                     
                     Picker("lesson".localized(), selection: $indexLesson) {
-                        ForEach(countries[indexCountry].method[indexMethod].lesson, id: \.id) { lesson in
+                        ForEach(Languages[indexLanguage].method[indexMethod].lesson, id: \.id) { lesson in
                             Text(lesson.name).tag(lesson.id)
                                 .foregroundColor(.gray)
                                 .font(.custom(
@@ -65,12 +77,18 @@ struct SettingsView: View {
                     }
                     
                     Section{
+                        Picker("activity".localized(), selection: $typeActivity) {
+                            ForEach(activities, id:\.self) { activity in
+                                Text("\(activity.localized())")
+                            }
+                        }
+                        
                         Picker("nrofWords".localized(), selection: $nrofWords) {
                             ForEach(words, id: \.self) {
                                 Text("\($0)")
                             }
                         }
-                        
+
                         Toggle("talkingWord".localized(), isOn: $talkingOn)
                         Toggle("brailleText".localized(), isOn: $brailleOn)
                     }
@@ -94,7 +112,7 @@ struct SettingsView: View {
                                 print(text)
                             }
                         } label : {
-                            Text("Version 8")
+                            Text("Version 9")
                         }
                         
                         

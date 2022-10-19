@@ -12,7 +12,7 @@ import SwiftProgress
 import AVFoundation
 
 struct PlaygroundView: View {
-    private var countries: [Country] = Country.allCountries
+    private var Languages: [Language] = Language.Language
     
     let failure : SystemSoundID = 1057
     let nextword : SystemSoundID = 1113
@@ -27,11 +27,14 @@ struct PlaygroundView: View {
     
     @AppStorage("INDEX_METHOD") var indexMethod = 0
     @AppStorage("INDEX_LESSON") var indexLesson = 0
-    @AppStorage("INDEX_COUNTRY") var indexCountry = 0
-    @AppStorage("NROFWORDS") var nrofWords = 3
+    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
+    @AppStorage("NROFWORDS") var nrofWords = 3 //dit is aantal wanneer verder wordt gegaan
     @AppStorage("TALKINGON") var talkingOn = false
     @AppStorage("BRAILLEON") var brailleOn = false
     @AppStorage("MODESTUDENT") var modeStudent = true
+    @AppStorage("TYPEACTIVITY") var typeActivity = "character"
+    
+    @State private var firstT = true
     
     
     @FocusState private var isFocused: Bool
@@ -47,8 +50,8 @@ struct PlaygroundView: View {
                         Text("\(getMethodeName())")
                             .bold()
                         Spacer()
-//                        Text("\(indexLesson)")
-//                        Spacer()
+                        //                        Text("\(indexLesson)")
+                        //                        Spacer()
                         Text("\(getLessonName())")
                     }
                 }
@@ -77,50 +80,54 @@ struct PlaygroundView: View {
                             Text("\(item)")
                                 .font(.custom(monospacedFont, size: 32))
                                 .accessibilityHidden(modeStudent)
-                            
-                            Spacer()
-                            Text("\(item)")
-                                .font(Font.custom("bartimeus6dots", size: 32))
                         }
                         
                     }
                     
-                    
-                    TextField("", text:$input)
-                        .font(.custom(monospacedFont, size: 32))
-                        .foregroundColor(.blue)
-                        .focused($isFocused)
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
-                        .onSubmit {
-                            //dit is lees en tik//
-                            if input == item {
-                                count += 1
-                                if (count >= nrofWords) { //nextlevel
-                                    play(sound: "nextlevel.mp3")
-//                                    if indexLesson<(countries[indexCountry].method[indexMethod].lesson.count-1) {
-                                        indexLesson += 1
+//                    switch typeActivity {
+//                    case "character":
+//                            Text("Character!")
+//                    case "word":
+                        TextField("", text:$input)
+                            .font(.custom(monospacedFont, size: 32))
+                            .foregroundColor(.blue)
+                            .focused($isFocused)
+                            .textInputAutocapitalization(.never)
+                            .disableAutocorrection(true)
+                            .onSubmit {
+                                //dit is lees en tik//
+                                if input == item {
+                                    count += 1
+                                    if (count >= nrofWords) { //nextlevel
+                                        play(sound: "nextlevel.mp3")
+                                        if indexLesson<(Languages[indexLanguage].method[indexMethod].lesson.count-1) {
+                                            indexLesson += 1
+                                        }
+                                        else {
+                                            indexLesson = 0
+                                        }
+                                        count = 0
+                                    }
                                     
-//                                }
-//                                    else {
-//                                        indexLesson = 0
-//                                    }
-                                    count = 0
+                                    //wacht tot sound klaar is voordat er geshuffeld wordt
+                                    Shuffle()
+                                    input = ""
                                 }
-                                
-                                //wacht tot sound klaar is voordat er geshuffeld wordt
-                                Shuffle()
-                                input = ""
+                                else {
+                                    if count>0 {count -= 1}
+                                    AudioServicesPlaySystemSound(failure)
+                                }
+                                isFocused = true
                             }
-                            else {
-                                if count>0 {count -= 1}
-                                AudioServicesPlaySystemSound(failure)
-                            }
-                            isFocused = true
-                            //lees en tik//
-                            
-                        }
                     
+
+//                    case "sentence":
+//                            Text("Sentence!")
+//                    case "all":
+//                            Text("All!")
+//                    default:
+//                            Text("No implementation")
+//                    }
                 }
                 
                 Section {
@@ -129,10 +136,11 @@ struct PlaygroundView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 50, height: 50)
+                        
                 }
                 .accessibilityHidden(modeStudent)
             }
-
+            
             
             .navigationBarItems(
                 leading: HStack {
@@ -147,12 +155,21 @@ struct PlaygroundView: View {
             )
         }
         .onAppear() {
-            indexLesson=0
-            items = countries[indexCountry].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
-            item=items[0]
-            isFocused.toggle()
-            Shuffle()
-
+            //            indexLesson=0
+//            indexMethod = 0
+            if (talkingOn) {
+                play(sound: item+".mp3")
+            }
+            
+            if firstT {
+                items = Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
+                item=items[0]
+                isFocused.toggle()
+                Shuffle()
+                firstT = false
+            }
+            
+            
         }
         
         
@@ -161,7 +178,7 @@ struct PlaygroundView: View {
     func Shuffle() {
         print("shuffled")
         while item==items[0] {
-            items = countries[indexCountry].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
+            items = Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
         }
         item = items[0]
         if (talkingOn) {
@@ -183,17 +200,17 @@ struct PlaygroundView: View {
     }
     
     func getLessonName()->String {
-        guard (indexLesson < countries[indexCountry].method[indexMethod].lesson.count) else {
+        guard (indexLesson < Languages[indexLanguage].method[indexMethod].lesson.count) else {
             return "unknown Lesson"
         }
-        return countries[indexCountry].method[indexMethod].lesson[indexLesson].name
+        return Languages[indexLanguage].method[indexMethod].lesson[indexLesson].name
     }
     
     func getMethodeName()->String {
-        guard (indexMethod < countries[indexCountry].method.count) else {
+        guard (indexMethod < Languages[indexLanguage].method.count) else {
             return "unknown Method"
         }
-        return countries[indexCountry].method[indexMethod].name
+        return Languages[indexLanguage].method[indexMethod].name
     }
     
 }

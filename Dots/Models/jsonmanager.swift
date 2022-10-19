@@ -9,15 +9,15 @@
 import Foundation
 
 
-struct Country: Codable {
+struct Language: Codable {
     let id: Int
-    let language, code, comments, information: String
+    let name, code, comments, information: String
     let method: [Method]
 //    let success, failure: [String]
     
     // Generate samples
-    static let allCountries: [Country] = Bundle.main.decode(file: "methods.json")
-    static let sampleCountry: Country = allCountries[0]
+    static let Language: [Language] = Bundle.main.decode(file: "methods.json")
+//    static let sampleLanguage: Language = Language[0]
 }
 
 // MARK: - Method
