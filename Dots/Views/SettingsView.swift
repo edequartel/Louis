@@ -96,6 +96,9 @@ struct SettingsView: View {
                     Section{
                         Button {
                             nrofWords = 3
+                            indexMethod = 0
+                            indexLesson = 0
+                            indexLanguage = 0
                         } label : {
                             Text("reset".localized())
                         }

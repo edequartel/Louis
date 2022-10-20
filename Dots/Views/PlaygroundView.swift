@@ -84,50 +84,50 @@ struct PlaygroundView: View {
                         
                     }
                     
-//                    switch typeActivity {
-//                    case "character":
-//                            Text("Character!")
-//                    case "word":
-                        TextField("", text:$input)
-                            .font(.custom(monospacedFont, size: 32))
-                            .foregroundColor(.blue)
-                            .focused($isFocused)
-                            .textInputAutocapitalization(.never)
-                            .disableAutocorrection(true)
-                            .onSubmit {
-                                //dit is lees en tik//
-                                if input == item {
-                                    count += 1
-                                    if (count >= nrofWords) { //nextlevel
-                                        play(sound: "nextlevel.mp3")
-                                        if indexLesson<(Languages[indexLanguage].method[indexMethod].lesson.count-1) {
-                                            indexLesson += 1
-                                        }
-                                        else {
-                                            indexLesson = 0
-                                        }
-                                        count = 0
+                    //                    switch typeActivity {
+                    //                    case "character":
+                    //                            Text("Character!")
+                    //                    case "word":
+                    TextField("", text:$input)
+                        .font(.custom(monospacedFont, size: 32))
+                        .foregroundColor(.blue)
+                        .focused($isFocused)
+                        .textInputAutocapitalization(.never)
+                        .disableAutocorrection(true)
+                        .onSubmit {
+                            //dit is lees en tik//
+                            if input == item {
+                                count += 1
+                                if (count >= nrofWords) { //nextlevel
+                                    play(sound: "nextlevel.mp3")
+                                    if indexLesson<(Languages[indexLanguage].method[indexMethod].lesson.count-1) {
+                                        indexLesson += 1
                                     }
-                                    
-                                    //wacht tot sound klaar is voordat er geshuffeld wordt
-                                    Shuffle()
-                                    input = ""
+                                    else {
+                                        indexLesson = 0
+                                    }
+                                    count = 0
                                 }
-                                else {
-                                    if count>0 {count -= 1}
-                                    AudioServicesPlaySystemSound(failure)
-                                }
-                                isFocused = true
+                                
+                                //wacht tot sound klaar is voordat er geshuffeld wordt
+                                Shuffle()
+                                input = ""
                             }
+                            else {
+                                if count>0 {count -= 1}
+                                AudioServicesPlaySystemSound(failure)
+                            }
+                            isFocused = true
+                        }
                     
-
-//                    case "sentence":
-//                            Text("Sentence!")
-//                    case "all":
-//                            Text("All!")
-//                    default:
-//                            Text("No implementation")
-//                    }
+                    
+                    //                    case "sentence":
+                    //                            Text("Sentence!")
+                    //                    case "all":
+                    //                            Text("All!")
+                    //                    default:
+                    //                            Text("No implementation")
+                    //                    }
                 }
                 
                 Section {
@@ -136,7 +136,7 @@ struct PlaygroundView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 50, height: 50)
-                        
+                    
                 }
                 .accessibilityHidden(modeStudent)
             }
@@ -155,8 +155,8 @@ struct PlaygroundView: View {
             )
         }
         .onAppear() {
-            //            indexLesson=0
-//            indexMethod = 0
+            indexLesson=0
+            indexMethod = 0
             if (talkingOn) {
                 play(sound: item+".mp3")
             }
