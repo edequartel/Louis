@@ -1,7 +1,7 @@
 "Information" = "Information";
 "brailleText" = "Braille text";
 "country" = "Country";
-"developedBy" = "Developed by Bartimeus Education\nZeist the Netherlands";
+"developedBy" = "Bartiméus Education\nZeist the Netherlands";
 "keyboard" = "Keyboard";
 "lesson" = "Lesson";
 "method" = "Method";
@@ -17,3 +17,4 @@
 "word" = "Word";
 "sentence" = "Sentence";
 "all" = "All";
+"information" = "Information";

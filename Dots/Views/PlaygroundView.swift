@@ -130,15 +130,15 @@ struct PlaygroundView: View {
                     //                    }
                 }
                 
-                Section {
-                    
-                    Image("CircleLogo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 50, height: 50)
-                    
-                }
-                .accessibilityHidden(modeStudent)
+//                Section {
+//                    
+//                    Image("CircleLogo")
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(width: 50, height: 50)
+//                    
+//                }
+//                .accessibilityHidden(modeStudent)
             }
             
             

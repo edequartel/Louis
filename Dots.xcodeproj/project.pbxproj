@@ -9265,6 +9265,8 @@
 		47192A462858C086004FD2F3 /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47192A452858C086004FD2F3 /* AudioView.swift */; };
 		47192A5B2858CB8F004FD2F3 /* bartimeus6dots.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */; };
 		472226E228D84628002BF9E0 /* sheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472226E128D84628002BF9E0 /* sheetView.swift */; };
+		472C7C12290F0E0D00DA12E9 /* bartimeusb.json in Resources */ = {isa = PBXBuildFile; fileRef = 472C7C11290F0E0D00DA12E9 /* bartimeusb.json */; };
+		472C7C14290F0E5500DA12E9 /* bartimeusbigb.json in Resources */ = {isa = PBXBuildFile; fileRef = 472C7C13290F0E5500DA12E9 /* bartimeusbigb.json */; };
 		473DCCAA2891430D00CDFF47 /* spotlight120.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCC902891430D00CDFF47 /* spotlight120.png */; };
 		473DCCAB2891430D00CDFF47 /* ipad76.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCC912891430D00CDFF47 /* ipad76.png */; };
 		473DCCAC2891430D00CDFF47 /* notification40.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCC922891430D00CDFF47 /* notification40.png */; };
@@ -18637,6 +18639,8 @@
 		47192A452858C086004FD2F3 /* AudioView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
 		47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bartimeus6dots.ttf; sourceTree = "<group>"; };
 		472226E128D84628002BF9E0 /* sheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sheetView.swift; sourceTree = "<group>"; };
+		472C7C11290F0E0D00DA12E9 /* bartimeusb.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bartimeusb.json; sourceTree = "<group>"; };
+		472C7C13290F0E5500DA12E9 /* bartimeusbigb.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bartimeusbigb.json; sourceTree = "<group>"; };
 		473DCC902891430D00CDFF47 /* spotlight120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlight120.png; sourceTree = "<group>"; };
 		473DCC912891430D00CDFF47 /* ipad76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad76.png; sourceTree = "<group>"; };
 		473DCC922891430D00CDFF47 /* notification40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification40.png; sourceTree = "<group>"; };
@@ -28071,6 +28075,8 @@
 		47192A572858CAD6004FD2F3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				472C7C13290F0E5500DA12E9 /* bartimeusbigb.json */,
+				472C7C11290F0E0D00DA12E9 /* bartimeusb.json */,
 				470917A128E6064F008E598C /* Sono-Regular.ttf */,
 				474CFEB9287551170000BF85 /* README.md */,
 				47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */,
@@ -34302,6 +34308,7 @@
 				4714C7A9290043D70021897E /* rivier.mp3 in Resources */,
 				4714DDF3290043DA0021897E /* opruim.mp3 in Resources */,
 				4714D8F3290043D90021897E /* vroor.mp3 in Resources */,
+				472C7C12290F0E0D00DA12E9 /* bartimeusb.json in Resources */,
 				4714D75F290043D90021897E /* overga.mp3 in Resources */,
 				4714D57C290043D90021897E /* afval.mp3 in Resources */,
 				4714E0C6290043DA0021897E /* tikfout.mp3 in Resources */,
@@ -37264,6 +37271,7 @@
 				4714D83C290043D90021897E /* uithang.mp3 in Resources */,
 				4714CBF5290043D80021897E /* fik.mp3 in Resources */,
 				4714C47E290043D70021897E /* krans.mp3 in Resources */,
+				472C7C14290F0E5500DA12E9 /* bartimeusbigb.json in Resources */,
 				4714C26A290043D70021897E /* terugweg.mp3 in Resources */,
 				4714D927290043D90021897E /* toverwoord.mp3 in Resources */,
 				4714C485290043D70021897E /* via.mp3 in Resources */,
@@ -37886,7 +37894,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = 278BFDM8KA;
 				ENABLE_PREVIEWS = YES;
@@ -37924,7 +37932,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = 278BFDM8KA;
 				ENABLE_PREVIEWS = YES;

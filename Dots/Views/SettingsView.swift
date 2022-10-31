@@ -18,24 +18,24 @@ struct SettingsView: View {
     @AppStorage("TALKINGON") var talkingOn = false
     @AppStorage("BRAILLEON") var brailleOn = false
     @AppStorage("MODESTUDENT") var modeStudent = true
-    @AppStorage("TYPEACTIVITY") var typeActivity = "character"
+    @AppStorage("TYPEACTIVITY") var typeActivity = "word"
     
-//    let url = URL(string: "https://www.apple.com")!
-//    let task = URLSession.shared.downloadTask(with: url) { localURL, urlResponse, error in
-//            if let localURL = localURL {
-//                    if let string = try? String(contentsOf: localURL) {
-//                            print(string)
-//                    }
-//            }
-//    }
-
+    //    let url = URL(string: "https://www.apple.com")!
+    //    let task = URLSession.shared.downloadTask(with: url) { localURL, urlResponse, error in
+    //            if let localURL = localURL {
+    //                    if let string = try? String(contentsOf: localURL) {
+    //                            print(string)
+    //                    }
+    //            }
+    //    }
+    
     
     @State private var lettersCnt = 1
-//    @State private var wordCnt = 3
+    //    @State private var wordCnt = 3
     
     let words = [3, 4, 5, 6, 7]
     let activities = ["character","word","sentence","all"]
-
+    
     
     var body: some View {
         NavigationView {
@@ -88,7 +88,9 @@ struct SettingsView: View {
                                 Text("\($0)")
                             }
                         }
-
+                    }
+                    
+                    Section {
                         Toggle("talkingWord".localized(), isOn: $talkingOn)
                         Toggle("brailleText".localized(), isOn: $brailleOn)
                     }
@@ -99,6 +101,9 @@ struct SettingsView: View {
                             indexMethod = 0
                             indexLesson = 0
                             indexLanguage = 0
+                            typeActivity = "word"
+                            talkingOn = false
+                            brailleOn = true
                         } label : {
                             Text("reset".localized())
                         }
@@ -107,15 +112,6 @@ struct SettingsView: View {
                             print("update from Internet")
                         } label : {
                             Text("update".localized())
-                        }
-                        
-                        
-                        Button {
-                            if let text = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
-                                print(text)
-                            }
-                        } label : {
-                            Text("Version 9")
                         }
                         
                         

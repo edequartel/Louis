@@ -436,9 +436,9 @@
           {
             "id" : 0,
             "name" : "abkl letters",
-            "letters" : "a b k l ",
+            "letters" : "a b k l",
             "antiletters" : "",
-            "words" : "a b k l",
+            "words" : "al la aak aal ka lak laak bak",
             "allwords" : "",
             "sentence" : [
               "a b k l a l k k l b b k a k",
@@ -469,7 +469,7 @@
             "name" : "cgop letters",
             "letters" : "c g o p",
             "antiletters" : "",
-            "words" : "c g o p",
+            "words" : "co go op po",
             "allwords" : "",
             "sentence" : [
               "c g o p c g o p o g c p c p",
@@ -531,7 +531,7 @@
             "name" : "efmv letters",
             "letters" : "e f m v",
             "antiletters" : "",
-            "words" : "e f m v",
+            "words" : "ef ff mmv",
             "allwords" : "",
             "sentence" : [
               "e f m v m f e m f v v m f e",
@@ -559,9 +559,9 @@
           {
             "id" : 4,
             "name" : "emfv woorden",
-            "letters" : "",
+            "letters" : "e f m v",
             "antiletters" : "",
-            "words" : "e f m v",
+            "words" : "ee ff mm vv",
             "allwords" : "",
             "sentence" : [
               "la lama maal mal kam af laf",

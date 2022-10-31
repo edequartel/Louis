@@ -1,7 +1,7 @@
 "Information" = "Informatie";
 "brailleText" = "Tekst in Braille";
 "country" = "Land";
-"developedBy" = "Ontwikkeld door Bartimeus Onderwijs\nZeist Nederland\nEric de Quartel";
+"developedBy" = "Bartiméus Onderwijs\nZeist Nederland\nEric de Quartel";
 "keyboard" = "Toetsenbord";
 "lesson" = "Les";
 "method" = "Methode";
@@ -17,3 +17,4 @@
 "word" = "Woord";
 "sentence" = "Zin";
 "all" = "Alles";
+"information" = "Informatie";

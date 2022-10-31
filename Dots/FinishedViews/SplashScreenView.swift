@@ -17,7 +17,7 @@ struct SplashScreenView: View {
             ContentView()
         } else {
             VStack {
-                    LottieView(lottieFile: "dotsloader")
+                    LottieView(lottieFile: "bartimeusbigb")
                         .frame(width: 150, height: 150)
             }
             .onAppear {

@@ -15,6 +15,8 @@ struct InformationView: View {
     @Environment(\.calendar) private var calendar
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
+    let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+    
     
     var body: some View {
         
@@ -24,46 +26,52 @@ struct InformationView: View {
             Form {
                 Section {
                     Link(destination: URL(string: "http://www.tastenbraille.com/wikilouis")!, label: {
-                        Text("Louis")
+                        Text("Louis online")
                     })
-                    Text("Video: aansluiten leesregel op iPhone")
-                    Text("Video: activiteit, lees de tekst en luister")
-                    
-                }
-                Section {
-                    
-                    //                    Image("Logo") // displays a cute image saved as "puppy" in Assets folder
-                    //                        .resizable() // makes image fill all available space
-                    //                        .aspectRatio(contentMode: .fit)
-                    //                        .clipShape(RoundedRectangle(cornerRadius: 5.0))
-                    
-                    
-                    Section {
-                        Text(locale.description)
-                        Text(calendar.description)
-                        Text(horizontalSizeClass == .compact ? "Compact": "Regular")
-                        Text(colorScheme == .dark ? "Dark mode" : "Light mode")
-                        Text(voEnabled ? "Voiceover On`" : "Voiceover off")
-                    }.font(.headline)
-                    
-                    
+                    //                    Link(destination: URL(string: "https://vimeo.com/showcase/9833359")!, label: {
+                    //                        Text("Video")
+                    //                    })
                 }
                 
-                Text("developedBy".localized())
-            
-                //                        .italic()
-                .foregroundColor(.primary)
-                //                        .fontWeight(Weight(value: 0.0))
-                .multilineTextAlignment(.leading)
-                .lineLimit(5)
-                .lineSpacing(1.0)
-                //                        .textSelection(.enabled)
+                //                Section {
+                Section {
+                    Text(locale.description)
+                    Text(calendar.description)
+                    Text(horizontalSizeClass == .compact ? "Compact": "Regular")
+                    Text(colorScheme == .dark ? "Dark mode" : "Light mode")
+                    Text(voEnabled ? "Voiceover On`" : "Voiceover off")
+                } header: {
+                    Text("information".localized())
+                    }
+                .font(.headline)
+                
+                //                }
+                
+                Section{
+                    Text(version())
+                }
+                
+                Section {
+                    Text("developedBy".localized())
+                        .foregroundColor(.primary)
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(5)
+                        .lineSpacing(1.0)
+                        .textSelection(.enabled)
+                }
             }
             
             
         }
-        .navigationTitle("Information".localized())
+        .navigationTitle("information".localized())
         .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    func version() -> String {
+        let dictionary = Bundle.main.infoDictionary!
+        let version = dictionary["CFBundleShortVersionString"] as! String
+        let build = dictionary["CFBundleVersion"] as! String
+        return "Version \(version) build \(build)"
     }
     
 }
