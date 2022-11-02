@@ -9293,63 +9293,53 @@
 		473DCCC12891430D00CDFF47 /* appstore1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCCA72891430D00CDFF47 /* appstore1024.png */; };
 		473DCCC22891430D00CDFF47 /* ipadSettings58.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCCA82891430D00CDFF47 /* ipadSettings58.png */; };
 		473DCCC32891430D00CDFF47 /* ipadNotification40.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCCA92891430D00CDFF47 /* ipadNotification40.png */; };
-		474CD63E2875DC8A00AF7FDE /* j.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD60A2875DC8900AF7FDE /* j.wav */; };
-		474CD63F2875DC8A00AF7FDE /* f.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD60B2875DC8900AF7FDE /* f.wav */; };
-		474CD6402875DC8A00AF7FDE /* ch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD60C2875DC8900AF7FDE /* ch.wav */; };
-		474CD6412875DC8A00AF7FDE /* q.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD60D2875DC8A00AF7FDE /* q.wav */; };
-		474CD6422875DC8A00AF7FDE /* nk.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD60E2875DC8A00AF7FDE /* nk.wav */; };
-		474CD6432875DC8A00AF7FDE /* n.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD60F2875DC8A00AF7FDE /* n.wav */; };
-		474CD6442875DC8A00AF7FDE /* ou.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6102875DC8A00AF7FDE /* ou.wav */; };
-		474CD6452875DC8A00AF7FDE /* eeuw.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6112875DC8A00AF7FDE /* eeuw.wav */; };
-		474CD6462875DC8A00AF7FDE /* c.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6122875DC8A00AF7FDE /* c.wav */; };
-		474CD6472875DC8A00AF7FDE /* l.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6132875DC8A00AF7FDE /* l.wav */; };
-		474CD6482875DC8A00AF7FDE /* eur.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6142875DC8A00AF7FDE /* eur.wav */; };
-		474CD6492875DC8A00AF7FDE /* aai.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6152875DC8A00AF7FDE /* aai.wav */; };
-		474CD64A2875DC8A00AF7FDE /* oo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6162875DC8A00AF7FDE /* oo.wav */; };
-		474CD64B2875DC8A00AF7FDE /* w.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6172875DC8A00AF7FDE /* w.wav */; };
-		474CD64C2875DC8A00AF7FDE /* u.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6182875DC8A00AF7FDE /* u.wav */; };
-		474CD64D2875DC8A00AF7FDE /* v.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6192875DC8A00AF7FDE /* v.wav */; };
-		474CD64E2875DC8A00AF7FDE /* h.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD61A2875DC8A00AF7FDE /* h.wav */; };
-		474CD64F2875DC8A00AF7FDE /* aa.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD61B2875DC8A00AF7FDE /* aa.wav */; };
-		474CD6502875DC8A00AF7FDE /* e.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD61C2875DC8A00AF7FDE /* e.wav */; };
-		474CD6512875DC8A00AF7FDE /* d.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD61D2875DC8A00AF7FDE /* d.wav */; };
-		474CD6522875DC8A00AF7FDE /* ee.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD61E2875DC8A00AF7FDE /* ee.wav */; };
-		474CD6532875DC8A00AF7FDE /* au.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD61F2875DC8A00AF7FDE /* au.wav */; };
-		474CD6542875DC8A00AF7FDE /* uu.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6202875DC8A00AF7FDE /* uu.wav */; };
-		474CD6552875DC8A00AF7FDE /* ui.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6212875DC8A00AF7FDE /* ui.wav */; };
-		474CD6562875DC8A00AF7FDE /* b.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6222875DC8A00AF7FDE /* b.wav */; };
-		474CD6572875DC8A00AF7FDE /* r.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6232875DC8A00AF7FDE /* r.wav */; };
-		474CD6582875DC8A00AF7FDE /* s.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6242875DC8A00AF7FDE /* s.wav */; };
-		474CD6592875DC8A00AF7FDE /* ng.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6252875DC8A00AF7FDE /* ng.wav */; };
-		474CD65A2875DC8A00AF7FDE /* ei.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6262875DC8A00AF7FDE /* ei.wav */; };
-		474CD65B2875DC8A00AF7FDE /* z.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6272875DC8A00AF7FDE /* z.wav */; };
-		474CD65C2875DC8A00AF7FDE /* oe.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6282875DC8A00AF7FDE /* oe.wav */; };
-		474CD65D2875DC8A00AF7FDE /* oei.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6292875DC8A00AF7FDE /* oei.wav */; };
-		474CD65E2875DC8A00AF7FDE /* sch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD62A2875DC8A00AF7FDE /* sch.wav */; };
-		474CD65F2875DC8A00AF7FDE /* t.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD62B2875DC8A00AF7FDE /* t.wav */; };
-		474CD6602875DC8A00AF7FDE /* ooi.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD62C2875DC8A00AF7FDE /* ooi.wav */; };
-		474CD6612875DC8A00AF7FDE /* a.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD62D2875DC8A00AF7FDE /* a.wav */; };
-		474CD6622875DC8A00AF7FDE /* i.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD62E2875DC8A00AF7FDE /* i.wav */; };
-		474CD6632875DC8A00AF7FDE /* ij.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD62F2875DC8A00AF7FDE /* ij.wav */; };
-		474CD6642875DC8A00AF7FDE /* space.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6302875DC8A00AF7FDE /* space.wav */; };
-		474CD6652875DC8A00AF7FDE /* o.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6312875DC8A00AF7FDE /* o.wav */; };
-		474CD6662875DC8A00AF7FDE /* y.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6322875DC8A00AF7FDE /* y.wav */; };
-		474CD6672875DC8A00AF7FDE /* p.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6332875DC8A00AF7FDE /* p.wav */; };
-		474CD6682875DC8A00AF7FDE /* x.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6342875DC8A00AF7FDE /* x.wav */; };
-		474CD6692875DC8A00AF7FDE /* ieuw.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6352875DC8A00AF7FDE /* ieuw.wav */; };
-		474CD66A2875DC8A00AF7FDE /* eer.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6362875DC8A00AF7FDE /* eer.wav */; };
-		474CD66B2875DC8A00AF7FDE /* ie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6372875DC8A00AF7FDE /* ie.wav */; };
-		474CD66C2875DC8A00AF7FDE /* k.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6382875DC8A00AF7FDE /* k.wav */; };
-		474CD66D2875DC8A00AF7FDE /* é.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD6392875DC8A00AF7FDE /* é.wav */; };
-		474CD66E2875DC8A00AF7FDE /* oor.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD63A2875DC8A00AF7FDE /* oor.wav */; };
-		474CD66F2875DC8A00AF7FDE /* eu.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD63B2875DC8A00AF7FDE /* eu.wav */; };
-		474CD6702875DC8A00AF7FDE /* g.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD63C2875DC8A00AF7FDE /* g.wav */; };
-		474CD6712875DC8A00AF7FDE /* m.wav in Resources */ = {isa = PBXBuildFile; fileRef = 474CD63D2875DC8A00AF7FDE /* m.wav */; };
+		4749D9D42912A1B90029AFD9 /* perkinspingdoorvoer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4749D9D22912A1B90029AFD9 /* perkinspingdoorvoer.mp3 */; };
+		4749D9D72912A2C10029AFD9 /* perkinsping.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4749D9D62912A2C00029AFD9 /* perkinsping.mp3 */; };
 		474CFEBA287551170000BF85 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 474CFEB9287551170000BF85 /* README.md */; };
 		4756BE8128D891CC002A2F2E /* leesenvulin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4756BE8028D891CC002A2F2E /* leesenvulin.wav */; };
 		4766E4CB28B3519A00852495 /* StepperView in Frameworks */ = {isa = PBXBuildFile; productRef = 4766E4CA28B3519A00852495 /* StepperView */; };
 		4766E4CD28B351B200852495 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766E4CC28B351B200852495 /* ProgressView.swift */; };
 		476A36D128F06CDC00F3909B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 476A36D328F06CDC00F3909B /* Localizable.strings */; };
+		47BC644A29101D1400CE75B8 /* a.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC641929101D1400CE75B8 /* a.mp3 */; };
+		47BC644B29101D1400CE75B8 /* v.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC641A29101D1400CE75B8 /* v.mp3 */; };
+		47BC644C29101D1400CE75B8 /* w.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC641B29101D1400CE75B8 /* w.mp3 */; };
+		47BC644D29101D1400CE75B8 /* b.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC641C29101D1400CE75B8 /* b.mp3 */; };
+		47BC644E29101D1400CE75B8 /* u.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC641D29101D1400CE75B8 /* u.mp3 */; };
+		47BC644F29101D1400CE75B8 /* t.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC641E29101D1400CE75B8 /* t.mp3 */; };
+		47BC645029101D1400CE75B8 /* c.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC641F29101D1400CE75B8 /* c.mp3 */; };
+		47BC645129101D1400CE75B8 /* oe.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC642029101D1400CE75B8 /* oe.mp3 */; };
+		47BC645229101D1400CE75B8 /* p.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC642129101D1400CE75B8 /* p.mp3 */; };
+		47BC645329101D1400CE75B8 /* g.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC642229101D1400CE75B8 /* g.mp3 */; };
+		47BC645429101D1400CE75B8 /* f.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC642329101D1400CE75B8 /* f.mp3 */; };
+		47BC645529101D1400CE75B8 /* q.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC642429101D1400CE75B8 /* q.mp3 */; };
+		47BC645629101D1400CE75B8 /* ou.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC642529101D1400CE75B8 /* ou.mp3 */; };
+		47BC645729101D1400CE75B8 /* s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC642629101D1400CE75B8 /* s.mp3 */; };
+		47BC645829101D1400CE75B8 /* d.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC642729101D1400CE75B8 /* d.mp3 */; };
+		47BC645929101D1400CE75B8 /* e.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC642829101D1400CE75B8 /* e.mp3 */; };
+		47BC645A29101D1400CE75B8 /* r.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC642929101D1400CE75B8 /* r.mp3 */; };
+		47BC645B29101D1400CE75B8 /* ng.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC642A29101D1400CE75B8 /* ng.mp3 */; };
+		47BC645D29101D1400CE75B8 /* ie.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC642C29101D1400CE75B8 /* ie.mp3 */; };
+		47BC645E29101D1400CE75B8 /* ee.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC642D29101D1400CE75B8 /* ee.mp3 */; };
+		47BC645F29101D1400CE75B8 /* eur.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC642E29101D1400CE75B8 /* eur.mp3 */; };
+		47BC646029101D1400CE75B8 /* eu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC642F29101D1400CE75B8 /* eu.mp3 */; };
+		47BC646329101D1400CE75B8 /* ij.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC643229101D1400CE75B8 /* ij.mp3 */; };
+		47BC646529101D1400CE75B8 /* h.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC643429101D1400CE75B8 /* h.mp3 */; };
+		47BC646629101D1400CE75B8 /* i.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC643529101D1400CE75B8 /* i.mp3 */; };
+		47BC646729101D1400CE75B8 /* nk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC643629101D1400CE75B8 /* nk.mp3 */; };
+		47BC646829101D1400CE75B8 /* oo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC643729101D1400CE75B8 /* oo.mp3 */; };
+		47BC646929101D1400CE75B8 /* k.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC643829101D1400CE75B8 /* k.mp3 */; };
+		47BC646A29101D1400CE75B8 /* j.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC643929101D1400CE75B8 /* j.mp3 */; };
+		47BC646B29101D1400CE75B8 /* sch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC643A29101D1400CE75B8 /* sch.mp3 */; };
+		47BC646C29101D1400CE75B8 /* uu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC643B29101D1400CE75B8 /* uu.mp3 */; };
+		47BC646F29101D1400CE75B8 /* ieuw.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC643E29101D1400CE75B8 /* ieuw.mp3 */; };
+		47BC647029101D1400CE75B8 /* n.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC643F29101D1400CE75B8 /* n.mp3 */; };
+		47BC647129101D1400CE75B8 /* y.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC644029101D1400CE75B8 /* y.mp3 */; };
+		47BC647229101D1400CE75B8 /* x.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC644129101D1400CE75B8 /* x.mp3 */; };
+		47BC647429101D1400CE75B8 /* o.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC644329101D1400CE75B8 /* o.mp3 */; };
+		47BC647629101D1400CE75B8 /* m.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC644529101D1400CE75B8 /* m.mp3 */; };
+		47BC647729101D1400CE75B8 /* ch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC644629101D1400CE75B8 /* ch.mp3 */; };
+		47BC647829101D1400CE75B8 /* aa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC644729101D1400CE75B8 /* aa.mp3 */; };
+		47BC647929101D1400CE75B8 /* l.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47BC644829101D1400CE75B8 /* l.mp3 */; };
 		47DC7BF92858FDDA0095EC8F /* Subsonic in Frameworks */ = {isa = PBXBuildFile; productRef = 47DC7BF82858FDDA0095EC8F /* Subsonic */; };
 		47E993CE28E433DD00D32F53 /* SwiftProgress in Frameworks */ = {isa = PBXBuildFile; productRef = 47E993CD28E433DD00D32F53 /* SwiftProgress */; };
 		47EBF7C42860D80D00E8F230 /* jsonmanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EBF7C32860D80D00E8F230 /* jsonmanager.swift */; };
@@ -18667,64 +18657,54 @@
 		473DCCA72891430D00CDFF47 /* appstore1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appstore1024.png; sourceTree = "<group>"; };
 		473DCCA82891430D00CDFF47 /* ipadSettings58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipadSettings58.png; sourceTree = "<group>"; };
 		473DCCA92891430D00CDFF47 /* ipadNotification40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipadNotification40.png; sourceTree = "<group>"; };
-		474CD60A2875DC8900AF7FDE /* j.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = j.wav; path = phonetic/Thessa/j.wav; sourceTree = "<group>"; };
-		474CD60B2875DC8900AF7FDE /* f.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = f.wav; path = phonetic/Thessa/f.wav; sourceTree = "<group>"; };
-		474CD60C2875DC8900AF7FDE /* ch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ch.wav; path = phonetic/Thessa/ch.wav; sourceTree = "<group>"; };
-		474CD60D2875DC8A00AF7FDE /* q.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = q.wav; path = phonetic/Thessa/q.wav; sourceTree = "<group>"; };
-		474CD60E2875DC8A00AF7FDE /* nk.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = nk.wav; path = phonetic/Thessa/nk.wav; sourceTree = "<group>"; };
-		474CD60F2875DC8A00AF7FDE /* n.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = n.wav; path = phonetic/Thessa/n.wav; sourceTree = "<group>"; };
-		474CD6102875DC8A00AF7FDE /* ou.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ou.wav; path = phonetic/Thessa/ou.wav; sourceTree = "<group>"; };
-		474CD6112875DC8A00AF7FDE /* eeuw.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = eeuw.wav; path = phonetic/Thessa/eeuw.wav; sourceTree = "<group>"; };
-		474CD6122875DC8A00AF7FDE /* c.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = c.wav; path = phonetic/Thessa/c.wav; sourceTree = "<group>"; };
-		474CD6132875DC8A00AF7FDE /* l.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = l.wav; path = phonetic/Thessa/l.wav; sourceTree = "<group>"; };
-		474CD6142875DC8A00AF7FDE /* eur.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = eur.wav; path = phonetic/Thessa/eur.wav; sourceTree = "<group>"; };
-		474CD6152875DC8A00AF7FDE /* aai.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = aai.wav; path = phonetic/Thessa/aai.wav; sourceTree = "<group>"; };
-		474CD6162875DC8A00AF7FDE /* oo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = oo.wav; path = phonetic/Thessa/oo.wav; sourceTree = "<group>"; };
-		474CD6172875DC8A00AF7FDE /* w.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = w.wav; path = phonetic/Thessa/w.wav; sourceTree = "<group>"; };
-		474CD6182875DC8A00AF7FDE /* u.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = u.wav; path = phonetic/Thessa/u.wav; sourceTree = "<group>"; };
-		474CD6192875DC8A00AF7FDE /* v.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = v.wav; path = phonetic/Thessa/v.wav; sourceTree = "<group>"; };
-		474CD61A2875DC8A00AF7FDE /* h.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = h.wav; path = phonetic/Thessa/h.wav; sourceTree = "<group>"; };
-		474CD61B2875DC8A00AF7FDE /* aa.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = aa.wav; path = phonetic/Thessa/aa.wav; sourceTree = "<group>"; };
-		474CD61C2875DC8A00AF7FDE /* e.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = e.wav; path = phonetic/Thessa/e.wav; sourceTree = "<group>"; };
-		474CD61D2875DC8A00AF7FDE /* d.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = d.wav; path = phonetic/Thessa/d.wav; sourceTree = "<group>"; };
-		474CD61E2875DC8A00AF7FDE /* ee.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ee.wav; path = phonetic/Thessa/ee.wav; sourceTree = "<group>"; };
-		474CD61F2875DC8A00AF7FDE /* au.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = au.wav; path = phonetic/Thessa/au.wav; sourceTree = "<group>"; };
-		474CD6202875DC8A00AF7FDE /* uu.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = uu.wav; path = phonetic/Thessa/uu.wav; sourceTree = "<group>"; };
-		474CD6212875DC8A00AF7FDE /* ui.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ui.wav; path = phonetic/Thessa/ui.wav; sourceTree = "<group>"; };
-		474CD6222875DC8A00AF7FDE /* b.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = b.wav; path = phonetic/Thessa/b.wav; sourceTree = "<group>"; };
-		474CD6232875DC8A00AF7FDE /* r.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = r.wav; path = phonetic/Thessa/r.wav; sourceTree = "<group>"; };
-		474CD6242875DC8A00AF7FDE /* s.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = s.wav; path = phonetic/Thessa/s.wav; sourceTree = "<group>"; };
-		474CD6252875DC8A00AF7FDE /* ng.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ng.wav; path = phonetic/Thessa/ng.wav; sourceTree = "<group>"; };
-		474CD6262875DC8A00AF7FDE /* ei.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ei.wav; path = phonetic/Thessa/ei.wav; sourceTree = "<group>"; };
-		474CD6272875DC8A00AF7FDE /* z.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = z.wav; path = phonetic/Thessa/z.wav; sourceTree = "<group>"; };
-		474CD6282875DC8A00AF7FDE /* oe.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = oe.wav; path = phonetic/Thessa/oe.wav; sourceTree = "<group>"; };
-		474CD6292875DC8A00AF7FDE /* oei.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = oei.wav; path = phonetic/Thessa/oei.wav; sourceTree = "<group>"; };
-		474CD62A2875DC8A00AF7FDE /* sch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sch.wav; path = phonetic/Thessa/sch.wav; sourceTree = "<group>"; };
-		474CD62B2875DC8A00AF7FDE /* t.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = t.wav; path = phonetic/Thessa/t.wav; sourceTree = "<group>"; };
-		474CD62C2875DC8A00AF7FDE /* ooi.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ooi.wav; path = phonetic/Thessa/ooi.wav; sourceTree = "<group>"; };
-		474CD62D2875DC8A00AF7FDE /* a.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = a.wav; path = phonetic/Thessa/a.wav; sourceTree = "<group>"; };
-		474CD62E2875DC8A00AF7FDE /* i.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = i.wav; path = phonetic/Thessa/i.wav; sourceTree = "<group>"; };
-		474CD62F2875DC8A00AF7FDE /* ij.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ij.wav; path = phonetic/Thessa/ij.wav; sourceTree = "<group>"; };
-		474CD6302875DC8A00AF7FDE /* space.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = space.wav; path = phonetic/Thessa/space.wav; sourceTree = "<group>"; };
-		474CD6312875DC8A00AF7FDE /* o.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = o.wav; path = phonetic/Thessa/o.wav; sourceTree = "<group>"; };
-		474CD6322875DC8A00AF7FDE /* y.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = y.wav; path = phonetic/Thessa/y.wav; sourceTree = "<group>"; };
-		474CD6332875DC8A00AF7FDE /* p.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = p.wav; path = phonetic/Thessa/p.wav; sourceTree = "<group>"; };
-		474CD6342875DC8A00AF7FDE /* x.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = x.wav; path = phonetic/Thessa/x.wav; sourceTree = "<group>"; };
-		474CD6352875DC8A00AF7FDE /* ieuw.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ieuw.wav; path = phonetic/Thessa/ieuw.wav; sourceTree = "<group>"; };
-		474CD6362875DC8A00AF7FDE /* eer.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = eer.wav; path = phonetic/Thessa/eer.wav; sourceTree = "<group>"; };
-		474CD6372875DC8A00AF7FDE /* ie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ie.wav; path = phonetic/Thessa/ie.wav; sourceTree = "<group>"; };
-		474CD6382875DC8A00AF7FDE /* k.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = k.wav; path = phonetic/Thessa/k.wav; sourceTree = "<group>"; };
-		474CD6392875DC8A00AF7FDE /* é.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "é.wav"; path = "phonetic/Thessa/é.wav"; sourceTree = "<group>"; };
-		474CD63A2875DC8A00AF7FDE /* oor.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = oor.wav; path = phonetic/Thessa/oor.wav; sourceTree = "<group>"; };
-		474CD63B2875DC8A00AF7FDE /* eu.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = eu.wav; path = phonetic/Thessa/eu.wav; sourceTree = "<group>"; };
-		474CD63C2875DC8A00AF7FDE /* g.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = g.wav; path = phonetic/Thessa/g.wav; sourceTree = "<group>"; };
-		474CD63D2875DC8A00AF7FDE /* m.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = m.wav; path = phonetic/Thessa/m.wav; sourceTree = "<group>"; };
+		4749D9D22912A1B90029AFD9 /* perkinspingdoorvoer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = perkinspingdoorvoer.mp3; path = ../../../../../Music/perkinspingdoorvoer.mp3; sourceTree = "<group>"; };
+		4749D9D62912A2C00029AFD9 /* perkinsping.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = perkinsping.mp3; path = ../../../../../Music/perkinsping.mp3; sourceTree = "<group>"; };
 		474CFEB9287551170000BF85 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		4756BE8028D891CC002A2F2E /* leesenvulin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = leesenvulin.wav; sourceTree = "<group>"; };
 		4766E4CC28B351B200852495 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		476A36D228F06CDC00F3909B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		476A36D428F06CDE00F3909B /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		476A36D728F076D500F3909B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		47BC641929101D1400CE75B8 /* a.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = a.mp3; sourceTree = "<group>"; };
+		47BC641A29101D1400CE75B8 /* v.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = v.mp3; sourceTree = "<group>"; };
+		47BC641B29101D1400CE75B8 /* w.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = w.mp3; sourceTree = "<group>"; };
+		47BC641C29101D1400CE75B8 /* b.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = b.mp3; sourceTree = "<group>"; };
+		47BC641D29101D1400CE75B8 /* u.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = u.mp3; sourceTree = "<group>"; };
+		47BC641E29101D1400CE75B8 /* t.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = t.mp3; sourceTree = "<group>"; };
+		47BC641F29101D1400CE75B8 /* c.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = c.mp3; sourceTree = "<group>"; };
+		47BC642029101D1400CE75B8 /* oe.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = oe.mp3; sourceTree = "<group>"; };
+		47BC642129101D1400CE75B8 /* p.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = p.mp3; sourceTree = "<group>"; };
+		47BC642229101D1400CE75B8 /* g.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = g.mp3; sourceTree = "<group>"; };
+		47BC642329101D1400CE75B8 /* f.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = f.mp3; sourceTree = "<group>"; };
+		47BC642429101D1400CE75B8 /* q.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = q.mp3; sourceTree = "<group>"; };
+		47BC642529101D1400CE75B8 /* ou.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ou.mp3; sourceTree = "<group>"; };
+		47BC642629101D1400CE75B8 /* s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = s.mp3; sourceTree = "<group>"; };
+		47BC642729101D1400CE75B8 /* d.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = d.mp3; sourceTree = "<group>"; };
+		47BC642829101D1400CE75B8 /* e.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = e.mp3; sourceTree = "<group>"; };
+		47BC642929101D1400CE75B8 /* r.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = r.mp3; sourceTree = "<group>"; };
+		47BC642A29101D1400CE75B8 /* ng.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ng.mp3; sourceTree = "<group>"; };
+		47BC642C29101D1400CE75B8 /* ie.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ie.mp3; sourceTree = "<group>"; };
+		47BC642D29101D1400CE75B8 /* ee.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ee.mp3; sourceTree = "<group>"; };
+		47BC642E29101D1400CE75B8 /* eur.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eur.mp3; sourceTree = "<group>"; };
+		47BC642F29101D1400CE75B8 /* eu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eu.mp3; sourceTree = "<group>"; };
+		47BC643229101D1400CE75B8 /* ij.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ij.mp3; sourceTree = "<group>"; };
+		47BC643429101D1400CE75B8 /* h.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = h.mp3; sourceTree = "<group>"; };
+		47BC643529101D1400CE75B8 /* i.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = i.mp3; sourceTree = "<group>"; };
+		47BC643629101D1400CE75B8 /* nk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nk.mp3; sourceTree = "<group>"; };
+		47BC643729101D1400CE75B8 /* oo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = oo.mp3; sourceTree = "<group>"; };
+		47BC643829101D1400CE75B8 /* k.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = k.mp3; sourceTree = "<group>"; };
+		47BC643929101D1400CE75B8 /* j.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = j.mp3; sourceTree = "<group>"; };
+		47BC643A29101D1400CE75B8 /* sch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sch.mp3; sourceTree = "<group>"; };
+		47BC643B29101D1400CE75B8 /* uu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = uu.mp3; sourceTree = "<group>"; };
+		47BC643E29101D1400CE75B8 /* ieuw.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ieuw.mp3; sourceTree = "<group>"; };
+		47BC643F29101D1400CE75B8 /* n.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = n.mp3; sourceTree = "<group>"; };
+		47BC644029101D1400CE75B8 /* y.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = y.mp3; sourceTree = "<group>"; };
+		47BC644129101D1400CE75B8 /* x.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = x.mp3; sourceTree = "<group>"; };
+		47BC644329101D1400CE75B8 /* o.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = o.mp3; sourceTree = "<group>"; };
+		47BC644529101D1400CE75B8 /* m.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = m.mp3; sourceTree = "<group>"; };
+		47BC644629101D1400CE75B8 /* ch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ch.mp3; sourceTree = "<group>"; };
+		47BC644729101D1400CE75B8 /* aa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = aa.mp3; sourceTree = "<group>"; };
+		47BC644829101D1400CE75B8 /* l.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = l.mp3; sourceTree = "<group>"; };
 		47EBF7C32860D80D00E8F230 /* jsonmanager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jsonmanager.swift; sourceTree = "<group>"; };
 		47EBF7C52860D84200E8F230 /* methods.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = methods.json; sourceTree = "<group>"; };
 		47EBF804286200CA00E8F230 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
@@ -28035,8 +28015,8 @@
 			children = (
 				472226DE28D83708002BF9E0 /* FinishedViews */,
 				472226DD28D836D3002BF9E0 /* NotUsedNow */,
-				474CFEBB2875B49A0000BF85 /* Views */,
 				47EBF7B8285AECD000E8F230 /* Audio */,
+				474CFEBB2875B49A0000BF85 /* Views */,
 				4766E4D528B3B88D00852495 /* Models */,
 				47192A3C2858BFA4004FD2F3 /* Info.plist */,
 				47192A122858893D004FD2F3 /* Assets.xcassets */,
@@ -28099,7 +28079,6 @@
 		472226DE28D83708002BF9E0 /* FinishedViews */ = {
 			isa = PBXGroup;
 			children = (
-				47192A3F2858C065004FD2F3 /* InformationView.swift */,
 				47192A382858BE7D004FD2F3 /* SplashScreenView.swift */,
 				47EBF804286200CA00E8F230 /* LottieView.swift */,
 			);
@@ -28139,68 +28118,10 @@
 			path = AppIcon.appiconset;
 			sourceTree = "<group>";
 		};
-		474CD6092875D88F00AF7FDE /* alfabet */ = {
-			isa = PBXGroup;
-			children = (
-				474CD62D2875DC8A00AF7FDE /* a.wav */,
-				474CD61B2875DC8A00AF7FDE /* aa.wav */,
-				474CD6152875DC8A00AF7FDE /* aai.wav */,
-				474CD61F2875DC8A00AF7FDE /* au.wav */,
-				474CD6222875DC8A00AF7FDE /* b.wav */,
-				474CD6122875DC8A00AF7FDE /* c.wav */,
-				474CD60C2875DC8900AF7FDE /* ch.wav */,
-				474CD61D2875DC8A00AF7FDE /* d.wav */,
-				474CD61C2875DC8A00AF7FDE /* e.wav */,
-				474CD6392875DC8A00AF7FDE /* é.wav */,
-				474CD61E2875DC8A00AF7FDE /* ee.wav */,
-				474CD6362875DC8A00AF7FDE /* eer.wav */,
-				474CD6112875DC8A00AF7FDE /* eeuw.wav */,
-				474CD6262875DC8A00AF7FDE /* ei.wav */,
-				474CD63B2875DC8A00AF7FDE /* eu.wav */,
-				474CD6142875DC8A00AF7FDE /* eur.wav */,
-				474CD60B2875DC8900AF7FDE /* f.wav */,
-				474CD63C2875DC8A00AF7FDE /* g.wav */,
-				474CD61A2875DC8A00AF7FDE /* h.wav */,
-				474CD62E2875DC8A00AF7FDE /* i.wav */,
-				474CD6372875DC8A00AF7FDE /* ie.wav */,
-				474CD6352875DC8A00AF7FDE /* ieuw.wav */,
-				474CD62F2875DC8A00AF7FDE /* ij.wav */,
-				474CD60A2875DC8900AF7FDE /* j.wav */,
-				474CD6382875DC8A00AF7FDE /* k.wav */,
-				474CD6132875DC8A00AF7FDE /* l.wav */,
-				474CD63D2875DC8A00AF7FDE /* m.wav */,
-				474CD60F2875DC8A00AF7FDE /* n.wav */,
-				474CD6252875DC8A00AF7FDE /* ng.wav */,
-				474CD60E2875DC8A00AF7FDE /* nk.wav */,
-				474CD6312875DC8A00AF7FDE /* o.wav */,
-				474CD6282875DC8A00AF7FDE /* oe.wav */,
-				474CD6292875DC8A00AF7FDE /* oei.wav */,
-				474CD6162875DC8A00AF7FDE /* oo.wav */,
-				474CD62C2875DC8A00AF7FDE /* ooi.wav */,
-				474CD63A2875DC8A00AF7FDE /* oor.wav */,
-				474CD6102875DC8A00AF7FDE /* ou.wav */,
-				474CD6332875DC8A00AF7FDE /* p.wav */,
-				474CD60D2875DC8A00AF7FDE /* q.wav */,
-				474CD6232875DC8A00AF7FDE /* r.wav */,
-				474CD6242875DC8A00AF7FDE /* s.wav */,
-				474CD62A2875DC8A00AF7FDE /* sch.wav */,
-				474CD6302875DC8A00AF7FDE /* space.wav */,
-				474CD62B2875DC8A00AF7FDE /* t.wav */,
-				474CD6182875DC8A00AF7FDE /* u.wav */,
-				474CD6212875DC8A00AF7FDE /* ui.wav */,
-				474CD6202875DC8A00AF7FDE /* uu.wav */,
-				474CD6192875DC8A00AF7FDE /* v.wav */,
-				474CD6172875DC8A00AF7FDE /* w.wav */,
-				474CD6342875DC8A00AF7FDE /* x.wav */,
-				474CD6322875DC8A00AF7FDE /* y.wav */,
-				474CD6272875DC8A00AF7FDE /* z.wav */,
-			);
-			path = alfabet;
-			sourceTree = "<group>";
-		};
 		474CFEBB2875B49A0000BF85 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				47192A3F2858C065004FD2F3 /* InformationView.swift */,
 				47192A102858893C004FD2F3 /* ContentView.swift */,
 				47192A3D2858C057004FD2F3 /* SettingsView.swift */,
 				47192A412858C073004FD2F3 /* PlaygroundView.swift */,
@@ -28227,12 +28148,62 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		47BC641729101D1400CE75B8 /* alfabet */ = {
+			isa = PBXGroup;
+			children = (
+				47BC641929101D1400CE75B8 /* a.mp3 */,
+				47BC641A29101D1400CE75B8 /* v.mp3 */,
+				47BC641B29101D1400CE75B8 /* w.mp3 */,
+				47BC641C29101D1400CE75B8 /* b.mp3 */,
+				47BC641D29101D1400CE75B8 /* u.mp3 */,
+				47BC641E29101D1400CE75B8 /* t.mp3 */,
+				47BC641F29101D1400CE75B8 /* c.mp3 */,
+				47BC642029101D1400CE75B8 /* oe.mp3 */,
+				47BC642129101D1400CE75B8 /* p.mp3 */,
+				47BC642229101D1400CE75B8 /* g.mp3 */,
+				47BC642329101D1400CE75B8 /* f.mp3 */,
+				47BC642429101D1400CE75B8 /* q.mp3 */,
+				47BC642529101D1400CE75B8 /* ou.mp3 */,
+				47BC642629101D1400CE75B8 /* s.mp3 */,
+				47BC642729101D1400CE75B8 /* d.mp3 */,
+				47BC642829101D1400CE75B8 /* e.mp3 */,
+				47BC642929101D1400CE75B8 /* r.mp3 */,
+				47BC642A29101D1400CE75B8 /* ng.mp3 */,
+				47BC642C29101D1400CE75B8 /* ie.mp3 */,
+				47BC642D29101D1400CE75B8 /* ee.mp3 */,
+				47BC642E29101D1400CE75B8 /* eur.mp3 */,
+				47BC642F29101D1400CE75B8 /* eu.mp3 */,
+				47BC643229101D1400CE75B8 /* ij.mp3 */,
+				47BC643429101D1400CE75B8 /* h.mp3 */,
+				47BC643529101D1400CE75B8 /* i.mp3 */,
+				47BC643629101D1400CE75B8 /* nk.mp3 */,
+				47BC643729101D1400CE75B8 /* oo.mp3 */,
+				47BC643829101D1400CE75B8 /* k.mp3 */,
+				47BC643929101D1400CE75B8 /* j.mp3 */,
+				47BC643A29101D1400CE75B8 /* sch.mp3 */,
+				47BC643B29101D1400CE75B8 /* uu.mp3 */,
+				47BC643E29101D1400CE75B8 /* ieuw.mp3 */,
+				47BC643F29101D1400CE75B8 /* n.mp3 */,
+				47BC644029101D1400CE75B8 /* y.mp3 */,
+				47BC644129101D1400CE75B8 /* x.mp3 */,
+				47BC644329101D1400CE75B8 /* o.mp3 */,
+				47BC644529101D1400CE75B8 /* m.mp3 */,
+				47BC644629101D1400CE75B8 /* ch.mp3 */,
+				47BC644729101D1400CE75B8 /* aa.mp3 */,
+				47BC644829101D1400CE75B8 /* l.mp3 */,
+			);
+			name = alfabet;
+			path = ../../../../../Music/alfabet;
+			sourceTree = "<group>";
+		};
 		47EBF7B8285AECD000E8F230 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				4749D9D62912A2C00029AFD9 /* perkinsping.mp3 */,
+				4749D9D22912A1B90029AFD9 /* perkinspingdoorvoer.mp3 */,
+				47BC641729101D1400CE75B8 /* alfabet */,
 				471498AC290043570021897E /* waves */,
 				4756BE7F28D88DD8002A2F2E /* instruction */,
-				474CD6092875D88F00AF7FDE /* alfabet */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -28361,7 +28332,6 @@
 				4714D78C290043D90021897E /* aanleren.mp3 in Resources */,
 				4714E03A290043DA0021897E /* vrijwel.mp3 in Resources */,
 				4714C1AC290043D70021897E /* noor.mp3 in Resources */,
-				474CD6712875DC8A00AF7FDE /* m.wav in Resources */,
 				4714D54F290043D90021897E /* samenhang.mp3 in Resources */,
 				4714D1CA290043D80021897E /* buikpijn.mp3 in Resources */,
 				4714D91D290043D90021897E /* opnoem.mp3 in Resources */,
@@ -28418,7 +28388,6 @@
 				4714C608290043D70021897E /* rondedans.mp3 in Resources */,
 				4714CF26290043D80021897E /* achterbak.mp3 in Resources */,
 				4714C5D5290043D70021897E /* walvissen.mp3 in Resources */,
-				474CD66B2875DC8A00AF7FDE /* ie.wav in Resources */,
 				4714C29E290043D70021897E /* ijsbaan.mp3 in Resources */,
 				4714D313290043D80021897E /* vioolspel.mp3 in Resources */,
 				4714CF04290043D80021897E /* pan.mp3 in Resources */,
@@ -28480,6 +28449,7 @@
 				4714CFB2290043D80021897E /* klamp.mp3 in Resources */,
 				4714DC70290043D90021897E /* aanvegen.mp3 in Resources */,
 				4714CB20290043D80021897E /* tankauto.mp3 in Resources */,
+				47BC646629101D1400CE75B8 /* i.mp3 in Resources */,
 				4714DBF2290043D90021897E /* hiervoor.mp3 in Resources */,
 				4714C3ED290043D70021897E /* markthal.mp3 in Resources */,
 				4714BE04290043D60021897E /* verblijven.mp3 in Resources */,
@@ -28829,7 +28799,6 @@
 				4714D47E290043D90021897E /* ontplof.mp3 in Resources */,
 				4714C7C1290043D70021897E /* stomme.mp3 in Resources */,
 				4714D9A3290043D90021897E /* rek.mp3 in Resources */,
-				474CD65C2875DC8A00AF7FDE /* oe.wav in Resources */,
 				4714D3E7290043D90021897E /* gebracht.mp3 in Resources */,
 				4714DA27290043D90021897E /* mistlamp.mp3 in Resources */,
 				4714C7FE290043D70021897E /* voet.mp3 in Resources */,
@@ -29065,7 +29034,6 @@
 				4714CB7E290043D80021897E /* namelijk.mp3 in Resources */,
 				4714D62E290043D90021897E /* motor.mp3 in Resources */,
 				4714BEF2290043D60021897E /* vaag.mp3 in Resources */,
-				474CD6672875DC8A00AF7FDE /* p.wav in Resources */,
 				4714C77C290043D70021897E /* oorbel.mp3 in Resources */,
 				4714DFD6290043DA0021897E /* gifslang.mp3 in Resources */,
 				4714E0E2290045780021897E /* methods.json in Resources */,
@@ -29154,7 +29122,6 @@
 				4714C8A5290043D70021897E /* voortrek.mp3 in Resources */,
 				4714C1BA290043D70021897E /* pakhuizen.mp3 in Resources */,
 				4714BEDA290043D60021897E /* nog.mp3 in Resources */,
-				474CD6532875DC8A00AF7FDE /* au.wav in Resources */,
 				4714C830290043D70021897E /* nep.mp3 in Resources */,
 				4714C1A1290043D70021897E /* verdamp.mp3 in Resources */,
 				4714DA6F290043D90021897E /* overkant.mp3 in Resources */,
@@ -29201,7 +29168,6 @@
 				4714D7B8290043D90021897E /* flik.mp3 in Resources */,
 				4714C071290043D70021897E /* afbreng.mp3 in Resources */,
 				4714CD33290043D80021897E /* petra.mp3 in Resources */,
-				474CD6542875DC8A00AF7FDE /* uu.wav in Resources */,
 				4714DB62290043D90021897E /* kalveren.mp3 in Resources */,
 				4714CAC0290043D80021897E /* akte.mp3 in Resources */,
 				4714D790290043D90021897E /* dochtertje.mp3 in Resources */,
@@ -29242,6 +29208,7 @@
 				4714CA60290043D80021897E /* opgeraapt.mp3 in Resources */,
 				4714CCDF290043D80021897E /* schooltuin.mp3 in Resources */,
 				4714CA98290043D80021897E /* wie.mp3 in Resources */,
+				47BC645029101D1400CE75B8 /* c.mp3 in Resources */,
 				4714D182290043D80021897E /* lego.mp3 in Resources */,
 				4714D20F290043D80021897E /* afkloppen.mp3 in Resources */,
 				4714C36B290043D70021897E /* ontpop.mp3 in Resources */,
@@ -29483,6 +29450,7 @@
 				4714D8EA290043D90021897E /* dames.mp3 in Resources */,
 				4714DD71290043D90021897E /* verzoek.mp3 in Resources */,
 				4714C68E290043D70021897E /* mal.mp3 in Resources */,
+				47BC646729101D1400CE75B8 /* nk.mp3 in Resources */,
 				4714C849290043D70021897E /* woninkje.mp3 in Resources */,
 				4714D9C2290043D90021897E /* striem.mp3 in Resources */,
 				4714D892290043D90021897E /* atleet.mp3 in Resources */,
@@ -29533,7 +29501,6 @@
 				4714BDCC290043D60021897E /* gebeurd.mp3 in Resources */,
 				4714C623290043D70021897E /* taarten.mp3 in Resources */,
 				4714D66B290043D90021897E /* schor.mp3 in Resources */,
-				474CD6552875DC8A00AF7FDE /* ui.wav in Resources */,
 				4714CAC8290043D80021897E /* doop.mp3 in Resources */,
 				4714CA3D290043D80021897E /* valuta.mp3 in Resources */,
 				4714CC54290043D80021897E /* knook.mp3 in Resources */,
@@ -29542,7 +29509,6 @@
 				4714D5E3290043D90021897E /* hekel.mp3 in Resources */,
 				4714C977290043D70021897E /* toer.mp3 in Resources */,
 				4714C5DB290043D70021897E /* gekopieerd.mp3 in Resources */,
-				474CD66D2875DC8A00AF7FDE /* é.wav in Resources */,
 				4714C2EA290043D70021897E /* kant.mp3 in Resources */,
 				4714BDF6290043D60021897E /* bruinen.mp3 in Resources */,
 				4714D5B5290043D90021897E /* natuurlijk.mp3 in Resources */,
@@ -29616,7 +29582,6 @@
 				4714D2E6290043D80021897E /* reuk.mp3 in Resources */,
 				4714CFEA290043D80021897E /* afstellen.mp3 in Resources */,
 				4714D30B290043D80021897E /* optel.mp3 in Resources */,
-				474CD6582875DC8A00AF7FDE /* s.wav in Resources */,
 				4714C108290043D70021897E /* sorteer.mp3 in Resources */,
 				4714DC31290043D90021897E /* blij.mp3 in Resources */,
 				4714DD18290043D90021897E /* overuur.mp3 in Resources */,
@@ -29649,6 +29614,7 @@
 				4714CC52290043D80021897E /* roomboter.mp3 in Resources */,
 				4714D409290043D90021897E /* lift.mp3 in Resources */,
 				4714CEE7290043D80021897E /* rog.mp3 in Resources */,
+				47BC645829101D1400CE75B8 /* d.mp3 in Resources */,
 				4714CC7B290043D80021897E /* liep.mp3 in Resources */,
 				4714CA33290043D80021897E /* canada.mp3 in Resources */,
 				4714D8D5290043D90021897E /* gedicht.mp3 in Resources */,
@@ -29928,6 +29894,7 @@
 				4714D6AB290043D90021897E /* duim.mp3 in Resources */,
 				4714CB21290043D80021897E /* lieren.mp3 in Resources */,
 				4714D4A4290043D90021897E /* deuk.mp3 in Resources */,
+				47BC645329101D1400CE75B8 /* g.mp3 in Resources */,
 				4714D6DC290043D90021897E /* worst.mp3 in Resources */,
 				4714C17F290043D70021897E /* kiwi.mp3 in Resources */,
 				4714D5C2290043D90021897E /* zwom.mp3 in Resources */,
@@ -30317,7 +30284,6 @@
 				4714E0AB290043DA0021897E /* locatie.mp3 in Resources */,
 				4714C89E290043D70021897E /* bijzonder.mp3 in Resources */,
 				4714C4F4290043D70021897E /* welnee.mp3 in Resources */,
-				474CD65A2875DC8A00AF7FDE /* ei.wav in Resources */,
 				4714D6C7290043D90021897E /* peper.mp3 in Resources */,
 				4714BD3F290043D60021897E /* een.mp3 in Resources */,
 				4714C760290043D70021897E /* memo.mp3 in Resources */,
@@ -30335,7 +30301,6 @@
 				4714DA5F290043D90021897E /* waterwerk.mp3 in Resources */,
 				4714DA82290043D90021897E /* bereid.mp3 in Resources */,
 				4714DC0A290043D90021897E /* tegenin.mp3 in Resources */,
-				474CD6622875DC8A00AF7FDE /* i.wav in Resources */,
 				4714D13B290043D80021897E /* aangeleerd.mp3 in Resources */,
 				4714DB00290043D90021897E /* omgeving.mp3 in Resources */,
 				4714D6A6290043D90021897E /* pang.mp3 in Resources */,
@@ -30542,7 +30507,6 @@
 				4714BE5A290043D60021897E /* overeind.mp3 in Resources */,
 				4714C67E290043D70021897E /* snorkel.mp3 in Resources */,
 				4714DED6290043DA0021897E /* proloog.mp3 in Resources */,
-				474CD6642875DC8A00AF7FDE /* space.wav in Resources */,
 				4714D7E4290043D90021897E /* afgeregeld.mp3 in Resources */,
 				4714D9F8290043D90021897E /* wegdoen.mp3 in Resources */,
 				4714BDAA290043D60021897E /* tegengas.mp3 in Resources */,
@@ -30599,7 +30563,6 @@
 				4714CCC4290043D80021897E /* deelname.mp3 in Resources */,
 				4714D999290043D90021897E /* publiciteit.mp3 in Resources */,
 				4714BF3A290043D60021897E /* buitenkans.mp3 in Resources */,
-				474CD6502875DC8A00AF7FDE /* e.wav in Resources */,
 				4714C2B7290043D70021897E /* dus.mp3 in Resources */,
 				4714DABE290043D90021897E /* ontbreek.mp3 in Resources */,
 				4714BCC5290043D60021897E /* zoonlief.mp3 in Resources */,
@@ -30630,7 +30593,6 @@
 				4714DCC8290043D90021897E /* bedanken.mp3 in Resources */,
 				4714DEEB290043DA0021897E /* mast.mp3 in Resources */,
 				4714BF85290043D70021897E /* meetlint.mp3 in Resources */,
-				474CD66E2875DC8A00AF7FDE /* oor.wav in Resources */,
 				4714CD38290043D80021897E /* stootblok.mp3 in Resources */,
 				4714C938290043D70021897E /* beperking.mp3 in Resources */,
 				4714C044290043D70021897E /* melkt.mp3 in Resources */,
@@ -30640,7 +30602,6 @@
 				4714D5D1290043D90021897E /* slurf.mp3 in Resources */,
 				4714D5DC290043D90021897E /* voorproef.mp3 in Resources */,
 				4714E0B1290043DA0021897E /* aanblik.mp3 in Resources */,
-				474CD6512875DC8A00AF7FDE /* d.wav in Resources */,
 				4714C894290043D70021897E /* lukte.mp3 in Resources */,
 				4714D4B4290043D90021897E /* voorruit.mp3 in Resources */,
 				4714DD65290043D90021897E /* woonde.mp3 in Resources */,
@@ -30729,7 +30690,6 @@
 				4714E06B290043DA0021897E /* wegleg.mp3 in Resources */,
 				4714CF10290043D80021897E /* vrijdag.mp3 in Resources */,
 				4714E08B290043DA0021897E /* overzee.mp3 in Resources */,
-				474CD6412875DC8A00AF7FDE /* q.wav in Resources */,
 				4714CB83290043D80021897E /* tast.mp3 in Resources */,
 				4714D9B3290043D90021897E /* stamppot.mp3 in Resources */,
 				4714DC2A290043D90021897E /* zeshoek.mp3 in Resources */,
@@ -30969,7 +30929,6 @@
 				4714C8B6290043D70021897E /* vreedzaam.mp3 in Resources */,
 				4714C27C290043D70021897E /* helaas.mp3 in Resources */,
 				4714D3F2290043D90021897E /* geniet.mp3 in Resources */,
-				474CD6662875DC8A00AF7FDE /* y.wav in Resources */,
 				4714BE0F290043D60021897E /* spoor.mp3 in Resources */,
 				473DCCBE2891430D00CDFF47 /* ipadSpotlight80.png in Resources */,
 				4714D9F1290043D90021897E /* zieke.mp3 in Resources */,
@@ -31095,7 +31054,6 @@
 				4714D0B5290043D80021897E /* wangen.mp3 in Resources */,
 				4714C22F290043D70021897E /* bruikleen.mp3 in Resources */,
 				4714C02D290043D70021897E /* uitbreken.mp3 in Resources */,
-				474CD6522875DC8A00AF7FDE /* ee.wav in Resources */,
 				4714D6C1290043D90021897E /* porto.mp3 in Resources */,
 				4714C2B3290043D70021897E /* weigering.mp3 in Resources */,
 				4714CC24290043D80021897E /* talrijk.mp3 in Resources */,
@@ -31144,6 +31102,7 @@
 				4714BD22290043D60021897E /* speelt.mp3 in Resources */,
 				4714D657290043D90021897E /* berm.mp3 in Resources */,
 				4714BD48290043D60021897E /* luren.mp3 in Resources */,
+				47BC644A29101D1400CE75B8 /* a.mp3 in Resources */,
 				4714CACF290043D80021897E /* verdriet.mp3 in Resources */,
 				4714BF73290043D60021897E /* voornaam.mp3 in Resources */,
 				4714CE9F290043D80021897E /* dij.mp3 in Resources */,
@@ -31266,7 +31225,6 @@
 				4714D463290043D90021897E /* patroon.mp3 in Resources */,
 				4714C165290043D70021897E /* snoer.mp3 in Resources */,
 				4714DBA0290043D90021897E /* rokken.mp3 in Resources */,
-				474CD6632875DC8A00AF7FDE /* ij.wav in Resources */,
 				4714D201290043D80021897E /* handdoek.mp3 in Resources */,
 				4714D330290043D80021897E /* goed.mp3 in Resources */,
 				4714D55B290043D90021897E /* vlakbij.mp3 in Resources */,
@@ -31361,6 +31319,7 @@
 				4714C3B2290043D70021897E /* zorgvuldig.mp3 in Resources */,
 				4714BE91290043D60021897E /* hoogland.mp3 in Resources */,
 				4714C454290043D70021897E /* schenk.mp3 in Resources */,
+				47BC646F29101D1400CE75B8 /* ieuw.mp3 in Resources */,
 				4714C699290043D70021897E /* opkras.mp3 in Resources */,
 				4714DC84290043D90021897E /* vanmiddag.mp3 in Resources */,
 				4714C592290043D70021897E /* meegaf.mp3 in Resources */,
@@ -31542,7 +31501,6 @@
 				4714CABD290043D80021897E /* vervaag.mp3 in Resources */,
 				4714D3F5290043D90021897E /* kar.mp3 in Resources */,
 				4714D49E290043D90021897E /* bedrijf.mp3 in Resources */,
-				474CD65B2875DC8A00AF7FDE /* z.wav in Resources */,
 				4714D6D2290043D90021897E /* broodbakker.mp3 in Resources */,
 				4714CBA1290043D80021897E /* vanmorgen.mp3 in Resources */,
 				4714CC1A290043D80021897E /* koster.mp3 in Resources */,
@@ -31610,7 +31568,6 @@
 				4714CD28290043D80021897E /* griep.mp3 in Resources */,
 				4714CBF7290043D80021897E /* erdoor.mp3 in Resources */,
 				4714DE72290043DA0021897E /* allerlei.mp3 in Resources */,
-				474CD6432875DC8A00AF7FDE /* n.wav in Resources */,
 				4714DC97290043D90021897E /* schaakmat.mp3 in Resources */,
 				4714DF69290043DA0021897E /* spalk.mp3 in Resources */,
 				4714D027290043D80021897E /* dichte.mp3 in Resources */,
@@ -31698,7 +31655,6 @@
 				4714CA96290043D80021897E /* middelpunt.mp3 in Resources */,
 				4714D33D290043D80021897E /* menigeen.mp3 in Resources */,
 				4714D4C6290043D90021897E /* boomtak.mp3 in Resources */,
-				474CD64F2875DC8A00AF7FDE /* aa.wav in Resources */,
 				4714CB33290043D80021897E /* afzien.mp3 in Resources */,
 				4714CBFF290043D80021897E /* betoverd.mp3 in Resources */,
 				4714CBAB290043D80021897E /* iedereen.mp3 in Resources */,
@@ -31829,6 +31785,7 @@
 				4714CFD1290043D80021897E /* liniaal.mp3 in Resources */,
 				4714C33B290043D70021897E /* sterf.mp3 in Resources */,
 				4714C431290043D70021897E /* oorlog.mp3 in Resources */,
+				47BC645F29101D1400CE75B8 /* eur.mp3 in Resources */,
 				4714C529290043D70021897E /* poes.mp3 in Resources */,
 				4714BFF6290043D70021897E /* boekenbon.mp3 in Resources */,
 				4714D187290043D80021897E /* nagel.mp3 in Resources */,
@@ -31873,6 +31830,7 @@
 				4714CA2F290043D80021897E /* teneinde.mp3 in Resources */,
 				4714C03C290043D70021897E /* wagenpark.mp3 in Resources */,
 				4714BE76290043D60021897E /* stuurman.mp3 in Resources */,
+				47BC647429101D1400CE75B8 /* o.mp3 in Resources */,
 				4714D029290043D80021897E /* aanbinden.mp3 in Resources */,
 				4714C3AB290043D70021897E /* pret.mp3 in Resources */,
 				4714DD59290043D90021897E /* inpak.mp3 in Resources */,
@@ -31938,7 +31896,6 @@
 				4714CC03290043D80021897E /* vertolk.mp3 in Resources */,
 				4714DC4B290043D90021897E /* ongelukken.mp3 in Resources */,
 				4714DD48290043D90021897E /* klein.mp3 in Resources */,
-				474CD6422875DC8A00AF7FDE /* nk.wav in Resources */,
 				4714DC87290043D90021897E /* wegsteek.mp3 in Resources */,
 				4714D383290043D80021897E /* titaan.mp3 in Resources */,
 				4714BE71290043D60021897E /* stenen.mp3 in Resources */,
@@ -31953,7 +31910,6 @@
 				4714BFA7290043D70021897E /* afdoen.mp3 in Resources */,
 				4714CD6F290043D80021897E /* bakbeesten.mp3 in Resources */,
 				4714CF6D290043D80021897E /* griek.mp3 in Resources */,
-				474CD64B2875DC8A00AF7FDE /* w.wav in Resources */,
 				4714C340290043D70021897E /* politiebureau.mp3 in Resources */,
 				4714E046290043DA0021897E /* klarinet.mp3 in Resources */,
 				4714BDA1290043D60021897E /* klungelig.mp3 in Resources */,
@@ -32145,7 +32101,6 @@
 				4714BF60290043D60021897E /* misgun.mp3 in Resources */,
 				4714C32C290043D70021897E /* gezet.mp3 in Resources */,
 				4714D84A290043D90021897E /* plat.mp3 in Resources */,
-				474CD66F2875DC8A00AF7FDE /* eu.wav in Resources */,
 				4714C79C290043D70021897E /* akker.mp3 in Resources */,
 				4714CE0A290043D80021897E /* kringelt.mp3 in Resources */,
 				4714D7F3290043D90021897E /* formule.mp3 in Resources */,
@@ -32498,7 +32453,6 @@
 				4714C3C2290043D70021897E /* straatarme.mp3 in Resources */,
 				4714C93E290043D70021897E /* landweg.mp3 in Resources */,
 				4714D55E290043D90021897E /* peuk.mp3 in Resources */,
-				474CD6602875DC8A00AF7FDE /* ooi.wav in Resources */,
 				4714CE37290043D80021897E /* half.mp3 in Resources */,
 				4714CD4E290043D80021897E /* zullen.mp3 in Resources */,
 				4714CCE5290043D80021897E /* pof.mp3 in Resources */,
@@ -32557,7 +32511,6 @@
 				4714C53C290043D70021897E /* vetpot.mp3 in Resources */,
 				4714D64E290043D90021897E /* borst.mp3 in Resources */,
 				4714C229290043D70021897E /* uiterst.mp3 in Resources */,
-				474CD65F2875DC8A00AF7FDE /* t.wav in Resources */,
 				4714CFC8290043D80021897E /* adel.mp3 in Resources */,
 				4714DE96290043DA0021897E /* oppas.mp3 in Resources */,
 				4714CA30290043D80021897E /* zegt.mp3 in Resources */,
@@ -32579,6 +32532,7 @@
 				4714CFCB290043D80021897E /* dolken.mp3 in Resources */,
 				4714BFE7290043D70021897E /* omga.mp3 in Resources */,
 				4714CCB6290043D80021897E /* intussen.mp3 in Resources */,
+				47BC646929101D1400CE75B8 /* k.mp3 in Resources */,
 				4714C951290043D70021897E /* vastliep.mp3 in Resources */,
 				4714D07A290043D80021897E /* hoeveelheid.mp3 in Resources */,
 				4714CFEE290043D80021897E /* kleur.mp3 in Resources */,
@@ -32689,6 +32643,7 @@
 				4714BE65290043D60021897E /* elfje.mp3 in Resources */,
 				4714D1FE290043D80021897E /* thuis.mp3 in Resources */,
 				4714C76A290043D70021897E /* staaf.mp3 in Resources */,
+				47BC644F29101D1400CE75B8 /* t.mp3 in Resources */,
 				4714DD79290043D90021897E /* toezicht.mp3 in Resources */,
 				4714CD25290043D80021897E /* verdoet.mp3 in Resources */,
 				4714D4D5290043D90021897E /* vanavond.mp3 in Resources */,
@@ -32751,7 +32706,6 @@
 				4714D9C3290043D90021897E /* bot.mp3 in Resources */,
 				4714C9C9290043D80021897E /* informatie.mp3 in Resources */,
 				4714BDD9290043D60021897E /* al.mp3 in Resources */,
-				474CD63E2875DC8A00AF7FDE /* j.wav in Resources */,
 				4714C4F7290043D70021897E /* fok.mp3 in Resources */,
 				4714D608290043D90021897E /* voorjaar.mp3 in Resources */,
 				4714DD4D290043D90021897E /* spannen.mp3 in Resources */,
@@ -32968,7 +32922,6 @@
 				4714D173290043D80021897E /* taalles.mp3 in Resources */,
 				4714CBFD290043D80021897E /* illusie.mp3 in Resources */,
 				4714CF99290043D80021897E /* centrifuge.mp3 in Resources */,
-				474CD6612875DC8A00AF7FDE /* a.wav in Resources */,
 				4714C0CC290043D70021897E /* componeer.mp3 in Resources */,
 				4714D86A290043D90021897E /* taboe.mp3 in Resources */,
 				4714D18C290043D80021897E /* achterover.mp3 in Resources */,
@@ -33017,6 +32970,7 @@
 				4714D165290043D80021897E /* pits.mp3 in Resources */,
 				4714CC4C290043D80021897E /* werkgelegenheid.mp3 in Resources */,
 				4714D83B290043D90021897E /* stangetje.mp3 in Resources */,
+				47BC646C29101D1400CE75B8 /* uu.mp3 in Resources */,
 				4714C794290043D70021897E /* verdik.mp3 in Resources */,
 				4714D0E9290043D80021897E /* krekel.mp3 in Resources */,
 				4714DE38290043DA0021897E /* dominosteen.mp3 in Resources */,
@@ -33024,6 +32978,7 @@
 				4714C2AB290043D70021897E /* schuifdak.mp3 in Resources */,
 				4714CE62290043D80021897E /* meubel.mp3 in Resources */,
 				4714DC1D290043D90021897E /* nagaf.mp3 in Resources */,
+				47BC646A29101D1400CE75B8 /* j.mp3 in Resources */,
 				4714D9D3290043D90021897E /* weten.mp3 in Resources */,
 				4714DE53290043DA0021897E /* plas.mp3 in Resources */,
 				4714C002290043D70021897E /* hiervan.mp3 in Resources */,
@@ -33082,6 +33037,7 @@
 				4714C154290043D70021897E /* vermaal.mp3 in Resources */,
 				4714BEE4290043D60021897E /* reiziger.mp3 in Resources */,
 				4714D448290043D90021897E /* toverkunst.mp3 in Resources */,
+				4749D9D42912A1B90029AFD9 /* perkinspingdoorvoer.mp3 in Resources */,
 				4714CD60290043D80021897E /* genoegen.mp3 in Resources */,
 				4714DCDA290043D90021897E /* landkaart.mp3 in Resources */,
 				4714CF75290043D80021897E /* onder.mp3 in Resources */,
@@ -33150,7 +33106,6 @@
 				4714D179290043D80021897E /* wanhoop.mp3 in Resources */,
 				4714D493290043D90021897E /* ijselijke.mp3 in Resources */,
 				4714BD4F290043D60021897E /* vervelend.mp3 in Resources */,
-				474CD63F2875DC8A00AF7FDE /* f.wav in Resources */,
 				4714DDE2290043DA0021897E /* kroos.mp3 in Resources */,
 				4714C06C290043D70021897E /* taalgroep.mp3 in Resources */,
 				4714CCCE290043D80021897E /* ingezet.mp3 in Resources */,
@@ -33219,8 +33174,6 @@
 				4714C5E7290043D70021897E /* hoekhuis.mp3 in Resources */,
 				4714CDBD290043D80021897E /* omgaan.mp3 in Resources */,
 				4714C4BF290043D70021897E /* faxnummer.mp3 in Resources */,
-				474CD6452875DC8A00AF7FDE /* eeuw.wav in Resources */,
-				474CD64C2875DC8A00AF7FDE /* u.wav in Resources */,
 				4714D51F290043D90021897E /* naast.mp3 in Resources */,
 				4714C2FC290043D70021897E /* kraai.mp3 in Resources */,
 				4714DB39290043D90021897E /* speelveld.mp3 in Resources */,
@@ -33326,6 +33279,7 @@
 				4714D721290043D90021897E /* aasgier.mp3 in Resources */,
 				4714CCCA290043D80021897E /* washandje.mp3 in Resources */,
 				4714D225290043D80021897E /* tweemaal.mp3 in Resources */,
+				47BC644B29101D1400CE75B8 /* v.mp3 in Resources */,
 				4714C407290043D70021897E /* weduwe.mp3 in Resources */,
 				4714D7D4290043D90021897E /* inzichten.mp3 in Resources */,
 				4714D26E290043D80021897E /* horizon.mp3 in Resources */,
@@ -33390,7 +33344,6 @@
 				4714BE9F290043D60021897E /* opleg.mp3 in Resources */,
 				4714D824290043D90021897E /* appelsap.mp3 in Resources */,
 				4714C625290043D70021897E /* bergmeer.mp3 in Resources */,
-				474CD65E2875DC8A00AF7FDE /* sch.wav in Resources */,
 				4714BF17290043D60021897E /* zeepkist.mp3 in Resources */,
 				4714DA4B290043D90021897E /* buitenbaan.mp3 in Resources */,
 				4714DB73290043D90021897E /* vetplant.mp3 in Resources */,
@@ -33787,6 +33740,7 @@
 				4714DD13290043D90021897E /* insecten.mp3 in Resources */,
 				4714C506290043D70021897E /* zusje.mp3 in Resources */,
 				4714C04B290043D70021897E /* ontsnappen.mp3 in Resources */,
+				47BC646329101D1400CE75B8 /* ij.mp3 in Resources */,
 				4714CC93290043D80021897E /* let.mp3 in Resources */,
 				4714BF0B290043D60021897E /* reuma.mp3 in Resources */,
 				4714DAB1290043D90021897E /* uitslaat.mp3 in Resources */,
@@ -33867,7 +33821,6 @@
 				4714D5AD290043D90021897E /* tovenaar.mp3 in Resources */,
 				4714D80D290043D90021897E /* rumba.mp3 in Resources */,
 				4714D926290043D90021897E /* as.mp3 in Resources */,
-				474CD6462875DC8A00AF7FDE /* c.wav in Resources */,
 				4714D754290043D90021897E /* deskundig.mp3 in Resources */,
 				4714BD18290043D60021897E /* gleuven.mp3 in Resources */,
 				4714D56A290043D90021897E /* schop.mp3 in Resources */,
@@ -33935,6 +33888,7 @@
 				4714CC74290043D80021897E /* schuren.mp3 in Resources */,
 				4714C19F290043D70021897E /* samengaan.mp3 in Resources */,
 				4714C05B290043D70021897E /* verkort.mp3 in Resources */,
+				47BC645B29101D1400CE75B8 /* ng.mp3 in Resources */,
 				4714DB26290043D90021897E /* spaak.mp3 in Resources */,
 				4714DFAB290043DA0021897E /* demonstratie.mp3 in Resources */,
 				4714BFD2290043D70021897E /* kwispelt.mp3 in Resources */,
@@ -33947,7 +33901,6 @@
 				4714D053290043D80021897E /* invoering.mp3 in Resources */,
 				4714BD5B290043D60021897E /* schoenendoos.mp3 in Resources */,
 				4714CD1C290043D80021897E /* inwerk.mp3 in Resources */,
-				474CD65D2875DC8A00AF7FDE /* oei.wav in Resources */,
 				4714DDDB290043DA0021897E /* organen.mp3 in Resources */,
 				4714C374290043D70021897E /* zeevogel.mp3 in Resources */,
 				4714DC30290043D90021897E /* china.mp3 in Resources */,
@@ -34040,7 +33993,6 @@
 				4714D7D1290043D90021897E /* noodzaak.mp3 in Resources */,
 				4714D42B290043D90021897E /* bladeren.mp3 in Resources */,
 				4714D703290043D90021897E /* gewis.mp3 in Resources */,
-				474CD64A2875DC8A00AF7FDE /* oo.wav in Resources */,
 				4714CACB290043D80021897E /* scherven.mp3 in Resources */,
 				4714C3A1290043D70021897E /* brak.mp3 in Resources */,
 				4714CE0E290043D80021897E /* armbanden.mp3 in Resources */,
@@ -34049,6 +34001,7 @@
 				4714CCF4290043D80021897E /* eindhoven.mp3 in Resources */,
 				4714CC32290043D80021897E /* blaffen.mp3 in Resources */,
 				4714C3B6290043D70021897E /* gij.mp3 in Resources */,
+				47BC645429101D1400CE75B8 /* f.mp3 in Resources */,
 				4714D4AD290043D90021897E /* werklust.mp3 in Resources */,
 				4714CE2C290043D80021897E /* oproep.mp3 in Resources */,
 				4714CD92290043D80021897E /* aanhalen.mp3 in Resources */,
@@ -34064,6 +34017,7 @@
 				4714C3DF290043D70021897E /* landheer.mp3 in Resources */,
 				4714CAC1290043D80021897E /* xenon.mp3 in Resources */,
 				4714DA85290043D90021897E /* jetje.mp3 in Resources */,
+				47BC646529101D1400CE75B8 /* h.mp3 in Resources */,
 				4714C82F290043D70021897E /* winkel.mp3 in Resources */,
 				4714DCA0290043D90021897E /* kopwerk.mp3 in Resources */,
 				4714D73E290043D90021897E /* rekening.mp3 in Resources */,
@@ -34226,7 +34180,6 @@
 				4714D2E4290043D80021897E /* gelooft.mp3 in Resources */,
 				4714C79B290043D70021897E /* lonen.mp3 in Resources */,
 				4714BEC0290043D60021897E /* plank.mp3 in Resources */,
-				474CD6402875DC8A00AF7FDE /* ch.wav in Resources */,
 				4714D435290043D90021897E /* pretpark.mp3 in Resources */,
 				4714DEC7290043DA0021897E /* vouw.mp3 in Resources */,
 				473DCCB92891430D00CDFF47 /* ipadNotification20.png in Resources */,
@@ -34360,7 +34313,6 @@
 				4714C98A290043D70021897E /* monnik.mp3 in Resources */,
 				4714DBC9290043D90021897E /* scheermes.mp3 in Resources */,
 				4714DDDE290043DA0021897E /* dot.mp3 in Resources */,
-				474CD6702875DC8A00AF7FDE /* g.wav in Resources */,
 				4714D4C4290043D90021897E /* voelde.mp3 in Resources */,
 				4714DB5B290043D90021897E /* destijds.mp3 in Resources */,
 				4714DD8F290043D90021897E /* opkwam.mp3 in Resources */,
@@ -34387,6 +34339,7 @@
 				4714D18E290043D80021897E /* kreek.mp3 in Resources */,
 				4714D6AD290043D90021897E /* scheef.mp3 in Resources */,
 				4714D551290043D90021897E /* opwinding.mp3 in Resources */,
+				4749D9D72912A2C10029AFD9 /* perkinsping.mp3 in Resources */,
 				4714DDE5290043DA0021897E /* dooier.mp3 in Resources */,
 				4714CCAE290043D80021897E /* tractor.mp3 in Resources */,
 				4714C2D5290043D70021897E /* opvul.mp3 in Resources */,
@@ -34434,6 +34387,7 @@
 				4714CD17290043D80021897E /* bijzonderheid.mp3 in Resources */,
 				4714D347290043D80021897E /* bit.mp3 in Resources */,
 				4714C435290043D70021897E /* verzorging.mp3 in Resources */,
+				47BC645D29101D1400CE75B8 /* ie.mp3 in Resources */,
 				4714CF9A290043D80021897E /* pardon.mp3 in Resources */,
 				4714CF80290043D80021897E /* toegang.mp3 in Resources */,
 				4714C545290043D70021897E /* nazien.mp3 in Resources */,
@@ -34454,10 +34408,8 @@
 				4714D6E8290043D90021897E /* miniem.mp3 in Resources */,
 				4714CEE1290043D80021897E /* absoluut.mp3 in Resources */,
 				4714DCD9290043D90021897E /* kaas.mp3 in Resources */,
-				474CD66A2875DC8A00AF7FDE /* eer.wav in Resources */,
 				4714BDBD290043D60021897E /* afkraken.mp3 in Resources */,
 				4714CD7C290043D80021897E /* huis.mp3 in Resources */,
-				474CD6442875DC8A00AF7FDE /* ou.wav in Resources */,
 				4714C4B5290043D70021897E /* werkverkeer.mp3 in Resources */,
 				4714DB10290043D90021897E /* soortgenoten.mp3 in Resources */,
 				4714C611290043D70021897E /* materialen.mp3 in Resources */,
@@ -34641,6 +34593,7 @@
 				4714C64B290043D70021897E /* principe.mp3 in Resources */,
 				4714D1C9290043D80021897E /* raak.mp3 in Resources */,
 				4714C585290043D70021897E /* eettent.mp3 in Resources */,
+				47BC647229101D1400CE75B8 /* x.mp3 in Resources */,
 				4714D7E3290043D90021897E /* wegdook.mp3 in Resources */,
 				4714CD32290043D80021897E /* meten.mp3 in Resources */,
 				4714DB3F290043D90021897E /* stukslaan.mp3 in Resources */,
@@ -34911,7 +34864,6 @@
 				4714D094290043D80021897E /* boogje.mp3 in Resources */,
 				4714BD7A290043D60021897E /* briesje.mp3 in Resources */,
 				4714C5BD290043D70021897E /* adviezen.mp3 in Resources */,
-				474CD6692875DC8A00AF7FDE /* ieuw.wav in Resources */,
 				4714CA8B290043D80021897E /* controleer.mp3 in Resources */,
 				4714C2DC290043D70021897E /* rechtvaardigheid.mp3 in Resources */,
 				4714D019290043D80021897E /* noordelijk.mp3 in Resources */,
@@ -34972,6 +34924,7 @@
 				4714DDB4290043D90021897E /* moeten.mp3 in Resources */,
 				4714CF3F290043D80021897E /* overhoor.mp3 in Resources */,
 				4714D3E5290043D90021897E /* wind.mp3 in Resources */,
+				47BC645929101D1400CE75B8 /* e.mp3 in Resources */,
 				4714CD10290043D80021897E /* honderd.mp3 in Resources */,
 				4714C157290043D70021897E /* lieve.mp3 in Resources */,
 				4714CB8A290043D80021897E /* bewegen.mp3 in Resources */,
@@ -35114,8 +35067,10 @@
 				4714CC45290043D80021897E /* lange.mp3 in Resources */,
 				4714D003290043D80021897E /* zwijn.mp3 in Resources */,
 				4714D0D1290043D80021897E /* algemeen.mp3 in Resources */,
+				47BC644D29101D1400CE75B8 /* b.mp3 in Resources */,
 				4714D8C1290043D90021897E /* minister.mp3 in Resources */,
 				4714CE85290043D80021897E /* daartegen.mp3 in Resources */,
+				47BC645E29101D1400CE75B8 /* ee.mp3 in Resources */,
 				4714D729290043D90021897E /* kopt.mp3 in Resources */,
 				4714D19E290043D80021897E /* ronduit.mp3 in Resources */,
 				4714C8A7290043D70021897E /* pul.mp3 in Resources */,
@@ -35207,7 +35162,6 @@
 				4714CED0290043D80021897E /* gratie.mp3 in Resources */,
 				4714D2CC290043D80021897E /* legio.mp3 in Resources */,
 				4714D2BF290043D80021897E /* woelig.mp3 in Resources */,
-				474CD6652875DC8A00AF7FDE /* o.wav in Resources */,
 				4714DFE5290043DA0021897E /* snikheet.mp3 in Resources */,
 				4714CC16290043D80021897E /* aanvoeren.mp3 in Resources */,
 				4714C39C290043D70021897E /* vervulbaar.mp3 in Resources */,
@@ -35395,7 +35349,6 @@
 				4714C854290043D70021897E /* print.mp3 in Resources */,
 				4714D5E5290043D90021897E /* waait.mp3 in Resources */,
 				4714C457290043D70021897E /* chauffeur.mp3 in Resources */,
-				474CD6682875DC8A00AF7FDE /* x.wav in Resources */,
 				4714BDE5290043D60021897E /* stoomschip.mp3 in Resources */,
 				4714D2D2290043D80021897E /* jij.mp3 in Resources */,
 				4714C13F290043D70021897E /* ondergronds.mp3 in Resources */,
@@ -35511,6 +35464,7 @@
 				4714C179290043D70021897E /* zanger.mp3 in Resources */,
 				4714DB6A290043D90021897E /* nederlaag.mp3 in Resources */,
 				4714D65D290043D90021897E /* zeilschool.mp3 in Resources */,
+				47BC647129101D1400CE75B8 /* y.mp3 in Resources */,
 				4714BEAB290043D60021897E /* onlangs.mp3 in Resources */,
 				4714C59B290043D70021897E /* geregend.mp3 in Resources */,
 				4714D20D290043D80021897E /* filmpje.mp3 in Resources */,
@@ -35629,6 +35583,7 @@
 				4714DF75290043DA0021897E /* duo.mp3 in Resources */,
 				4714CFA1290043D80021897E /* boefje.mp3 in Resources */,
 				4714D3AE290043D80021897E /* toplaag.mp3 in Resources */,
+				47BC647729101D1400CE75B8 /* ch.mp3 in Resources */,
 				4714C05E290043D70021897E /* leefbaar.mp3 in Resources */,
 				4714CCD4290043D80021897E /* gok.mp3 in Resources */,
 				4714E039290043DA0021897E /* stemming.mp3 in Resources */,
@@ -35753,7 +35708,6 @@
 				4714D119290043D80021897E /* suiker.mp3 in Resources */,
 				4714D413290043D90021897E /* stofjas.mp3 in Resources */,
 				4714DB4C290043D90021897E /* verste.mp3 in Resources */,
-				474CD6472875DC8A00AF7FDE /* l.wav in Resources */,
 				4714C50E290043D70021897E /* programma.mp3 in Resources */,
 				4714D0A2290043D80021897E /* uitwerp.mp3 in Resources */,
 				4714D1AC290043D80021897E /* krokodil.mp3 in Resources */,
@@ -35857,7 +35811,6 @@
 				4714D854290043D90021897E /* afbrak.mp3 in Resources */,
 				4714D0B9290043D80021897E /* paleizen.mp3 in Resources */,
 				4714D3AA290043D80021897E /* vuurproef.mp3 in Resources */,
-				474CD6492875DC8A00AF7FDE /* aai.wav in Resources */,
 				4714D653290043D90021897E /* werkelijk.mp3 in Resources */,
 				4714E0D6290043DA0021897E /* python.mp3 in Resources */,
 				4714D79A290043D90021897E /* slachtoffer.mp3 in Resources */,
@@ -36220,6 +36173,7 @@
 				4714C57F290043D70021897E /* ris.mp3 in Resources */,
 				4714BD29290043D60021897E /* boompje.mp3 in Resources */,
 				4714C926290043D70021897E /* wegwaai.mp3 in Resources */,
+				47BC645529101D1400CE75B8 /* q.mp3 in Resources */,
 				4714D885290043D90021897E /* luisde.mp3 in Resources */,
 				4714E05C290043DA0021897E /* loopbaan.mp3 in Resources */,
 				4714D4B9290043D90021897E /* bruto.mp3 in Resources */,
@@ -36277,6 +36231,7 @@
 				4714BD15290043D60021897E /* speler.mp3 in Resources */,
 				4714C1FA290043D70021897E /* bergrug.mp3 in Resources */,
 				4714D23A290043D80021897E /* hilariteit.mp3 in Resources */,
+				47BC644C29101D1400CE75B8 /* w.mp3 in Resources */,
 				4714BE0C290043D60021897E /* stortplaats.mp3 in Resources */,
 				4714D557290043D90021897E /* poon.mp3 in Resources */,
 				4714C7E0290043D70021897E /* weeshuis.mp3 in Resources */,
@@ -36318,6 +36273,7 @@
 				4714CBDE290043D80021897E /* toerist.mp3 in Resources */,
 				4714DA1C290043D90021897E /* vaal.mp3 in Resources */,
 				4714D7AC290043D90021897E /* model.mp3 in Resources */,
+				47BC644E29101D1400CE75B8 /* u.mp3 in Resources */,
 				4714C00C290043D70021897E /* boeken.mp3 in Resources */,
 				4714C0A4290043D70021897E /* waterstof.mp3 in Resources */,
 				4714BF98290043D70021897E /* aanwijs.mp3 in Resources */,
@@ -36376,7 +36332,6 @@
 				4714E0D0290043DA0021897E /* ontneem.mp3 in Resources */,
 				4714C0A9290043D70021897E /* lachfilm.mp3 in Resources */,
 				4714D99D290043D90021897E /* hierheen.mp3 in Resources */,
-				474CD6562875DC8A00AF7FDE /* b.wav in Resources */,
 				4714D091290043D80021897E /* stopteken.mp3 in Resources */,
 				4714C685290043D70021897E /* ader.mp3 in Resources */,
 				4714DBBC290043D90021897E /* openvalt.mp3 in Resources */,
@@ -36394,7 +36349,6 @@
 				4714CFF5290043D80021897E /* nachthok.mp3 in Resources */,
 				4714C39D290043D70021897E /* stemvork.mp3 in Resources */,
 				4714CFD2290043D80021897E /* dip.mp3 in Resources */,
-				474CD6482875DC8A00AF7FDE /* eur.wav in Resources */,
 				4714E0AC290043DA0021897E /* kraken.mp3 in Resources */,
 				4714CE39290043D80021897E /* werktuig.mp3 in Resources */,
 				4714DBA6290043D90021897E /* fabel.mp3 in Resources */,
@@ -36467,6 +36421,7 @@
 				4714D5BA290043D90021897E /* meter.mp3 in Resources */,
 				4714CAD5290043D80021897E /* mono.mp3 in Resources */,
 				4714E0A2290043DA0021897E /* kruip.mp3 in Resources */,
+				47BC645229101D1400CE75B8 /* p.mp3 in Resources */,
 				4714C90E290043D70021897E /* poot.mp3 in Resources */,
 				4714CB27290043D80021897E /* soorten.mp3 in Resources */,
 				4714CDDF290043D80021897E /* uitpak.mp3 in Resources */,
@@ -36626,7 +36581,9 @@
 				4714D5C1290043D90021897E /* graven.mp3 in Resources */,
 				4714C296290043D70021897E /* taalgebruik.mp3 in Resources */,
 				4714D0DC290043D80021897E /* verborgen.mp3 in Resources */,
+				47BC645A29101D1400CE75B8 /* r.mp3 in Resources */,
 				4714DF16290043DA0021897E /* tour.mp3 in Resources */,
+				47BC646029101D1400CE75B8 /* eu.mp3 in Resources */,
 				4714DDC8290043DA0021897E /* poen.mp3 in Resources */,
 				4714D5F5290043D90021897E /* telefoon.mp3 in Resources */,
 				4714D394290043D80021897E /* aanhouden.mp3 in Resources */,
@@ -36703,7 +36660,6 @@
 				4714D49F290043D90021897E /* draaibank.mp3 in Resources */,
 				4714C84A290043D70021897E /* brulboei.mp3 in Resources */,
 				4714DF08290043DA0021897E /* heerschappij.mp3 in Resources */,
-				474CD6572875DC8A00AF7FDE /* r.wav in Resources */,
 				4714D349290043D80021897E /* lampenkap.mp3 in Resources */,
 				4714C953290043D70021897E /* vorig.mp3 in Resources */,
 				4714DB88290043D90021897E /* traptrede.mp3 in Resources */,
@@ -36731,6 +36687,7 @@
 				4714DFC5290043DA0021897E /* flinke.mp3 in Resources */,
 				4714D095290043D80021897E /* leukemie.mp3 in Resources */,
 				4714D13A290043D80021897E /* briefpost.mp3 in Resources */,
+				47BC645129101D1400CE75B8 /* oe.mp3 in Resources */,
 				4714C8D3290043D70021897E /* verdrinken.mp3 in Resources */,
 				4714D2C9290043D80021897E /* uitdient.mp3 in Resources */,
 				4714BE4F290043D60021897E /* lijkt.mp3 in Resources */,
@@ -36807,7 +36764,7 @@
 				4714C2AD290043D70021897E /* brandstof.mp3 in Resources */,
 				4714CBE3290043D80021897E /* gasprijs.mp3 in Resources */,
 				4714C934290043D70021897E /* vakantieadres.mp3 in Resources */,
-				474CD64D2875DC8A00AF7FDE /* v.wav in Resources */,
+				47BC647829101D1400CE75B8 /* aa.mp3 in Resources */,
 				4714CB75290043D80021897E /* roebel.mp3 in Resources */,
 				4714D1B4290043D80021897E /* zoutpan.mp3 in Resources */,
 				4714DBE2290043D90021897E /* plus.mp3 in Resources */,
@@ -36835,6 +36792,7 @@
 				4714DDFF290043DA0021897E /* knies.mp3 in Resources */,
 				4714CB72290043D80021897E /* mens.mp3 in Resources */,
 				4714DEFD290043DA0021897E /* woonplaats.mp3 in Resources */,
+				47BC645629101D1400CE75B8 /* ou.mp3 in Resources */,
 				4714DD7E290043D90021897E /* dochter.mp3 in Resources */,
 				4714CC48290043D80021897E /* toenam.mp3 in Resources */,
 				4714D3EB290043D90021897E /* smeerkaas.mp3 in Resources */,
@@ -36850,6 +36808,7 @@
 				4714CD01290043D80021897E /* toepasbaar.mp3 in Resources */,
 				4714CC7D290043D80021897E /* automobilist.mp3 in Resources */,
 				4714CD93290043D80021897E /* harteloos.mp3 in Resources */,
+				47BC645729101D1400CE75B8 /* s.mp3 in Resources */,
 				4714D70D290043D90021897E /* aal.mp3 in Resources */,
 				4714CCA2290043D80021897E /* wild.mp3 in Resources */,
 				4714CAD2290043D80021897E /* aanharken.mp3 in Resources */,
@@ -36953,6 +36912,7 @@
 				4714D477290043D90021897E /* grapjes.mp3 in Resources */,
 				4714DAC3290043D90021897E /* aanleunen.mp3 in Resources */,
 				4714CF47290043D80021897E /* rustig.mp3 in Resources */,
+				47BC647929101D1400CE75B8 /* l.mp3 in Resources */,
 				4714D4D6290043D90021897E /* mug.mp3 in Resources */,
 				4714C459290043D70021897E /* kraak.mp3 in Resources */,
 				4714D9C1290043D90021897E /* langdurig.mp3 in Resources */,
@@ -36985,7 +36945,6 @@
 				4714E074290043DA0021897E /* ontkom.mp3 in Resources */,
 				4714C260290043D70021897E /* ontslaat.mp3 in Resources */,
 				4714C1D1290043D70021897E /* kwik.mp3 in Resources */,
-				474CD66C2875DC8A00AF7FDE /* k.wav in Resources */,
 				473DCCB82891430D00CDFF47 /* Contents.json in Resources */,
 				4714DA8A290043D90021897E /* eed.mp3 in Resources */,
 				4714DDED290043DA0021897E /* stak.mp3 in Resources */,
@@ -37068,6 +37027,7 @@
 				4714D51E290043D90021897E /* overkom.mp3 in Resources */,
 				4714C786290043D70021897E /* gebed.mp3 in Resources */,
 				4714BD14290043D60021897E /* poppetje.mp3 in Resources */,
+				47BC646829101D1400CE75B8 /* oo.mp3 in Resources */,
 				4714C3DD290043D70021897E /* vals.mp3 in Resources */,
 				4714D11A290043D80021897E /* kortenhoef.mp3 in Resources */,
 				4714D775290043D90021897E /* weerklank.mp3 in Resources */,
@@ -37102,7 +37062,6 @@
 				4714D0D6290043D80021897E /* opzit.mp3 in Resources */,
 				4714BD4C290043D60021897E /* dopen.mp3 in Resources */,
 				4714DB5E290043D90021897E /* leeuw.mp3 in Resources */,
-				474CD6592875DC8A00AF7FDE /* ng.wav in Resources */,
 				4714C8D0290043D70021897E /* gieten.mp3 in Resources */,
 				4714C18D290043D70021897E /* overigens.mp3 in Resources */,
 				4714DE17290043DA0021897E /* verslof.mp3 in Resources */,
@@ -37201,7 +37160,6 @@
 				4714CA8C290043D80021897E /* ijsje.mp3 in Resources */,
 				4714CC0B290043D80021897E /* tastbaar.mp3 in Resources */,
 				4714DFA2290043DA0021897E /* hoge.mp3 in Resources */,
-				474CD64E2875DC8A00AF7FDE /* h.wav in Resources */,
 				4714D776290043D90021897E /* pleeg.mp3 in Resources */,
 				4714BD8B290043D60021897E /* kunstje.mp3 in Resources */,
 				4714D9FC290043D90021897E /* helft.mp3 in Resources */,
@@ -37325,6 +37283,7 @@
 				4714DB17290043D90021897E /* woonkamer.mp3 in Resources */,
 				4714C8EB290043D70021897E /* vingertop.mp3 in Resources */,
 				4714DBCE290043D90021897E /* lust.mp3 in Resources */,
+				47BC647029101D1400CE75B8 /* n.mp3 in Resources */,
 				4714BD33290043D60021897E /* afgeteld.mp3 in Resources */,
 				4714D0A7290043D80021897E /* vragen.mp3 in Resources */,
 				4714C826290043D70021897E /* stijging.mp3 in Resources */,
@@ -37434,6 +37393,7 @@
 				4714DF67290043DA0021897E /* codenummer.mp3 in Resources */,
 				4714D15D290043D80021897E /* glans.mp3 in Resources */,
 				4714C04E290043D70021897E /* juffrouw.mp3 in Resources */,
+				47BC646B29101D1400CE75B8 /* sch.mp3 in Resources */,
 				4714C745290043D70021897E /* trommel.mp3 in Resources */,
 				4714E0CD290043DA0021897E /* spurt.mp3 in Resources */,
 				4714D9F5290043D90021897E /* onderneming.mp3 in Resources */,
@@ -37666,6 +37626,7 @@
 				4714D7FF290043D90021897E /* prima.mp3 in Resources */,
 				4714D9D5290043D90021897E /* blies.mp3 in Resources */,
 				4714D82D290043D90021897E /* matador.mp3 in Resources */,
+				47BC647629101D1400CE75B8 /* m.mp3 in Resources */,
 				4714C011290043D70021897E /* tuintje.mp3 in Resources */,
 				4714BD5C290043D60021897E /* smeul.mp3 in Resources */,
 				4714C297290043D70021897E /* aangewezen.mp3 in Resources */,
@@ -37894,7 +37855,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = 278BFDM8KA;
 				ENABLE_PREVIEWS = YES;
@@ -37932,7 +37893,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = 278BFDM8KA;
 				ENABLE_PREVIEWS = YES;

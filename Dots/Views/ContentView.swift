@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var selectedTab = 0
    
     let minDragTranslationForSwipe: CGFloat = 50
-    let numTabs = 2
+    let numTabs = 3
            
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -29,6 +29,16 @@ struct ContentView: View {
                     Text("settings".localized())
                 }.tag(1)
                 .highPriorityGesture(DragGesture().onEnded({ self.handleSwipe(translation: $0.translation.width)}))
+            InformationView()
+                .tabItem {
+                    Image(systemName: "info.circle.fill")
+                    Text("information".localized())
+                }.tag(2)
+                .highPriorityGesture(DragGesture().onEnded({ self.handleSwipe(translation: $0.translation.width)}))
+            
+            
+            
+            
 //            ProgressView()
 //                .tabItem {
 //                    Image(systemName: "asterisk")
@@ -58,7 +68,7 @@ extension String {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {        
+    static var previews: some View {
         ContentView()
     }
 }

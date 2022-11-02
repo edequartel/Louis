@@ -13,28 +13,20 @@ struct SettingsView: View {
     
     @AppStorage("INDEX_METHOD") var indexMethod = 0
     @AppStorage("INDEX_LESSON") var indexLesson = 0
+    //    @AppStorage("INDEX_ACTIVITY") var indexActivity = 1
     @AppStorage("INDEX_LANGUAGEY") var indexLanguage = 0
     @AppStorage("NROFWORDS") var nrofWords = 3
-    @AppStorage("TALKINGON") var talkingOn = false
+    @AppStorage("CONDITIONAL") var conditional = true
     @AppStorage("BRAILLEON") var brailleOn = false
     @AppStorage("MODESTUDENT") var modeStudent = true
     @AppStorage("TYPEACTIVITY") var typeActivity = "word"
+    @AppStorage("CHANGEINDEX") var changeIndex = false
+    @AppStorage("READING") var readSound = "not"
+    @AppStorage("MAXLENGTH") var maxLength = 3
     
-    //    let url = URL(string: "https://www.apple.com")!
-    //    let task = URLSession.shared.downloadTask(with: url) { localURL, urlResponse, error in
-    //            if let localURL = localURL {
-    //                    if let string = try? String(contentsOf: localURL) {
-    //                            print(string)
-    //                    }
-    //            }
-    //    }
-    
-    
-    @State private var lettersCnt = 1
-    //    @State private var wordCnt = 3
-    
-    let words = [3, 4, 5, 6, 7]
-    let activities = ["character","word","sentence","all"]
+    let words = [1, 2, 3, 5, 8, 13, 21]
+    let activities = ["character","word"]//,"sentence","all"]
+    let reading = ["not","before","after"]
     
     
     var body: some View {
@@ -61,6 +53,7 @@ struct SettingsView: View {
                     .onChange(of: indexMethod) { tag in
                         print("Change in tag method: \(tag)")
                         indexLesson = 0
+                        changeIndex = true
                     }
                     
                     Picker("lesson".localized(), selection: $indexLesson) {
@@ -74,7 +67,9 @@ struct SettingsView: View {
                     }
                     .onChange(of: indexLesson) { tag in
                         print("Change in tag lesson: \(tag)")
+                        changeIndex = true
                     }
+                    
                     
                     Section{
                         Picker("activity".localized(), selection: $typeActivity) {
@@ -82,16 +77,23 @@ struct SettingsView: View {
                                 Text("\(activity.localized())")
                             }
                         }
+                        //onchange
                         
-                        Picker("nrofWords".localized(), selection: $nrofWords) {
+                        Picker("nroftrys".localized(), selection: $nrofWords) {
                             ForEach(words, id: \.self) {
                                 Text("\($0)")
                             }
                         }
-                    }
-                    
-                    Section {
-                        Toggle("talkingWord".localized(), isOn: $talkingOn)
+                        //onchange
+                        
+                        Picker("reading".localized(), selection: $readSound) {
+                            ForEach(reading, id: \.self) {
+                                Text("\($0)".localized())
+                            }
+                            
+                        }
+                        
+                        Toggle("conditional".localized(), isOn: $conditional)
                         Toggle("brailleText".localized(), isOn: $brailleOn)
                     }
                     
@@ -102,26 +104,19 @@ struct SettingsView: View {
                             indexLesson = 0
                             indexLanguage = 0
                             typeActivity = "word"
-                            talkingOn = false
                             brailleOn = true
+                            readSound = "before"
+                            conditional = false
                         } label : {
                             Text("reset".localized())
                         }
-                        
-                        Button {
-                            print("update from Internet")
-                        } label : {
-                            Text("update".localized())
-                        }
-                        
                         
                     }
                 }
             }
             .navigationTitle("settings".localized())
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(leading: NavigationLink(destination: InformationView()) {Image(systemName: "info.circle")}
-            )
+            
         }
     }
 }

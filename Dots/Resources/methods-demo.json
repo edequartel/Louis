@@ -174,8 +174,8 @@
           {
             "id" : 2,
             "name" : "cgop+",
-            "letters" : "",
-            "antiletters" : "b a l c g o p",
+            "letters" : "a b k l c g o p",
+            "antiletters" : "",
             "words" : "aak aal aap al ba baal bak bal balg balk blok bob bok bol boog cacao cola ga gaap gal gala galg galop gap goal gok kaak kaal kaap kalk kap klaag klak klap klok klop kok kol kolk kook kool koop kop kopbal la laag lag lak lal lap log logo logo lokaal lol loog look loop oog ook op opa opga opklap opklop opkoop oplap oploop oppak pa paal pak pal pap papa pappa plaag plak po polka polo pook pool poolkap pop",
             "allwords" : "",
             "sentence" : [

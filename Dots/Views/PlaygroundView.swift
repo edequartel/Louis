@@ -11,6 +11,25 @@ import SwiftProgress
 
 import AVFoundation
 
+
+struct bartStijl: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundColor(.white)
+            .padding()
+        //            .background(Color("bartimeus"))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+    }
+}
+
+extension View {
+    func bartStyle() -> some View {
+        modifier(bartStijl())
+    }
+}
+
+
 struct PlaygroundView: View {
     private var Languages: [Language] = Language.Language
     
@@ -19,6 +38,7 @@ struct PlaygroundView: View {
     let nextlevel : SystemSoundID = 1115
     let monospacedFont = "Sono-Regular"
     
+    @State private var myColor = Color.green
     @State private var items =  [""]
     @State private var item: String = ""
     @State private var input: String = ""
@@ -27,14 +47,18 @@ struct PlaygroundView: View {
     
     @AppStorage("INDEX_METHOD") var indexMethod = 0
     @AppStorage("INDEX_LESSON") var indexLesson = 0
+//    @AppStorage("INDEX_ACTIVITY") var indexActivity = 1
     @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
     @AppStorage("NROFWORDS") var nrofWords = 3 //dit is aantal wanneer verder wordt gegaan
-    @AppStorage("TALKINGON") var talkingOn = false
+    @AppStorage("CONDITIONAL") var conditional = true
     @AppStorage("BRAILLEON") var brailleOn = false
     @AppStorage("MODESTUDENT") var modeStudent = true
     @AppStorage("TYPEACTIVITY") var typeActivity = "character"
+    @AppStorage("CHANGEINDEX") var changeIndex = false
+    @AppStorage("READING") var readSound = "not"
+    @AppStorage("MAXLENGTH") var maxLength = 3
     
-    @State private var firstT = true
+    @State private var atStartup = true
     
     
     @FocusState private var isFocused: Bool
@@ -42,31 +66,49 @@ struct PlaygroundView: View {
     @State private var fillPercentage: CGFloat = 20
     
     var body: some View {
-        
         NavigationView{
             Form {
                 Section {
-                    HStack {
-                        Text("\(getMethodeName())")
-                            .bold()
+                    VStack {
+                        HStack {
+                            Text("\(getMethodeName())")
+                                .bold()
+                            Spacer()
+                            Text("\(getLessonName())")
+                        }
+                        
+                        .font(.headline)
                         Spacer()
-                        //                        Text("\(indexLesson)")
-                        //                        Spacer()
-                        Text("\(getLessonName())")
+                        
+                        LinearProgress(
+                            progress: CGFloat(100*count/nrofWords),
+                            foregroundColor: myColor,
+                            backgroundColor:  Color.green.opacity(0.2),
+                            fillAxis: .horizontal
+                        )
+                        .frame(height: 5)
+                        Spacer()
+                        HStack{
+                            Image(systemName: conditional ? "checkmark.circle": "circle")
+                            Spacer()
+                            Text("nroftrys".localized()+" \(nrofWords)")
+                            Spacer()
+                            Text("\(typeActivity)".localized())
+                            Spacer()
+//                            Text(changeIndex ? "True" : "False")
+//                            Spacer()
+                            Text("reading".localized() + " " + "\(readSound)".localized())
+                        }
+                        .font(.footnote)
                     }
+                    .frame(height: 100)
                 }
+                
                 .accessibilityHidden(modeStudent)
                 
                 
                 
                 Section {
-                    LinearProgress(
-                        progress: CGFloat(100*count/nrofWords),
-                        foregroundColor: .green,
-                        backgroundColor: Color.green.opacity(0.2),
-                        fillAxis: .horizontal
-                    )
-                    .frame(height: 5)
                     if (brailleOn) {
                         HStack{
                             Text("\(item)")
@@ -83,11 +125,6 @@ struct PlaygroundView: View {
                         }
                         
                     }
-                    
-                    //                    switch typeActivity {
-                    //                    case "character":
-                    //                            Text("Character!")
-                    //                    case "word":
                     TextField("", text:$input)
                         .font(.custom(monospacedFont, size: 32))
                         .foregroundColor(.blue)
@@ -96,10 +133,13 @@ struct PlaygroundView: View {
                         .disableAutocorrection(true)
                         .onSubmit {
                             //dit is lees en tik//
-                            if input == item {
+                            if (input == item) ||  (!conditional) {
+                                myColor =  Color.green
+                                play(sound: readSound == "after" ? item+".mp3" : "")
+                                
                                 count += 1
                                 if (count >= nrofWords) { //nextlevel
-                                    play(sound: "nextlevel.mp3")
+                                    play(sound: "nextlevel.mp3") //?
                                     if indexLesson<(Languages[indexLanguage].method[indexMethod].lesson.count-1) {
                                         indexLesson += 1
                                     }
@@ -112,41 +152,22 @@ struct PlaygroundView: View {
                                 //wacht tot sound klaar is voordat er geshuffeld wordt
                                 Shuffle()
                                 input = ""
+                                
                             }
                             else {
                                 if count>0 {count -= 1}
                                 AudioServicesPlaySystemSound(failure)
+                                myColor = Color.red
                             }
                             isFocused = true
                         }
-                    
-                    
-                    //                    case "sentence":
-                    //                            Text("Sentence!")
-                    //                    case "all":
-                    //                            Text("All!")
-                    //                    default:
-                    //                            Text("No implementation")
-                    //                    }
                 }
-                
-//                Section {
-//                    
-//                    Image("CircleLogo")
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-//                        .frame(width: 50, height: 50)
-//                    
-//                }
-//                .accessibilityHidden(modeStudent)
+                .frame(height: 60)
             }
-            
-            
+            .navigationTitle("play".localized())
+            .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
                 leading: HStack {
-                }
-                ,
-                trailing: HStack {
                     Button( action: {
                         isFocused.toggle()
                     }) {Image(systemName: "keyboard")
@@ -155,18 +176,26 @@ struct PlaygroundView: View {
             )
         }
         .onAppear() {
-            indexLesson=0
-            indexMethod = 0
-            if (talkingOn) {
-                play(sound: item+".mp3")
-            }
+            //            indexLesson = 0
+            //            indexMethod = 0
+            //            if (talkingOn) {
+            //                play(sound: item+".mp3")
+            //            }
             
-            if firstT {
-                items = Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
+            //            play(sound: readSound == "before" ? item+".mp3" : "")
+            
+            if (atStartup || changeIndex) {
+                if (typeActivity == "character") {
+                    items = Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled()
+                }
+                else {
+                    items = Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
+                }
                 item=items[0]
                 isFocused.toggle()
                 Shuffle()
-                firstT = false
+                atStartup = false
+                changeIndex = false
             }
             
             
@@ -177,11 +206,24 @@ struct PlaygroundView: View {
     
     func Shuffle() {
         print("shuffled")
-        while item==items[0] {
-            items = Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
+        var teller = 0
+        //        while ((item==items[0]) && (item.count>maxLength)) {
+        while (item==items[0]) {
+            if (typeActivity == "character") {
+                items = Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled()
+            }
+            else {
+                items = Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
+            }
+            
+            
+            //            items = Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
+            teller += 1
         }
         item = items[0]
-        if (talkingOn) {
+        
+        
+        if (readSound == "before") {
             play(sound: item+".mp3")
         }
         else //nextone

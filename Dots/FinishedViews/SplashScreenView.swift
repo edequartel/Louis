@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Subsonic
 
 struct SplashScreenView: View {
     @State private var isActive = false
@@ -21,6 +22,7 @@ struct SplashScreenView: View {
                         .frame(width: 150, height: 150)
             }
             .onAppear {
+                            play(sound: "perkinsping.mp3")
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                                 withAnimation {
                                     self.isActive = true
