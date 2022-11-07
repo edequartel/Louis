@@ -42,24 +42,27 @@ struct PlaygroundView: View {
     @State private var items =  [""]
     @State private var item: String = ""
     @State private var input: String = ""
-    @State private var count: Int = 0
-    @State private var mode: String = "Student"
+//    @State private var count: Int = 0
+    //    @State private var mode: String = "Student"
     
+    @AppStorage("COUNT") var count = 0
     @AppStorage("INDEX_METHOD") var indexMethod = 0
     @AppStorage("INDEX_LESSON") var indexLesson = 0
-//    @AppStorage("INDEX_ACTIVITY") var indexActivity = 1
+    @AppStorage("INDEX_ACTIVITY") var indexActivity = 1
+    @AppStorage("INDEX_READING") var indexReading = 1
+    @AppStorage("INDEX_WORDS") var indexWords = 3
+    @AppStorage("INDEX_PRONOUNCE") var indexPronouce = 0
     @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
-    @AppStorage("NROFWORDS") var nrofWords = 3 //dit is aantal wanneer verder wordt gegaan
+    @AppStorage("NROFWORDS") var nrofWords = 3
     @AppStorage("CONDITIONAL") var conditional = true
     @AppStorage("BRAILLEON") var brailleOn = false
-    @AppStorage("MODESTUDENT") var modeStudent = true
+    @AppStorage("MODESTUDENT") var modeStudent = false
     @AppStorage("TYPEACTIVITY") var typeActivity = "character"
     @AppStorage("CHANGEINDEX") var changeIndex = false
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
     
     @State private var atStartup = true
-    
     
     @FocusState private var isFocused: Bool
     
@@ -95,8 +98,6 @@ struct PlaygroundView: View {
                             Spacer()
                             Text("\(typeActivity)".localized())
                             Spacer()
-//                            Text(changeIndex ? "True" : "False")
-//                            Spacer()
                             Text("reading".localized() + " " + "\(readSound)".localized())
                         }
                         .font(.footnote)
@@ -104,7 +105,7 @@ struct PlaygroundView: View {
                     .frame(height: 100)
                 }
                 
-                .accessibilityHidden(modeStudent)
+                .accessibilityHidden(true)
                 
                 
                 
@@ -166,14 +167,14 @@ struct PlaygroundView: View {
             }
             .navigationTitle("play".localized())
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(
-                leading: HStack {
-                    Button( action: {
-                        isFocused.toggle()
-                    }) {Image(systemName: "keyboard")
-                    }
-                }
-            )
+//            .navigationBarItems(
+//                leading: HStack {
+//                    Button( action: {
+//                        isFocused.toggle()
+//                    }) {Image(systemName: "keyboard")
+//                    }
+//                }
+//            )
         }
         .onAppear() {
             //            indexLesson = 0
@@ -181,7 +182,8 @@ struct PlaygroundView: View {
             //            if (talkingOn) {
             //                play(sound: item+".mp3")
             //            }
-            
+            //            indexActivity=0
+            //            indexReading = 0
             //            play(sound: readSound == "before" ? item+".mp3" : "")
             
             if (atStartup || changeIndex) {
@@ -195,12 +197,10 @@ struct PlaygroundView: View {
                 isFocused.toggle()
                 Shuffle()
                 atStartup = false
+                if changeIndex { print("changeIndex=true>false")}
                 changeIndex = false
             }
-            
-            
         }
-        
         
     }
     

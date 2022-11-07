@@ -10,9 +10,9 @@
         "id" : 0,
         "name" : "Met punt op pad",
         "developer" : "Bartiméus Education",
-        "information" : "Methode ontwikkelt voor kinderen. Zij leren de klanken volgens het volgende schema:",
+        "information" : "Voor kinderen. ",
         "letters" : "b a l k m aa p e d ee g i s t v n o oo r u uu h w ie f ui z ei j ij c sch oe eu ou au ch ng nk aai ooi oei oor eur eer eeuw ieuw",
-        "comments" : "Adjusted at 16 05 2022",
+        "comments" : "",
         "lesson" : [
           {
             "id" : 0,
@@ -125,7 +125,7 @@
         "id" : 1,
         "name" : "BraillePi",
         "developer" : "Bartiméus Education",
-        "information" : "Methode ontwikkelt voor mensen die kunnen lezen en schrijven. De method volgt het volgende schema",
+        "information" : "Voor mensen die kunnen lezen en schrijven. ",
         "letters" : "balk idur emfv ...",
         "comments" : "Adjusted at 16 05 2022",
         "lesson" : [
@@ -134,7 +134,7 @@
             "name" : "abkl",
             "letters" : "a b k l",
             "antiletters" : "",
-            "words" : "aak aal al ba baal bak bal balk kaak kaal kalk klak la lak lal",
+            "words" : "la aak aal ka lak laak bak kaak bal baak baal balk kalk kabaal klabak blaak lak kaal kalk balk aak bak baal blaak klabak kabaal kalk kaak baal",
             "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",
@@ -240,16 +240,16 @@
         "id" : 2,
         "name" : "Marechal",
         "developer" : "VISIO",
-        "information" : "Ontwikkeld door Bartimeus en wordt gebruik samen met de braillepi.",
+        "information" : "Voor mensen die kunnen lezen en schrijven. ",
         "letters" : "b a l k m aa p e d ee g i s t v n o oo r u uu h w ie f ui z ei j ij c sch oe eu ou au ch ng nk aai ooi oei oor eur eer eeuw ieuw",
         "comments" : "Adjusted at 16 05 2022",
         "lesson" : [
           {
             "id" : 0,
-            "name" : "abkl letters",
+            "name" : "abkl",
             "letters" : "a b k l ",
             "antiletters" : "",
-            "words" : "a b k l",
+            "words" : "al la aak aal ka lak laak bak kaak bal baak baal balk kalk kabaal klabak blaak lak kaal kalk balk aak bak baal blaak klabak kabaal kalk kaak baal",
             "allwords" : "",
             "sentence" : [
               "a b k l a l k k l b b k a k",
@@ -277,10 +277,10 @@
           },
           {
             "id" : 1,
-            "name" : "cgop letters",
+            "name" : "cgop",
             "letters" : "c g o p",
             "antiletters" : "",
-            "words" : "c g o p",
+            "words" : "aap lag kaap kap laag kalk lag blaag gal klaag gala pal paal lak plak bok lok kok klok blok lol kolk bol lokaal bob plag plaag pa bokaal bak\ngaap galg opa opaal globaal op kop ook kapok log pook klop gok olga goal polka kook look kool galop pop polo loog boog koog loop pool koop cacao col coca cola poog pook globaal kok olga polka galop goal ook",
             "allwords" : "",
             "sentence" : [
               "c g o p c g o p o g c p c p",
@@ -308,10 +308,10 @@
           },
           {
             "id" : 2,
-            "name" : "cgop woorden",
-            "letters" : "c g o p",
+            "name" : "efmv",
+            "letters" : "e f m v",
             "antiletters" : "",
-            "words" : "c g o p",
+            "words" : "la lama maal mal kam af laf kap blaf blaam kalf klam mal vaal vak vaak valk vlak lava eb elk lel bel kelk abel faam vlag vlam gaf gaaf cake egaal vlaag beklaag fabel mag maag malaga melk mol bof bef bom eg leg plek klom klem kop kom me klop vol volk vel om op of el cel velg vlek fakkel gek gebak leek beek pek leef geel cello bagage kogel kegel bevel vogel",
             "allwords" : "",
             "sentence" : [
               "aap lag kaap kap laag kalk",
@@ -339,10 +339,10 @@
           },
           {
             "id" : 3,
-            "name" : "efmv letters",
-            "letters" : "e f m v",
+            "name" : "idur",
+            "letters" : "i d u r",
             "antiletters" : "",
-            "words" : "e f m v",
+            "words" : "ar kar bar bad klad klaar aai raak kraal dal dak barak krab kil klik blik bil gil bulk ik raam vaar raap daad kraag raar dar glad kraai lui kade lade lid bid kou de kei bed draak rib bril kerk pil dik uil leuk eik berk gul mul mug muf mud film dor boor rug dom erg berg korf koud iep koor pril april braille pedaal mei ramp radio adder dorp rui cider vader uk drie vier mier piep mooi deur duur geur prei ruik kruik diep firma marmer prik prima rover ceder lucifer droog dader ruif brief deurbel rammelaar kouder proper droger mooier duurder duivel ruimer duiker papaver klaploper rug broodbakker guur vlieger decor ui fakkeldrager reclame verkoper oeroud druk oordeel kleur roomklopper goed",
             "allwords" : "",
             "sentence" : [
               "e f m v m f e m f v v m f e",
@@ -356,37 +356,6 @@
               "m p m p p m m m p m p p p m",
               "a b k l c g o p e f m v l p",
               "m o e b f g a c f g b k o m"
-            ],
-            "comments" : "…",
-            "information" : "…",
-            "voice" : [
-              "bal.mp3",
-              "bla.mp3"
-            ],
-            "audio" : [
-              "bal.mp3"
-            ]
-          },
-          {
-            "id" : 4,
-            "name" : "emfv woorden",
-            "letters" : "",
-            "antiletters" : "",
-            "words" : "e f m v",
-            "allwords" : "",
-            "sentence" : [
-              "la lama maal mal kam af laf",
-              "kap blaf blaam kalf klam mal",
-              "vaal vak vaak valk vlak lava",
-              "eb elk lel bel kelk abel faam",
-              "vlag vlam gaf gaaf cake egaal",
-              "vlaag beklaag fabel mag maag",
-              "malaga melk mol bof bef bom eg",
-              "leg plek klom klem kop kom me",
-              "klop vol volk vel om op of el",
-              "cel velg vlek fakkel gek gebak",
-              "leek beek pek leef geel cello",
-              "bagage kogel kegel bevel vogel"
             ],
             "comments" : "…",
             "information" : "…",

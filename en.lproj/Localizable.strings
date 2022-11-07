@@ -11,7 +11,7 @@
 "country" = "Country";
 "developedBy" = "Bartiméus Education\nZeist \nthe Netherlands";
 "help" = "Help";
-"helpshorttext" = "1. mute on, top left side button\n2. volume up, left up button\n3. audio off, 2 taps with 2 fingers\n4. shadow off, 2 taps with 2 fingers";
+"helpshorttext" = "1. mute on, top left side button\n2. volume up, left up button\n3. audio off, 2 taps with 3 fingers\n4. shadow off, 3 taps with 3 fingers";
 "information" = "Information";
 "instructionVideos" = "Instruction videos";
 "keyboard" = "Keyboard";
@@ -29,3 +29,7 @@
 "talkingWord" = "Talking";
 "update" = "Update";
 "word" = "Word";
+"pronounce" = "Pronounce";
+"phonetic" = "Phonetic";
+"adult" = "Adult";
+"form" = "Form";

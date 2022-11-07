@@ -11,7 +11,7 @@
 "country" = "Land";
 "developedBy" = "Bartiméus Education\nZeist \ndie Niederlande";
 "help" = "Hilfe";
-"helpshorttext" = "1. Stumm ein, obere linke Seitentaste\n2. Lauter, linke Aufwärtstaste\n3. Audio aus, 2 tippen Sie mit 2 Fingern\n4. Schatten aus, 3 tippen mit 2 Fingern";
+"helpshorttext" = "1. Stumm ein, obere linke Seitentaste\n2. Lauter, linke Aufwärtstaste\n3. Audio aus, 2 tippen mit 3 Fingern\n4. Schatten aus, 3 tippen mit 3 Fingern";
 "information" = "Information";
 "instructionVideos" = "Anleitungsvideos";
 "keyboard" = "Tastatur";
@@ -29,3 +29,7 @@
 "talkingWord" = "Vorlesen";
 "update" = "Aktualisieren";
 "word" = "Wort";
+"pronounce" = "Ausspreche";
+"phonetic" = "Phonetisch";
+"adult" = "Erwachsene";
+"form" = "Form";

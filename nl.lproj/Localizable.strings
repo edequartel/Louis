@@ -11,7 +11,7 @@
 "country" = "Land";
 "developedBy" = "Bartiméus Onderwijs\nZeist \nNederland";
 "help" = "Help";
-"helpshorttext" = "1. dempen aan, zij-knop linksboven \n2. volume omhoog, omhoog-knop links \n3. audio uit, 2 keer tikken met 2 vingers\n4. schaduw uit, 3 keer tikken met 2 vingers";
+"helpshorttext" = "1. dempen aan, zij-knop linksboven \n2. volume omhoog, omhoog-knop links \n3. audio uit, 2 keer tikken met 3 vingers\n4. schermgordijn uit, 3 keer tikken met 3 vingers";
 "information" = "Informatie";
 "instructionVideos" = "Instructie videos";
 "keyboard" = "Toetsenbord";
@@ -29,3 +29,7 @@
 "talkingWord" = "Lees voor";
 "update" = "Bijwerken";
 "word" = "Woord";
+"pronounce" = "Uitspraak";
+"phonetic" = "Phonetisch";
+"adult" = "Volwassen";
+"form" = "Vorm";

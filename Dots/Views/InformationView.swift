@@ -47,6 +47,7 @@ struct InformationView: View {
                 Section {
                     Text("helpshorttext".localized())
                 }
+                .font(.footnote)
 
                 
                 Section {
@@ -54,6 +55,7 @@ struct InformationView: View {
                     Text(locale.description)
                     Text(voEnabled ? "Voiceover on" : "Voiceover off")
                 }
+                .font(.footnote)
 //            header: {
 //                    Text("information".localized())
 //                }
