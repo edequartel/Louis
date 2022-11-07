@@ -14,7 +14,7 @@ struct SettingsView: View {
     @AppStorage("COUNT") var count = 0
     @AppStorage("INDEX_METHOD") var indexMethod = 0
     @AppStorage("INDEX_LESSON") var indexLesson = 0
-    @AppStorage("INDEX_ACTIVITY") var indexActivity = 0
+    @AppStorage("INDEX_ACTIVITY") var indexActivity = 1
     @AppStorage("INDEX_READING") var indexReading = 0
     @AppStorage("INDEX_WORDS") var indexWords = 3
     @AppStorage("INDEX_PRONOUNCE") var indexPronouce = 0
@@ -62,8 +62,6 @@ struct SettingsView: View {
                             changeIndex = true
                             count = 0
                         }
-                    
-                    
                         
                         //                    Text(Languages[indexLanguage].method[indexMethod].information)
                         //                        .font(.footnote)
@@ -86,14 +84,16 @@ struct SettingsView: View {
 
                     
                     Section{
+//                        Text("\(indexActivity)")
                         Picker("activity".localized(), selection: $indexActivity)
                         {
-                            Text("\(activities[0])".localized()).tag(0)
-                            Text("\(activities[1])".localized()).tag(1)
+                            ForEach(0 ..< activities.count) {
+                                Text("\(activities[$0])".localized()).tag($0)
+                            }
                             
                         }
                         .onChange(of: indexActivity) { tag in
-                            print("change in indexActivity \(tag)")
+                            print("change in indexActivity  \(activities[tag]) tag \(tag)")
                             typeActivity = activities[tag]
                             changeIndex = true
                         }
@@ -122,17 +122,17 @@ struct SettingsView: View {
                             changeIndex = true
                         }
                         
-                        Picker("pronounce".localized(), selection: $indexPronouce) {
-                            ForEach(0..<pronouce.count) {
-                                Text("\(pronouce[$0])".localized()).tag($0)
-                            }
-                        }
-                        .onChange(of: indexReading) { tag in
-                            print("change in indexPronouce \(tag)")
-//                            readPronounce = pronouce[tag]
-//                            changeIndex = true
-                        }
-                        
+//                        Picker("pronounce".localized(), selection: $indexPronouce) {
+//                            ForEach(0..<pronouce.count) {
+//                                Text("\(pronouce[$0])".localized()).tag($0)
+//                            }
+//                        }
+//                        .onChange(of: indexReading) { tag in
+//                            print("change in indexPronouce \(tag)")
+////                            readPronounce = pronouce[tag]
+////                            changeIndex = true
+//                        }
+//
                         
                         Toggle("conditional".localized(), isOn: $conditional)
                         Toggle("brailleText".localized(), isOn: $brailleOn)
@@ -140,17 +140,21 @@ struct SettingsView: View {
                     
                     Section{
                         Button {
-                            nrofWords = 3
                             indexMethod = 0
                             indexLesson = 0
                             indexLanguage = 0
+                            
                             indexActivity = 0
                             indexReading = 1
                             indexWords = 3
-                            typeActivity = "word"
+                            
                             brailleOn = true
-                            readSound = "before"
                             conditional = false
+                            
+                            readSound = reading[indexReading]
+                            typeActivity = activities[indexActivity]
+                            nrofWords = words[indexWords]
+                            
                         } label : {
                             Text("reset".localized())
                         }

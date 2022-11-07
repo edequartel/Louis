@@ -42,22 +42,22 @@ struct PlaygroundView: View {
     @State private var items =  [""]
     @State private var item: String = ""
     @State private var input: String = ""
-//    @State private var count: Int = 0
+    //    @State private var count: Int = 0
     //    @State private var mode: String = "Student"
     
     @AppStorage("COUNT") var count = 0
     @AppStorage("INDEX_METHOD") var indexMethod = 0
     @AppStorage("INDEX_LESSON") var indexLesson = 0
     @AppStorage("INDEX_ACTIVITY") var indexActivity = 1
-    @AppStorage("INDEX_READING") var indexReading = 1
+    @AppStorage("INDEX_READING") var indexReading = 0
     @AppStorage("INDEX_WORDS") var indexWords = 3
     @AppStorage("INDEX_PRONOUNCE") var indexPronouce = 0
-    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
+    @AppStorage("INDEX_LANGUAGEY") var indexLanguage = 0
     @AppStorage("NROFWORDS") var nrofWords = 3
     @AppStorage("CONDITIONAL") var conditional = true
     @AppStorage("BRAILLEON") var brailleOn = false
-    @AppStorage("MODESTUDENT") var modeStudent = false
-    @AppStorage("TYPEACTIVITY") var typeActivity = "character"
+    @AppStorage("MODESTUDENT") var modeStudent = true
+    @AppStorage("TYPEACTIVITY") var typeActivity = "word"
     @AppStorage("CHANGEINDEX") var changeIndex = false
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
@@ -82,23 +82,31 @@ struct PlaygroundView: View {
                         
                         .font(.headline)
                         Spacer()
-                        
-                        LinearProgress(
-                            progress: CGFloat(100*count/nrofWords),
-                            foregroundColor: myColor,
-                            backgroundColor:  Color.green.opacity(0.2),
-                            fillAxis: .horizontal
-                        )
-                        .frame(height: 5)
+                        HStack {
+                            Text("\(count)")
+                            Spacer()
+                            LinearProgress(
+                                progress: CGFloat(100*count/nrofWords),
+                                foregroundColor: myColor,
+                                backgroundColor:  Color.green.opacity(0.2),
+                                fillAxis: .horizontal
+                            )
+                            .frame(height: 5)
+                            Spacer()
+                            Text("\(nrofWords)")
+                            
+                        }
+                        .font(.footnote)
                         Spacer()
                         HStack{
+                            //                            Text("\(count)-\(nrofWords)")
                             Image(systemName: conditional ? "checkmark.circle": "circle")
+                            //                            Spacer() "nroftrys".localized()+
+                            
                             Spacer()
-                            Text("nroftrys".localized()+" \(nrofWords)")
-                            Spacer()
-                            Text("\(typeActivity)".localized())
-                            Spacer()
-                            Text("reading".localized() + " " + "\(readSound)".localized())
+                            //                            Text("\(typeActivity)".localized())
+                            //                            Spacer() "reading".localized() + " " +
+                            Text("\(readSound)".localized())
                         }
                         .font(.footnote)
                     }
@@ -167,14 +175,14 @@ struct PlaygroundView: View {
             }
             .navigationTitle("play".localized())
             .navigationBarTitleDisplayMode(.inline)
-//            .navigationBarItems(
-//                leading: HStack {
-//                    Button( action: {
-//                        isFocused.toggle()
-//                    }) {Image(systemName: "keyboard")
-//                    }
-//                }
-//            )
+            //            .navigationBarItems(
+            //                leading: HStack {
+            //                    Button( action: {
+            //                        isFocused.toggle()
+            //                    }) {Image(systemName: "keyboard")
+            //                    }
+            //                }
+            //            )
         }
         .onAppear() {
             //            indexLesson = 0
