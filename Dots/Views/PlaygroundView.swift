@@ -33,6 +33,8 @@ extension View {
 struct PlaygroundView: View {
     private var Languages: [Language] = Language.Language
     
+    let synthesizer = AVSpeechSynthesizer()
+    
     let failure : SystemSoundID = 1057
     let nextword : SystemSoundID = 1113
     let nextlevel : SystemSoundID = 1115
@@ -50,6 +52,7 @@ struct PlaygroundView: View {
     @AppStorage("INDEX_LESSON") var indexLesson = 0
     @AppStorage("INDEX_ACTIVITY") var indexActivity = 1
     @AppStorage("INDEX_READING") var indexReading = 0
+    @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0
     @AppStorage("INDEX_WORDS") var indexWords = 3
     @AppStorage("INDEX_PRONOUNCE") var indexPronouce = 0
     @AppStorage("INDEX_LANGUAGEY") var indexLanguage = 0
@@ -58,6 +61,7 @@ struct PlaygroundView: View {
     @AppStorage("BRAILLEON") var brailleOn = false
     @AppStorage("MODESTUDENT") var modeStudent = true
     @AppStorage("TYPEACTIVITY") var typeActivity = "word"
+    @AppStorage("TYPEPRONOUNCE") var typePronounce = "child"
     @AppStorage("CHANGEINDEX") var changeIndex = false
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
@@ -104,6 +108,8 @@ struct PlaygroundView: View {
                             //                            Spacer() "nroftrys".localized()+
                             
                             Spacer()
+                            Text("\(typePronounce)".localized())
+                            Spacer()
                             //                            Text("\(typeActivity)".localized())
                             //                            Spacer() "reading".localized() + " " +
                             Text("\(readSound)".localized())
@@ -144,7 +150,17 @@ struct PlaygroundView: View {
                             //dit is lees en tik//
                             if (input == item) ||  (!conditional) {
                                 myColor =  Color.green
-                                play(sound: readSound == "after" ? item+".mp3" : "")
+                                
+                                if (readSound == "after") {
+                                    if (item.count==1) {
+                                        Speak(value: item)
+                                    } else {
+                                        play(sound: item+".mp3")
+                                    }
+                                }
+                                
+                                
+//                                play(sound: readSound == "after" ? item+".mp3" : "")
                                 
                                 count += 1
                                 if (count >= nrofWords) { //nextlevel
@@ -232,7 +248,11 @@ struct PlaygroundView: View {
         
         
         if (readSound == "before") {
-            play(sound: item+".mp3")
+            if (item.count==1) {
+                Speak(value: item)
+            } else {
+                play(sound: item+".mp3")
+            }
         }
         else //nextone
         {
@@ -241,12 +261,14 @@ struct PlaygroundView: View {
     }
     
     func Speak(value: String) {
+        print(value)
+        let voices = AVSpeechSynthesisVoice.speechVoices()
         let utterance = AVSpeechUtterance(string: value)
-        utterance.voice = AVSpeechSynthesisVoice(language: "nl")
-        utterance.rate = 0.5
-        let synthesizer = AVSpeechSynthesizer()
-        synthesizer.speak(utterance)
+        utterance.voice = AVSpeechSynthesisVoice(language: "nl") //"nl" //voices[6]
+        utterance.rate = Float(0.5)
+        utterance.volume = Float(0.5)
         
+        synthesizer.speak(utterance)
     }
     
     func getLessonName()->String {

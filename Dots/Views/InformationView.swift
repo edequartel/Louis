@@ -43,6 +43,7 @@ struct InformationView: View {
                     }
 
                 }
+                .font(.footnote)
                 
                 Section {
                     Text("helpshorttext".localized())

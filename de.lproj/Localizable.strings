@@ -2,6 +2,7 @@
 "Information" = "Information";
 "Language" = "Sprache";
 "activity" = "Aktivität";
+"adult" = "Erwachsene";
 "after" = "Hinter";
 "all" = "Alle";
 "before" = "Vor";
@@ -10,6 +11,7 @@
 "conditional" = "Bedingt";
 "country" = "Land";
 "developedBy" = "Bartiméus Education\nZeist \ndie Niederlande";
+"form" = "Forme";
 "help" = "Hilfe";
 "helpshorttext" = "1. Stumm ein, obere linke Seitentaste\n2. Lauter, linke Aufwärtstaste\n3. Audio aus, 2 tippen mit 3 Fingern\n4. Schatten aus, 3 tippen mit 3 Fingern";
 "information" = "Information";
@@ -21,7 +23,9 @@
 "not" = "Nicht";
 "nrofWords" = "Anzahl der Wörter";
 "nroftrys" = "Versuchen";
+"phonetic" = "Phonetisch";
 "play" = "Spielen";
+"pronounce" = "Aussprache";
 "reading" = "Lesen";
 "reset" = "Zurücksetzen";
 "sentence" = "Satz";
@@ -29,7 +33,5 @@
 "talkingWord" = "Vorlesen";
 "update" = "Aktualisieren";
 "word" = "Wort";
-"pronounce" = "Ausspreche";
-"phonetic" = "Phonetisch";
-"adult" = "Erwachsene";
-"form" = "Form";
+"pronouncation" = "Aussprache";
+"child" = "Kind";

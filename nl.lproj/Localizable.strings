@@ -2,6 +2,7 @@
 "Information" = "Informatie";
 "Language" = "Taal";
 "activity" = "Activiteit";
+"adult" = "Volwassen";
 "after" = "Achter";
 "all" = "Alles";
 "before" = "Voor";
@@ -10,6 +11,7 @@
 "conditional" = "Voorwaardelijk";
 "country" = "Land";
 "developedBy" = "Bartiméus Onderwijs\nZeist \nNederland";
+"form" = "Vorm";
 "help" = "Help";
 "helpshorttext" = "1. dempen aan, zij-knop linksboven \n2. volume omhoog, omhoog-knop links \n3. audio uit, 2 keer tikken met 3 vingers\n4. schermgordijn uit, 3 keer tikken met 3 vingers";
 "information" = "Informatie";
@@ -21,7 +23,9 @@
 "not" = "Niet";
 "nrofWords" = "Aantal woorden";
 "nroftrys" = "Pogingen";
+"phonetic" = "Phonetisch";
 "play" = "Speel";
+"pronounce" = "Uitspraak";
 "reading" = "Lezen";
 "reset" = "Herstel";
 "sentence" = "Zin";
@@ -29,7 +33,5 @@
 "talkingWord" = "Lees voor";
 "update" = "Bijwerken";
 "word" = "Woord";
-"pronounce" = "Uitspraak";
-"phonetic" = "Phonetisch";
-"adult" = "Volwassen";
-"form" = "Vorm";
+"pronouncation" = "Uitspraak";
+"child" = "Kind";

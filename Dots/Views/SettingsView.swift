@@ -16,6 +16,7 @@ struct SettingsView: View {
     @AppStorage("INDEX_LESSON") var indexLesson = 0
     @AppStorage("INDEX_ACTIVITY") var indexActivity = 1
     @AppStorage("INDEX_READING") var indexReading = 0
+    @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0
     @AppStorage("INDEX_WORDS") var indexWords = 3
     @AppStorage("INDEX_PRONOUNCE") var indexPronouce = 0
     @AppStorage("INDEX_LANGUAGEY") var indexLanguage = 0
@@ -24,14 +25,16 @@ struct SettingsView: View {
     @AppStorage("BRAILLEON") var brailleOn = false
     @AppStorage("MODESTUDENT") var modeStudent = true
     @AppStorage("TYPEACTIVITY") var typeActivity = "word"
+    @AppStorage("TYPEPRONOUNCE") var typePronounce = "child"
     @AppStorage("CHANGEINDEX") var changeIndex = false
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
+//    @AppStorage("BRAILLEFONT") var braillefont = ""
     
     let words = [1, 2, 3, 5, 8, 13, 21]
     let activities = ["character","word"]//,"sentence","all"]
     let reading = ["not","before","after"]
-    let pronouce = ["phonetic","adult","form"]
+    let pronounce = ["child","adult","form"]
     
     var body: some View {
         NavigationView {
@@ -69,10 +72,10 @@ struct SettingsView: View {
                         Picker("lesson".localized(), selection: $indexLesson) {
                             ForEach(Languages[indexLanguage].method[indexMethod].lesson, id: \.id) { lesson in
                                 Text(lesson.name).tag(lesson.id)
-                                    .foregroundColor(.gray)
-                                    .font(.custom(
-                                        "bartimeus6dots",
-                                        fixedSize: 32))
+//                                    .foregroundColor(.gray)
+//                                    .font(.custom(
+//                                        "bartimeus6dots",
+//                                        fixedSize: 32))
                             }
                         }
                         .onChange(of: indexLesson) { tag in
@@ -95,6 +98,19 @@ struct SettingsView: View {
                         .onChange(of: indexActivity) { tag in
                             print("change in indexActivity  \(activities[tag]) tag \(tag)")
                             typeActivity = activities[tag]
+                            changeIndex = true
+                        }
+                        
+                        Picker("pronouncation".localized(), selection: $indexPronounce)
+                        {
+                            ForEach(0 ..< pronounce.count) {
+                                Text("\(pronounce[$0])".localized()).tag($0)
+                            }
+                            
+                        }
+                        .onChange(of: indexPronounce) { tag in
+                            print("change in indexActivity  \(pronounce[tag]) tag \(tag)")
+                            typePronounce = pronounce[tag]
                             changeIndex = true
                         }
                         

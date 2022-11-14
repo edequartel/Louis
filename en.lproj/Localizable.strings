@@ -2,6 +2,7 @@
 "Information" = "Information";
 "Language" = "Language";
 "activity" = "Activity";
+"adult" = "Adult";
 "after" = "After";
 "all" = "All";
 "before" = "Before";
@@ -10,6 +11,7 @@
 "conditional" = "Conditional";
 "country" = "Country";
 "developedBy" = "Bartiméus Education\nZeist \nthe Netherlands";
+"form" = "Shape";
 "help" = "Help";
 "helpshorttext" = "1. mute on, top left side button\n2. volume up, left up button\n3. audio off, 2 taps with 3 fingers\n4. shadow off, 3 taps with 3 fingers";
 "information" = "Information";
@@ -21,7 +23,9 @@
 "not" = "Not";
 "nrofWords" = "Number of words";
 "nroftrys" = "Attempts";
+"phonetic" = "Phonetic";
 "play" = "Play";
+"pronounce" = "Pronounce";
 "reading" = "Reading";
 "reset" = "Reset";
 "sentence" = "Sentence";
@@ -29,7 +33,5 @@
 "talkingWord" = "Talking";
 "update" = "Update";
 "word" = "Word";
-"pronounce" = "Pronounce";
-"phonetic" = "Phonetic";
-"adult" = "Adult";
-"form" = "Form";
+"pronouncation" = "Pronounce";
+"child" = "Child";
