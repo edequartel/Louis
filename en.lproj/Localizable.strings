@@ -8,6 +8,7 @@
 "before" = "Before";
 "brailleText" = "Braille text";
 "character" = "Character";
+"child" = "Child";
 "conditional" = "Conditional";
 "country" = "Country";
 "developedBy" = "Bartiméus Education\nZeist \nthe Netherlands";
@@ -25,6 +26,7 @@
 "nroftrys" = "Attempts";
 "phonetic" = "Phonetic";
 "play" = "Play";
+"pronouncation" = "Pronounce";
 "pronounce" = "Pronounce";
 "reading" = "Reading";
 "reset" = "Reset";
@@ -33,5 +35,7 @@
 "talkingWord" = "Talking";
 "update" = "Update";
 "word" = "Word";
-"pronouncation" = "Pronounce";
-"child" = "Child";
+"font" = "Font";
+"6dots" = "Six dots";
+"8dots" = "Eigth dots";
+"text" = "Text";

@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>bartimeus8dots.ttf</string>
 		<string>bartimeus6dots.ttf</string>
 		<string>Sono-Regular.ttf</string>
 	</array>

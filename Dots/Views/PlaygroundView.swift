@@ -55,7 +55,8 @@ struct PlaygroundView: View {
     @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0
     @AppStorage("INDEX_WORDS") var indexWords = 3
     @AppStorage("INDEX_PRONOUNCE") var indexPronouce = 0
-    @AppStorage("INDEX_LANGUAGEY") var indexLanguage = 0
+    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
+    @AppStorage("INDEX_BRAILLEFONT") var indexFont = 1
     @AppStorage("NROFWORDS") var nrofWords = 3
     @AppStorage("CONDITIONAL") var conditional = true
     @AppStorage("BRAILLEON") var brailleOn = false
@@ -65,6 +66,7 @@ struct PlaygroundView: View {
     @AppStorage("CHANGEINDEX") var changeIndex = false
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
+    
     
     @State private var atStartup = true
     
@@ -124,22 +126,29 @@ struct PlaygroundView: View {
                 
                 
                 Section {
-                    if (brailleOn) {
-                        HStack{
-                            Text("\(item)")
-                                .accessibilityHidden(modeStudent)
-                                .font(Font.custom("bartimeus6dots", size: 32))
-                        }
-                    }
-                    else {
-                        
+                    if (indexFont==0) {
                         HStack{
                             Text("\(item)")
                                 .font(.custom(monospacedFont, size: 32))
                                 .accessibilityHidden(modeStudent)
                         }
+                    }
+                    else {
+                        HStack{
+                            if (indexFont==1) {
+                                Text("\(item)")
+                                    .accessibilityHidden(modeStudent)
+                                    .font(Font.custom("bartimeus6dots", size: 32))
+                            } else {
+                                Text("\(item)")
+                                    .accessibilityHidden(modeStudent)
+                                    .font(Font.custom("bartimeus8dots", size: 32))
+                            }
+                        }
+                        
                         
                     }
+                    
                     TextField("", text:$input)
                         .font(.custom(monospacedFont, size: 32))
                         .foregroundColor(.blue)
@@ -160,7 +169,7 @@ struct PlaygroundView: View {
                                 }
                                 
                                 
-//                                play(sound: readSound == "after" ? item+".mp3" : "")
+                                //                                play(sound: readSound == "after" ? item+".mp3" : "")
                                 
                                 count += 1
                                 if (count >= nrofWords) { //nextlevel

@@ -19,7 +19,8 @@ struct SettingsView: View {
     @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0
     @AppStorage("INDEX_WORDS") var indexWords = 3
     @AppStorage("INDEX_PRONOUNCE") var indexPronouce = 0
-    @AppStorage("INDEX_LANGUAGEY") var indexLanguage = 0
+    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
+    @AppStorage("INDEX_BRAILLEFONT") var indexFont = 1
     @AppStorage("NROFWORDS") var nrofWords = 3
     @AppStorage("CONDITIONAL") var conditional = true
     @AppStorage("BRAILLEON") var brailleOn = false
@@ -29,12 +30,13 @@ struct SettingsView: View {
     @AppStorage("CHANGEINDEX") var changeIndex = false
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
-//    @AppStorage("BRAILLEFONT") var braillefont = ""
+    @AppStorage("BRAILLEFONT") var braillefont = "6dots"
     
     let words = [1, 2, 3, 5, 8, 13, 21]
     let activities = ["character","word"]//,"sentence","all"]
     let reading = ["not","before","after"]
     let pronounce = ["child","adult","form"]
+    let fonts = ["text","6dots", "8dots"]
     
     var body: some View {
         NavigationView {
@@ -87,7 +89,6 @@ struct SettingsView: View {
 
                     
                     Section{
-//                        Text("\(indexActivity)")
                         Picker("activity".localized(), selection: $indexActivity)
                         {
                             ForEach(0 ..< activities.count) {
@@ -138,20 +139,17 @@ struct SettingsView: View {
                             changeIndex = true
                         }
                         
-//                        Picker("pronounce".localized(), selection: $indexPronouce) {
-//                            ForEach(0..<pronouce.count) {
-//                                Text("\(pronouce[$0])".localized()).tag($0)
-//                            }
-//                        }
-//                        .onChange(of: indexReading) { tag in
-//                            print("change in indexPronouce \(tag)")
-////                            readPronounce = pronouce[tag]
-////                            changeIndex = true
-//                        }
-//
-                        
                         Toggle("conditional".localized(), isOn: $conditional)
-                        Toggle("brailleText".localized(), isOn: $brailleOn)
+//                        Toggle("brailleText".localized(), isOn: $brailleOn)
+                        
+                        Picker("font".localized(), selection: $indexFont) {
+                            ForEach(0..<fonts.count) {
+                                Text("\(fonts[$0])".localized()).tag($0)
+                            }
+                        }
+                        .onChange(of: indexReading) { tag in
+                            print("change in fonts \(tag)")
+                        }
                     }
                     
                     Section{
