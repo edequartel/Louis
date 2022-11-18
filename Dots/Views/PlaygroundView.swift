@@ -39,13 +39,16 @@ struct PlaygroundView: View {
     let nextword : SystemSoundID = 1113
     let nextlevel : SystemSoundID = 1115
     let monospacedFont = "Sono-Regular"
+    let child = 0
+    let adult = 1
+    let form = 2
     
     @State private var myColor = Color.green
     @State private var items =  [""]
     @State private var item: String = ""
     @State private var input: String = ""
-    //    @State private var count: Int = 0
-    //    @State private var mode: String = "Student"
+    
+    
     
     @AppStorage("COUNT") var count = 0
     @AppStorage("INDEX_METHOD") var indexMethod = 0
@@ -54,7 +57,6 @@ struct PlaygroundView: View {
     @AppStorage("INDEX_READING") var indexReading = 0
     @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0
     @AppStorage("INDEX_WORDS") var indexWords = 3
-    @AppStorage("INDEX_PRONOUNCE") var indexPronouce = 0
     @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
     @AppStorage("INDEX_BRAILLEFONT") var indexFont = 1
     @AppStorage("NROFWORDS") var nrofWords = 3
@@ -66,6 +68,8 @@ struct PlaygroundView: View {
     @AppStorage("CHANGEINDEX") var changeIndex = false
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
+    
+    let prefixPronounce = ["child_","adult_","form_"]
     
     
     @State private var atStartup = true
@@ -120,7 +124,6 @@ struct PlaygroundView: View {
                     }
                     .frame(height: 100)
                 }
-                
                 .accessibilityHidden(true)
                 
                 
@@ -132,6 +135,7 @@ struct PlaygroundView: View {
                                 .font(.custom(monospacedFont, size: 32))
                                 .accessibilityHidden(modeStudent)
                         }
+                        .frame(height:60)
                     }
                     else {
                         HStack{
@@ -139,37 +143,43 @@ struct PlaygroundView: View {
                                 Text("\(item)")
                                     .accessibilityHidden(modeStudent)
                                     .font(Font.custom("bartimeus6dots", size: 32))
+                                    .frame(height:60)
                             } else {
                                 Text("\(item)")
                                     .accessibilityHidden(modeStudent)
                                     .font(Font.custom("bartimeus8dots", size: 32))
+                                    .frame(height:60)
                             }
                         }
                         
                         
                     }
                     
+                    //                }
+                    //                Section {
                     TextField("", text:$input)
                         .font(.custom(monospacedFont, size: 32))
                         .foregroundColor(.blue)
                         .focused($isFocused)
                         .textInputAutocapitalization(.never)
                         .disableAutocorrection(true)
+                        .frame(height:60)
                         .onSubmit {
                             //dit is lees en tik//
                             if (input == item) ||  (!conditional) {
                                 myColor =  Color.green
                                 
                                 if (readSound == "after") {
-                                    if (item.count==1) {
-                                        Speak(value: item)
+                                    if (typeActivity=="character") {
+                                        if (item.count==1) { //alleen bij letters
+                                            play(sound: prefixPronounce[indexPronounce]+item+".mp3")
+                                        } else { //tricky sounds gelden voor alle pronounce child/adilt/form
+                                            play(sound: item+".mp3")
+                                        }
                                     } else {
                                         play(sound: item+".mp3")
                                     }
                                 }
-                                
-                                
-                                //                                play(sound: readSound == "after" ? item+".mp3" : "")
                                 
                                 count += 1
                                 if (count >= nrofWords) { //nextlevel
@@ -196,18 +206,13 @@ struct PlaygroundView: View {
                             isFocused = true
                         }
                 }
-                .frame(height: 60)
+                Text("\(input)")
+                    .frame(height:60)
+                    .font(indexFont==0 ? .custom(monospacedFont, size: 32): indexFont==1 ? Font.custom("bartimeus6dots", size: 32) : Font.custom("bartimeus8dots", size: 32))
+                    .accessibilityHidden(true)
             }
             .navigationTitle("play".localized())
             .navigationBarTitleDisplayMode(.inline)
-            //            .navigationBarItems(
-            //                leading: HStack {
-            //                    Button( action: {
-            //                        isFocused.toggle()
-            //                    }) {Image(systemName: "keyboard")
-            //                    }
-            //                }
-            //            )
         }
         .onAppear() {
             //            indexLesson = 0
@@ -249,16 +254,19 @@ struct PlaygroundView: View {
                 items = Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
             }
             
-            
-            //            items = Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
             teller += 1
         }
         item = items[0]
         
         
         if (readSound == "before") {
-            if (item.count==1) {
-                Speak(value: item)
+            if (typeActivity=="character") {
+//                play(sound: prefixPronounce[indexPronounce]+item+".mp3")
+                if (item.count==1) { //alleen bij letters
+                    play(sound: prefixPronounce[indexPronounce]+item+".mp3")
+                } else { //tricky sounds gelden voor alle pronounce child/adilt/form
+                    play(sound: item+".mp3")
+                }
             } else {
                 play(sound: item+".mp3")
             }
@@ -277,6 +285,7 @@ struct PlaygroundView: View {
         utterance.rate = Float(0.5)
         utterance.volume = Float(0.5)
         
+        //        synthesizer.stopSpeaking(at: <#T##AVSpeechBoundary#>)
         synthesizer.speak(utterance)
     }
     
