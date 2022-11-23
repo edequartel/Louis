@@ -69,7 +69,7 @@ struct PlaygroundView: View {
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
     
-    let prefixPronounce = ["child_","adult_","form_"]
+    let prefixPronounce = ["child_","adult_","form_","form_"]
     
     
     @State private var atStartup = true
@@ -173,6 +173,9 @@ struct PlaygroundView: View {
                                     if (typeActivity=="character") {
                                         if (item.count==1) { //alleen bij letters
                                             play(sound: prefixPronounce[indexPronounce]+item+".mp3")
+//                                            if (indexPronounce==3) {
+//                                                
+//                                            }
                                         } else { //tricky sounds gelden voor alle pronounce child/adilt/form
                                             play(sound: item+".mp3")
                                         }
@@ -264,6 +267,8 @@ struct PlaygroundView: View {
 //                play(sound: prefixPronounce[indexPronounce]+item+".mp3")
                 if (item.count==1) { //alleen bij letters
                     play(sound: prefixPronounce[indexPronounce]+item+".mp3")
+                    //
+                    
                 } else { //tricky sounds gelden voor alle pronounce child/adilt/form
                     play(sound: item+".mp3")
                 }

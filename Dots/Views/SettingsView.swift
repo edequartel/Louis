@@ -34,7 +34,7 @@ struct SettingsView: View {
     let words = [1, 2, 3, 5, 8, 13, 21]
     let activities = ["character","word"]//,"syllable","sentence","all"]
     let reading = ["not","before","after"]
-    let pronounce = ["child","adult","form"]
+    let pronounce = ["child","adult","form", "meaning"]
     let fonts = ["text","6dots", "8dots"]
     
     @State var showView = true
