@@ -1,0 +1,16 @@
+PODS:
+  - Soundable (1.1.0)
+
+DEPENDENCIES:
+  - Soundable (~> 1.0)
+
+SPEC REPOS:
+  trunk:
+    - Soundable
+
+SPEC CHECKSUMS:
+  Soundable: 335cce529d674745cd01f054eeeefe20360ce0e1
+
+PODFILE CHECKSUM: f46acbf040c901974496fef457857298a60cb480
+
+COCOAPODS: 1.11.3

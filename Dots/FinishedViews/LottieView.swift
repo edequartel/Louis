@@ -11,7 +11,7 @@ import Lottie
 struct LottieView: UIViewRepresentable {
     let lottieFile: String
  
-    let animationView = AnimationView()
+    let animationView = LottieAnimationView()
  
     func makeUIView(context: Context) -> some UIView {
         let view = UIView(frame: .zero)

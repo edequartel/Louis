@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Subsonic
+import Soundable
 import SwiftProgress
 
 import AVFoundation
@@ -61,6 +61,7 @@ struct PlaygroundView: View {
     @AppStorage("INDEX_BRAILLEFONT") var indexFont = 1
     @AppStorage("NROFWORDS") var nrofWords = 3
     @AppStorage("CONDITIONAL") var conditional = true
+    @AppStorage("SYLLABLE") var syllable = true
     @AppStorage("BRAILLEON") var brailleOn = false
     @AppStorage("MODESTUDENT") var modeStudent = true
     @AppStorage("TYPEACTIVITY") var typeActivity = "word"
@@ -77,6 +78,13 @@ struct PlaygroundView: View {
     @FocusState private var isFocused: Bool
     
     @State private var fillPercentage: CGFloat = 20
+    
+    
+    let sound1 = Sound(fileName: "sch.mp3")
+    let sound2 = Sound(fileName: "aa.mp3")
+    let sound3 = Sound(fileName: "child_r.mp3")
+
+    let klanken = ["sch.mp3","aa.mp3","child_r.mp3"]
     
     var body: some View {
         NavigationView{
@@ -151,64 +159,53 @@ struct PlaygroundView: View {
                                     .frame(height:60)
                             }
                         }
-                        
-                        
                     }
-                    
-                    //                }
-                    //                Section {
-                    TextField("", text:$input)
-                        .font(.custom(monospacedFont, size: 32))
-                        .foregroundColor(.blue)
-                        .focused($isFocused)
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
-                        .frame(height:60)
-                        .onSubmit {
-                            //dit is lees en tik//
-                            if (input == item) ||  (!conditional) {
-                                myColor =  Color.green
-                                
-                                if (readSound == "after") {
-                                    if (typeActivity=="character") {
-                                        if (item.count==1) { //alleen bij letters
-                                            play(sound: prefixPronounce[indexPronounce]+item+".mp3")
-//                                            if (indexPronounce==3) {
-//                                                
-//                                            }
-                                        } else { //tricky sounds gelden voor alle pronounce child/adilt/form
-                                            play(sound: item+".mp3")
-                                        }
-                                    } else {
-                                        play(sound: item+".mp3")
-                                    }
-                                }
-                                
-                                count += 1
-                                if (count >= nrofWords) { //nextlevel
-                                    play(sound: "nextlevel.mp3") //?
-                                    if indexLesson<(Languages[indexLanguage].method[indexMethod].lesson.count-1) {
-                                        indexLesson += 1
-                                    }
-                                    else {
-                                        indexLesson = 0
-                                    }
-                                    count = 0
-                                }
-                                
-                                //wacht tot sound klaar is voordat er geshuffeld wordt
-                                Shuffle()
-                                input = ""
-                                
-                            }
-                            else {
-                                if count>0 {count -= 1}
-                                AudioServicesPlaySystemSound(failure)
-                                myColor = Color.red
-                            }
-                            isFocused = true
-                        }
                 }
+
+                //====
+                TextField("", text:$input)
+                    .font(.custom(monospacedFont, size: 32))
+                    .foregroundColor(.blue)
+                    .focused($isFocused)
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
+                    .frame(height:60)
+                    .onSubmit {
+                        //dit is lees en tik//
+                        if (input == item) ||  (!conditional) {
+                            myColor =  Color.green
+                            
+                            if (readSound == "after") {
+                                Listen()
+                            }
+                            
+                            count += 1
+                            if (count >= nrofWords) { //nextlevel
+                                play(sound: "nextlevel.mp3") //?
+                                if indexLesson<(Languages[indexLanguage].method[indexMethod].lesson.count-1) {
+                                    indexLesson += 1
+                                }
+                                else {
+                                    indexLesson = 0
+                                }
+                                count = 0
+                            }
+                            
+                            //wacht tot sound klaar is voordat er geshuffeld wordt
+                            Shuffle()
+                            input = ""
+                            
+                        }
+                        else {
+                            if count>0 {count -= 1}
+                            AudioServicesPlaySystemSound(failure)
+                            myColor = Color.red
+                        }
+                        isFocused = true
+                    }
+                
+                //====
+
                 Text("\(input)")
                     .frame(height:60)
                     .font(indexFont==0 ? .custom(monospacedFont, size: 32): indexFont==1 ? Font.custom("bartimeus6dots", size: 32) : Font.custom("bartimeus8dots", size: 32))
@@ -217,6 +214,10 @@ struct PlaygroundView: View {
             .navigationTitle("play".localized())
             .navigationBarTitleDisplayMode(.inline)
         }
+        
+        
+        
+        
         .onAppear() {
             //            indexLesson = 0
             //            indexMethod = 0
@@ -231,7 +232,7 @@ struct PlaygroundView: View {
                 if (typeActivity == "character") {
                     items = Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled()
                 }
-                else {
+                else { //word
                     items = Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
                 }
                 item=items[0]
@@ -262,19 +263,9 @@ struct PlaygroundView: View {
         item = items[0]
         
         
+
         if (readSound == "before") {
-            if (typeActivity=="character") {
-//                play(sound: prefixPronounce[indexPronounce]+item+".mp3")
-                if (item.count==1) { //alleen bij letters
-                    play(sound: prefixPronounce[indexPronounce]+item+".mp3")
-                    //
-                    
-                } else { //tricky sounds gelden voor alle pronounce child/adilt/form
-                    play(sound: item+".mp3")
-                }
-            } else {
-                play(sound: item+".mp3")
-            }
+            Listen()
         }
         else //nextone
         {
@@ -284,7 +275,7 @@ struct PlaygroundView: View {
     
     func Speak(value: String) {
         print(value)
-        let voices = AVSpeechSynthesisVoice.speechVoices()
+        //        let voices = AVSpeechSynthesisVoice.speechVoices()
         let utterance = AVSpeechUtterance(string: value)
         utterance.voice = AVSpeechSynthesisVoice(language: "nl") //"nl" //voices[6]
         utterance.rate = Float(0.5)
@@ -308,6 +299,43 @@ struct PlaygroundView: View {
         return Languages[indexLanguage].method[indexMethod].name
     }
     
+    func Listen() {
+        Soundable.stopAll()
+        if (typeActivity=="character") {
+            if (item.count==1) { //alleen bij letters
+                var sounds: [Sound] = []
+                let sound = Sound(fileName: prefixPronounce[indexPronounce]+item+".mp3")
+                sounds.append(sound)
+                if (indexPronounce==3) {
+                    let sound = Sound(fileName: prefixPronounce[1]+item+".mp3")
+                    sounds.append(sound)
+                }
+                sounds.play()
+                
+            } else { //tricky sounds gelden voor alle pronounce child/adult/form
+                let sound = Sound(fileName: item+".mp3")
+                sound.play()
+            }
+        } else { //word
+            if (syllable) {
+                var sounds: [Sound] = []
+                for i in item {
+                    print("\(i)")
+                    sounds.append(Sound(fileName: prefixPronounce[indexPronounce]+"\(i).mp3"))
+                    sounds.append(Sound(fileName: "child_space.mp3"))
+                    if (indexPronounce==3) {
+                        print(">>")
+                        let sound = Sound(fileName: prefixPronounce[1]+"\(i).mp3")
+                        sounds.append(sound)
+                    }
+                }
+                sounds.play()
+            } else {
+                let sound = Sound(fileName: item+".mp3")
+                sound.play()
+            }
+        }
+    }
 }
 
 struct PlaygroundView_Previews: PreviewProvider {

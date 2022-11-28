@@ -22,6 +22,7 @@ struct SettingsView: View {
     @AppStorage("INDEX_BRAILLEFONT") var indexFont = 1
     @AppStorage("NROFWORDS") var nrofWords = 3
     @AppStorage("CONDITIONAL") var conditional = true
+    @AppStorage("SYLLABLE") var syllable = true
     @AppStorage("BRAILLEON") var brailleOn = false
     @AppStorage("MODESTUDENT") var modeStudent = true
     @AppStorage("TYPEACTIVITY") var typeActivity = "word"
@@ -43,51 +44,51 @@ struct SettingsView: View {
         NavigationView {
             Form {
                 List {
-
-//                        Picker("Language".localized(), selection: $indexLanguage) {
-//                            ForEach(Languages, id: \.id) { country in
-//                                Text(country.name).tag(country.id)
-//                            }
-//                        }
-//                        .onChange(of: indexLanguage) { tag in
-//                            print("Change in tag country: \(tag)")
-//                            indexLesson = 0
-//                            indexMethod = 0
-//                            changeIndex = true
-//                            count = 0
-//                        }
                     
-                        Picker("method".localized(), selection: $indexMethod) {
-                            ForEach(Languages[indexLanguage].method, id: \.id) { method in
-                                Text(method.name).tag(method.id)
-                            }
+                    //                        Picker("Language".localized(), selection: $indexLanguage) {
+                    //                            ForEach(Languages, id: \.id) { country in
+                    //                                Text(country.name).tag(country.id)
+                    //                            }
+                    //                        }
+                    //                        .onChange(of: indexLanguage) { tag in
+                    //                            print("Change in tag country: \(tag)")
+                    //                            indexLesson = 0
+                    //                            indexMethod = 0
+                    //                            changeIndex = true
+                    //                            count = 0
+                    //                        }
+                    
+                    Picker("method".localized(), selection: $indexMethod) {
+                        ForEach(Languages[indexLanguage].method, id: \.id) { method in
+                            Text(method.name).tag(method.id)
                         }
-                        .onChange(of: indexMethod) { tag in
-                            print("Change in tag method: \(tag)")
-                            indexLesson = 0
-                            changeIndex = true
-                            count = 0
+                    }
+                    .onChange(of: indexMethod) { tag in
+                        print("Change in tag method: \(tag)")
+                        indexLesson = 0
+                        changeIndex = true
+                        count = 0
+                    }
+                    
+                    //                    Text(Languages[indexLanguage].method[indexMethod].information)
+                    //                        .font(.footnote)
+                    
+                    Picker("lesson".localized(), selection: $indexLesson) {
+                        ForEach(Languages[indexLanguage].method[indexMethod].lesson, id: \.id) { lesson in
+                            Text(lesson.name).tag(lesson.id)
+                            //                                    .foregroundColor(.gray)
+                            //                                    .font(.custom(
+                            //                                        "bartimeus6dots",
+                            //                                        fixedSize: 32))
                         }
-                        
-                        //                    Text(Languages[indexLanguage].method[indexMethod].information)
-                        //                        .font(.footnote)
-                        
-                        Picker("lesson".localized(), selection: $indexLesson) {
-                            ForEach(Languages[indexLanguage].method[indexMethod].lesson, id: \.id) { lesson in
-                                Text(lesson.name).tag(lesson.id)
-//                                    .foregroundColor(.gray)
-//                                    .font(.custom(
-//                                        "bartimeus6dots",
-//                                        fixedSize: 32))
-                            }
-                        }
-                        .onChange(of: indexLesson) { tag in
-                            print("Change in tag lesson: \(tag)")
-                            changeIndex = true
-                            count = 0
-                        }
-                        
-
+                    }
+                    .onChange(of: indexLesson) { tag in
+                        print("Change in tag lesson: \(tag)")
+                        changeIndex = true
+                        count = 0
+                    }
+                    
+                    
                     
                     Section{
                         Picker("activity".localized(), selection: $indexActivity)
@@ -103,19 +104,23 @@ struct SettingsView: View {
                             changeIndex = true
                         }
                         
-                        if (indexActivity==0) {
-                            Picker("pronouncation".localized(), selection: $indexPronounce)
-                            {
-                                ForEach(0 ..< pronounce.count) {
-                                    Text("\(pronounce[$0])".localized()).tag($0)
-                                }
-                                
+                        
+                        if (indexActivity==1) {
+                            Toggle("syllable".localized(), isOn: $syllable)
+                        }
+                        
+                        
+                        Picker("pronouncation".localized(), selection: $indexPronounce)
+                        {
+                            ForEach(0 ..< pronounce.count) {
+                                Text("\(pronounce[$0])".localized()).tag($0)
                             }
-                            .onChange(of: indexPronounce) { tag in
-                                print("change in indexActivity  \(pronounce[tag]) tag \(tag)")
-                                typePronounce = pronounce[tag]
-                                changeIndex = true
-                            }
+                            
+                        }
+                        .onChange(of: indexPronounce) { tag in
+                            print("change in indexActivity  \(pronounce[tag]) tag \(tag)")
+                            typePronounce = pronounce[tag]
+                            changeIndex = true
                         }
                         
                         
@@ -143,7 +148,7 @@ struct SettingsView: View {
                         }
                         
                         Toggle("conditional".localized(), isOn: $conditional)
-//                        Toggle("brailleText".localized(), isOn: $brailleOn)
+                        
                         
                         Picker("font".localized(), selection: $indexFont) {
                             ForEach(0..<fonts.count) {
@@ -167,6 +172,7 @@ struct SettingsView: View {
                             
                             brailleOn = true
                             conditional = false
+                            syllable = false
                             
                             readSound = reading[indexReading]
                             typeActivity = activities[indexActivity]

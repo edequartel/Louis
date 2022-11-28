@@ -1,3 +1,5 @@
+"6dots" = "Six dots";
+"8dots" = "Eigth dots";
 "Both" = "Both";
 "Language" = "Language";
 "activity" = "Activity";
@@ -11,6 +13,7 @@
 "conditional" = "Conditional";
 "country" = "Country";
 "developedBy" = "Bartiméus Education\nZeist \nthe Netherlands";
+"font" = "Font";
 "form" = "Shape";
 "help" = "Help";
 "helpshorttext" = "1. mute on, top left side button\n2. volume up, left up button\n3. audio off, 2 taps with 3 fingers\n4. shadow off, 3 taps with 3 fingers";
@@ -19,6 +22,7 @@
 "keyboard" = "Keyboard";
 "lesson" = "Lesson";
 "louisOnline" = "Louis online manual";
+"meaning" = "Shape-Adult";
 "method" = "Method";
 "not" = "Not";
 "nrofWords" = "Number of words";
@@ -32,9 +36,7 @@
 "sentence" = "Sentence";
 "settings" = "Settings";
 "talkingWord" = "Talking";
+"text" = "Text";
 "update" = "Update";
 "word" = "Word";
-"font" = "Font";
-"6dots" = "Six dots";
-"8dots" = "Eigth dots";
-"text" = "Text";
+"syllable" = "Syllable";

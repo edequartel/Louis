@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import Subsonic
+import Soundable
+
 
 struct SplashScreenView: View {
     @State private var isActive = false
@@ -18,17 +19,19 @@ struct SplashScreenView: View {
             ContentView()
         } else {
             VStack {
-                    LottieView(lottieFile: "bartimeusbigb")
-                        .frame(width: 150, height: 150)
+                LottieView(lottieFile: "bartimeusbigb")
+                    .frame(width: 150, height: 150)
             }
             .onAppear {
-                            play(sound: "perkinsping.mp3")
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                withAnimation {
-                                    self.isActive = true
-                                }
-                            }
-                        }
+                let sound = Sound(fileName: "perkinsping.mp3")
+                sound.play()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    withAnimation {
+                        self.isActive = true
+                    }
+                }
+            }
         }
     }
 }

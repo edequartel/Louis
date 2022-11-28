@@ -1,3 +1,5 @@
+"6dots" = "Zes punts";
+"8dots" = "Acht punts";
 "Both" = "Beide";
 "Language" = "Taal";
 "activity" = "Activiteit";
@@ -11,6 +13,7 @@
 "conditional" = "Voorwaardelijk";
 "country" = "Land";
 "developedBy" = "Bartiméus Onderwijs\nZeist \nNederland";
+"font" = "Lettertype";
 "form" = "Vorm";
 "help" = "Help";
 "helpshorttext" = "1. dempen aan, zij-knop linksboven \n2. volume omhoog, omhoog-knop links \n3. audio uit, 2 keer tikken met 3 vingers\n4. schermgordijn uit, 3 keer tikken met 3 vingers";
@@ -19,6 +22,7 @@
 "keyboard" = "Toetsenbord";
 "lesson" = "Les";
 "louisOnline" = "Louis online handleiding";
+"meaning" = "Vorm-Volwassen";
 "method" = "Methode";
 "not" = "Niet";
 "nrofWords" = "Aantal woorden";
@@ -32,9 +36,7 @@
 "sentence" = "Zin";
 "settings" = "Instellingen";
 "talkingWord" = "Lees voor";
+"text" = "Tekst";
 "update" = "Bijwerken";
 "word" = "Woord";
-"font" = "Lettertype";
-"6dots" = "Zes punts";
-"8dots" = "Acht punts";
-"text" = "Tekst";
+"syllable" = "Lettergreep";

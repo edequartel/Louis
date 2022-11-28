@@ -1,3 +1,5 @@
+"6dots" = "Sechs Punkte";
+"8dots" = "Acht Punkte";
 "Both" = "Beide";
 "Language" = "Sprache";
 "activity" = "Aktivität";
@@ -11,6 +13,7 @@
 "conditional" = "Bedingt";
 "country" = "Land";
 "developedBy" = "Bartiméus Education\nZeist \ndie Niederlande";
+"font" = "Schriftart";
 "form" = "Forme";
 "help" = "Hilfe";
 "helpshorttext" = "1. Stumm ein, obere linke Seitentaste\n2. Lauter, linke Aufwärtstaste\n3. Audio aus, 2 tippen mit 3 Fingern\n4. Schatten aus, 3 tippen mit 3 Fingern";
@@ -19,6 +22,7 @@
 "keyboard" = "Tastatur";
 "lesson" = "Lektion";
 "louisOnline" = "Louis online-handbuch";
+"meaning" = "Forme-Erwachsene";
 "method" = "Method";
 "not" = "Nicht";
 "nrofWords" = "Anzahl der Wörter";
@@ -32,9 +36,7 @@
 "sentence" = "Satz";
 "settings" = "Einstellungen";
 "talkingWord" = "Vorlesen";
+"text" = "Text";
 "update" = "Aktualisieren";
 "word" = "Wort";
-"font" = "Schriftart";
-"6dots" = "Sechs Punkte";
-"8dots" = "Acht Punkte";
-"text" = "Text";
+"syllable" = "Silbe";
