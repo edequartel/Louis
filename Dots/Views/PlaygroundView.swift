@@ -43,6 +43,13 @@ struct PlaygroundView: View {
     let adult = 1
     let form = 2
     
+//    enum Speech {
+//        case child
+//        case adult
+//        case form
+//    }
+    
+    
     @State private var myColor = Color.green
     @State private var items =  [""]
     @State private var item: String = ""
@@ -70,6 +77,8 @@ struct PlaygroundView: View {
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
     
+//    @AppStorage("TEST") var pron = Speech.adult
+    
     let prefixPronounce = ["child_","adult_","form_","form_"]
     
     
@@ -83,7 +92,7 @@ struct PlaygroundView: View {
     let sound1 = Sound(fileName: "sch.mp3")
     let sound2 = Sound(fileName: "aa.mp3")
     let sound3 = Sound(fileName: "child_r.mp3")
-
+    
     let klanken = ["sch.mp3","aa.mp3","child_r.mp3"]
     
     var body: some View {
@@ -161,7 +170,7 @@ struct PlaygroundView: View {
                         }
                     }
                 }
-
+                
                 //====
                 TextField("", text:$input)
                     .font(.custom(monospacedFont, size: 32))
@@ -205,7 +214,7 @@ struct PlaygroundView: View {
                     }
                 
                 //====
-
+                
                 Text("\(input)")
                     .frame(height:60)
                     .font(indexFont==0 ? .custom(monospacedFont, size: 32): indexFont==1 ? Font.custom("bartimeus6dots", size: 32) : Font.custom("bartimeus8dots", size: 32))
@@ -263,7 +272,7 @@ struct PlaygroundView: View {
         item = items[0]
         
         
-
+        
         if (readSound == "before") {
             Listen()
         }
@@ -300,6 +309,7 @@ struct PlaygroundView: View {
     }
     
     func Listen() {
+        
         Soundable.stopAll()
         if (typeActivity=="character") {
             if (item.count==1) { //alleen bij letters

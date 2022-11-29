@@ -107,20 +107,25 @@ struct SettingsView: View {
                         
                         if (indexActivity==1) {
                             Toggle("syllable".localized(), isOn: $syllable)
+                                .onChange(of: syllable) {value in
+                                    print("value is changed \(value)")
+                                    changeIndex = true
+                                }
                         }
                         
-                        
-                        Picker("pronouncation".localized(), selection: $indexPronounce)
-                        {
-                            ForEach(0 ..< pronounce.count) {
-                                Text("\(pronounce[$0])".localized()).tag($0)
+                        if (syllable) {
+                            Picker("pronouncation".localized(), selection: $indexPronounce)
+                            {
+                                ForEach(0 ..< pronounce.count) {
+                                    Text("\(pronounce[$0])".localized()).tag($0)
+                                }
+                                
                             }
-                            
-                        }
-                        .onChange(of: indexPronounce) { tag in
-                            print("change in indexActivity  \(pronounce[tag]) tag \(tag)")
-                            typePronounce = pronounce[tag]
-                            changeIndex = true
+                            .onChange(of: indexPronounce) { tag in
+                                print("change in indexActivity  \(pronounce[tag]) tag \(tag)")
+                                typePronounce = pronounce[tag]
+                                changeIndex = true
+                            }
                         }
                         
                         
