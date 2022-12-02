@@ -39,6 +39,9 @@ struct PlaygroundView: View {
     let nextword : SystemSoundID = 1113
     let nextlevel : SystemSoundID = 1115
     let monospacedFont = "Sono-Regular"
+    
+    @State var isPlaying = false
+    
     let child = 0
     let adult = 1
     let form = 2
@@ -66,14 +69,14 @@ struct PlaygroundView: View {
     @AppStorage("INDEX_WORDS") var indexWords = 3
     @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
     @AppStorage("INDEX_BRAILLEFONT") var indexFont = 1
-    @AppStorage("NROFWORDS") var nrofWords = 3
+    @AppStorage("NROFWORDS") var nrofTrys = 3
     @AppStorage("CONDITIONAL") var conditional = true
     @AppStorage("SYLLABLE") var syllable = true
     @AppStorage("BRAILLEON") var brailleOn = false
     @AppStorage("MODESTUDENT") var modeStudent = true
     @AppStorage("TYPEACTIVITY") var typeActivity = "word"
     @AppStorage("TYPEPRONOUNCE") var typePronounce = "child"
-    @AppStorage("CHANGEINDEX") var changeIndex = false
+    @AppStorage("CHANGEINDEX") var updateViewData = false
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
     
@@ -113,14 +116,14 @@ struct PlaygroundView: View {
                             Text("\(count)")
                             Spacer()
                             LinearProgress(
-                                progress: CGFloat(100*count/nrofWords),
+                                progress: CGFloat(100*count/nrofTrys),
                                 foregroundColor: myColor,
                                 backgroundColor:  Color.green.opacity(0.2),
                                 fillAxis: .horizontal
                             )
                             .frame(height: 5)
                             Spacer()
-                            Text("\(nrofWords)")
+                            Text("\(nrofTrys)")
                             
                         }
                         .font(.footnote)
@@ -189,7 +192,7 @@ struct PlaygroundView: View {
                             }
                             
                             count += 1
-                            if (count >= nrofWords) { //nextlevel
+                            if (count >= nrofTrys) { //nextlevel
                                 play(sound: "nextlevel.mp3") //?
                                 if indexLesson<(Languages[indexLanguage].method[indexMethod].lesson.count-1) {
                                     indexLesson += 1
@@ -223,7 +226,10 @@ struct PlaygroundView: View {
             .navigationTitle("play".localized())
             .navigationBarTitleDisplayMode(.inline)
         }
-        
+        .onTapGesture(count:2) {
+            self.isPlaying.toggle()
+            Listen()
+        }
         
         
         
@@ -237,7 +243,7 @@ struct PlaygroundView: View {
             //            indexReading = 0
             //            play(sound: readSound == "before" ? item+".mp3" : "")
             
-            if (atStartup || changeIndex) {
+            if (atStartup || updateViewData) {
                 if (typeActivity == "character") {
                     items = Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled()
                 }
@@ -248,8 +254,8 @@ struct PlaygroundView: View {
                 isFocused.toggle()
                 Shuffle()
                 atStartup = false
-                if changeIndex { print("changeIndex=true>false")}
-                changeIndex = false
+                if updateViewData { print("changeIndex=true>false")}
+                updateViewData = false
             }
         }
         

@@ -20,14 +20,14 @@ struct SettingsView: View {
     @AppStorage("INDEX_WORDS") var indexWords = 3
     @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
     @AppStorage("INDEX_BRAILLEFONT") var indexFont = 1
-    @AppStorage("NROFWORDS") var nrofWords = 3
+    @AppStorage("NROFWORDS") var nrofTrys = 3
     @AppStorage("CONDITIONAL") var conditional = true
     @AppStorage("SYLLABLE") var syllable = true
     @AppStorage("BRAILLEON") var brailleOn = false
     @AppStorage("MODESTUDENT") var modeStudent = true
     @AppStorage("TYPEACTIVITY") var typeActivity = "word"
     @AppStorage("TYPEPRONOUNCE") var typePronounce = "child"
-    @AppStorage("CHANGEINDEX") var changeIndex = false
+    @AppStorage("CHANGEINDEX") var updateViewData = false
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
     @AppStorage("BRAILLEFONT") var braillefont = "6dots"
@@ -66,7 +66,7 @@ struct SettingsView: View {
                     .onChange(of: indexMethod) { tag in
                         print("Change in tag method: \(tag)")
                         indexLesson = 0
-                        changeIndex = true
+                        updateViewData = true
                         count = 0
                     }
                     
@@ -84,7 +84,7 @@ struct SettingsView: View {
                     }
                     .onChange(of: indexLesson) { tag in
                         print("Change in tag lesson: \(tag)")
-                        changeIndex = true
+                        updateViewData = true
                         count = 0
                     }
                     
@@ -101,7 +101,7 @@ struct SettingsView: View {
                         .onChange(of: indexActivity) { tag in
                             print("change in indexActivity  \(activities[tag]) tag \(tag)")
                             typeActivity = activities[tag]
-                            changeIndex = true
+                            updateViewData = true
                         }
                         
                         
@@ -109,7 +109,7 @@ struct SettingsView: View {
                             Toggle("syllable".localized(), isOn: $syllable)
                                 .onChange(of: syllable) {value in
                                     print("value is changed \(value)")
-                                    changeIndex = true
+                                    updateViewData = true
                                 }
                         }
                         
@@ -124,7 +124,7 @@ struct SettingsView: View {
                             .onChange(of: indexPronounce) { tag in
                                 print("change in indexActivity  \(pronounce[tag]) tag \(tag)")
                                 typePronounce = pronounce[tag]
-                                changeIndex = true
+                                updateViewData = true
                             }
                         }
                         
@@ -136,9 +136,9 @@ struct SettingsView: View {
                         }
                         .onChange(of: indexWords) { tag in
                             print("change in nrofWords \(words[tag])")
-                            nrofWords = words[tag]
+                            nrofTrys = words[tag]
                             count = 0
-                            changeIndex = true
+                            updateViewData = true
                         }
                         
                         Picker("reading".localized(), selection: $indexReading) {
@@ -149,7 +149,7 @@ struct SettingsView: View {
                         .onChange(of: indexReading) { tag in
                             print("change in indexReading \(tag)")
                             readSound = reading[tag]
-                            changeIndex = true
+                            updateViewData = true
                         }
                         
                         Toggle("conditional".localized(), isOn: $conditional)
@@ -181,7 +181,7 @@ struct SettingsView: View {
                             
                             readSound = reading[indexReading]
                             typeActivity = activities[indexActivity]
-                            nrofWords = words[indexWords]
+                            nrofTrys = words[indexWords]
                             
                         } label : {
                             Text("reset".localized())
