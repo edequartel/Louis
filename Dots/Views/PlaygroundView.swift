@@ -46,11 +46,11 @@ struct PlaygroundView: View {
     let adult = 1
     let form = 2
     
-//    enum Speech {
-//        case child
-//        case adult
-//        case form
-//    }
+    //    enum Speech {
+    //        case child
+    //        case adult
+    //        case form
+    //    }
     
     
     @State private var myColor = Color.green
@@ -80,7 +80,7 @@ struct PlaygroundView: View {
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
     
-//    @AppStorage("TEST") var pron = Speech.adult
+    //    @AppStorage("TEST") var pron = Speech.adult
     
     let prefixPronounce = ["child_","adult_","form_","form_"]
     
@@ -159,13 +159,16 @@ struct PlaygroundView: View {
                     }
                     else {
                         HStack{
+//                            Text(stripString(value:"k-aa-k"))
+//                            Text(stripString(value:"kaak"))
+                            
                             if (indexFont==1) {
-                                Text("\(item)")
+                                Text("\(stripString(value: item))")
                                     .accessibilityHidden(modeStudent)
                                     .font(Font.custom("bartimeus6dots", size: 32))
                                     .frame(height:60)
                             } else {
-                                Text("\(item)")
+                                Text("\(stripString(value: item))")
                                     .accessibilityHidden(modeStudent)
                                     .font(Font.custom("bartimeus8dots", size: 32))
                                     .frame(height:60)
@@ -184,7 +187,7 @@ struct PlaygroundView: View {
                     .frame(height:60)
                     .onSubmit {
                         //dit is lees en tik//
-                        if (input == item) ||  (!conditional) {
+                        if (input == stripString(value: item)) ||  (!conditional) {
                             myColor =  Color.green
                             
                             if (readSound == "after") {
@@ -230,9 +233,13 @@ struct PlaygroundView: View {
             self.isPlaying.toggle()
             Listen()
         }
-        
-        
-        
+        //        onLongPressGesture {
+        //            self.isPlaying.toggle()
+        //            Listen()
+        //        }
+        //        .onTapGesture(count:3) {
+        //            Shuffle()
+        //        }
         .onAppear() {
             //            indexLesson = 0
             //            indexMethod = 0
@@ -244,12 +251,10 @@ struct PlaygroundView: View {
             //            play(sound: readSound == "before" ? item+".mp3" : "")
             
             if (atStartup || updateViewData) {
-                if (typeActivity == "character") {
-                    items = Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled()
-                }
-                else { //word
-                    items = Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
-                }
+                //
+                items = (typeActivity == "character") ?  Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled() :
+                Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
+                //
                 item=items[0]
                 isFocused.toggle()
                 Shuffle()
@@ -266,12 +271,11 @@ struct PlaygroundView: View {
         var teller = 0
         //        while ((item==items[0]) && (item.count>maxLength)) {
         while (item==items[0]) {
-            if (typeActivity == "character") {
-                items = Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled()
-            }
-            else {
-                items = Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
-            }
+            
+            //
+            items = (typeActivity == "character") ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled() :
+                Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
+            //
             
             teller += 1
         }
@@ -314,9 +318,13 @@ struct PlaygroundView: View {
         return Languages[indexLanguage].method[indexMethod].name
     }
     
+    func stripString(value: String)->String {
+        return value.replacingOccurrences(of: "-", with: "")
+    }
+    
     func Listen() {
-        
         Soundable.stopAll()
+        //character
         if (typeActivity=="character") {
             if (item.count==1) { //alleen bij letters
                 var sounds: [Sound] = []
@@ -335,18 +343,54 @@ struct PlaygroundView: View {
         } else { //word
             if (syllable) {
                 var sounds: [Sound] = []
-                for i in item {
-                    print("\(i)")
-                    sounds.append(Sound(fileName: prefixPronounce[indexPronounce]+"\(i).mp3"))
-                    sounds.append(Sound(fileName: "child_space.mp3"))
-                    if (indexPronounce==3) {
-                        print(">>")
-                        let sound = Sound(fileName: prefixPronounce[1]+"\(i).mp3")
-                        sounds.append(sound)
+                
+                
+//-----
+                let myStringArr = item.components(separatedBy: "-")
+                if myStringArr.count==1 { //just one word
+                    let sound = Sound(fileName: myStringArr[0]+".mp3") //just one component
+                    sound.play()
+                }
+                else {//consists of more than one item
+                    for i in myStringArr {
+                        print(">>\(i)")
+                        if (i.count > 1) {
+                            sounds.append(Sound(fileName: "\(i).mp3"))
+                            sounds.append(Sound(fileName: "child_space.mp3"))
+
+                        } else {
+                            if (indexPronounce==0) {
+                                sounds.append(Sound(fileName: prefixPronounce[indexPronounce]+"\(i).mp3"))
+                                sounds.append(Sound(fileName: "child_space.mp3"))
+                            }
+                            
+                            if (indexPronounce==1) {
+                                sounds.append(Sound(fileName: prefixPronounce[indexPronounce]+"\(i).mp3"))
+                                sounds.append(Sound(fileName: "child_space.mp3"))
+                            }
+                            
+                            
+                            if (indexPronounce==2) {
+                                sounds.append(Sound(fileName: prefixPronounce[indexPronounce]+"\(i).mp3"))
+                                sounds.append(Sound(fileName: "child_space.mp3"))
+                            }
+                            
+                            if (indexPronounce==3) {
+                                print(">>\(i)")
+                                sounds.append(Sound(fileName: prefixPronounce[indexPronounce]+"\(i).mp3"))
+                                sounds.append(Sound(fileName: "child_space.mp3"))
+                                sounds.append(Sound(fileName: prefixPronounce[1]+"\(i).mp3"))
+                                sounds.append(Sound(fileName: "child_space.mp3"))
+                            }}
+//                    }
                     }
                 }
+//----
+                
                 sounds.play()
-            } else {
+                
+                
+            } else { //not syllable just plays
                 let sound = Sound(fileName: item+".mp3")
                 sound.play()
             }

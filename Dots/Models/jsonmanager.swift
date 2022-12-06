@@ -16,6 +16,7 @@ struct Language: Codable {
 //    let success, failure: [String]
     
     // Generate samples
+//    static let Language: [Language] = Bundle.main.decode(file: "methods-syllable.json")
     static let Language: [Language] = Bundle.main.decode(file: "methods-demo.json")
 //    static let Language: [Language] = Bundle.main.decode(file: "methods.json")
 //    static let sampleLanguage: Language = Language[0]

@@ -40,7 +40,7 @@
             "name" : "kam",
             "letters" : "k a m",
             "antiletters" : "",
-            "words" : "aak kaak kam km ma maak mak mam mama mamma",
+            "words" : "aa-k k-aa-k k-a-m k-m m-a m-aa-k m-a-k m-a-m m-a-m-a m-a-m-m-a",
             "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",
@@ -61,7 +61,7 @@
             "name" : "kam+",
             "letters" : "k a m",
             "antiletters" : "",
-            "words" : "aak aal al ba baal bak bal balk kaak kaal kalk klak la lak lal",
+            "words" : "aa-k aa-l a-l b-a b-aa-l b-a-k b-a-l b-a-l-k k-aa-k k-aa-l k-a-l-k k-l-a-k l-a l-a-k l-a-l",
             "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",
@@ -82,7 +82,7 @@
             "name" : "aap",
             "letters" : "a a p",
             "antiletters" : "",
-            "words" : "aap pa pap papa pappa",
+            "words" : "aa-p p-a p-a-p p-a-p-a p-a-p-p-a",
             "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",

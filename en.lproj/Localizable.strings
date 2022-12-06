@@ -16,7 +16,7 @@
 "font" = "Font";
 "form" = "Shape";
 "help" = "Help";
-"helpshorttext" = "1. mute on, top left side button\n2. volume up, left up button\n3. audio off, 2 taps with 3 fingers\n4. shadow off, 3 taps with 3 fingers";
+"helpshorttext" = "1. mute on, top left side button\n2. volume up, left up button\n3. audio off, 2 taps with 3 fingers\n4. shadow off, 3 taps with 3 fingers\n\n1. double tap, speak";
 "information" = "Information";
 "instructionVideos" = "Instruction videos";
 "keyboard" = "Keyboard";
@@ -35,8 +35,8 @@
 "reset" = "Reset";
 "sentence" = "Sentence";
 "settings" = "Settings";
+"syllable" = "Syllable";
 "talkingWord" = "Talking";
 "text" = "Text";
 "update" = "Update";
 "word" = "Word";
-"syllable" = "Syllable";

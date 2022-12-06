@@ -16,7 +16,7 @@
 "font" = "Schriftart";
 "form" = "Forme";
 "help" = "Hilfe";
-"helpshorttext" = "1. Stumm ein, obere linke Seitentaste\n2. Lauter, linke Aufwärtstaste\n3. Audio aus, 2 tippen mit 3 Fingern\n4. Schatten aus, 3 tippen mit 3 Fingern";
+"helpshorttext" = "1. Stumm ein, obere linke Seitentaste\n2. Lauter, linke Aufwärtstaste\n3. Audio aus, 2 tippen mit 3 Fingern\n4. Schatten aus, 3 tippen mit 3 Fingern\n\n1 double tap, speak";
 "information" = "Information";
 "instructionVideos" = "Anleitungsvideos";
 "keyboard" = "Tastatur";
@@ -35,8 +35,8 @@
 "reset" = "Zurücksetzen";
 "sentence" = "Satz";
 "settings" = "Einstellungen";
+"syllable" = "Silbe";
 "talkingWord" = "Vorlesen";
 "text" = "Text";
 "update" = "Aktualisieren";
 "word" = "Wort";
-"syllable" = "Silbe";

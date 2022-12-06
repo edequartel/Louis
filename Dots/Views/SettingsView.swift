@@ -33,6 +33,13 @@ struct SettingsView: View {
     @AppStorage("BRAILLEFONT") var braillefont = "6dots"
     
     let words = [1, 2, 3, 5, 8, 13, 21]
+    
+    enum ActivityType: String, CaseIterable {
+        case character="character"
+        case word="word"
+    }
+    @State private var activity : ActivityType = .word
+    
     let activities = ["character","word"]//,"syllable","sentence","all"]
     let reading = ["not","before","after"]
     let pronounce = ["child","adult","form", "meaning"]
@@ -88,7 +95,7 @@ struct SettingsView: View {
                         count = 0
                     }
                     
-                    
+                    //========
                     
                     Section{
                         Picker("activity".localized(), selection: $indexActivity)
@@ -96,13 +103,32 @@ struct SettingsView: View {
                             ForEach(0 ..< activities.count) {
                                 Text("\(activities[$0])".localized()).tag($0)
                             }
-                            
+
                         }
                         .onChange(of: indexActivity) { tag in
                             print("change in indexActivity  \(activities[tag]) tag \(tag)")
                             typeActivity = activities[tag]
                             updateViewData = true
                         }
+                        //==
+                        
+//                        Picker("activity!".localized(), selection: $indexActivity) {
+//                            ForEach(ActivityType.allCases, id:\.self) { activiteit in
+//                                Text("\(activiteit.rawValue)")
+//                            }
+//                        }
+//                        .onChange(of: indexActivity) { tag in
+//                            print("change in indexActivity  \(activities[tag]) tag \(tag)")
+////                            typeActivity = activities[tag]
+//                            updateViewData = true
+//                        }
+//                        
+
+                        
+                        
+                        
+                        
+                        //==========
                         
                         
                         if (indexActivity==1) {
