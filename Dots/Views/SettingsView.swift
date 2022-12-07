@@ -120,20 +120,24 @@ struct SettingsView: View {
                                 .onChange(of: syllable) {value in
                                     updateViewData = true
                                 }
-                            Toggle("talkword".localized(), isOn: $talkWord)
-                                .onChange(of: talkWord) {value in
-                                    updateViewData = true
+//                        } else {
+                            if (syllable) {
+                                Toggle("talkword".localized(), isOn: $talkWord)
+                                    .onChange(of: talkWord) {value in
+                                        updateViewData = true
+                                    }
+                                //                            }
+                                Picker("pause".localized(),selection: $indexPauses) {
+                                    ForEach(0 ..< pauses.count) {
+                                        Text("\(pauses[$0])").tag($0)
+                                    }
+                                    .onChange(of: indexPauses) {tag in
+                                        print("--\(pauses[tag])")
+                                        nrOfPause = pauses[tag]
+                                        updateViewData = true
+                                    }
                                 }
-                            Picker("pause".localized(),selection: $indexPauses) {
-                                ForEach(0 ..< pauses.count) {
-                                    Text("\(pauses[$0])").tag($0)
-                                }
-                                .onChange(of: indexPauses) {tag in
-                                    print("--\(pauses[tag])")
-                                    nrOfPause = pauses[tag]
-                                    updateViewData = true
-                                }
-                            }
+                           }
                         }
                         
                         
@@ -150,6 +154,7 @@ struct SettingsView: View {
                                 typePronounce = pronounce[tag]
                                 updateViewData = true
                             }
+                            
                         }
                         
                         Picker("reading".localized(), selection: $indexReading) {
@@ -165,7 +170,7 @@ struct SettingsView: View {
                     }
                     
                     
-                    Section{                        
+                    Section{
                         Picker("nroftrys".localized(), selection: $indexWords) {
                             ForEach(0 ..< words.count) {
                                 Text("\(words[$0])").tag($0)
