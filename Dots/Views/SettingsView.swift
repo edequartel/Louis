@@ -18,6 +18,7 @@ struct SettingsView: View {
     @AppStorage("INDEX_READING") var indexReading = 0
     @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0
     @AppStorage("INDEX_WORDS") var indexWords = 3
+    @AppStorage("INDEX_PAUSES") var indexPauses = 1
     @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
     @AppStorage("INDEX_BRAILLEFONT") var indexFont = 1
     @AppStorage("NROFWORDS") var nrofTrys = 3
@@ -25,14 +26,17 @@ struct SettingsView: View {
     @AppStorage("SYLLABLE") var syllable = true
     @AppStorage("BRAILLEON") var brailleOn = false
     @AppStorage("MODESTUDENT") var modeStudent = true
+    @AppStorage("TALKWORD") var talkWord = false
     @AppStorage("TYPEACTIVITY") var typeActivity = "word"
     @AppStorage("TYPEPRONOUNCE") var typePronounce = "child"
     @AppStorage("CHANGEINDEX") var updateViewData = false
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
     @AppStorage("BRAILLEFONT") var braillefont = "6dots"
+    @AppStorage("PAUSE") var nrOfPause = 1
     
     let words = [1, 2, 3, 5, 8, 13, 21]
+    let pauses = [1, 2, 3, 4, 5]
     
     enum ActivityType: String, CaseIterable {
         case character="character"
@@ -103,41 +107,35 @@ struct SettingsView: View {
                             ForEach(0 ..< activities.count) {
                                 Text("\(activities[$0])".localized()).tag($0)
                             }
-
+                            
                         }
                         .onChange(of: indexActivity) { tag in
                             print("change in indexActivity  \(activities[tag]) tag \(tag)")
                             typeActivity = activities[tag]
                             updateViewData = true
                         }
-                        //==
-                        
-//                        Picker("activity!".localized(), selection: $indexActivity) {
-//                            ForEach(ActivityType.allCases, id:\.self) { activiteit in
-//                                Text("\(activiteit.rawValue)")
-//                            }
-//                        }
-//                        .onChange(of: indexActivity) { tag in
-//                            print("change in indexActivity  \(activities[tag]) tag \(tag)")
-////                            typeActivity = activities[tag]
-//                            updateViewData = true
-//                        }
-//                        
-
-                        
-                        
-                        
-                        
-                        //==========
-                        
                         
                         if (indexActivity==1) {
                             Toggle("syllable".localized(), isOn: $syllable)
                                 .onChange(of: syllable) {value in
-                                    print("value is changed \(value)")
                                     updateViewData = true
                                 }
+                            Toggle("talkword".localized(), isOn: $talkWord)
+                                .onChange(of: talkWord) {value in
+                                    updateViewData = true
+                                }
+                            Picker("pause".localized(),selection: $indexPauses) {
+                                ForEach(0 ..< pauses.count) {
+                                    Text("\(pauses[$0])").tag($0)
+                                }
+                                .onChange(of: indexPauses) {tag in
+                                    print("--\(pauses[tag])")
+                                    nrOfPause = pauses[tag]
+                                    updateViewData = true
+                                }
+                            }
                         }
+                        
                         
                         if (syllable) {
                             Picker("pronouncation".localized(), selection: $indexPronounce)
@@ -154,7 +152,20 @@ struct SettingsView: View {
                             }
                         }
                         
-                        
+                        Picker("reading".localized(), selection: $indexReading) {
+                            ForEach(0..<reading.count) {
+                                Text("\(reading[$0])".localized()).tag($0)
+                            }
+                        }
+                        .onChange(of: indexReading) { tag in
+                            print("change in indexReading \(tag)")
+                            readSound = reading[tag]
+                            updateViewData = true
+                        }
+                    }
+                    
+                    
+                    Section{                        
                         Picker("nroftrys".localized(), selection: $indexWords) {
                             ForEach(0 ..< words.count) {
                                 Text("\(words[$0])").tag($0)
@@ -167,18 +178,10 @@ struct SettingsView: View {
                             updateViewData = true
                         }
                         
-                        Picker("reading".localized(), selection: $indexReading) {
-                            ForEach(0..<reading.count) {
-                                Text("\(reading[$0])".localized()).tag($0)
-                            }
-                        }
-                        .onChange(of: indexReading) { tag in
-                            print("change in indexReading \(tag)")
-                            readSound = reading[tag]
-                            updateViewData = true
-                        }
-                        
                         Toggle("conditional".localized(), isOn: $conditional)
+                            .onChange(of: conditional) {value in
+                                updateViewData = true
+                            }
                         
                         
                         Picker("font".localized(), selection: $indexFont) {

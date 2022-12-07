@@ -27,8 +27,7 @@
 "not" = "Nicht";
 "nrofWords" = "Anzahl der Wörter";
 "nroftrys" = "Versuchen";
-"phonetic" = "Phonetisch";
-"play" = "Spielen";
+"phonetic" = "Phonetic";
 "pronouncation" = "Aussprache";
 "pronounce" = "Aussprache";
 "reading" = "Lesen";
@@ -37,6 +36,8 @@
 "settings" = "Einstellungen";
 "syllable" = "Silbe";
 "talkingWord" = "Vorlesen";
-"text" = "Text";
+"text" = "Woter";
 "update" = "Aktualisieren";
 "word" = "Wort";
+"talkword" = "Wort lesen";
+"pause" = "Pause";

@@ -28,7 +28,6 @@
 "nrofWords" = "Aantal woorden";
 "nroftrys" = "Pogingen";
 "phonetic" = "Phonetisch";
-"play" = "Speel";
 "pronouncation" = "Uitspraak";
 "pronounce" = "Uitspraak";
 "reading" = "Lezen";
@@ -40,3 +39,5 @@
 "text" = "Tekst";
 "update" = "Bijwerken";
 "word" = "Woord";
+"talkword" = "Woord lezen";
+"pause" = "Pauze";

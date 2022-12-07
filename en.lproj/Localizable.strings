@@ -28,7 +28,6 @@
 "nrofWords" = "Number of words";
 "nroftrys" = "Attempts";
 "phonetic" = "Phonetic";
-"play" = "Play";
 "pronouncation" = "Pronounce";
 "pronounce" = "Pronounce";
 "reading" = "Reading";
@@ -40,3 +39,5 @@
 "text" = "Text";
 "update" = "Update";
 "word" = "Word";
+"talkword" = "Read word";
+"pause" = "Pause";

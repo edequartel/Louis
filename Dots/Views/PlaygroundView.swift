@@ -45,6 +45,7 @@ struct PlaygroundView: View {
     let child = 0
     let adult = 1
     let form = 2
+    let form_adult = 3
     
     //    enum Speech {
     //        case child
@@ -67,6 +68,7 @@ struct PlaygroundView: View {
     @AppStorage("INDEX_READING") var indexReading = 0
     @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0
     @AppStorage("INDEX_WORDS") var indexWords = 3
+    @AppStorage("INDEX_PAUSES") var indexPauses = 1
     @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
     @AppStorage("INDEX_BRAILLEFONT") var indexFont = 1
     @AppStorage("NROFWORDS") var nrofTrys = 3
@@ -74,11 +76,13 @@ struct PlaygroundView: View {
     @AppStorage("SYLLABLE") var syllable = true
     @AppStorage("BRAILLEON") var brailleOn = false
     @AppStorage("MODESTUDENT") var modeStudent = true
+    @AppStorage("TALKWORD") var talkWord = false
     @AppStorage("TYPEACTIVITY") var typeActivity = "word"
     @AppStorage("TYPEPRONOUNCE") var typePronounce = "child"
     @AppStorage("CHANGEINDEX") var updateViewData = false
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
+    @AppStorage("PAUSE") var nrOfPause = 1
     
     //    @AppStorage("TEST") var pron = Speech.adult
     
@@ -159,9 +163,6 @@ struct PlaygroundView: View {
                     }
                     else {
                         HStack{
-//                            Text(stripString(value:"k-aa-k"))
-//                            Text(stripString(value:"kaak"))
-                            
                             if (indexFont==1) {
                                 Text("\(stripString(value: item))")
                                     .accessibilityHidden(modeStudent)
@@ -249,6 +250,7 @@ struct PlaygroundView: View {
             //            indexActivity=0
             //            indexReading = 0
             //            play(sound: readSound == "before" ? item+".mp3" : "")
+//            nrOfPause = 1
             
             if (atStartup || updateViewData) {
                 //
@@ -341,57 +343,74 @@ struct PlaygroundView: View {
                 sound.play()
             }
         } else { //word
+            let myStringArr = item.components(separatedBy: "-")
+            let myString = item.replacingOccurrences(of: "-", with: "")
             if (syllable) {
                 var sounds: [Sound] = []
                 
                 
-//-----
-                let myStringArr = item.components(separatedBy: "-")
-                if myStringArr.count==1 { //just one word
-                    let sound = Sound(fileName: myStringArr[0]+".mp3") //just one component
-                    sound.play()
-                }
-                else {//consists of more than one item
-                    for i in myStringArr {
-                        print(">>\(i)")
-                        if (i.count > 1) {
-                            sounds.append(Sound(fileName: "\(i).mp3"))
-                            sounds.append(Sound(fileName: "child_space.mp3"))
 
-                        } else {
-                            if (indexPronounce==0) {
-                                sounds.append(Sound(fileName: prefixPronounce[indexPronounce]+"\(i).mp3"))
-                                sounds.append(Sound(fileName: "child_space.mp3"))
-                            }
+//-----
+//                let myStringArr = item.components(separatedBy: "-")
+//                let myString = item.replacingOccurrences(of: "-", with: "")
+
+                 
+                 if (indexPronounce==adult) || (indexPronounce==form) || (indexPronounce==form_adult) {
+                     for i in myString {
+                         print(">>>\(i)")
+                             if (indexPronounce==adult) { //adult
+                                 sounds.append(Sound(fileName: prefixPronounce[adult]+"\(i).mp3"))
+                                 
+                                 for _ in 0..<nrOfPause {
+                                     sounds.append(Sound(fileName: "child_space.mp3"))
+                                 }
+                             }
+                             
+                             if (indexPronounce==form) { //form
+                                 sounds.append(Sound(fileName: prefixPronounce[form]+"\(i).mp3"))
+                                 for _ in 0..<nrOfPause { sounds.append(Sound(fileName: "child_space.mp3")) }
+                             }
+                             
+                             if (indexPronounce==form_adult) { //form-adult
+                                 print(">>\(i)")
+                                 sounds.append(Sound(fileName: prefixPronounce[form]+"\(i).mp3"))
+                                 for _ in 0..<nrOfPause { sounds.append(Sound(fileName: "child_space.mp3")) }
+                                 sounds.append(Sound(fileName: prefixPronounce[adult]+"\(i).mp3"))
+                                 for _ in 0..<nrOfPause { sounds.append(Sound(fileName: "child_space.mp3")) }
+                             }
+                         
+                     }
+                 }
+                 
+                 
+                else {//child
+                    for i in myStringArr {
+                        print("child - \(i)")
+                        if (i.count > 1) { //just a normal phonem
+                            print("normal phonem like eeu")
+                            sounds.append(Sound(fileName: "\(i).mp3"))
+                            for _ in 0..<nrOfPause { print("+")
+                                sounds.append(Sound(fileName: "child_space.mp3")) }
                             
-                            if (indexPronounce==1) {
-                                sounds.append(Sound(fileName: prefixPronounce[indexPronounce]+"\(i).mp3"))
-                                sounds.append(Sound(fileName: "child_space.mp3"))
-                            }
-                            
-                            
-                            if (indexPronounce==2) {
-                                sounds.append(Sound(fileName: prefixPronounce[indexPronounce]+"\(i).mp3"))
-                                sounds.append(Sound(fileName: "child_space.mp3"))
-                            }
-                            
-                            if (indexPronounce==3) {
-                                print(">>\(i)")
-                                sounds.append(Sound(fileName: prefixPronounce[indexPronounce]+"\(i).mp3"))
-                                sounds.append(Sound(fileName: "child_space.mp3"))
-                                sounds.append(Sound(fileName: prefixPronounce[1]+"\(i).mp3"))
-                                sounds.append(Sound(fileName: "child_space.mp3"))
-                            }}
-//                    }
+                        } else { //just a character
+                            print("normal character like a")
+                            sounds.append(Sound(fileName: prefixPronounce[child]+"\(i).mp3"))
+                            for _ in 0..<nrOfPause { print("+")
+                                sounds.append(Sound(fileName: "child_space.mp3")) }
+                        }
                     }
                 }
+
 //----
-                
+                if talkWord {
+                    sounds.append(Sound(fileName: "\(myString).mp3" ))
+                }
                 sounds.play()
                 
                 
             } else { //not syllable just plays
-                let sound = Sound(fileName: item+".mp3")
+                print(">>>\(myString)")
+                let sound = Sound(fileName: myString+".mp3")
                 sound.play()
             }
         }
