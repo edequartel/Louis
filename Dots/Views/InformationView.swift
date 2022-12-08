@@ -24,7 +24,10 @@ struct InformationView: View {
             Form {
                 Section {
                     Text("developedBy".localized())
-                        .listRowSeparator(.hidden)
+                        .font(.title)
+                }
+                
+                Section {
                     List{
                         Link(destination: URL(string: "http://www.bartimeus.nl")!, label: {
                             Text("www.bartimeus.nl")
@@ -43,7 +46,7 @@ struct InformationView: View {
                     }
 
                 }
-                .font(.footnote)
+//                .font(.footnote)
                 
                 Section {
                     Text("helpshorttext".localized())
@@ -68,12 +71,14 @@ struct InformationView: View {
                             .lineSpacing(0.5)
             .navigationTitle("information".localized())
             .navigationBarTitleDisplayMode(.inline)
+
             
             
         }
- 
+//
     }
-    
+      
+        
     func version() -> String {
         let dictionary = Bundle.main.infoDictionary!
         let version = dictionary["CFBundleShortVersionString"] as! String

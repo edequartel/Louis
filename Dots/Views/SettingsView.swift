@@ -129,7 +129,7 @@ struct SettingsView: View {
                                 //                            }
                                 Picker("pause".localized(),selection: $indexPauses) {
                                     ForEach(0 ..< pauses.count) {
-                                        Text("\(pauses[$0])").tag($0)
+                                        Text("\(pauses[$0]) x").tag($0)
                                     }
                                     .onChange(of: indexPauses) {tag in
                                         print("--\(pauses[tag])")
@@ -137,7 +137,7 @@ struct SettingsView: View {
                                         updateViewData = true
                                     }
                                 }
-                           }
+                            }
                         }
                         
                         

@@ -153,24 +153,26 @@ struct PlaygroundView: View {
                 
                 
                 Section {
+                    let tempString = (indexPronounce != child) && (syllable) ? item.replacingOccurrences(of: "-", with: "")  : item
+                                    
                     if (indexFont==0) {
                         HStack{
-                            Text("\(item)")
+                            Text("\(tempString)")
                                 .font(.custom(monospacedFont, size: 32))
-                                .accessibilityHidden(modeStudent)
+//                                .accessibilityHidden(modeStudent)
                         }
                         .frame(height:60)
                     }
                     else {
-                        HStack{
+                         HStack{
                             if (indexFont==1) {
-                                Text("\(stripString(value: item))")
-                                    .accessibilityHidden(modeStudent)
+                                Text("\(stripString(value: tempString))")
+//                                    .accessibilityHidden(modeStudent)
                                     .font(Font.custom("bartimeus6dots", size: 32))
                                     .frame(height:60)
                             } else {
-                                Text("\(stripString(value: item))")
-                                    .accessibilityHidden(modeStudent)
+                                Text("\(stripString(value: tempString))")
+//                                    .accessibilityHidden(modeStudent)
                                     .font(Font.custom("bartimeus8dots", size: 32))
                                     .frame(height:60)
                             }
@@ -261,7 +263,7 @@ struct PlaygroundView: View {
                 isFocused.toggle()
                 Shuffle()
                 atStartup = false
-                if updateViewData { print("changeIndex=true>false")}
+                if updateViewData { print("updateViewData changeIndex=true>false")}
                 updateViewData = false
             }
         }
