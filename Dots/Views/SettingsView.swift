@@ -8,6 +8,7 @@
 import SwiftUI
 import Subsonic
 
+
 struct SettingsView: View {
     private var Languages: [Language] = Language.Language
     

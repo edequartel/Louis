@@ -60,6 +60,7 @@
 		4766E4CB28B3519A00852495 /* StepperView in Frameworks */ = {isa = PBXBuildFile; productRef = 4766E4CA28B3519A00852495 /* StepperView */; };
 		4766E4CD28B351B200852495 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766E4CC28B351B200852495 /* ProgressView.swift */; };
 		476A36D128F06CDC00F3909B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 476A36D328F06CDC00F3909B /* Localizable.strings */; };
+		4773E99D2943C30B0011E8BA /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4773E99C2943C30B0011E8BA /* extensions.swift */; };
 		47ACE3F1292222C100020519 /* bartimeus8dots.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47ACE3F0292222C100020519 /* bartimeus8dots.ttf */; };
 		47CD79752922BDB6003F8F62 /* zoonlief.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47CD538C2922BD35003F8F62 /* zoonlief.mp3 */; };
 		47CD79762922BDB6003F8F62 /* verjaag.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47CD538D2922BD35003F8F62 /* verjaag.mp3 */; };
@@ -9764,6 +9765,7 @@
 		476A36D228F06CDC00F3909B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		476A36D428F06CDE00F3909B /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		476A36D728F076D500F3909B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4773E99C2943C30B0011E8BA /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		47ACE3F0292222C100020519 /* bartimeus8dots.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bartimeus8dots.ttf; sourceTree = "<group>"; };
 		47CD538C2922BD35003F8F62 /* zoonlief.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zoonlief.mp3; sourceTree = "<group>"; };
 		47CD538D2922BD35003F8F62 /* verjaag.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = verjaag.mp3; sourceTree = "<group>"; };
@@ -19587,6 +19589,7 @@
 				4714E0DF290045660021897E /* methods-demo.json */,
 				4714E0E1290045770021897E /* methods.json */,
 				47EBF7C32860D80D00E8F230 /* jsonmanager.swift */,
+				4773E99C2943C30B0011E8BA /* extensions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -39192,6 +39195,7 @@
 				472226E228D84628002BF9E0 /* sheetView.swift in Sources */,
 				47192A3E2858C057004FD2F3 /* SettingsView.swift in Sources */,
 				47192A0F2858893C004FD2F3 /* DotsApp.swift in Sources */,
+				4773E99D2943C30B0011E8BA /* extensions.swift in Sources */,
 				47EBF7C42860D80D00E8F230 /* jsonmanager.swift in Sources */,
 				47EBF805286200CA00E8F230 /* LottieView.swift in Sources */,
 				47192A392858BE7D004FD2F3 /* SplashScreenView.swift in Sources */,

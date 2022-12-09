@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-extension Color {
-static let teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
-static let darkPink = Color(red: 208 / 255, green: 45 / 255, blue: 208 / 255)
-}
-
 struct InformationView: View {
     @Environment(\.accessibilityVoiceOverEnabled) var voEnabled: Bool
     
@@ -26,67 +21,61 @@ struct InformationView: View {
     var body: some View {
         
         NavigationView{
-            Form {
-                Section {
-                    Text("developedBy".localized())
-                        .font(.title)
-                       
-                }
-                .background(Color.blue)
-                .ignoresSafeArea()
-                
-                Section {
-                    List{
-                        Link(destination: URL(string: "http://www.bartimeus.nl")!, label: {
-                            Text("www.bartimeus.nl")
-                            
-                        })
-                        Link(destination: URL(string: "http://www.tastenbraille.com/wikilouis")!, label: {
-                            Text("louisOnline".localized())
-                            
-                        })
-                       
-                        Link(destination: URL(string: "https://vimeo.com/showcase/9833359")!, label: {
-                            Text("instructionVideos".localized())
-                            
-                        })
-                       
-                    }
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: [Color.bart_purple, Color.bart_green]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                VStack {
+//                    Section {
+                        Text("developedBy".localized())
+                            .font(.title)
+                        
+//                    }
+                    
+                    Spacer()
+                    
+//                    Section {
+//                        VStack{
+                            Link(destination: URL(string: "http://www.bartimeus.nl")!, label: {
+                                Text("www.bartimeus.nl")
+                            })
+                            Link(destination: URL(string: "http://www.tastenbraille.com/wikilouis")!, label: {
+                                Text("louisOnline".localized())
 
+                            })
+                            Link(destination: URL(string: "https://vimeo.com/showcase/9833359")!, label: {
+                                Text("instructionVideos".localized())
+                            })
+//                        }
+                        
+//                    }
+                                    Spacer()
+//                    Section {
+                        Text("helpshorttext".localized())
+//                    }
+//                    .font(.footnote)
+                    //                Spacer()
+//                    Section {
+                        Text(version())
+                        Text(locale.description)
+                        Text(voEnabled ? "Voiceover on" : "Voiceover off")
+//                    }
+//                    .font(.footnote)
                 }
-//                .font(.footnote)
-                
-                Section {
-                    Text("helpshorttext".localized())
-                }
-                .font(.footnote)
-
-                
-                Section {
-                    Text(version())
-                    Text(locale.description)
-                    Text(voEnabled ? "Voiceover on" : "Voiceover off")
-                }
-                .font(.footnote)
-//            header: {
-//                    Text("information".localized())
-//                }
-//                .font(.headline)
-                
-
+                .padding()
+//                .background(Color.teal)
+                .cornerRadius(10)
+                .shadow(color: Color.white, radius: 20)
                 
             }
-                            .lineSpacing(0.5)
-            .navigationTitle("information".localized())
-            .navigationBarTitleDisplayMode(.inline)
-
-            
+//
             
         }
-//
+        .ignoresSafeArea()
+        .navigationTitle("information".localized())
+        .navigationBarTitleDisplayMode(.inline)
+        //
     }
-      
-        
+    
+    
     func version() -> String {
         let dictionary = Bundle.main.infoDictionary!
         let version = dictionary["CFBundleShortVersionString"] as! String
