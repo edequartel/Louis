@@ -30,7 +30,6 @@ struct SettingsView: View {
     @AppStorage("TYPEACTIVITY") var typeActivity = "word"
     @AppStorage("TYPEPRONOUNCE") var typePronounce = "child"
     @AppStorage("CHANGEINDEX") var updateViewData = false
-    @AppStorage("CHANGESETTINGS") var changeSettings = false
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
     @AppStorage("BRAILLEFONT") var braillefont = "6dots"
@@ -82,16 +81,9 @@ struct SettingsView: View {
                         count = 0
                     }
                     
-                    //                    Text(Languages[indexLanguage].method[indexMethod].information)
-                    //                        .font(.footnote)
-                    
                     Picker("lesson".localized(), selection: $indexLesson) {
                         ForEach(Languages[indexLanguage].method[indexMethod].lesson, id: \.id) { lesson in
                             Text(lesson.name).tag(lesson.id)
-                            //                                    .foregroundColor(.gray)
-                            //                                    .font(.custom(
-                            //                                        "bartimeus6dots",
-                            //                                        fixedSize: 32))
                         }
                     }
                     .onChange(of: indexLesson) { tag in
@@ -99,8 +91,6 @@ struct SettingsView: View {
                         updateViewData = true
                         count = 0
                     }
-                    
-                    //========
                     
                     Section{
                         Picker("activity".localized(), selection: $indexActivity)
@@ -114,54 +104,46 @@ struct SettingsView: View {
                             print("change in indexActivity  \(activities[tag]) tag \(tag)")
                             typeActivity = activities[tag]
                             updateViewData = true
-//                            changeSettings = true
                         }
                         
                         if (indexActivity==1) {
                             Toggle("syllable".localized(), isOn: $syllable)
                                 .onChange(of: syllable) {value in
-//                                    updateViewData = true
-                                    changeSettings = true
                                 }
-                            //                        } else {
-                            if (syllable) {
-                                Toggle("talkword".localized(), isOn: $talkWord)
-                                    .onChange(of: talkWord) {value in
-//                                        updateViewData = true
-                                        changeSettings = true
-                                    }
-                                //                            }
-                                Picker("pause".localized(),selection: $indexPauses) {
-                                    ForEach(0 ..< pauses.count) {
-                                        Text("\(pauses[$0]) x").tag($0)
-                                    }
-                                    .onChange(of: indexPauses) {tag in
-                                        print("--\(pauses[tag])")
-                                        nrOfPause = pauses[tag]
-//                                        updateViewData = true
-                                        changeSettings = true
-                                    }
+                        }
+                        //
+                        
+                        if (syllable) {
+                            Toggle("talkword".localized(), isOn: $talkWord)
+                                .onChange(of: talkWord) {value in
+                                }
+                            //                            }
+                            Picker("pause".localized(),selection: $indexPauses) {
+                                ForEach(0 ..< pauses.count) {
+                                    Text("\(pauses[$0]) x").tag($0)
+                                }
+                                .onChange(of: indexPauses) {tag in
+                                    print("--\(pauses[tag])")
+                                    nrOfPause = pauses[tag]
                                 }
                             }
                         }
                         
                         
-                        if (syllable) {
-                            Picker("pronouncation".localized(), selection: $indexPronounce)
-                            {
-                                ForEach(0 ..< pronounce.count) {
-                                    Text("\(pronounce[$0])".localized()).tag($0)
-                                }
-                                
-                            }
-                            .onChange(of: indexPronounce) { tag in
-                                print("change in indexActivity  \(pronounce[tag]) tag \(tag)")
-                                typePronounce = pronounce[tag]
-//                                updateViewData = true
-                                changeSettings = true
+                        
+                        
+                        Picker("pronouncation".localized(), selection: $indexPronounce)
+                        {
+                            ForEach(0 ..< pronounce.count) {
+                                Text("\(pronounce[$0])".localized()).tag($0)
                             }
                             
                         }
+                        .onChange(of: indexPronounce) { tag in
+                            print("change in indexActivity  \(pronounce[tag]) tag \(tag)")
+                            typePronounce = pronounce[tag]
+                        }
+                        
                         
                         Picker("reading".localized(), selection: $indexReading) {
                             ForEach(0..<reading.count) {
@@ -171,8 +153,6 @@ struct SettingsView: View {
                         .onChange(of: indexReading) { tag in
                             print("change in indexReading \(tag)")
                             readSound = reading[tag]
-                            //                            updateViewData = true
-                            if tag != 2 { changeSettings = true }
                         }
                     }
                     
@@ -187,14 +167,10 @@ struct SettingsView: View {
                             print("change in nrofWords \(words[tag])")
                             nrofTrys = words[tag]
                             count = 0
-                            //                            updateViewData = true
-                            changeSettings = true
                         }
                         
                         Toggle("conditional".localized(), isOn: $conditional)
                             .onChange(of: conditional) {value in
-                                //                                updateViewData = true
-                                changeSettings = true
                             }
                         
                         

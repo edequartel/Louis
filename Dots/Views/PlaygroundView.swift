@@ -80,12 +80,9 @@ struct PlaygroundView: View {
     @AppStorage("TYPEACTIVITY") var typeActivity = "word"
     @AppStorage("TYPEPRONOUNCE") var typePronounce = "child"
     @AppStorage("CHANGEINDEX") var updateViewData = false
-    @AppStorage("CHANGESETTINGS") var changeSettings = false
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
     @AppStorage("PAUSE") var nrOfPause = 1
-    
-    //    @AppStorage("TEST") var pron = Speech.adult
     
     let prefixPronounce = ["child_","adult_","form_","form_"]
     
@@ -134,15 +131,10 @@ struct PlaygroundView: View {
                         .font(.footnote)
                         Spacer()
                         HStack{
-                            //                            Text("\(count)-\(nrofWords)")
                             Image(systemName: conditional ? "checkmark.circle": "circle")
-                            //                            Spacer() "nroftrys".localized()+
-                            
                             Spacer()
                             Text("\(typePronounce)".localized())
                             Spacer()
-                            //                            Text("\(typeActivity)".localized())
-                            //                            Spacer() "reading".localized() + " " +
                             Text("\(readSound)".localized())
                         }
                         .font(.footnote)
@@ -153,9 +145,9 @@ struct PlaygroundView: View {
                 
                 
                 
-                Section {
-                    let tempString = (indexPronounce == child) && (syllable) ? item.replacingOccurrences(of: "-", with: " ")  : stripString(value: item)
-                                    
+                Section { //(indexPronounce == child)
+                    let tempString = (syllable) ? item.replacingOccurrences(of: "-", with: " ")  : stripString(value: item)
+                    
                     if (indexFont==0) {
                         HStack{
                             Text("\(tempString)")
@@ -164,10 +156,10 @@ struct PlaygroundView: View {
                         .frame(height:60)
                     }
                     else {
-                         HStack{
-                             Text("\(tempString)")
-                                    .font(Font.custom((indexFont==1) ? "bartimeus6dots" : "bartimeus8dots", size: 32))
-                                    .frame(height:60)
+                        HStack{
+                            Text("\(tempString)")
+                                .font(Font.custom((indexFont==1) ? "bartimeus6dots" : "bartimeus8dots", size: 32))
+                                .frame(height:60)
                         }
                     }
                 }
@@ -253,7 +245,7 @@ struct PlaygroundView: View {
             //            indexActivity=0
             //            indexReading = 0
             //            play(sound: readSound == "before" ? item+".mp3" : "")
-//            nrOfPause = 1
+            //            nrOfPause = 1
             
             if (atStartup || updateViewData) {
                 //
@@ -264,23 +256,12 @@ struct PlaygroundView: View {
                 isFocused.toggle()
                 Shuffle()
                 
-//                if (readSound == "before") || changeSettings {
-//                    Listen()
-//                    changeSettings = false
-//                }
-//                else //nextone
-//                {
-//                    AudioServicesPlaySystemSound(nextword)
-//                }
-                
                 atStartup = false
-//                if updateViewData { print("updateViewData changeIndex=true>false")}
                 updateViewData = false
             }
             
-            if (readSound == "before") || changeSettings {
+            if (readSound == "before") {
                 Listen()
-                changeSettings = false
             }
             else //nextone
             {
@@ -295,38 +276,24 @@ struct PlaygroundView: View {
     func Shuffle() {
         print("shuffled")
         var teller = 0
-        //        while ((item==items[0]) && (item.count>maxLength)) {
         while (item==items[0]) {
             
             //
             items = (typeActivity == "character") ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled() :
-                Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
+            Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
             //
             
             teller += 1
         }
         item = items[0]
-        
-        
-        
-//        if (readSound == "before") {
-//            Listen()
-//        }
-//        else //nextone
-//        {
-//            AudioServicesPlaySystemSound(nextword)
-//        }
     }
     
     func Speak(value: String) {
         print(value)
-        //        let voices = AVSpeechSynthesisVoice.speechVoices()
         let utterance = AVSpeechUtterance(string: value)
         utterance.voice = AVSpeechSynthesisVoice(language: "nl") //"nl" //voices[6]
         utterance.rate = Float(0.5)
         utterance.volume = Float(0.5)
-        
-        //        synthesizer.stopSpeaking(at: <#T##AVSpeechBoundary#>)
         synthesizer.speak(utterance)
     }
     
@@ -373,40 +340,34 @@ struct PlaygroundView: View {
                 var sounds: [Sound] = []
                 
                 
-
-//-----
-//                let myStringArr = item.components(separatedBy: "-")
-//                let myString = item.replacingOccurrences(of: "-", with: "")
-
-                 
-                 if (indexPronounce==adult) || (indexPronounce==form) || (indexPronounce==form_adult) {
-                     for i in myString {
-                         print(">>>\(i)")
-                             if (indexPronounce==adult) { //adult
-                                 sounds.append(Sound(fileName: prefixPronounce[adult]+"\(i).mp3"))
-                                 
-                                 for _ in 0..<nrOfPause {
-                                     sounds.append(Sound(fileName: "child_space.mp3"))
-                                 }
-                             }
-                             
-                             if (indexPronounce==form) { //form
-                                 sounds.append(Sound(fileName: prefixPronounce[form]+"\(i).mp3"))
-                                 for _ in 0..<nrOfPause { sounds.append(Sound(fileName: "child_space.mp3")) }
-                             }
-                             
-                             if (indexPronounce==form_adult) { //form-adult
-                                 print(">>\(i)")
-                                 sounds.append(Sound(fileName: prefixPronounce[form]+"\(i).mp3"))
-                                 for _ in 0..<nrOfPause { sounds.append(Sound(fileName: "child_space.mp3")) }
-                                 sounds.append(Sound(fileName: prefixPronounce[adult]+"\(i).mp3"))
-                                 for _ in 0..<nrOfPause { sounds.append(Sound(fileName: "child_space.mp3")) }
-                             }
-                         
-                     }
-                 }
-                 
-                 
+                
+                if (indexPronounce==adult) || (indexPronounce==form) || (indexPronounce==form_adult) {
+                    for i in myString {
+                        print(">>>\(i)")
+                        if (indexPronounce==adult) { //adult
+                            sounds.append(Sound(fileName: prefixPronounce[adult]+"\(i).mp3"))
+                            
+                            for _ in 0..<nrOfPause {
+                                sounds.append(Sound(fileName: "child_space.mp3"))
+                            }
+                        }
+                        
+                        if (indexPronounce==form) { //form
+                            sounds.append(Sound(fileName: prefixPronounce[form]+"\(i).mp3"))
+                            for _ in 0..<nrOfPause { sounds.append(Sound(fileName: "child_space.mp3")) }
+                        }
+                        
+                        if (indexPronounce==form_adult) { //form-adult
+                            print(">>\(i)")
+                            sounds.append(Sound(fileName: prefixPronounce[form]+"\(i).mp3"))
+                            for _ in 0..<nrOfPause { sounds.append(Sound(fileName: "child_space.mp3")) }
+                            sounds.append(Sound(fileName: prefixPronounce[adult]+"\(i).mp3"))
+                            for _ in 0..<nrOfPause { sounds.append(Sound(fileName: "child_space.mp3")) }
+                        }
+                    }
+                }
+                
+                
                 else {//child
                     for i in myStringArr {
                         print("child - \(i)")
@@ -424,8 +385,7 @@ struct PlaygroundView: View {
                         }
                     }
                 }
-
-//----
+                
                 if talkWord {
                     sounds.append(Sound(fileName: "\(myString).mp3" ))
                 }
