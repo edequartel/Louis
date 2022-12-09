@@ -25,7 +25,10 @@ struct InformationView: View {
                 Section {
                     Text("developedBy".localized())
                         .font(.title)
+                       
                 }
+                .background(Color.blue)
+                .ignoresSafeArea()
                 
                 Section {
                     List{

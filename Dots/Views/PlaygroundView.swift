@@ -80,6 +80,7 @@ struct PlaygroundView: View {
     @AppStorage("TYPEACTIVITY") var typeActivity = "word"
     @AppStorage("TYPEPRONOUNCE") var typePronounce = "child"
     @AppStorage("CHANGEINDEX") var updateViewData = false
+    @AppStorage("CHANGESETTINGS") var changeSettings = false
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
     @AppStorage("PAUSE") var nrOfPause = 1
@@ -153,29 +154,20 @@ struct PlaygroundView: View {
                 
                 
                 Section {
-                    let tempString = (indexPronounce != child) && (syllable) ? item.replacingOccurrences(of: "-", with: "")  : item
+                    let tempString = (indexPronounce == child) && (syllable) ? item.replacingOccurrences(of: "-", with: " ")  : stripString(value: item)
                                     
                     if (indexFont==0) {
                         HStack{
                             Text("\(tempString)")
                                 .font(.custom(monospacedFont, size: 32))
-//                                .accessibilityHidden(modeStudent)
                         }
                         .frame(height:60)
                     }
                     else {
                          HStack{
-                            if (indexFont==1) {
-                                Text("\(stripString(value: tempString))")
-//                                    .accessibilityHidden(modeStudent)
-                                    .font(Font.custom("bartimeus6dots", size: 32))
+                             Text("\(tempString)")
+                                    .font(Font.custom((indexFont==1) ? "bartimeus6dots" : "bartimeus8dots", size: 32))
                                     .frame(height:60)
-                            } else {
-                                Text("\(stripString(value: tempString))")
-//                                    .accessibilityHidden(modeStudent)
-                                    .font(Font.custom("bartimeus8dots", size: 32))
-                                    .frame(height:60)
-                            }
                         }
                     }
                 }
@@ -211,6 +203,15 @@ struct PlaygroundView: View {
                             
                             //wacht tot sound klaar is voordat er geshuffeld wordt
                             Shuffle()
+                            
+                            if (readSound == "before") {
+                                Listen()
+                            }
+                            else //nextone
+                            {
+                                AudioServicesPlaySystemSound(nextword)
+                            }
+                            
                             input = ""
                             
                         }
@@ -262,11 +263,32 @@ struct PlaygroundView: View {
                 item=items[0]
                 isFocused.toggle()
                 Shuffle()
+                
+//                if (readSound == "before") || changeSettings {
+//                    Listen()
+//                    changeSettings = false
+//                }
+//                else //nextone
+//                {
+//                    AudioServicesPlaySystemSound(nextword)
+//                }
+                
                 atStartup = false
-                if updateViewData { print("updateViewData changeIndex=true>false")}
+//                if updateViewData { print("updateViewData changeIndex=true>false")}
                 updateViewData = false
             }
+            
+            if (readSound == "before") || changeSettings {
+                Listen()
+                changeSettings = false
+            }
+            else //nextone
+            {
+                AudioServicesPlaySystemSound(nextword)
+            }
         }
+        
+        
         
     }
     
@@ -287,13 +309,13 @@ struct PlaygroundView: View {
         
         
         
-        if (readSound == "before") {
-            Listen()
-        }
-        else //nextone
-        {
-            AudioServicesPlaySystemSound(nextword)
-        }
+//        if (readSound == "before") {
+//            Listen()
+//        }
+//        else //nextone
+//        {
+//            AudioServicesPlaySystemSound(nextword)
+//        }
     }
     
     func Speak(value: String) {

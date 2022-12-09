@@ -30,6 +30,7 @@ struct SettingsView: View {
     @AppStorage("TYPEACTIVITY") var typeActivity = "word"
     @AppStorage("TYPEPRONOUNCE") var typePronounce = "child"
     @AppStorage("CHANGEINDEX") var updateViewData = false
+    @AppStorage("CHANGESETTINGS") var changeSettings = false
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
     @AppStorage("BRAILLEFONT") var braillefont = "6dots"
@@ -113,18 +114,21 @@ struct SettingsView: View {
                             print("change in indexActivity  \(activities[tag]) tag \(tag)")
                             typeActivity = activities[tag]
                             updateViewData = true
+//                            changeSettings = true
                         }
                         
                         if (indexActivity==1) {
                             Toggle("syllable".localized(), isOn: $syllable)
                                 .onChange(of: syllable) {value in
-                                    updateViewData = true
+//                                    updateViewData = true
+                                    changeSettings = true
                                 }
-//                        } else {
+                            //                        } else {
                             if (syllable) {
                                 Toggle("talkword".localized(), isOn: $talkWord)
                                     .onChange(of: talkWord) {value in
-                                        updateViewData = true
+//                                        updateViewData = true
+                                        changeSettings = true
                                     }
                                 //                            }
                                 Picker("pause".localized(),selection: $indexPauses) {
@@ -134,7 +138,8 @@ struct SettingsView: View {
                                     .onChange(of: indexPauses) {tag in
                                         print("--\(pauses[tag])")
                                         nrOfPause = pauses[tag]
-                                        updateViewData = true
+//                                        updateViewData = true
+                                        changeSettings = true
                                     }
                                 }
                             }
@@ -152,7 +157,8 @@ struct SettingsView: View {
                             .onChange(of: indexPronounce) { tag in
                                 print("change in indexActivity  \(pronounce[tag]) tag \(tag)")
                                 typePronounce = pronounce[tag]
-                                updateViewData = true
+//                                updateViewData = true
+                                changeSettings = true
                             }
                             
                         }
@@ -165,7 +171,8 @@ struct SettingsView: View {
                         .onChange(of: indexReading) { tag in
                             print("change in indexReading \(tag)")
                             readSound = reading[tag]
-                            updateViewData = true
+                            //                            updateViewData = true
+                            if tag != 2 { changeSettings = true }
                         }
                     }
                     
@@ -180,12 +187,14 @@ struct SettingsView: View {
                             print("change in nrofWords \(words[tag])")
                             nrofTrys = words[tag]
                             count = 0
-                            updateViewData = true
+                            //                            updateViewData = true
+                            changeSettings = true
                         }
                         
                         Toggle("conditional".localized(), isOn: $conditional)
                             .onChange(of: conditional) {value in
-                                updateViewData = true
+                                //                                updateViewData = true
+                                changeSettings = true
                             }
                         
                         
