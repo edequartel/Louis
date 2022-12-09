@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct Language: Codable {
     let id: Int
     let name, code, comments, information: String

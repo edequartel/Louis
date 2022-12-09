@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+extension Color {
+static let teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
+static let darkPink = Color(red: 208 / 255, green: 45 / 255, blue: 208 / 255)
+}
+
 struct InformationView: View {
     @Environment(\.accessibilityVoiceOverEnabled) var voEnabled: Bool
     
