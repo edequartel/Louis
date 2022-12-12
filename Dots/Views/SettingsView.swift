@@ -39,6 +39,9 @@ struct SettingsView: View {
     let words = [1, 2, 3, 5, 8, 13, 21]
     let pauses = [1, 2, 3, 4, 5]
     
+    let CHARACTER = 0
+    let WORD = 1
+    
     enum ActivityType: String, CaseIterable {
         case character="character"
         case word="word"
@@ -94,7 +97,7 @@ struct SettingsView: View {
                     }
                     
                     Section{
-                        Picker("activity".localized(), selection: $indexActivity)
+                        Picker("activity".localized(), selection: $indexActivity) 
                         {
                             ForEach(0 ..< activities.count) {
                                 Text("\(activities[$0])".localized()).tag($0)
@@ -107,18 +110,20 @@ struct SettingsView: View {
                             updateViewData = true
                         }
                         
-                        if (indexActivity==1) {
+                        if (indexActivity==WORD) {
                             Toggle("syllable".localized(), isOn: $syllable)
                                 .onChange(of: syllable) {value in
                                 }
                         }
                         //
                         
-                        if (syllable) {
+                        if (syllable) && (indexActivity==WORD) {
                             Toggle("talkword".localized(), isOn: $talkWord)
                                 .onChange(of: talkWord) {value in
                                 }
-                            //                            }
+                        }
+                        
+                        if (syllable) && (indexActivity==WORD) {
                             Picker("pause".localized(),selection: $indexPauses) {
                                 ForEach(0 ..< pauses.count) {
                                     Text("\(pauses[$0]) x").tag($0)
@@ -130,19 +135,18 @@ struct SettingsView: View {
                             }
                         }
                         
-                        
-                        
-                        
-                        Picker("pronouncation".localized(), selection: $indexPronounce)
-                        {
-                            ForEach(0 ..< pronounce.count) {
-                                Text("\(pronounce[$0])".localized()).tag($0)
+                        if (syllable) && (indexActivity==WORD) {
+                            Picker("pronouncation".localized(), selection: $indexPronounce)
+                            {
+                                ForEach(0 ..< pronounce.count) {
+                                    Text("\(pronounce[$0])".localized()).tag($0)
+                                }
+                                
                             }
-                            
-                        }
-                        .onChange(of: indexPronounce) { tag in
-                            print("change in indexActivity  \(pronounce[tag]) tag \(tag)")
-                            typePronounce = pronounce[tag]
+                            .onChange(of: indexPronounce) { tag in
+                                print("change in indexActivity  \(pronounce[tag]) tag \(tag)")
+                                typePronounce = pronounce[tag]
+                            }
                         }
                         
                         

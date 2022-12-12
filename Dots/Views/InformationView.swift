@@ -21,58 +21,43 @@ struct InformationView: View {
     var body: some View {
         
         NavigationView{
-            ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color.bart_purple, Color.bart_green]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                VStack {
-//                    Section {
-                        Text("developedBy".localized())
-                            .font(.title)
-                        
-//                    }
-                    
-                    Spacer()
-                    
-//                    Section {
-//                        VStack{
-                            Link(destination: URL(string: "http://www.bartimeus.nl")!, label: {
-                                Text("www.bartimeus.nl")
-                            })
-                            Link(destination: URL(string: "http://www.tastenbraille.com/wikilouis")!, label: {
-                                Text("louisOnline".localized())
-
-                            })
-                            Link(destination: URL(string: "https://vimeo.com/showcase/9833359")!, label: {
-                                Text("instructionVideos".localized())
-                            })
-//                        }
-                        
-//                    }
-                                    Spacer()
-//                    Section {
-                        Text("helpshorttext".localized())
-//                    }
-//                    .font(.footnote)
-                    //                Spacer()
-//                    Section {
-                        Text(version())
-                        Text(locale.description)
-                        Text(voEnabled ? "Voiceover on" : "Voiceover off")
-//                    }
-//                    .font(.footnote)
+            Form {
+                Section {
+                    Text("developedBy".localized())
+                        .font(.title)
                 }
-                .padding()
-//                .background(Color.teal)
-                .cornerRadius(10)
-                .shadow(color: Color.white, radius: 20)
-                
+
+                Section {
+                    VStack (alignment: .leading) {
+                        Link(destination: URL(string: "http://www.bartimeus.nl")!, label: {
+                            Text("www.bartimeus.nl")
+                        })
+                        Link(destination: URL(string: "http://www.tastenbraille.com/wikilouis")!, label: {
+                            Text("louisOnline".localized())
+                            
+                        })
+                        Link(destination: URL(string: "https://vimeo.com/showcase/9833359")!, label: {
+                            Text("instructionVideos".localized())
+                        })
+                    }
+                }
+
+                Section {
+                    Text("helpshorttext".localized())
+                }
+                .font(.footnote)
+
+                Section {
+                    Text(version())
+                    Text(locale.description)
+                    Text(voEnabled ? "Voiceover on" : "Voiceover off")
+                }
+                .font(.footnote)
             }
-//
-            
+            .navigationTitle("information".localized())
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .ignoresSafeArea()
-        .navigationTitle("information".localized())
-        .navigationBarTitleDisplayMode(.inline)
-        //
+//                .ignoresSafeArea()
     }
     
     
