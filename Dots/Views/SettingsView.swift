@@ -111,7 +111,7 @@ struct SettingsView: View {
                         }
                         
                         if (indexActivity==WORD) {
-                            Toggle("syllable".localized(), isOn: $syllable)
+                            Toggle("chop".localized(), isOn: $syllable)
                                 .onChange(of: syllable) {value in
                                 }
                         }
@@ -135,7 +135,7 @@ struct SettingsView: View {
                             }
                         }
                         
-                        if (syllable) && (indexActivity==WORD) {
+                        if ((syllable) && (indexActivity==WORD)) || (indexActivity==CHARACTER){
                             Picker("pronouncation".localized(), selection: $indexPronounce)
                             {
                                 ForEach(0 ..< pronounce.count) {
@@ -147,17 +147,6 @@ struct SettingsView: View {
                                 print("change in indexActivity  \(pronounce[tag]) tag \(tag)")
                                 typePronounce = pronounce[tag]
                             }
-                        }
-                        
-                        
-                        Picker("reading".localized(), selection: $indexReading) {
-                            ForEach(0..<reading.count) {
-                                Text("\(reading[$0])".localized()).tag($0)
-                            }
-                        }
-                        .onChange(of: indexReading) { tag in
-                            print("change in indexReading \(tag)")
-                            readSound = reading[tag]
                         }
                     }
                     
@@ -178,6 +167,15 @@ struct SettingsView: View {
                             .onChange(of: conditional) {value in
                             }
                         
+                        Picker("reading".localized(), selection: $indexReading) {
+                            ForEach(0..<reading.count) {
+                                Text("\(reading[$0])".localized()).tag($0)
+                            }
+                        }
+                        .onChange(of: indexReading) { tag in
+                            print("change in indexReading \(tag)")
+                            readSound = reading[tag]
+                        }
                         
                         Picker("font".localized(), selection: $indexFont) {
                             ForEach(0..<fonts.count) {

@@ -146,7 +146,15 @@ struct PlaygroundView: View {
                 
                 
                 Section { //(indexPronounce == child)
-                    let tempString = (syllable) ? item.replacingOccurrences(of: "-", with: " ")  : stripString(value: item)
+                    //
+                    
+                    let syllableString = (indexPronounce == child) ? item.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: item))
+                    
+                    let tempString = (syllable) ? syllableString :  stripString(value: item)
+                    
+//                    let tempString = (syllable) ? item.replacingOccurrences(of: "-", with: " ")  :
+//                    stripString(value: item)
+//
                     
                     if (indexFont==0) {
                         HStack{
@@ -315,6 +323,16 @@ struct PlaygroundView: View {
         return value.replacingOccurrences(of: "-", with: "")
     }
     
+    func addSpaces(value: String)->String{
+        var temp = ""
+        for char in value {
+            temp.append("\(char)")
+            temp.append(" ")
+        }
+        if temp.count>0 { temp.removeLast() }
+        return temp
+    }
+    
     func Listen() {
         Soundable.stopAll()
         //character
@@ -338,8 +356,6 @@ struct PlaygroundView: View {
             let myString = item.replacingOccurrences(of: "-", with: "")
             if (syllable) {
                 var sounds: [Sound] = []
-                
-                
                 
                 if (indexPronounce==adult) || (indexPronounce==form) || (indexPronounce==form_adult) {
                     for i in myString {

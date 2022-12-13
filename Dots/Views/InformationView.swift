@@ -28,7 +28,7 @@ struct InformationView: View {
                 }
 
                 Section {
-                    VStack (alignment: .leading) {
+//                    VStack (alignment: .leading) {
                         Link(destination: URL(string: "http://www.bartimeus.nl")!, label: {
                             Text("www.bartimeus.nl")
                         })
@@ -39,7 +39,7 @@ struct InformationView: View {
                         Link(destination: URL(string: "https://vimeo.com/showcase/9833359")!, label: {
                             Text("instructionVideos".localized())
                         })
-                    }
+//                    }
                 }
 
                 Section {
