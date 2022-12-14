@@ -47,6 +47,9 @@ struct PlaygroundView: View {
     let form = 2
     let form_adult = 3
     
+    let CHARACTER = 0
+    let WORD = 1
+    
     //    enum Speech {
     //        case child
     //        case adult
@@ -58,8 +61,6 @@ struct PlaygroundView: View {
     @State private var items =  [""]
     @State private var item: String = ""
     @State private var input: String = ""
-    
-    
     
     @AppStorage("COUNT") var count = 0
     @AppStorage("INDEX_METHOD") var indexMethod = 0
@@ -94,12 +95,6 @@ struct PlaygroundView: View {
     @State private var fillPercentage: CGFloat = 20
     
     
-    let sound1 = Sound(fileName: "sch.mp3")
-    let sound2 = Sound(fileName: "aa.mp3")
-    let sound3 = Sound(fileName: "child_r.mp3")
-    
-    let klanken = ["sch.mp3","aa.mp3","child_r.mp3"]
-    
     var body: some View {
         NavigationView{
             Form {
@@ -133,8 +128,11 @@ struct PlaygroundView: View {
                         HStack{
                             Image(systemName: conditional ? "checkmark.circle": "circle")
                             Spacer()
-                            Text("\(typePronounce)".localized())
+                            Image(systemName: isPlaying ? "speaker.wave.3" : "speaker")
                             Spacer()
+                            if (syllable) && (indexActivity==WORD) {
+                                Text("\(typePronounce)".localized())
+                                Spacer()}
                             Text("\(readSound)".localized())
                         }
                         .font(.footnote)
@@ -145,31 +143,30 @@ struct PlaygroundView: View {
                 
                 
                 
-                Section { //(indexPronounce == child)
-                    //
-                    
+                Section {
                     let syllableString = (indexPronounce == child) ? item.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: item))
-                    
                     let tempString = (syllable) ? syllableString :  stripString(value: item)
                     
-//                    let tempString = (syllable) ? item.replacingOccurrences(of: "-", with: " ")  :
-//                    stripString(value: item)
-//
+//                    && (readSound != "after")
+                    if (!isPlaying && (readSound == "after")) || (readSound == "before") {
+                        if (indexFont==0) {
+                                Text("\(tempString)")
+                                    .font(.custom(monospacedFont, size: 32))
+                            .frame(height:60)
+                        }
+                        else {
+                                Text("\(tempString)")
+                                    .font(Font.custom((indexFont==1) ? "bartimeus6dots" : "bartimeus8dots", size: 32))
+                                    .frame(height:60)
+                        }
+                    } else {
+                        Text("")
+                            .font(.custom(monospacedFont, size: 32))
+                            .frame(height:60)
+                    }
+                        
                     
-                    if (indexFont==0) {
-                        HStack{
-                            Text("\(tempString)")
-                                .font(.custom(monospacedFont, size: 32))
-                        }
-                        .frame(height:60)
-                    }
-                    else {
-                        HStack{
-                            Text("\(tempString)")
-                                .font(Font.custom((indexFont==1) ? "bartimeus6dots" : "bartimeus8dots", size: 32))
-                                .frame(height:60)
-                        }
-                    }
+                    
                 }
                 
                 //====
@@ -237,24 +234,7 @@ struct PlaygroundView: View {
             self.isPlaying.toggle()
             Listen()
         }
-        //        onLongPressGesture {
-        //            self.isPlaying.toggle()
-        //            Listen()
-        //        }
-        //        .onTapGesture(count:3) {
-        //            Shuffle()
-        //        }
         .onAppear() {
-            //            indexLesson = 0
-            //            indexMethod = 0
-            //            if (talkingOn) {
-            //                play(sound: item+".mp3")
-            //            }
-            //            indexActivity=0
-            //            indexReading = 0
-            //            play(sound: readSound == "before" ? item+".mp3" : "")
-            //            nrOfPause = 1
-            
             if (atStartup || updateViewData) {
                 //
                 items = (typeActivity == "character") ?  Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled() :
@@ -276,9 +256,6 @@ struct PlaygroundView: View {
                 AudioServicesPlaySystemSound(nextword)
             }
         }
-        
-        
-        
     }
     
     func Shuffle() {
@@ -405,7 +382,14 @@ struct PlaygroundView: View {
                 if talkWord {
                     sounds.append(Sound(fileName: "\(myString).mp3" ))
                 }
-                sounds.play()
+                isPlaying.toggle()
+                sounds.play { error in
+                    if let error = error {
+                        print("error: \(error.localizedDescription)")
+                    }
+                    print("FINISHED PLAYING")
+                    isPlaying.toggle()
+                }
                 
                 
             } else { //not syllable just plays

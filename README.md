@@ -1,19 +1,16 @@
 # DOTS
-Platform to learn braille while using VoiceOver.  
-**Eric de Quartel  
-Werkhoven**
+Platform to learn braille while using VoiceOver. 
 
-03102022
-nobounce and a mode student/teacher
+## Refreshable brailledisplay
+These are device which can be connected by bluetooth with a macOS or iOS device. By using the voiceOver utility all the items can be heared or accessed. 
 
-06072022
-Alle natural voices zijn weggehaald. Deze later gaan gebruiken.
-onFocus TextField, (opgelost in een onappear, maardan als je naar een andere vie gaat)
-en achter elkaar afspelen van audio (sound: isPlaying)
-daarbij mvvm voor subsonic audio spel gaan gebruiken. mvvm filosofie (sound: isPlaying)
+## Methods
+This software is developed in the Netherlands, therefore there are ...
 
-omdat er niet meer dan 1000 bestanden in git mogen staan in een folder deze weggehaald.
-github desktop app gebruikt voor committen want xcode kon het niet aan. > dus bestanden in meerdere folders zetten
+## Localisation
+Audiofiles and Methods are on a server. Therefore these can be easily changed and added.
 
-07072022
-wanneer de downloaden naar iphone niet goed gaat, iphone uit en aanzetten 1,2 volume, 3 home 
+## How to use
+1. turn on brailledisplay and make sure there is a connected with your iOS device...
+
+## Screenhots
