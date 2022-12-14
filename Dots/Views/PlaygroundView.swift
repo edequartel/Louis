@@ -148,7 +148,7 @@ struct PlaygroundView: View {
                     let tempString = (syllable) ? syllableString :  stripString(value: item)
                     
 //                    && (readSound != "after")
-//                    if (!isPlaying && (readSound == "after")) || (readSound == "before") {
+                    if (!isPlaying && (readSound == "after")) || (readSound == "before") {
                         if (indexFont==0) {
                                 Text("\(tempString)")
                                     .font(.custom(monospacedFont, size: 32))
@@ -159,11 +159,11 @@ struct PlaygroundView: View {
                                     .font(Font.custom((indexFont==1) ? "bartimeus6dots" : "bartimeus8dots", size: 32))
                                     .frame(height:60)
                         }
-//                    } else {
-//                        Text("")
-//                            .font(.custom(monospacedFont, size: 32))
-//                            .frame(height:60)
-//                    }
+                    } else {
+                        Text("")
+                            .font(.custom(monospacedFont, size: 32))
+                            .frame(height:60)
+                    }
                         
                     
                     

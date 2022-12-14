@@ -1,4 +1,4 @@
-# DOTS
+# Louis
 Platform to learn braille while using VoiceOver. 
 
 ## Refreshable brailledisplay
