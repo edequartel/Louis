@@ -39,7 +39,7 @@ struct PlaygroundView: View {
     let nextword : SystemSoundID = 1113
     let nextlevel : SystemSoundID = 1115
     let monospacedFont = "Sono-Regular"
-    
+    @State var previousItem = "previous"
     @State var isPlaying = false
     
     let child = 0
@@ -127,13 +127,18 @@ struct PlaygroundView: View {
                         Spacer()
                         HStack{
                             Image(systemName: conditional ? "checkmark.circle": "circle")
-                            Spacer()
+                            //                            Spacer()
                             Image(systemName: isPlaying ? "speaker.wave.3" : "speaker")
                             Spacer()
-                            if (syllable) && (indexActivity==WORD) {
+                            if ((syllable) && (indexActivity==WORD)) || (indexActivity==CHARACTER) {
                                 Text("\(typePronounce)".localized())
-                                Spacer()}
-                            Text("\(readSound)".localized())
+                                Spacer()
+                            }
+                            let imageSound1 = readSound=="before" ? "square.lefthalf.filled" : "square.split.2x1"
+                            let imageSound2 = readSound=="after" ? "square.righthalf.filled" : imageSound1
+                            Image(systemName: imageSound2)
+                            Image(systemName: talkWord && syllable ? "placeholdertext.fill" : "")
+                            //                                Text("\(readSound)".localized())
                         }
                         .font(.footnote)
                     }
@@ -145,28 +150,23 @@ struct PlaygroundView: View {
                 
                 Section {
                     let syllableString = (indexPronounce == child) ? item.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: item))
-                    let tempString = (syllable) ? syllableString :  stripString(value: item)
+                    let tempString1 = (syllable) ? syllableString :  stripString(value: item)
                     
-//                    && (readSound != "after")
-                    if (!isPlaying && (readSound == "after")) || (readSound == "before") {
-                        if (indexFont==0) {
-                                Text("\(tempString)")
-                                    .font(.custom(monospacedFont, size: 32))
-                            .frame(height:60)
-                        }
-                        else {
-                                Text("\(tempString)")
-                                    .font(Font.custom((indexFont==1) ? "bartimeus6dots" : "bartimeus8dots", size: 32))
-                                    .frame(height:60)
-                        }
-                    } else {
-                        Text("")
+                    let prevSyllableString = (indexPronounce == child) ? previousItem.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: previousItem))
+                    let prevtempString1 = (syllable) ? prevSyllableString :  stripString(value: previousItem)
+                    
+                    let  tempString = (isPlaying) && (readSound == "after") ? prevtempString1 : tempString1
+                    
+                    if (indexFont==0) {
+                        Text("\(tempString)")
                             .font(.custom(monospacedFont, size: 32))
                             .frame(height:60)
                     }
-                        
-                    
-                    
+                    else {
+                        Text("\(tempString)")
+                            .font(Font.custom((indexFont==1) ? "bartimeus6dots" : "bartimeus8dots", size: 32))
+                            .frame(height:60)
+                    }
                 }
                 
                 //====
@@ -261,6 +261,7 @@ struct PlaygroundView: View {
     func Shuffle() {
         print("shuffled")
         var teller = 0
+        previousItem = item
         while (item==items[0]) {
             
             //
@@ -312,6 +313,7 @@ struct PlaygroundView: View {
     
     func Listen() {
         Soundable.stopAll()
+        isPlaying = false
         //character
         if (typeActivity=="character") {
             if (item.count==1) { //alleen bij letters
@@ -322,11 +324,25 @@ struct PlaygroundView: View {
                     let sound = Sound(fileName: prefixPronounce[1]+item+".mp3")
                     sounds.append(sound)
                 }
-                sounds.play()
+                isPlaying.toggle()
+                sounds.play() { error in
+                    if let error = error {
+                        print("error: \(error.localizedDescription)")
+                    }
+                    print("FINISHED PLAYING")
+                    isPlaying.toggle()
+                }
                 
             } else { //tricky sounds gelden voor alle pronounce child/adult/form
                 let sound = Sound(fileName: item+".mp3")
-                sound.play()
+                isPlaying.toggle()
+                sound.play() { error in
+                    if let error = error {
+                        print("error: \(error.localizedDescription)")
+                    }
+                    print("FINISHED PLAYING")
+                    isPlaying.toggle()
+                }
             }
         } else { //word
             let myStringArr = item.components(separatedBy: "-")
@@ -395,7 +411,14 @@ struct PlaygroundView: View {
             } else { //not syllable just plays
                 print(">>>\(myString)")
                 let sound = Sound(fileName: myString+".mp3")
-                sound.play()
+                isPlaying.toggle()
+                sound.play() { error in
+                    if let error = error {
+                        print("error: \(error.localizedDescription)")
+                    }
+                    print("FINISHED PLAYING")
+                    isPlaying.toggle()
+                }
             }
         }
     }
