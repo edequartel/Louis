@@ -189,7 +189,7 @@ struct PlaygroundView: View {
                             
                             count += 1
                             if (count >= nrofTrys) { //nextlevel
-                                play(sound: "nextlevel.mp3") //?
+//                                play(sound: "nextlevel.mp3") //?
                                 if indexLesson<(Languages[indexLanguage].method[indexMethod].lesson.count-1) {
                                     indexLesson += 1
                                 }

@@ -9551,7 +9551,6 @@
 		47CD9E832922BDBA003F8F62 /* vonk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47CD789A2922BDB2003F8F62 /* vonk.mp3 */; };
 		47CD9E842922BDBA003F8F62 /* broos.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47CD789B2922BDB2003F8F62 /* broos.mp3 */; };
 		47CD9E852922BDBA003F8F62 /* speelman.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47CD789C2922BDB2003F8F62 /* speelman.mp3 */; };
-		47DC7BF92858FDDA0095EC8F /* Subsonic in Frameworks */ = {isa = PBXBuildFile; productRef = 47DC7BF82858FDDA0095EC8F /* Subsonic */; };
 		47E993CE28E433DD00D32F53 /* SwiftProgress in Frameworks */ = {isa = PBXBuildFile; productRef = 47E993CD28E433DD00D32F53 /* SwiftProgress */; };
 		47EBF7C42860D80D00E8F230 /* jsonmanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EBF7C32860D80D00E8F230 /* jsonmanager.swift */; };
 		47EBF805286200CA00E8F230 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EBF804286200CA00E8F230 /* LottieView.swift */; };
@@ -19398,7 +19397,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4766E4CB28B3519A00852495 /* StepperView in Frameworks */,
-				47DC7BF92858FDDA0095EC8F /* Subsonic in Frameworks */,
 				47EBF808286200F700E8F230 /* Lottie in Frameworks */,
 				47E993CE28E433DD00D32F53 /* SwiftProgress in Frameworks */,
 				3667B97670EB45DDEB1DB8EE /* Pods_Dots.framework in Frameworks */,
@@ -29303,7 +29301,6 @@
 			);
 			name = Dots;
 			packageProductDependencies = (
-				47DC7BF82858FDDA0095EC8F /* Subsonic */,
 				47EBF807286200F700E8F230 /* Lottie */,
 				4766E4CA28B3519A00852495 /* StepperView */,
 				47E993CD28E433DD00D32F53 /* SwiftProgress */,
@@ -29386,7 +29383,6 @@
 			);
 			mainGroup = 47192A022858893C004FD2F3;
 			packageReferences = (
-				47DC7BF72858FDDA0095EC8F /* XCRemoteSwiftPackageReference "Subsonic" */,
 				47EBF806286200F700E8F230 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				4766E4C928B3519A00852495 /* XCRemoteSwiftPackageReference "StepperView" */,
 				47E993CC28E433DD00D32F53 /* XCRemoteSwiftPackageReference "SwiftProgress" */,
@@ -39376,13 +39372,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = 278BFDM8KA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Dots/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Louis;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -39414,13 +39411,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = 278BFDM8KA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Dots/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Louis;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -39574,14 +39572,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		47DC7BF72858FDDA0095EC8F /* XCRemoteSwiftPackageReference "Subsonic" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/twostraws/Subsonic";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.0;
-			};
-		};
 		47E993CC28E433DD00D32F53 /* XCRemoteSwiftPackageReference "SwiftProgress" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/EnesKaraosman/SwiftProgress.git";
@@ -39605,11 +39595,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4766E4C928B3519A00852495 /* XCRemoteSwiftPackageReference "StepperView" */;
 			productName = StepperView;
-		};
-		47DC7BF82858FDDA0095EC8F /* Subsonic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 47DC7BF72858FDDA0095EC8F /* XCRemoteSwiftPackageReference "Subsonic" */;
-			productName = Subsonic;
 		};
 		47E993CD28E433DD00D32F53 /* SwiftProgress */ = {
 			isa = XCSwiftPackageProductDependency;

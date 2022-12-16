@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Subsonic
 
 import AVFoundation
 var player: AVAudioPlayer!
@@ -28,62 +27,10 @@ struct AudioEvent {
 }
 
 struct AudioView: View {
-    @State private var audioEvent = AudioEvent()
-
     var body: some View {
-        
         NavigationView{
-            Form {
-                HStack{
-                    Text("\(audioEvent.sounds[audioEvent.playlistIndex])")
-                    Spacer()
-                    Image(systemName: audioEvent.isSpelend ? "speaker.wave.3" : "speaker")
-                }
-                
-                
-                Section {
-                    Button {
-                        audioEvent.isSpelend = true
-                    } label: {
-                        Text("Play")
-                    }
-                    .sound(audioEvent.sounds[audioEvent.playlistIndex], isPlaying: $audioEvent.isSpelend)
-                    
-//                    Picker("Sounds \(audioEvent.playlistIndex)", selection: $audioEvent.playlistIndex) {
-//                        ForEach(0..<audioEvent.sounds.count) {
-//                            Text(audioEvent.sounds[$0]) // <3>
-//                        }
-//                    }
-                    
-                    
-                    
-                } header: {
-                    Text("Player")
-                }
-                
-                
-                Section {
-                    Button("TekstNaarSpraak NL") {
-                        print("gebruiken voor instructie")
-                        Speak(value: "gebruiken voor instructie")
-                    }
-                }header: {
-                    Text("Text To Speech")
-                }
-            }
-            .navigationTitle("Audio")
-            .navigationBarTitleDisplayMode(.inline)
-            
+            Text("Audio")
         }
-    }
-    
-    func Speak(value: String) {
-        let utterance = AVSpeechUtterance(string: value)
-        utterance.voice = AVSpeechSynthesisVoice(language: "nl")
-        utterance.rate = 0.5
-        
-        let synthesizer = AVSpeechSynthesizer()
-        synthesizer.speak(utterance)
     }
 }
 
