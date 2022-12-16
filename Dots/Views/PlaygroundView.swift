@@ -137,8 +137,9 @@ struct PlaygroundView: View {
                             let imageSound1 = readSound=="before" ? "square.lefthalf.filled" : "square.split.2x1"
                             let imageSound2 = readSound=="after" ? "square.righthalf.filled" : imageSound1
                             Image(systemName: imageSound2)
-                            Image(systemName: talkWord && syllable ? "placeholdertext.fill" : "")
-                            //                                Text("\(readSound)".localized())
+                            if talkWord && syllable {
+                            Image(systemName: "placeholdertext.fill")
+                            }
                         }
                         .font(.footnote)
                     }
@@ -324,24 +325,24 @@ struct PlaygroundView: View {
                     let sound = Sound(fileName: prefixPronounce[1]+item+".mp3")
                     sounds.append(sound)
                 }
-                isPlaying.toggle()
+                isPlaying = true
                 sounds.play() { error in
                     if let error = error {
                         print("error: \(error.localizedDescription)")
                     }
                     print("FINISHED PLAYING")
-                    isPlaying.toggle()
+                    isPlaying = false
                 }
                 
             } else { //tricky sounds gelden voor alle pronounce child/adult/form
                 let sound = Sound(fileName: item+".mp3")
-                isPlaying.toggle()
+                isPlaying = true
                 sound.play() { error in
                     if let error = error {
                         print("error: \(error.localizedDescription)")
                     }
                     print("FINISHED PLAYING")
-                    isPlaying.toggle()
+                    isPlaying = false
                 }
             }
         } else { //word
@@ -398,26 +399,26 @@ struct PlaygroundView: View {
                 if talkWord {
                     sounds.append(Sound(fileName: "\(myString).mp3" ))
                 }
-                isPlaying.toggle()
+                isPlaying = true
                 sounds.play { error in
                     if let error = error {
                         print("error: \(error.localizedDescription)")
                     }
                     print("FINISHED PLAYING")
-                    isPlaying.toggle()
+                    isPlaying = false
                 }
                 
                 
             } else { //not syllable just plays
                 print(">>>\(myString)")
                 let sound = Sound(fileName: myString+".mp3")
-                isPlaying.toggle()
+                isPlaying = true
                 sound.play() { error in
                     if let error = error {
                         print("error: \(error.localizedDescription)")
                     }
                     print("FINISHED PLAYING")
-                    isPlaying.toggle()
+                    isPlaying = false
                 }
             }
         }
