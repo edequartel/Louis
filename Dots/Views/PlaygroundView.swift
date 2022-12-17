@@ -137,7 +137,7 @@ struct PlaygroundView: View {
                             let imageSound1 = readSound=="before" ? "square.lefthalf.filled" : "square.split.2x1"
                             let imageSound2 = readSound=="after" ? "square.righthalf.filled" : imageSound1
                             Image(systemName: imageSound2)
-                            if talkWord && syllable {
+                            if (talkWord && syllable && typeActivity=="word") {
                             Image(systemName: "placeholdertext.fill")
                             }
                         }
@@ -399,6 +399,9 @@ struct PlaygroundView: View {
                 if talkWord {
                     sounds.append(Sound(fileName: "\(myString).mp3" ))
                 }
+
+//                sounds.append(Sound(fileName: "perkinspingdoorvoer.mp3"))
+                
                 isPlaying = true
                 sounds.play { error in
                     if let error = error {

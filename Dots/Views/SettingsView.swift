@@ -187,7 +187,7 @@ struct SettingsView: View {
                     
                     Section{
                         Button {
-                            indexMethod = 0
+//                            indexMethod = 0
                             indexLesson = 0
                             indexLanguage = 0
                             
