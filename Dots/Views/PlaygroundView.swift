@@ -61,6 +61,7 @@ struct PlaygroundView: View {
     @State private var items =  [""]
     @State private var item: String = ""
     @State private var input: String = ""
+    @State private var doubleTap = false
     
     @AppStorage("COUNT") var count = 0
     @AppStorage("INDEX_METHOD") var indexMethod = 0
@@ -157,7 +158,8 @@ struct PlaygroundView: View {
                     let prevSyllableString = (indexPronounce == child) ? previousItem.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: previousItem))
                     let prevtempString1 = (syllable) ? prevSyllableString :  stripString(value: previousItem)
                     
-                    let  tempString = (isPlaying) && (readSound == "after") ? prevtempString1 : tempString1
+                    
+                    let  tempString = (isPlaying) && (!doubleTap) && (readSound == "after") ? prevtempString1 : tempString1
                     
                     if (indexFont==0) {
                         Text("\(tempString)")
@@ -234,7 +236,8 @@ struct PlaygroundView: View {
         }
         .onTapGesture(count:2) {
 //            self.isPlaying.toggle()
-//            Listen(value : item)
+            doubleTap = true
+            Listen(value : item)
             print("\(previousItem)")
             print("\(item)")
         }
@@ -335,6 +338,7 @@ struct PlaygroundView: View {
                     }
                     print("FINISHED PLAYING")
                     isPlaying = false
+                    doubleTap = false
                 }
                 
             } else { //tricky sounds gelden voor alle pronounce child/adult/form
@@ -346,6 +350,7 @@ struct PlaygroundView: View {
                     }
                     print("FINISHED PLAYING")
                     isPlaying = false
+                    doubleTap = false
                 }
             }
         } else { //word
@@ -411,6 +416,7 @@ struct PlaygroundView: View {
                     }
                     print("FINISHED PLAYING")
                     isPlaying = false
+                    doubleTap = false
                 }
                 
                 
@@ -424,6 +430,7 @@ struct PlaygroundView: View {
                     }
                     print("FINISHED PLAYING")
                     isPlaying = false
+                    doubleTap = false
                 }
             }
         }
