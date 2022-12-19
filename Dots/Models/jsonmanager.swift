@@ -56,7 +56,7 @@ struct Lesson: Codable {
 }
 
 //
-
+//www.eduvip.nl/braillestudio-software/methodslouis.json has to be loaded asynchronous
 // Extension to decode JSON locally
 extension Bundle {
     func decode<T: Decodable>(file: String) -> T {

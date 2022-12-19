@@ -33,6 +33,7 @@ struct SettingsView: View {
     @AppStorage("MAXLENGTH") var maxLength = 3
     @AppStorage("BRAILLEFONT") var braillefont = "6dots"
     @AppStorage("PAUSE") var nrOfPause = 1
+//    @AppStorage("PREVITEM") var previousItem = ""
     
     let words = [1, 2, 3, 5, 8, 13, 21]
     let pauses = [1, 2, 3, 4, 5]

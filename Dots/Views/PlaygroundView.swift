@@ -84,6 +84,7 @@ struct PlaygroundView: View {
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
     @AppStorage("PAUSE") var nrOfPause = 1
+//    @AppStorage("PREVITEM"] var previousItem = ""
     
     let prefixPronounce = ["child_","adult_","form_","form_"]
     
@@ -184,7 +185,7 @@ struct PlaygroundView: View {
                             myColor =  Color.green
                             
                             if (readSound == "after") {
-                                Listen()
+                                Listen(value: item)
                             }
                             
                             count += 1
@@ -203,7 +204,7 @@ struct PlaygroundView: View {
                             Shuffle()
                             
                             if (readSound == "before") {
-                                Listen()
+                                Listen(value : item)
                             }
                             else //nextone
                             {
@@ -232,8 +233,10 @@ struct PlaygroundView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .onTapGesture(count:2) {
-            self.isPlaying.toggle()
-            Listen()
+//            self.isPlaying.toggle()
+//            Listen(value : item)
+            print("\(previousItem)")
+            print("\(item)")
         }
         .onAppear() {
             if (atStartup || updateViewData) {
@@ -250,7 +253,7 @@ struct PlaygroundView: View {
             }
             
             if (readSound == "before") {
-                Listen()
+                Listen(value : item)
             }
             else //nextone
             {
@@ -312,17 +315,17 @@ struct PlaygroundView: View {
         return temp
     }
     
-    func Listen() {
+    func Listen(value : String) {
         Soundable.stopAll()
         isPlaying = false
         //character
         if (typeActivity=="character") {
-            if (item.count==1) { //alleen bij letters
+            if (value.count==1) { //alleen bij letters
                 var sounds: [Sound] = []
-                let sound = Sound(fileName: prefixPronounce[indexPronounce]+item+".mp3")
+                let sound = Sound(fileName: prefixPronounce[indexPronounce]+value+".mp3")
                 sounds.append(sound)
                 if (indexPronounce==3) {
-                    let sound = Sound(fileName: prefixPronounce[1]+item+".mp3")
+                    let sound = Sound(fileName: prefixPronounce[1]+value+".mp3")
                     sounds.append(sound)
                 }
                 isPlaying = true
@@ -335,7 +338,7 @@ struct PlaygroundView: View {
                 }
                 
             } else { //tricky sounds gelden voor alle pronounce child/adult/form
-                let sound = Sound(fileName: item+".mp3")
+                let sound = Sound(fileName: value+".mp3")
                 isPlaying = true
                 sound.play() { error in
                     if let error = error {
@@ -346,14 +349,13 @@ struct PlaygroundView: View {
                 }
             }
         } else { //word
-            let myStringArr = item.components(separatedBy: "-")
-            let myString = item.replacingOccurrences(of: "-", with: "")
+            let myStringArr = value.components(separatedBy: "-")
+            let myString = value.replacingOccurrences(of: "-", with: "")
             if (syllable) {
                 var sounds: [Sound] = []
                 
                 if (indexPronounce==adult) || (indexPronounce==form) || (indexPronounce==form_adult) {
                     for i in myString {
-                        print(">>>\(i)")
                         if (indexPronounce==adult) { //adult
                             sounds.append(Sound(fileName: prefixPronounce[adult]+"\(i).mp3"))
                             
