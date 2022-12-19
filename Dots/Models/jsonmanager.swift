@@ -8,37 +8,17 @@
 
 import Foundation
 
-// Generate samples www.eduvip.nl/braillestudio-software/methodslouis.json
-//override func viewDidLoad() {
-//    super.viewDidLoad()
-//
-//    // let urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
-//    let urlString = "https://www.hackingwithswift.com/samples/petitions-1.json"
-//
-//    if let url = URL(string: urlString) {
-//        if let data = try? Data(contentsOf: url) {
-//            // we're OK to parse!
-//        }
-//    }
-//}
 
-struct Language: Codable {
+struct Language: Codable, Identifiable {
     let id: Int
     let name, code, comments, information: String
     let method: [Method]
-//    let success, failure: [String]
-    
 
-//    static let Language: [Language] = Bundle.main.decode(file: "methods-syllable.json")
     static let Language: [Language] = Bundle.main.decode(file: "methods-demo.json")
-    
-//    static let Language: [Language] = Bundle.main.decode(file:
-//    static let Language: [Language] = Bundle.main.decode(file: "methods.json")
-//    static let sampleLanguage: Language = Language[0]
 }
 
 // MARK: - Method
-struct Method: Codable {
+struct Method: Codable, Identifiable {
     let id: Int
     let name, developer, information, letters: String
     let comments: String
@@ -46,7 +26,7 @@ struct Method: Codable {
 }
 
 // MARK: - Lesson
-struct Lesson: Codable {
+struct Lesson: Codable, Identifiable {
     let id: Int
     let name, letters, antiletters, words: String
     let allwords: String

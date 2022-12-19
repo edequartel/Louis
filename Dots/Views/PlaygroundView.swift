@@ -11,6 +11,39 @@ import SwiftProgress
 
 import AVFoundation
 
+class Network: ObservableObject {
+    @EnvironmentObject var network: Network
+    
+    @Published var Languages: [Language] = []
+    
+    func getData() {
+        guard let url = URL(string: "https://www.eduvip.nl/braillestudio-software/methodslouis.json") else { fatalError("Missing URL") }
+        
+        let urlRequest = URLRequest(url: url)
+        
+        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            if let error = error {
+                print("Request error: ", error)
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse else { return }
+            
+            if response.statusCode == 200 {
+                guard let data = data else { return }
+                DispatchQueue.main.async {
+                    do {
+                        let decodedLanguages = try JSONDecoder().decode([Language].self, from: data)
+                        self.Languages = decodedLanguages
+                    } catch let error {
+                        print("Error decoding: ", error)
+                    }
+                }
+            }
+        }
+        dataTask.resume()
+    }
+}
 
 struct bartStijl: ViewModifier {
     func body(content: Content) -> some View {
@@ -31,6 +64,8 @@ extension View {
 
 
 struct PlaygroundView: View {
+    @EnvironmentObject var network: Network
+    //
     private var Languages: [Language] = Language.Language
     
     let synthesizer = AVSpeechSynthesizer()
@@ -85,7 +120,7 @@ struct PlaygroundView: View {
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
     @AppStorage("PAUSE") var nrOfPause = 1
-//    @AppStorage("PREVITEM"] var previousItem = ""
+    //    @AppStorage("PREVITEM"] var previousItem = ""
     
     let prefixPronounce = ["child_","adult_","form_","form_"]
     
@@ -101,6 +136,8 @@ struct PlaygroundView: View {
         NavigationView{
             Form {
                 Section {
+//                    Text("\(network.Languages.count)") //with network
+                    //
                     VStack {
                         HStack {
                             Text("\(getMethodeName())")
@@ -140,7 +177,7 @@ struct PlaygroundView: View {
                             let imageSound2 = readSound=="after" ? "square.righthalf.filled" : imageSound1
                             Image(systemName: imageSound2)
                             if (talkWord && syllable && typeActivity=="word") {
-                            Image(systemName: "placeholdertext.fill")
+                                Image(systemName: "placeholdertext.fill")
                             }
                         }
                         .font(.footnote)
@@ -192,7 +229,7 @@ struct PlaygroundView: View {
                             
                             count += 1
                             if (count >= nrofTrys) { //nextlevel
-//                                play(sound: "nextlevel.mp3") //?
+                                //                                play(sound: "nextlevel.mp3") //?
                                 if indexLesson<(Languages[indexLanguage].method[indexMethod].lesson.count-1) {
                                     indexLesson += 1
                                 }
@@ -235,14 +272,18 @@ struct PlaygroundView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .onTapGesture(count:2) {
-//            self.isPlaying.toggle()
+            //            self.isPlaying.toggle()
             doubleTap = true
             Listen(value : item)
             print("\(previousItem)")
             print("\(item)")
         }
         .onAppear() {
+            
+            //
             if (atStartup || updateViewData) {
+                //
+                network.getData()
                 //
                 items = (typeActivity == "character") ?  Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled() :
                 Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
@@ -406,8 +447,8 @@ struct PlaygroundView: View {
                 if talkWord {
                     sounds.append(Sound(fileName: "\(myString).mp3" ))
                 }
-
-//                sounds.append(Sound(fileName: "perkinspingdoorvoer.mp3"))
+                
+                //                sounds.append(Sound(fileName: "perkinspingdoorvoer.mp3"))
                 
                 isPlaying = true
                 sounds.play { error in
@@ -440,6 +481,7 @@ struct PlaygroundView: View {
 struct PlaygroundView_Previews: PreviewProvider {
     static var previews: some View {
         PlaygroundView()
+            .environmentObject(Network())
     }
 }
 
