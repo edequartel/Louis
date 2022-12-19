@@ -13,11 +13,10 @@ import AVFoundation
 
 class Network: ObservableObject {
     @EnvironmentObject var network: Network
-    
     @Published var Languages: [Language] = []
     
     func getData() {
-        guard let url = URL(string: "https://www.eduvip.nl/braillestudio-software/methodslouis.json") else { fatalError("Missing URL") }
+        guard let url = URL(string: "https://www.eduvip.nl/braillestudio-software/methodslouis_edit.json") else { fatalError("Missing URL") }
         
         let urlRequest = URLRequest(url: url)
         
@@ -65,8 +64,6 @@ extension View {
 
 struct PlaygroundView: View {
     @EnvironmentObject var network: Network
-    //
-    private var Languages: [Language] = Language.Language
     
     let synthesizer = AVSpeechSynthesizer()
     
@@ -85,15 +82,8 @@ struct PlaygroundView: View {
     let CHARACTER = 0
     let WORD = 1
     
-    //    enum Speech {
-    //        case child
-    //        case adult
-    //        case form
-    //    }
-    
-    
     @State private var myColor = Color.green
-    @State private var items =  [""]
+    @State private var items =  ["aa-p","n-oo-t","m-ie-s"]
     @State private var item: String = ""
     @State private var input: String = ""
     @State private var doubleTap = false
@@ -120,7 +110,6 @@ struct PlaygroundView: View {
     @AppStorage("READING") var readSound = "not"
     @AppStorage("MAXLENGTH") var maxLength = 3
     @AppStorage("PAUSE") var nrOfPause = 1
-    //    @AppStorage("PREVITEM"] var previousItem = ""
     
     let prefixPronounce = ["child_","adult_","form_","form_"]
     
@@ -137,7 +126,8 @@ struct PlaygroundView: View {
             Form {
                 Section {
 //                    Text("\(network.Languages.count)") //with network
-                    //
+//                    Text(getMethodeName())
+//                    //
                     VStack {
                         HStack {
                             Text("\(getMethodeName())")
@@ -230,7 +220,7 @@ struct PlaygroundView: View {
                             count += 1
                             if (count >= nrofTrys) { //nextlevel
                                 //                                play(sound: "nextlevel.mp3") //?
-                                if indexLesson<(Languages[indexLanguage].method[indexMethod].lesson.count-1) {
+                                if indexLesson<(network.Languages[indexLanguage].method[indexMethod].lesson.count-1) {
                                     indexLesson += 1
                                 }
                                 else {
@@ -279,15 +269,19 @@ struct PlaygroundView: View {
             print("\(item)")
         }
         .onAppear() {
+            network.getData()
             
             //
             if (atStartup || updateViewData) {
                 //
-                network.getData()
+                
                 //
-                items = (typeActivity == "character") ?  Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled() :
-                Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
-                //
+                if !network.Languages.isEmpty{
+                    print("Languages not empty")
+                    items = (typeActivity == "character") ?  network.Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled() :
+                    network.Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
+                    //
+                }
                 item=items[0]
                 isFocused.toggle()
                 Shuffle()
@@ -311,11 +305,13 @@ struct PlaygroundView: View {
         var teller = 0
         previousItem = item
         while (item==items[0]) {
-            
+            print("xxx")
             //
-            items = (typeActivity == "character") ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled() :
-            Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
-            //
+            if (!network.Languages.isEmpty) {
+                items = (typeActivity == "character") ? network.Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled() :
+                network.Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
+                //
+            } else { items.shuffle() }
             
             teller += 1
         }
@@ -332,17 +328,28 @@ struct PlaygroundView: View {
     }
     
     func getLessonName()->String {
-        guard (indexLesson < Languages[indexLanguage].method[indexMethod].lesson.count) else {
+        if !network.Languages.isEmpty {
+            return network.Languages[indexLanguage].method[indexMethod].lesson[indexLesson].name
+        }
+        else {
             return "unknown Lesson"
         }
-        return Languages[indexLanguage].method[indexMethod].lesson[indexLesson].name
+//        guard (indexLesson < Languages[indexLanguage].method[indexMethod].lesson.count) else {
+//            return "unknown Lesson"
+//        }
+//        return Languages[indexLanguage].method[indexMethod].lesson[indexLesson].name
     }
     
     func getMethodeName()->String {
-        guard (indexMethod < Languages[indexLanguage].method.count) else {
+        if !network.Languages.isEmpty {
+            return network.Languages[indexLanguage].method[indexMethod].name
+        } else {
             return "unknown Method"
         }
-        return Languages[indexLanguage].method[indexMethod].name
+//        guard (indexMethod < Languages[indexLanguage].method.count) else {
+//            return "unknown Method"
+//        }
+//        return Languages[indexLanguage].method[indexMethod].name
     }
     
     func stripString(value: String)->String {

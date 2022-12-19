@@ -10,13 +10,14 @@
 "brailleText" = "Tekst in Braille";
 "character" = "Karakter";
 "child" = "Kind";
+"chop" = "Hakken";
 "conditional" = "Voorwaardelijk";
 "country" = "Land";
 "developedBy" = "Bartiméus Onderwijs\nZeist \nNederland";
 "font" = "Lettertype";
 "form" = "Vorm";
 "help" = "Help";
-"helpshorttext" = "1. dempen aan, zij-knop linksboven \n2. volume omhoog, omhoog-knop links \n3. audio uit, 2 keer tikken met 3 vingers\n4. schermgordijn uit, 3 keer tikken met 3 vingers\n\n1. dubbel tap, uitspreken ";
+"helpshorttext" = "1. zet VoiceOver aan\n2. dempen aan, zij-knop linksboven \n3. volume omhoog, omhoog-knop links \n4. audio uit, 2 keer tikken met 3 vingers\n5. schermgordijn uit, 3 keer tikken met 3 vingers\n\n1. dubbel tap, uitspreken ";
 "information" = "Informatie";
 "instructionVideos" = "Instructie videos";
 "keyboard" = "Toetsenbord";
@@ -27,7 +28,9 @@
 "not" = "Niet";
 "nrofWords" = "Aantal woorden";
 "nroftrys" = "Pogingen";
+"pause" = "Pauze";
 "phonetic" = "Phonetisch";
+"play" = "Speel";
 "pronouncation" = "Uitspraak";
 "pronounce" = "Uitspraak";
 "reading" = "Lezen";
@@ -36,10 +39,7 @@
 "settings" = "Instellingen";
 "syllable" = "Lettergreep";
 "talkingWord" = "Lees voor";
+"talkword" = "Woord lezen";
 "text" = "Tekst";
 "update" = "Bijwerken";
 "word" = "Woord";
-"talkword" = "Woord lezen";
-"pause" = "Pauze";
-"play" = "Speel";
-"chop" = "Hakken";

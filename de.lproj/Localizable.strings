@@ -10,13 +10,14 @@
 "brailleText" = "Braille-Text";
 "character" = "Zeichen";
 "child" = "Kind";
+"chop" = "Hauen";
 "conditional" = "Bedingt";
 "country" = "Land";
 "developedBy" = "Bartiméus Education\nZeist \ndie Niederlande";
 "font" = "Schriftart";
 "form" = "Forme";
 "help" = "Hilfe";
-"helpshorttext" = "1. Stumm ein, obere linke Seitentaste\n2. Lauter, linke Aufwärtstaste\n3. Audio aus, 2 tippen mit 3 Fingern\n4. Schatten aus, 3 tippen mit 3 Fingern\n\n1 double tap, speak";
+"helpshorttext" = "1. schalten Sie VoiceOver ein\n2. Stumm ein, obere linke Seitentaste\n3. Lauter, linke Aufwärtstaste\n4. Audio aus, 2 tippen mit 3 Fingern\n5. Schatten aus, 3 tippen mit 3 Fingern\n\n1 doppeltippen, sprechen";
 "information" = "Information";
 "instructionVideos" = "Anleitungsvideos";
 "keyboard" = "Tastatur";
@@ -27,7 +28,9 @@
 "not" = "Nicht";
 "nrofWords" = "Anzahl der Wörter";
 "nroftrys" = "Versuchen";
+"pause" = "Pause";
 "phonetic" = "Phonetic";
+"play" = "Spiele";
 "pronouncation" = "Aussprache";
 "pronounce" = "Aussprache";
 "reading" = "Lesen";
@@ -36,10 +39,7 @@
 "settings" = "Einstellungen";
 "syllable" = "Silbe";
 "talkingWord" = "Vorlesen";
+"talkword" = "Wort lesen";
 "text" = "Woter";
 "update" = "Aktualisieren";
 "word" = "Wort";
-"talkword" = "Wort lesen";
-"pause" = "Pause";
-"play" = "Spiele";
-"chop" = "Hauen";

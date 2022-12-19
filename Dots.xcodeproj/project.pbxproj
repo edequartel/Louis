@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		3667B97670EB45DDEB1DB8EE /* Pods_Dots.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF166E5419BF5D047133BCE /* Pods_Dots.framework */; };
 		470917A228E6064F008E598C /* Sono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 470917A128E6064F008E598C /* Sono-Regular.ttf */; };
-		4714E0E0290045660021897E /* methods-demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 4714E0DF290045660021897E /* methods-demo.json */; };
-		4714E0E2290045780021897E /* methods.json in Resources */ = {isa = PBXBuildFile; fileRef = 4714E0E1290045770021897E /* methods.json */; };
 		47192A0F2858893C004FD2F3 /* DotsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47192A0E2858893C004FD2F3 /* DotsApp.swift */; };
 		47192A112858893C004FD2F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47192A102858893C004FD2F3 /* ContentView.swift */; };
 		47192A132858893D004FD2F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47192A122858893D004FD2F3 /* Assets.xcassets */; };
@@ -9708,8 +9706,6 @@
 		2FF2D18518D06B87F3891DBC /* Pods-Dots.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dots.release.xcconfig"; path = "Target Support Files/Pods-Dots/Pods-Dots.release.xcconfig"; sourceTree = "<group>"; };
 		3BF166E5419BF5D047133BCE /* Pods_Dots.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dots.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		470917A128E6064F008E598C /* Sono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sono-Regular.ttf"; path = "Dots/Resources/Sono-Regular.ttf"; sourceTree = SOURCE_ROOT; };
-		4714E0DF290045660021897E /* methods-demo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "methods-demo.json"; path = "Dots/Resources/methods-demo.json"; sourceTree = SOURCE_ROOT; };
-		4714E0E1290045770021897E /* methods.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = methods.json; path = Dots/Resources/methods.json; sourceTree = SOURCE_ROOT; };
 		47192A0B2858893C004FD2F3 /* Dots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47192A0E2858893C004FD2F3 /* DotsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsApp.swift; sourceTree = "<group>"; };
 		47192A102858893C004FD2F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -19584,8 +19580,6 @@
 		4766E4D528B3B88D00852495 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4714E0DF290045660021897E /* methods-demo.json */,
-				4714E0E1290045770021897E /* methods.json */,
 				47EBF7C32860D80D00E8F230 /* jsonmanager.swift */,
 				4773E99C2943C30B0011E8BA /* extensions.swift */,
 			);
@@ -29682,7 +29676,6 @@
 				47CD80A32922BDB6003F8F62 /* duigen.mp3 in Resources */,
 				47CD87212922BDB7003F8F62 /* gedaante.mp3 in Resources */,
 				47CD8F822922BDB8003F8F62 /* giet.mp3 in Resources */,
-				4714E0E2290045780021897E /* methods.json in Resources */,
 				47CD89072922BDB7003F8F62 /* fik.mp3 in Resources */,
 				47CD7C2C2922BDB6003F8F62 /* geduld.mp3 in Resources */,
 				47CD8B2D2922BDB8003F8F62 /* armbanden.mp3 in Resources */,
@@ -34669,7 +34662,6 @@
 				47CD7B132922BDB6003F8F62 /* vreselijke.mp3 in Resources */,
 				47CD95A32922BDB9003F8F62 /* scheenbeen.mp3 in Resources */,
 				47CD8A0A2922BDB7003F8F62 /* Eindhoven.mp3 in Resources */,
-				4714E0E0290045660021897E /* methods-demo.json in Resources */,
 				47CD900A2922BDB8003F8F62 /* lekkere.mp3 in Resources */,
 				47CD844A2922BDB7003F8F62 /* toeschouwers.mp3 in Resources */,
 				47CD7D222922BDB6003F8F62 /* na.mp3 in Resources */,

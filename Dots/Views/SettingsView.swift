@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    private var Languages: [Language] = Language.Language
+    @EnvironmentObject var network: Network
     
     @AppStorage("COUNT") var count = 0
     @AppStorage("INDEX_METHOD") var indexMethod = 0
@@ -33,7 +33,6 @@ struct SettingsView: View {
     @AppStorage("MAXLENGTH") var maxLength = 3
     @AppStorage("BRAILLEFONT") var braillefont = "6dots"
     @AppStorage("PAUSE") var nrOfPause = 1
-//    @AppStorage("PREVITEM") var previousItem = ""
     
     let words = [1, 2, 3, 5, 8, 13, 21]
     let pauses = [1, 2, 3, 4, 5]
@@ -72,27 +71,32 @@ struct SettingsView: View {
                     //                            count = 0
                     //                        }
                     
-                    Picker("method".localized(), selection: $indexMethod) {
-                        ForEach(Languages[indexLanguage].method, id: \.id) { method in
-                            Text(method.name).tag(method.id)
+                    if (!network.Languages.isEmpty) {
+                        Picker("method".localized(), selection: $indexMethod) {
+                            ForEach(network.Languages[indexLanguage].method, id: \.id) { method in
+                                Text(method.name).tag(method.id)
+//                                    .lineLimit(number: 15)
+                            }
                         }
-                    }
-                    .onChange(of: indexMethod) { tag in
-                        print("Change in tag method: \(tag)")
-                        indexLesson = 0
-                        updateViewData = true
-                        count = 0
+                        .onChange(of: indexMethod) { tag in
+                            print("Change in tag method: \(tag)")
+                            indexLesson = 0
+                            updateViewData = true
+                            count = 0
+                        }
                     }
                     
-                    Picker("lesson".localized(), selection: $indexLesson) {
-                        ForEach(Languages[indexLanguage].method[indexMethod].lesson, id: \.id) { lesson in
-                            Text(lesson.name).tag(lesson.id)
+                    if (!network.Languages.isEmpty) {
+                        Picker("lesson".localized(), selection: $indexLesson) {
+                            ForEach(network.Languages[indexLanguage].method[indexMethod].lesson, id: \.id) { lesson in
+                                Text(lesson.name).tag(lesson.id)
+                            }
                         }
-                    }
-                    .onChange(of: indexLesson) { tag in
-                        print("Change in tag lesson: \(tag)")
-                        updateViewData = true
-                        count = 0
+                        .onChange(of: indexLesson) { tag in
+                            print("Change in tag lesson: \(tag)")
+                            updateViewData = true
+                            count = 0
+                        }
                     }
                     
                     Section{
@@ -214,12 +218,16 @@ struct SettingsView: View {
             .navigationTitle("settings".localized())
             .navigationBarTitleDisplayMode(.inline)
         }
+        .onAppear(){
+            network.getData()
+        }
     }
 }
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
+            .environmentObject(Network())
     }
 }
 

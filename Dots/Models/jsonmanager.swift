@@ -14,7 +14,7 @@ struct Language: Codable, Identifiable {
     let name, code, comments, information: String
     let method: [Method]
 
-    static let Language: [Language] = Bundle.main.decode(file: "methods-demo.json")
+//    static let Language: [Language] = Bundle.main.decode(file: "methods-demo.json")
 }
 
 // MARK: - Method
@@ -38,22 +38,22 @@ struct Lesson: Codable, Identifiable {
 //
 //www.eduvip.nl/braillestudio-software/methodslouis.json has to be loaded asynchronous
 // Extension to decode JSON locally
-extension Bundle {
-    func decode<T: Decodable>(file: String) -> T {
-        guard let url = self.url(forResource: file, withExtension: nil) else {
-            fatalError("Could not find \(file) in bundle.")
-        }
-        
-        guard let data = try? Data(contentsOf: url) else {
-            fatalError("Could not load \(file) from bundle.")
-        }
-        
-        let decoder = JSONDecoder()
-        
-        guard let loadedData = try? decoder.decode(T.self, from: data) else {
-            fatalError("Could not decode \(file) from bundle.")
-        }
-        
-        return loadedData
-    }
-}
+//extension Bundle {
+//    func decode<T: Decodable>(file: String) -> T {
+//        guard let url = self.url(forResource: file, withExtension: nil) else {
+//            fatalError("Could not find \(file) in bundle.")
+//        }
+//
+//        guard let data = try? Data(contentsOf: url) else {
+//            fatalError("Could not load \(file) from bundle.")
+//        }
+//
+//        let decoder = JSONDecoder()
+//
+//        guard let loadedData = try? decoder.decode(T.self, from: data) else {
+//            fatalError("Could not decode \(file) from bundle.")
+//        }
+//
+//        return loadedData
+//    }
+//}
