@@ -265,7 +265,7 @@ struct PlaygroundView: View {
             print("\(item)")
         }
         .onAppear() {
-//            network.getData() //this is asynchronous only in splashScreen at startup
+            network.getData() //this is asynchronous only in splashScreen at startup
             //
             if (atStartup || updateViewData) {
                 //
