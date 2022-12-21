@@ -42,7 +42,9 @@ Methods are on a server. Therefore these can be easily changed and added when ne
 * Reading
 * Font
 
-Made possible by Bartiméus Education, the Netherlands
-[Bartiméus](www.bartimeus.nl)
+Made possible  
+by Bartiméus Education  
+the Netherlands 
+[www.bartimeus.nl](www.bartimeus.nl)
 
 [ToDo](todo.md)
