@@ -50,7 +50,7 @@ struct bartStijl: ViewModifier {
             .font(.largeTitle)
             .foregroundColor(.white)
             .padding()
-        //            .background(Color("bartimeus"))
+        //  .background(Color("bartimeus"))
             .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }
@@ -60,7 +60,6 @@ extension View {
         modifier(bartStijl())
     }
 }
-
 
 struct PlaygroundView: View {
     @EnvironmentObject var network: Network
@@ -83,7 +82,7 @@ struct PlaygroundView: View {
     let WORD = 1
     
     @State private var myColor = Color.green
-    @State private var items =  ["aa-p","n-oo-t","m-ie-s"]
+    @State private var items =  ["aa-p","n-oo-t","m-ie-s"] //<<
     @State private var item: String = ""
     @State private var input: String = ""
     @State private var doubleTap = false
@@ -176,8 +175,6 @@ struct PlaygroundView: View {
                 }
                 .accessibilityHidden(true)
                 
-                
-                
                 Section {
                     let syllableString = (indexPronounce == child) ? item.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: item))
                     let tempString1 = (syllable) ? syllableString :  stripString(value: item)
@@ -219,7 +216,7 @@ struct PlaygroundView: View {
                             
                             count += 1
                             if (count >= nrofTrys) { //nextlevel
-                                //                                play(sound: "nextlevel.mp3") //?
+                                //play(sound: "nextlevel.mp3") //?
                                 if indexLesson<(network.Languages[indexLanguage].method[indexMethod].lesson.count-1) {
                                     indexLesson += 1
                                 }
@@ -262,15 +259,13 @@ struct PlaygroundView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .onTapGesture(count:2) {
-            //            self.isPlaying.toggle()
             doubleTap = true
             Listen(value : item)
             print("\(previousItem)")
             print("\(item)")
         }
         .onAppear() {
-            network.getData()
-            
+            network.getData() //this is asynchronous
             //
             if (atStartup || updateViewData) {
                 //
@@ -280,9 +275,11 @@ struct PlaygroundView: View {
                     print("Languages not empty")
                     items = (typeActivity == "character") ?  network.Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled() :
                     network.Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
+                    item=items[0]
                     //
                 }
                 item=items[0]
+                //
                 isFocused.toggle()
                 Shuffle()
                 
@@ -334,10 +331,6 @@ struct PlaygroundView: View {
         else {
             return "unknown Lesson"
         }
-//        guard (indexLesson < Languages[indexLanguage].method[indexMethod].lesson.count) else {
-//            return "unknown Lesson"
-//        }
-//        return Languages[indexLanguage].method[indexMethod].lesson[indexLesson].name
     }
     
     func getMethodeName()->String {
@@ -346,10 +339,6 @@ struct PlaygroundView: View {
         } else {
             return "unknown Method"
         }
-//        guard (indexMethod < Languages[indexLanguage].method.count) else {
-//            return "unknown Method"
-//        }
-//        return Languages[indexLanguage].method[indexMethod].name
     }
     
     func stripString(value: String)->String {
@@ -366,6 +355,7 @@ struct PlaygroundView: View {
         return temp
     }
     
+    //?wellicht character als een word zien met een lengte van 1, dan kan deze fuctie korter
     func Listen(value : String) {
         Soundable.stopAll()
         isPlaying = false
@@ -384,7 +374,6 @@ struct PlaygroundView: View {
                     if let error = error {
                         print("error: \(error.localizedDescription)")
                     }
-                    print("FINISHED PLAYING")
                     isPlaying = false
                     doubleTap = false
                 }
@@ -396,7 +385,6 @@ struct PlaygroundView: View {
                     if let error = error {
                         print("error: \(error.localizedDescription)")
                     }
-                    print("FINISHED PLAYING")
                     isPlaying = false
                     doubleTap = false
                 }
@@ -455,14 +443,13 @@ struct PlaygroundView: View {
                     sounds.append(Sound(fileName: "\(myString).mp3" ))
                 }
                 
-                //                sounds.append(Sound(fileName: "perkinspingdoorvoer.mp3"))
+                //sounds.append(Sound(fileName: "perkinspingdoorvoer.mp3"))
                 
                 isPlaying = true
                 sounds.play { error in
                     if let error = error {
                         print("error: \(error.localizedDescription)")
                     }
-                    print("FINISHED PLAYING")
                     isPlaying = false
                     doubleTap = false
                 }
@@ -476,7 +463,6 @@ struct PlaygroundView: View {
                     if let error = error {
                         print("error: \(error.localizedDescription)")
                     }
-                    print("FINISHED PLAYING")
                     isPlaying = false
                     doubleTap = false
                 }

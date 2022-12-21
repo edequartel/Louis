@@ -40,13 +40,26 @@ struct SettingsView: View {
     let CHARACTER = 0
     let WORD = 1
     
-    enum ActivityType: String, CaseIterable {
-        case character="character"
-        case word="word"
-    }
-    @State private var activity : ActivityType = .word
-    
     let activities = ["character","word"]//,"syllable","sentence","all"]
+    
+    
+    //TEST BEGIN
+//    enum Activiteit : Int , CaseIterable {
+//      case karakter = 1, woord = 3, beide = 4
+//        func stringValue() -> String {
+//            switch(self) {
+//            case .karakter:
+//                return "karakter"
+//            case .woord:
+//                return "woord"
+//            case .beide:
+//                return "beide"
+//            }
+//        }
+//    }
+//    @State var currentActiviteit = Activiteit.karakter
+    //TEST END
+    
     let reading = ["not","before","after"]
     let pronounce = ["child","adult","form", "meaning"]
     let fonts = ["text","6dots", "8dots"]
@@ -57,6 +70,40 @@ struct SettingsView: View {
         NavigationView {
             Form {
                 List {
+                    //TEST FIELD BEGIN
+                    
+                    
+//                    Button("test") {
+//                        print(currentActiviteit)
+//                        switch (currentActiviteit) {
+//                            case .karakter : print("kkk")
+//                            case .woord : print("www")
+//                            case .beide: print("bbb")
+//                        }
+//
+//                        for currentActiviteit in Activiteit.allCases {
+//                            print(currentActiviteit)
+//                            print(currentActiviteit.rawValue)
+//                        }
+//
+//                        Picker("currentactivity", selection: $currentActiviteit) {
+//                            ForEach(Activiteit.allCases, id: \.self) { item in
+//                                let menuText = item.stringValue()
+//                                Text("\(menuText)")
+//                            }
+//                        }
+//
+//                    }
+                    
+                    
+                    
+                    
+                    
+                    
+                    //TEST FIELD END
+                    
+                    
+                    
                     
                     //                        Picker("Language".localized(), selection: $indexLanguage) {
                     //                            ForEach(Languages, id: \.id) { country in
