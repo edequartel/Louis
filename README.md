@@ -31,11 +31,11 @@ Methods are on a server. Therefore these can be easily changed and added when ne
 * Methode
 * Lesson
 
-* Activity
-* Chop
-* Read word
-* Pause
-* Speech
+1. Activity
+1. Chop
+1. Read word
+1. Pause
+1. Speech
 
 * Trys
 * Condition
