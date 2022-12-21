@@ -25,7 +25,7 @@ struct SplashScreenView: View {
                     .frame(width: 150, height: 150)
             }
             .onAppear {
-                network.getData()
+                network.getData() //this is asynchronous only at startup app
                 let sound = Sound(fileName: "perkinsping.mp3")
                 sound.play()
                 

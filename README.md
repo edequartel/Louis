@@ -1,21 +1,23 @@
 # Louis
-Platform to learn braille while using VoiceOver. 
+
+Platform to learn Braille while using VoiceOver and a refreshable Braille display. 
 
 ## Refreshable brailledisplay
-These are device which can be connected by bluetooth with a macOS or iOS device. By using the voiceOver utility all the items can be heared or accessed. 
+This is a device that is connected by bluetooth with a macOS or iOS device. By using the voiceOver utility all items can be heared or accessed. 
 
 ## Methods
-This software is developed in the Netherlands, therefore there are methods used here are implemented.
+This software is developed in the Netherlands, therefore Dutch methods are implemented.
 
-* Met punt op pad
-* Braillepi
-* Maréchal
+* Met punt op pad (children)
+* Braillepi (adults)
+* Maréchal (adult)
 
 ## Localisation
-Audiofiles and Methods are on a server. Therefore these can be easily changed and added.
+Methods are on a server. Therefore these can be easily changed and added when neccesary.
 
 ## How to use
-1. Turn mute off.
+1. Connect refreshable Braille display
+2. Turn mute off.
 2. Adjust the volume level.
 3. Turn on VoiceOver
 4. Turn on brailledisplay and make sure there is a brailledisoplay connected with your iOS device. If not go to the accesiblity settings of your device.
@@ -26,19 +28,21 @@ Audiofiles and Methods are on a server. Therefore these can be easily changed an
 ![](screenshot.png)
 
 ## Settings
-Methode
-Lesson
+* Methode
+* Lesson
 
-Activity
-Chop
-Read word
-Pause
-Speech
+* Activity
+* Chop
+* Read word
+* Pause
+* Speech
 
-Trys
-Condition
-Reading
-Font
+* Trys
+* Condition
+* Reading
+* Font
 
 Made possible by Bartiméus Education, the Netherlands
 [Bartiméus](www.bartimeus.nl)
+
+[ToDo](todo.md)

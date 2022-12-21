@@ -265,7 +265,7 @@ struct PlaygroundView: View {
             print("\(item)")
         }
         .onAppear() {
-            network.getData() //this is asynchronous
+//            network.getData() //this is asynchronous only in splashScreen at startup
             //
             if (atStartup || updateViewData) {
                 //
@@ -302,14 +302,11 @@ struct PlaygroundView: View {
         var teller = 0
         previousItem = item
         while (item==items[0]) {
-            print("xxx")
-            //
             if (!network.Languages.isEmpty) {
                 items = (typeActivity == "character") ? network.Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled() :
                 network.Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
                 //
             } else { items.shuffle() }
-            
             teller += 1
         }
         item = items[0]
