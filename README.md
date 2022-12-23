@@ -46,5 +46,3 @@ Made possible
 by Bartiméus Education  
 the Netherlands 
 [www.bartimeus.nl](www.bartimeus.nl)
-
-[ToDo](todo.md)
