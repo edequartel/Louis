@@ -97,7 +97,7 @@ struct PlaygroundView: View {
     @AppStorage("INDEX_PAUSES") var indexPauses = 1
     @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
     @AppStorage("INDEX_BRAILLEFONT") var indexFont = 1
-    @AppStorage("NROFWORDS") var nrofTrys = 3
+    @AppStorage("NROFWORDS") var nrofTrys = 5 //from 3
     @AppStorage("CONDITIONAL") var conditional = true
     @AppStorage("SYLLABLE") var syllable = true
     @AppStorage("BRAILLEON") var brailleOn = false
