@@ -25,7 +25,7 @@ Methods are on a server. Therefore these can be easily changed and added when ne
 6. Focus on text.
 
 ## Screenhots
-![](screenshot.png)
+![](screenshots/screenshot.png)
 
 ## Settings
 * Methode
