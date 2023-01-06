@@ -2,7 +2,7 @@
 
 Platform to learn Braille while using VoiceOver and a refreshable Braille display. Louis is using the accesible features which comes with iOS. Louis can be used by people with sight to learn visual braille.
 ## Refreshable brailledisplay
-This is a device that is connected by bluetooth with a macOS or iOS device. By using the voiceOver utility all items can be heared or accessed. 
+This is a device that is connected by bluetooth with a macOS or iOS device. By using the voiceOver utility all items can be heared and accessed. 
 
 ## Methods
 This software is developed in the Netherlands, therefore Dutch methods are implemented.
