@@ -31,19 +31,19 @@ Methods are on a server. Therefore these can be easily changed and added when ne
 ![](screenshots/screenshot.png)
 
 ## Settings
-* Methode
-* Lesson
+1. Method
+2. Lesson: letters in a specific prdee
 
-1. Activity
-2. Chop
-3. Read word
-4. Pause
-5. Speech
+1. Activity: letter or word
+2. Chop: divide word in bits
+3. Read word: listen to sound of letter/word
+4. Pause: time between each activity 
+5. Speech: how the letters are spoken 
 
-* Trys
-* Condition
-* Reading
-* Font
+1. Trys: nmumber of trys
+2. Conditional: when on type the letter/word.on braille display 
+3. Reading: audio before/after/not on braille display 
+4. Font: font to be shown
 
 Made possible  
 by Bartiméus Education  
