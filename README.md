@@ -34,7 +34,7 @@ Methods are on a server. Therefore these can be easily changed and added when ne
 1. Method
 2. Lesson: letters in a specific prdee
 
-1. Activity: letter or word
+1. Activity: recognise a letter or word
 2. Chop: divide word in bits
 3. Read word: listen to sound of letter/word
 4. Pause: time between each activity 
