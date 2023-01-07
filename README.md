@@ -35,10 +35,10 @@ Methods are on a server. Therefore these can be easily changed and added when ne
 * Lesson
 
 1. Activity
-1. Chop
-1. Read word
-1. Pause
-1. Speech
+2. Chop
+3. Read word
+4. Pause
+5. Speech
 
 * Trys
 * Condition
