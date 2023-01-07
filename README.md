@@ -34,6 +34,7 @@ Methods are on a server. Therefore these can be easily changed and added when ne
 1. Method
 2. Lesson: letters in a specific order
 
+---
 
 1. Activity: recognise a letter or word
 2. Chop: divide word in bits
@@ -41,6 +42,7 @@ Methods are on a server. Therefore these can be easily changed and added when ne
 4. Pause: time between each activity 
 5. Speech: how the letters are spoken 
 
+---
 
 1. Trys: number of trys
 2. Conditional: when on type the letter/word.on braille display 
