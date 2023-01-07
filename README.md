@@ -5,6 +5,7 @@ Platform to learn Braille while using VoiceOver and a refreshable Braille displa
 ## Refreshable brailledisplay
 
 This is a device that is connected by bluetooth with an iOS device and shows braille. By using the voiceOver utility all items can be heared and accessed. 
+
 ![](screenshots/screenshot.png)
 
 ## Methods
