@@ -40,7 +40,7 @@ Methods are on a server. Therefore these can be easily changed and added when ne
 4. Pause: time between each activity 
 5. Speech: how the letters are spoken 
 
-1. Trys: nmumber of trys
+1. Trys: number of trys
 2. Conditional: when on type the letter/word.on braille display 
 3. Reading: audio before/after/not on braille display 
 4. Font: font to be shown
