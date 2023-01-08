@@ -1,4 +1,4 @@
-# Louis update picture
+# Louis
 
 Platform to learn Braille while using VoiceOver and a refreshable Braille display. Louis is using the accesible features which comes with iOS. Louis can be used by people with sight to learn visual braille.
 
@@ -6,7 +6,7 @@ Platform to learn Braille while using VoiceOver and a refreshable Braille displa
 
 This is a device that is connected by bluetooth with an iOS device and shows braille. By using the voiceOver utility all items can be heared and accessed. 
 
-![](screenshots/screenshot.png)
+![](screenshots/brailledisplay.png)
 
 ## Methods
 This software is developed in the Netherlands, therefore Dutch methods are implemented.
