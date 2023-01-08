@@ -23,7 +23,7 @@
 		47192A442858C07B004FD2F3 /* SearchWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47192A432858C07B004FD2F3 /* SearchWordView.swift */; };
 		47192A462858C086004FD2F3 /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47192A452858C086004FD2F3 /* AudioView.swift */; };
 		47192A5B2858CB8F004FD2F3 /* bartimeus6dots.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */; };
-		472226E228D84628002BF9E0 /* sheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472226E128D84628002BF9E0 /* sheetView.swift */; };
+		472226E228D84628002BF9E0 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472226E128D84628002BF9E0 /* SheetView.swift */; };
 		472C7C12290F0E0D00DA12E9 /* bartimeusb.json in Resources */ = {isa = PBXBuildFile; fileRef = 472C7C11290F0E0D00DA12E9 /* bartimeusb.json */; };
 		472C7C14290F0E5500DA12E9 /* bartimeusbigb.json in Resources */ = {isa = PBXBuildFile; fileRef = 472C7C13290F0E5500DA12E9 /* bartimeusbigb.json */; };
 		473257C8296AA00D00B0A26D /* perkinspingdoorvoer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 473257C6296AA00D00B0A26D /* perkinspingdoorvoer.mp3 */; };
@@ -9673,6 +9673,7 @@
 		4766E4CD28B351B200852495 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766E4CC28B351B200852495 /* ProgressView.swift */; };
 		476A36D128F06CDC00F3909B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 476A36D328F06CDC00F3909B /* Localizable.strings */; };
 		4773E99D2943C30B0011E8BA /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4773E99C2943C30B0011E8BA /* extensions.swift */; };
+		47A24DB6296B456700BA287B /* ModifiersAndExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A24DB5296B456700BA287B /* ModifiersAndExtension.swift */; };
 		47ACE3F1292222C100020519 /* bartimeus8dots.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47ACE3F0292222C100020519 /* bartimeus8dots.ttf */; };
 		47E993CE28E433DD00D32F53 /* SwiftProgress in Frameworks */ = {isa = PBXBuildFile; productRef = 47E993CD28E433DD00D32F53 /* SwiftProgress */; };
 		47EBF7C42860D80D00E8F230 /* jsonmanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EBF7C32860D80D00E8F230 /* jsonmanager.swift */; };
@@ -9724,7 +9725,7 @@
 		47192A432858C07B004FD2F3 /* SearchWordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchWordView.swift; sourceTree = "<group>"; };
 		47192A452858C086004FD2F3 /* AudioView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
 		47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bartimeus6dots.ttf; sourceTree = "<group>"; };
-		472226E128D84628002BF9E0 /* sheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sheetView.swift; sourceTree = "<group>"; };
+		472226E128D84628002BF9E0 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		472C7C11290F0E0D00DA12E9 /* bartimeusb.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bartimeusb.json; sourceTree = "<group>"; };
 		472C7C13290F0E5500DA12E9 /* bartimeusbigb.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bartimeusbigb.json; sourceTree = "<group>"; };
 		473257C6296AA00D00B0A26D /* perkinspingdoorvoer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = perkinspingdoorvoer.mp3; path = Audio/perkinspingdoorvoer.mp3; sourceTree = SOURCE_ROOT; };
@@ -19375,9 +19376,10 @@
 		476A36D428F06CDE00F3909B /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		476A36D728F076D500F3909B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4773E99C2943C30B0011E8BA /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		47A24DB4296B442900BA287B /* methods.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = methods.json; sourceTree = "<group>"; };
+		47A24DB5296B456700BA287B /* ModifiersAndExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifiersAndExtension.swift; sourceTree = "<group>"; };
 		47ACE3F0292222C100020519 /* bartimeus8dots.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bartimeus8dots.ttf; sourceTree = "<group>"; };
 		47EBF7C32860D80D00E8F230 /* jsonmanager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jsonmanager.swift; sourceTree = "<group>"; };
-		47EBF7C52860D84200E8F230 /* methods.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = methods.json; sourceTree = "<group>"; };
 		47EBF804286200CA00E8F230 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		47EBF80B2862031200E8F230 /* dotsloader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dotsloader.json; sourceTree = "<group>"; };
 		6A0F2F6A7B27A14325C27112 /* Pods-Dots.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dots.debug.xcconfig"; path = "Target Support Files/Pods-Dots/Pods-Dots.debug.xcconfig"; sourceTree = "<group>"; };
@@ -19508,7 +19510,7 @@
 				474CFEB9287551170000BF85 /* README.md */,
 				47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */,
 				47EBF80B2862031200E8F230 /* dotsloader.json */,
-				47EBF7C52860D84200E8F230 /* methods.json */,
+				47A24DB4296B442900BA287B /* methods.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -29242,7 +29244,7 @@
 				47192A102858893C004FD2F3 /* ContentView.swift */,
 				47192A3D2858C057004FD2F3 /* SettingsView.swift */,
 				47192A412858C073004FD2F3 /* PlaygroundView.swift */,
-				472226E128D84628002BF9E0 /* sheetView.swift */,
+				472226E128D84628002BF9E0 /* SheetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -29262,6 +29264,7 @@
 			children = (
 				47EBF7C32860D80D00E8F230 /* jsonmanager.swift */,
 				4773E99C2943C30B0011E8BA /* extensions.swift */,
+				47A24DB5296B456700BA287B /* ModifiersAndExtension.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -39180,10 +39183,11 @@
 				47192A442858C07B004FD2F3 /* SearchWordView.swift in Sources */,
 				47192A422858C073004FD2F3 /* PlaygroundView.swift in Sources */,
 				47192A112858893C004FD2F3 /* ContentView.swift in Sources */,
-				472226E228D84628002BF9E0 /* sheetView.swift in Sources */,
+				472226E228D84628002BF9E0 /* SheetView.swift in Sources */,
 				47192A3E2858C057004FD2F3 /* SettingsView.swift in Sources */,
 				47192A0F2858893C004FD2F3 /* DotsApp.swift in Sources */,
 				4773E99D2943C30B0011E8BA /* extensions.swift in Sources */,
+				47A24DB6296B456700BA287B /* ModifiersAndExtension.swift in Sources */,
 				47EBF7C42860D80D00E8F230 /* jsonmanager.swift in Sources */,
 				47EBF805286200CA00E8F230 /* LottieView.swift in Sources */,
 				47192A392858BE7D004FD2F3 /* SplashScreenView.swift in Sources */,
