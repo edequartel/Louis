@@ -207,7 +207,7 @@ struct PlaygroundView: View {
                     .disableAutocorrection(true)
                     .frame(height:60)
                     .onSubmit {
-                        //dit is lees en tik
+
                         //this action, read type and enter to aknowledge
                         if (input == stripString(value: item)) ||  (!conditional) {
                             myColor =  Color.green
@@ -228,7 +228,6 @@ struct PlaygroundView: View {
                                 count = 0
                             }
                             
-                            //wacht tot sound klaar is voordat er geshuffeld
                             //wait untill sound is ready before shuffle
                             Shuffle()
                             
@@ -269,6 +268,12 @@ struct PlaygroundView: View {
         }
         .onAppear() {
             network.getData() //this is asynchronous only in splashScreen at startup
+            //
+            indexLanguage=0
+            indexActivity=0
+            indexMethod=0
+            indexLesson=0
+            
             //
             if (atStartup || updateViewData) {
                 //
@@ -326,6 +331,7 @@ struct PlaygroundView: View {
     
     func getLessonName()->String {
         if !network.Languages.isEmpty {
+            //check bug here
             return network.Languages[indexLanguage].method[indexMethod].lesson[indexLesson].name
         }
         else {
@@ -355,14 +361,13 @@ struct PlaygroundView: View {
         return temp
     }
     
-    //?wellicht character als een word zien met een lengte van 1, dan kan deze fuctie korter
-    //?maybe see character as a word with lengtb 1, this function can be shorter
+    //maybe see character as a word with lengtb 1, this function can be shorter
     func Listen(value : String) {
         Soundable.stopAll()
         isPlaying = false
         //character
         if (typeActivity=="character") {
-            if (value.count==1) { //alleen bij letters
+            if (value.count==1) { //only with letters
                 var sounds: [Sound] = []
                 let sound = Sound(fileName: prefixPronounce[indexPronounce]+value+".mp3")
                 sounds.append(sound)

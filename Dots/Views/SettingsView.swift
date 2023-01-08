@@ -212,7 +212,7 @@ struct SettingsView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .onAppear(){
-            network.getData() //asynchronous only in splashScreen at startup
+//            network.getData() //asynchronous only in splashScreen at startup
         }
     }
 }

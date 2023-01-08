@@ -19526,7 +19526,6 @@
 		472226DE28D83708002BF9E0 /* FinishedViews */ = {
 			isa = PBXGroup;
 			children = (
-				47192A382858BE7D004FD2F3 /* SplashScreenView.swift */,
 				47EBF804286200CA00E8F230 /* LottieView.swift */,
 			);
 			path = FinishedViews;
@@ -29238,6 +29237,7 @@
 		474CFEBB2875B49A0000BF85 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				47192A382858BE7D004FD2F3 /* SplashScreenView.swift */,
 				47192A3F2858C065004FD2F3 /* InformationView.swift */,
 				47192A102858893C004FD2F3 /* ContentView.swift */,
 				47192A3D2858C057004FD2F3 /* SettingsView.swift */,
