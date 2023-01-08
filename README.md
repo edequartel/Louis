@@ -54,6 +54,8 @@ In folder and terminal
 1. pod init
 2. pod install
 3. pos update
+
+
 Made possible  
 by Bartiméus Education  
 the Netherlands 
