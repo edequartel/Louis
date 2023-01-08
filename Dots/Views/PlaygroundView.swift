@@ -11,6 +11,7 @@ import SwiftProgress
 
 import AVFoundation
 
+//!use download manager
 class Network: ObservableObject {
     @EnvironmentObject var network: Network
     @Published var Languages: [Language] = []
@@ -97,7 +98,7 @@ struct PlaygroundView: View {
     @AppStorage("INDEX_PAUSES") var indexPauses = 1
     @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
     @AppStorage("INDEX_BRAILLEFONT") var indexFont = 1
-    @AppStorage("NROFWORDS") var nrofTrys = 3
+    @AppStorage("NROFWORDS") var nrofTrys = 5 //from 3
     @AppStorage("CONDITIONAL") var conditional = true
     @AppStorage("SYLLABLE") var syllable = true
     @AppStorage("BRAILLEON") var brailleOn = false
@@ -206,7 +207,8 @@ struct PlaygroundView: View {
                     .disableAutocorrection(true)
                     .frame(height:60)
                     .onSubmit {
-                        //dit is lees en tik//
+                        //dit is lees en tik
+                        //this action, read type and enter to aknowledge
                         if (input == stripString(value: item)) ||  (!conditional) {
                             myColor =  Color.green
                             
@@ -226,7 +228,8 @@ struct PlaygroundView: View {
                                 count = 0
                             }
                             
-                            //wacht tot sound klaar is voordat er geshuffeld wordt
+                            //wacht tot sound klaar is voordat er geshuffeld
+                            //wait untill sound is ready before shuffle
                             Shuffle()
                             
                             if (readSound == "before") {
@@ -353,6 +356,7 @@ struct PlaygroundView: View {
     }
     
     //?wellicht character als een word zien met een lengte van 1, dan kan deze fuctie korter
+    //?maybe see character as a word with lengtb 1, this function can be shorter
     func Listen(value : String) {
         Soundable.stopAll()
         isPlaying = false
