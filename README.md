@@ -1,4 +1,4 @@
-# Louis
+# Louis update picture
 
 Platform to learn Braille while using VoiceOver and a refreshable Braille display. Louis is using the accesible features which comes with iOS. Louis can be used by people with sight to learn visual braille.
 
