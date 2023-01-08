@@ -5,8 +5,6 @@
 //  Created by Eric de Quartel on 14/03/2022.
 //
 
-test for lsf en meer
-
 import SwiftUI
 
 struct InformationView: View {
