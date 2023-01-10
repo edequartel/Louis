@@ -9,13 +9,15 @@ import SwiftUI
 
 @main
 struct DotsApp: App {
-    var network = Network()
+//    var network = Network()
+    @StateObject var viewModel = PlaygroundViewModel()
     
     var body: some Scene {
         WindowGroup {
 //            ContentView()
             SplashScreenView()
-                .environmentObject(network)
+//                .environmentObject(network)
+                .environmentObject(viewModel) //make the model available for the environment
         }
     }
 }

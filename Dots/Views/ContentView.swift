@@ -10,6 +10,7 @@ import SwiftUI
 
 
 struct ContentView: View {
+    @EnvironmentObject var viewModel: PlaygroundViewModel
     @State private var selectedTab = 0
    
     let minDragTranslationForSwipe: CGFloat = 50

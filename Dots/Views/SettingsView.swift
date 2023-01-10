@@ -7,32 +7,10 @@
 
 import SwiftUI
 
+
 struct SettingsView: View {
-    @EnvironmentObject var network: Network
+    @EnvironmentObject var viewModel: PlaygroundViewModel
     
-    @AppStorage("COUNT") var count = 0
-    @AppStorage("INDEX_METHOD") var indexMethod = 0
-    @AppStorage("INDEX_LESSON") var indexLesson = 0
-    @AppStorage("INDEX_ACTIVITY") var indexActivity = 1
-    @AppStorage("INDEX_READING") var indexReading = 0
-    @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0
-    @AppStorage("INDEX_WORDS") var indexWords = 3
-    @AppStorage("INDEX_PAUSES") var indexPauses = 1
-    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
-    @AppStorage("INDEX_BRAILLEFONT") var indexFont = 1
-    @AppStorage("NROFWORDS") var nrofTrys = 5
-    @AppStorage("CONDITIONAL") var conditional = true
-    @AppStorage("SYLLABLE") var syllable = true
-    @AppStorage("BRAILLEON") var brailleOn = false
-    @AppStorage("MODESTUDENT") var modeStudent = true
-    @AppStorage("TALKWORD") var talkWord = false
-    @AppStorage("TYPEACTIVITY") var typeActivity = "word"
-    @AppStorage("TYPEPRONOUNCE") var typePronounce = "child"
-    @AppStorage("CHANGEINDEX") var updateViewData = false
-    @AppStorage("READING") var readSound = "not"
-    @AppStorage("MAXLENGTH") var maxLength = 3
-    @AppStorage("BRAILLEFONT") var braillefont = "6dots"
-    @AppStorage("PAUSE") var nrOfPause = 1
     
     let words = [1, 2, 3, 5, 8, 13, 21]
     let pauses = [1, 2, 3, 4, 5]
@@ -51,155 +29,152 @@ struct SettingsView: View {
         NavigationView {
             Form {
                 List {
-                    //                        Picker("Language".localized(), selection: $indexLanguage) {
-                    //                            ForEach(Languages, id: \.id) { country in
-                    //                                Text(country.name).tag(country.id)
-                    //                            }
-                    //                        }
-                    //                        .onChange(of: indexLanguage) { tag in
-                    //                            print("Change in tag country: \(tag)")
-                    //                            indexLesson = 0
-                    //                            indexMethod = 0
-                    //                            changeIndex = true
-                    //                            count = 0
-                    //                        }
                     
-                    if (!network.Languages.isEmpty) {
-                        Picker("method".localized(), selection: $indexMethod) {
-                            ForEach(network.Languages[indexLanguage].method, id: \.id) { method in
-                                Text(method.name).tag(method.id)
-//                                    .lineLimit(number: 15)
-                            }
-                        }
-                        .onChange(of: indexMethod) { tag in
-                            print("Change in tag method: \(tag)")
-                            indexLesson = 0
-                            updateViewData = true
-                            count = 0
+//                    Picker("Language".localized(), selection: viewModel.indexLanguage) {
+//                        ForEach(viewModel.Languages, id: \.id) { country in
+//                            Text(country.name).tag(country.id)
+//                        }
+//                    }
+//                    .onChange(of: viewModel.indexLanguage) { tag in
+//                        print("Change in tag country: \(tag)")
+//                        viewModel.indexLesson = 0
+//                        viewModel.indexMethod = 0
+////                        viewModel.changeIndex = true
+//                        viewModel.count = 0
+//                    }
+                    
+                    Picker("method".localized(), selection: $viewModel.indexMethod) {
+                        ForEach(viewModel.Languages[viewModel.indexLanguage].method, id: \.id) { method in
+                            Text(method.name).tag(method.id)
                         }
                     }
+                    .onChange(of: viewModel.indexMethod) { tag in
+                        print("Change in tag method: \(tag)")
+                        viewModel.indexLesson = 0
+                        viewModel.updateViewData = true
+                        viewModel.count = 0
+                    }
                     
-                    if (!network.Languages.isEmpty) {
-                        Picker("lesson".localized(), selection: $indexLesson) {
-                            ForEach(network.Languages[indexLanguage].method[indexMethod].lesson, id: \.id) { lesson in
-                                Text(lesson.name).tag(lesson.id)
-                            }
+                    Picker("lesson".localized(), selection: $viewModel.indexLesson) {
+                        ForEach(viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson, id: \.id) { lesson in
+                            Text(lesson.name).tag(lesson.id)
                         }
-                        .onChange(of: indexLesson) { tag in
-                            print("Change in tag lesson: \(tag)")
-                            updateViewData = true
-                            count = 0
-                        }
+                    }
+                    .onChange(of: viewModel.indexLesson) { tag in
+                        print("Change in tag lesson: \(tag)")
+                        viewModel.updateViewData = true
+                        viewModel.count = 0
                     }
                     
                     Section{
-                        Picker("activity".localized(), selection: $indexActivity) 
+                        
+                        Picker("activity".localized(), selection: $viewModel.indexActivity)
                         {
                             ForEach(0 ..< activities.count) {
                                 Text("\(activities[$0])".localized()).tag($0)
                             }
                             
                         }
-                        .onChange(of: indexActivity) { tag in
+                        .onChange(of: viewModel.indexActivity) { tag in
                             print("change in indexActivity  \(activities[tag]) tag \(tag)")
-                            typeActivity = activities[tag]
-                            updateViewData = true
+                            viewModel.typeActivity = activities[tag]
+                            viewModel.updateViewData = true
                         }
                         
-                        if (indexActivity==WORD) {
-                            Toggle("chop".localized(), isOn: $syllable)
-                                .onChange(of: syllable) {value in
-                                }
-                        }
-                        //
-                        
-                        if (syllable) && (indexActivity==WORD) {
-                            Toggle("talkword".localized(), isOn: $talkWord)
-                                .onChange(of: talkWord) {value in
+                        if (viewModel.indexActivity==WORD) {
+                            Toggle("chop".localized(), isOn: $viewModel.syllable)
+                                .onChange(of: viewModel.syllable) {value in
                                 }
                         }
                         
-                        if (syllable) && (indexActivity==WORD) {
-                            Picker("pause".localized(),selection: $indexPauses) {
+                        if (viewModel.syllable) && (viewModel.indexActivity==WORD) {
+                            Toggle("talkword".localized(), isOn: $viewModel.talkWord)
+                                .onChange(of: viewModel.talkWord) {value in
+                                }
+                        }
+                        
+                        if (viewModel.syllable) && (viewModel.indexActivity==WORD) {
+                            Picker("pause".localized(),selection: $viewModel.indexPauses) {
                                 ForEach(0 ..< pauses.count) {
                                     Text("\(pauses[$0]) x").tag($0)
                                 }
-                                .onChange(of: indexPauses) {tag in
-                                    print("--\(pauses[tag])")
-                                    nrOfPause = pauses[tag]
-                                }
+                            }
+                            .onChange(of: viewModel.indexPauses) {
+                                tag in
+                                viewModel.nrOfPause = pauses[tag]
+                                
                             }
                         }
                         
-                        if ((syllable) && (indexActivity==WORD)) || (indexActivity==CHARACTER){
-                            Picker("pronouncation".localized(), selection: $indexPronounce)
+                        if ((viewModel.syllable) && (viewModel.indexActivity==WORD)) || (viewModel.indexActivity==CHARACTER){
+                            Picker("pronouncation".localized(), selection: $viewModel.indexPronounce)
                             {
                                 ForEach(0 ..< pronounce.count) {
                                     Text("\(pronounce[$0])".localized()).tag($0)
                                 }
                                 
                             }
-                            .onChange(of: indexPronounce) { tag in
+                            .onChange(of: viewModel.indexPronounce) { tag in
                                 print("change in indexActivity  \(pronounce[tag]) tag \(tag)")
-                                typePronounce = pronounce[tag]
+                                viewModel.typePronounce = pronounce[tag]
                             }
                         }
                     }
                     
                     
                     Section{
-                        Picker("nroftrys".localized(), selection: $indexWords) {
+                        Picker("nroftrys".localized(), selection: $viewModel.indexWords) {
                             ForEach(0 ..< words.count) {
                                 Text("\(words[$0])").tag($0)
                             }
                         }
-                        .onChange(of: indexWords) { tag in
+                        .onChange(of: viewModel.indexWords) { tag in
                             print("change in nrofWords \(words[tag])")
-                            nrofTrys = words[tag]
-                            count = 0
+                            viewModel.nrofTrys = words[tag]
+                            viewModel.count = 0
                         }
                         
-                        Toggle("conditional".localized(), isOn: $conditional)
-                            .onChange(of: conditional) {value in
+                        Toggle("conditional".localized(), isOn: $viewModel.conditional)
+                            .onChange(of: viewModel.conditional) {value in
                             }
                         
-                        Picker("reading".localized(), selection: $indexReading) {
+                        Picker("reading".localized(), selection: $viewModel.indexReading) {
                             ForEach(0..<reading.count) {
                                 Text("\(reading[$0])".localized()).tag($0)
                             }
                         }
-                        .onChange(of: indexReading) { tag in
+                        .onChange(of: viewModel.indexReading) { tag in
                             print("change in indexReading \(tag)")
-                            readSound = reading[tag]
+                            viewModel.readSound = reading[tag]
                         }
                         
-                        Picker("font".localized(), selection: $indexFont) {
+                        Picker("font".localized(), selection: $viewModel.indexFont) {
                             ForEach(0..<fonts.count) {
                                 Text("\(fonts[$0])".localized()).tag($0)
                             }
                         }
-                        .onChange(of: indexReading) { tag in
+                        .onChange(of: viewModel.indexFont) { tag in
                             print("change in fonts \(tag)")
                         }
                     }
                     
                     Section{
                         Button {
-//                            indexMethod = 0
-                            indexLesson = 0
-                            indexLanguage = 0
+                            viewModel.indexMethod = 0
+                            viewModel.indexLesson = 0
+                            viewModel.indexLanguage = 0
                             
-                            indexActivity = 0
-                            indexReading = 1
-                            indexWords = 3
+                            viewModel.indexActivity = 0
+                            viewModel.indexReading = 1
+                            viewModel.indexWords = 3
                             
-                            brailleOn = true
-                            conditional = false
-                            syllable = false
+                            viewModel.brailleOn = true
+                            viewModel.conditional = false
+                            viewModel.syllable = false
                             
-                            readSound = reading[indexReading]
-                            typeActivity = activities[indexActivity]
-                            nrofTrys = words[indexWords]
+                            viewModel.readSound = reading[viewModel.indexReading]
+                            viewModel.typeActivity = activities[viewModel.indexActivity]
+                            viewModel.nrofTrys = words[viewModel.indexWords]
                             
                         } label : {
                             Text("reset".localized())
@@ -211,19 +186,14 @@ struct SettingsView: View {
             .navigationTitle("settings".localized())
             .navigationBarTitleDisplayMode(.inline)
         }
-        .onAppear(){
-//            network.getData() //asynchronous only in splashScreen at startup
-        }
     }
 }
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
-            .environmentObject(Network())
     }
 }
-
 
 
 

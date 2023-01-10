@@ -10,7 +10,9 @@ import Soundable
 
 
 struct SplashScreenView: View {
-    @EnvironmentObject var network: Network
+    //    @EnvironmentObject var network: Network
+
+    @EnvironmentObject var viewModel: PlaygroundViewModel
     
     @State private var isActive = false
     @State private var size = 0.8
@@ -25,7 +27,6 @@ struct SplashScreenView: View {
                     .frame(width: 150, height: 150)
             }
             .onAppear {
-                network.getData() //this is asynchronous only at startup app
                 let sound = Sound(fileName: "perkinsping.mp3")
                 sound.play()
                 
@@ -36,9 +37,11 @@ struct SplashScreenView: View {
                 }
             }
         }
-    }
-       
         
+    }
+    
+    
+    
 }
 
 struct SplashScreenView_Previews: PreviewProvider {
