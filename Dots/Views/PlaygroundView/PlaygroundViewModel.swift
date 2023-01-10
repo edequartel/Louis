@@ -26,11 +26,11 @@ final class PlaygroundViewModel: ObservableObject {
     
     @Published var typeActivity = "character"
     @Published var isPlaying = false
-    @Published var indexPronounce = 0
+
     
     @Published var count = 0
     @Published var nrofTrys = 5 
-    @Published var typePronounce = "child"
+
     @Published var doubleTap = false
     @Published var readSound = "before"
 
@@ -44,15 +44,28 @@ final class PlaygroundViewModel: ObservableObject {
     
     let prefixPronounce = ["child_","adult_","form_","form_"]
     
+    @Published var typePronounce = "child"
+    @Published var indexPronounce = 0
+    
+//    enum VoiceOutput: String, CaseIterable, Identifiable
+//    {
+//        case child = "child_"
+//        case adult = "adult_"
+//        case form = "form_"
+//        case form_adult = "form_adult_"
+//    }
+    
     let child = 0
     let adult = 1
     let form = 2
     let form_adult = 3
     
+    
+    
+    
     func Shuffle(indexLanguage: Int, indexMethod: Int, indexLesson: Int) {
         var teller = 0
         previousItem = item
-        print("==========>>>>\(typeActivity)")
         while (item==items[0]) {
             if (!Languages.isEmpty) {
                 items = (typeActivity == "character") ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled() :
