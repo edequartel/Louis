@@ -8,7 +8,7 @@ import SwiftUI
 
 struct Language: Decodable, Identifiable {
     let id: Int
-    let name, code, comments, information: String?
+    let name, code, comments, information: String
     let method: [Method]
 
     static let Language: [Language] = Bundle.main.decode(file: "methods-demo.json")

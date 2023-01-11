@@ -9,11 +9,7 @@ import SwiftUI
 
 
 struct SettingsView: View {
-    @EnvironmentObject var viewModel: PlaygroundViewModel
-
-    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
-    @AppStorage("INDEX_METHOD") var indexMethod = 0
-    @AppStorage("INDEX_LESSON") var indexLesson = 0
+    @EnvironmentObject var viewModel: LouisViewModel
     
     var body: some View {
         NavigationView {
@@ -31,28 +27,28 @@ struct SettingsView: View {
 
 
 struct overviewMethodsView : View {
-    @EnvironmentObject var viewModel: PlaygroundViewModel
-    
+    @EnvironmentObject var viewModel: LouisViewModel
+
     @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
     @AppStorage("INDEX_METHOD") var indexMethod = 0
     @AppStorage("INDEX_LESSON") var indexLesson = 0
-    
+
     var body: some View {
         Section {
             Picker("Language".localized(), selection: $indexLanguage) {
                 ForEach(viewModel.Languages, id: \.id) { language in
-                    Text(language.name ?? "no language").tag(language.id)
+                    Text(language.name).tag(language.id)
                 }
             }
             .onChange(of: indexLanguage) { tag in
-                indexLesson = 0
+                viewModel.indexLanguage = indexLanguage
                 indexMethod = 0
-//                viewModel.changeIndex = true
+                viewModel.indexMethod = 0
+                indexLesson = 0
+                viewModel.indexLesson = 0
                 viewModel.count = 0
             }
-            
-//            Text("\(viewModel.Languages[4].name ?? "no name")")
-            
+
             Picker("method".localized(), selection: $indexMethod) {
                 ForEach(viewModel.Languages[indexLanguage].method, id: \.id) { method in
                     Text(method.name).tag(method.id)
@@ -60,18 +56,21 @@ struct overviewMethodsView : View {
             }
             .onChange(of: indexMethod) { tag in
                 print("Change in tag method: \(tag)")
+                viewModel.indexMethod = indexMethod
                 indexLesson = 0
+                viewModel.indexLesson = 0                
                 viewModel.updateViewData = true
                 viewModel.count = 0
             }
-            
-            Picker("lesson".localized(), selection: $indexLesson) {
+
+            Picker("lesson".localized(), selection: $viewModel.indexLesson) {
                 ForEach(viewModel.Languages[indexLanguage].method[indexMethod].lesson, id: \.id) { lesson in
                     Text(lesson.name).tag(lesson.id)
                 }
             }
-            .onChange(of: indexLesson) { tag in
+            .onChange(of: viewModel.indexLesson) { tag in
                 print("Change in tag lesson: \(tag)")
+                indexLesson = viewModel.indexLesson
                 viewModel.updateViewData = true
                 viewModel.count = 0
             }
@@ -81,49 +80,45 @@ struct overviewMethodsView : View {
 
 
 struct overviewActivityView : View {
-    @EnvironmentObject var viewModel: PlaygroundViewModel
-    
-    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
-    @AppStorage("INDEX_METHOD") var indexMethod = 0
-    @AppStorage("INDEX_LESSON") var indexLesson = 0
+    @EnvironmentObject var viewModel: LouisViewModel
     
     @AppStorage("INDEX_ACTIVITY") var indexActivity = 0
-    let CHARACTER = 0
-    let WORD = 1
+    @AppStorage("SYLLABLE") var syllable = false
+    @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0
+    
+    @State var typeActivity: activityEnum = .character
     
     let pauses = [1, 2, 3, 4, 5]
-    let activities = ["character","word"]//,"syllable","sentence","all"]
-    let pronounce = ["child","adult","form", "meaning"]
     
     var body: some View {
         Section {
-            
-            Picker("activity".localized(), selection: $indexActivity)
-            {
-                ForEach(0 ..< activities.count, id: \.self) {
-                    Text("\(activities[$0])".localized()).tag($0)
+            Picker("activity".localized(), selection: $indexActivity) {
+                ForEach(activityEnum.allCases, id: \.self) { typ in
+                    Text("\(typ.stringValue().localized())").tag(typ.rawValue)
                 }
-                
             }
             .onChange(of: indexActivity) { tag in
-                print("change in indexActivity  \(activities[tag]) tag \(tag)")
-                viewModel.typeActivity = activities[tag]
-                print("=====\(viewModel.typeActivity)")
+                print("change in indexActivity  \(tag)")
+                if let activity = activityEnum(rawValue: tag) {
+                    viewModel.typeActivity = activity
+                }
+                viewModel.updateViewData = true
             }
             
-            if (indexActivity==WORD) {
-                Toggle("chop".localized(), isOn: $viewModel.syllable)
-                    .onChange(of: viewModel.syllable) {value in
+            if (viewModel.typeActivity == .word) {
+                Toggle("chop".localized(), isOn: $syllable)
+                    .onChange(of: syllable) {value in
+                        viewModel.syllable = syllable
                     }
             }
             
-            if (viewModel.syllable) && (indexActivity==WORD) {
+            if (viewModel.syllable) && (viewModel.typeActivity == .word) {
                 Toggle("talkword".localized(), isOn: $viewModel.talkWord)
                     .onChange(of: viewModel.talkWord) {value in
                     }
             }
             
-            if (viewModel.syllable) && (indexActivity==WORD) {
+            if (viewModel.syllable) && (viewModel.typeActivity == .word) {
                 Picker("pause".localized(),selection: $viewModel.indexPauses) {
                     ForEach(0 ..< pauses.count, id: \.self) {
                         Text("\(pauses[$0]) x").tag($0)
@@ -132,21 +127,20 @@ struct overviewActivityView : View {
                 .onChange(of: viewModel.indexPauses) {
                     tag in
                     viewModel.nrOfPause = pauses[tag]
-                    
                 }
             }
             
-            if ((viewModel.syllable) && (indexActivity==WORD)) || (indexActivity==CHARACTER){
-                Picker("pronouncation".localized(), selection: $viewModel.indexPronounce)
-                {
-                    ForEach(0 ..< pronounce.count, id: \.self) {
-                        Text("\(pronounce[$0])".localized()).tag($0)
+            if ((viewModel.syllable) && (viewModel.typeActivity == .word)) || (viewModel.typeActivity == .character){
+                Picker("pronouncation".localized(), selection: $indexPronounce) {
+                    ForEach(pronounceEnum.allCases, id: \.self) { pronounce in
+                        Text("\(pronounce.stringValue().localized())").tag(pronounce.rawValue)
                     }
-                    
                 }
-                .onChange(of: viewModel.indexPronounce) { tag in
-                    print("change in indexActivity  \(pronounce[tag]) tag \(tag)")
-                    viewModel.typePronounce = pronounce[tag]
+                .onChange(of: indexPronounce) { tag in
+                    print("change in indexPronounce  \(tag)")
+                    if let pronounce = pronounceEnum(rawValue: tag) {
+                        viewModel.typePronounceNew = pronounce
+                    }
                 }
             }
         }
@@ -154,85 +148,109 @@ struct overviewActivityView : View {
 }
 
 struct overviewGeneralView : View {
-    @EnvironmentObject var viewModel: PlaygroundViewModel
+    @EnvironmentObject var viewModel: LouisViewModel
     
-    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
-    @AppStorage("INDEX_METHOD") var indexMethod = 0
-    @AppStorage("INDEX_LESSON") var indexLesson = 0
-    
-    let reading = ["not","before","after"]
-    let fonts = ["text","6dots", "8dots"]
-    let words = [1, 2, 3, 5, 8, 13, 21]
+    @AppStorage("INDEX_TRYS") var indexTrys = 0
+    @AppStorage("CONDITIONAL") var conditional = true
+    @AppStorage("INDEX_READING") var indexPosition = 0
+    @AppStorage("INDEX_FONT") var indexFont = 0
     
     var body: some View {
         Section{
-            Picker("nroftrys".localized(), selection: $viewModel.indexWords) {
-                ForEach(0 ..< words.count, id: \.self) {
-                    Text("\(words[$0])").tag($0)
+            Picker("nroftrys".localized(), selection: $indexTrys) {
+                ForEach(0 ..< trys.count, id: \.self) {
+                    Text("\(trys[$0])").tag($0)
                 }
             }
-            .onChange(of: viewModel.indexWords) { tag in
-                print("change in nrofWords \(words[tag])")
-                viewModel.nrofTrys = words[tag]
+            .onChange(of: indexTrys) { tag in
+                print("change in nrofWords \(trys[tag])")
+                viewModel.indexTrys = indexTrys
                 viewModel.count = 0
             }
             
-            Toggle("conditional".localized(), isOn: $viewModel.conditional)
-                .onChange(of: viewModel.conditional) {value in
+            Toggle("conditional".localized(), isOn: $conditional)
+                .onChange(of: conditional) {value in
+                    viewModel.conditional = conditional
                 }
             
-            Picker("reading".localized(), selection: $viewModel.indexReading) {
-                ForEach(0..<reading.count, id: \.self) {
-                    Text("\(reading[$0])".localized()).tag($0)
+            Picker("reading".localized(), selection: $indexPosition) {
+                ForEach(positionReadingEnum.allCases, id: \.self) { position in
+                    Text("\(position.stringValue().localized())").tag(position.rawValue)
                 }
             }
-            .onChange(of: viewModel.indexReading) { tag in
-                print("change in indexReading \(tag)")
-                viewModel.readSound = reading[tag]
+            .onChange(of: indexPosition) { tag in
+                print("change in indexPosition \(tag)")
+                if let position = positionReadingEnum(rawValue: tag) {
+                    viewModel.typePositionReading = position
+                }
             }
             
-            Picker("font".localized(), selection: $viewModel.indexFont) {
-                ForEach(0..<fonts.count, id: \.self) {
-                    Text("\(fonts[$0])".localized()).tag($0)
+            Picker("font".localized(), selection: $indexFont) {
+                ForEach(fontEnum.allCases, id: \.self) { font in
+                    Text("\(font.stringValue())").tag(font.rawValue)
                 }
             }
-            .onChange(of: viewModel.indexFont) { tag in
-                print("change in fonts \(tag)")
+            .onChange(of: indexFont) { tag in
+                print("change in indexFont \(tag)")
+                if let font = fontEnum(rawValue: tag) {
+                    viewModel.typeIndexFont = font
+                }
             }
         }
     }
 }
 
 struct resetModelView : View {
-    @EnvironmentObject var viewModel: PlaygroundViewModel
+    @EnvironmentObject var viewModel: LouisViewModel
     
     @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
     @AppStorage("INDEX_METHOD") var indexMethod = 0
     @AppStorage("INDEX_LESSON") var indexLesson = 0
+    
     @AppStorage("INDEX_ACTIVITY") var indexActivity = 0
-    
-    let reading = ["not","before","after"]
-    let activities = ["character","word"]//,"syllable","sentence","all"]
-    let words = [1, 2, 3, 5, 8, 13, 21]
-    
+    @AppStorage("SYLLABLE") var syllable = false
+    @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0
+    @AppStorage("INDEX_TRYS") var indexTrys = 0
+    @AppStorage("CONDITIONAL") var conditional = true
+    @AppStorage("INDEX_READING") var indexPositionReading = 0
+    @AppStorage("INDEX_FONT") var indexFont = 0
+        
     var body: some View {
         Section{
             Button {
                 indexMethod = 0
+                viewModel.indexMethod = indexMethod
                 indexLesson = 0
-                indexLanguage = 0
+                viewModel.indexLesson = indexLesson
                 
                 indexActivity = 0
-                viewModel.indexReading = 1
-                viewModel.indexWords = 3
+                if let activity = activityEnum(rawValue: indexActivity) {
+                    viewModel.typeActivity = activity
+                }
                 
-                viewModel.brailleOn = true
-                viewModel.conditional = false
-                viewModel.syllable = false
+                syllable = false
+                viewModel.syllable = syllable
                 
-                viewModel.readSound = reading[viewModel.indexReading]
-                viewModel.typeActivity = activities[indexActivity]
-                viewModel.nrofTrys = words[viewModel.indexWords]
+                indexPronounce = 0
+                if let pronouncation = pronounceEnum(rawValue: indexPronounce) {
+                    viewModel.typePronounceNew = pronouncation
+                }
+                
+                indexTrys = 0
+                viewModel.indexTrys = indexTrys
+                
+                conditional = true
+                viewModel.conditional = conditional
+                
+                indexPositionReading = 0
+                if let positionReading = positionReadingEnum(rawValue: indexPositionReading) {
+                    viewModel.typePositionReading = positionReading
+                }
+                
+                indexFont = 1
+                if let font = fontEnum(rawValue: indexFont) {
+                    viewModel.typeIndexFont = font
+                }
                 
             } label : {
                 Text("reset".localized())
@@ -241,10 +259,11 @@ struct resetModelView : View {
         }
     }
 }
+
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
-            .environmentObject(PlaygroundViewModel())
+            .environmentObject(LouisViewModel())
     }
 }
 

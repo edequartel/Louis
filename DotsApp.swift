@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct DotsApp: App {
-    @StateObject var viewModel = PlaygroundViewModel()
+    @StateObject var viewModel = LouisViewModel()
     
     var body: some Scene {
         WindowGroup {

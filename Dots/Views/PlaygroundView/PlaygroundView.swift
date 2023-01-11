@@ -11,19 +11,13 @@ import SwiftProgress
 import AVFoundation
 
 struct PlaygroundView: View {
-    @EnvironmentObject var viewModel: PlaygroundViewModel
+    @EnvironmentObject var viewModel: LouisViewModel
     
-    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
-    @AppStorage("INDEX_METHOD") var indexMethod = 0
-    @AppStorage("INDEX_LESSON") var indexLesson = 0
-    
-    let monospacedFont = "Sono-Regular"
-    
-    let nextlevel : SystemSoundID = 1115
     let nextword : SystemSoundID = 1113
     
     @State private var atStartup = true
-    @State private var fillPercentage: CGFloat = 20
+    
+    @FocusState private var nameInFocus: Bool
     
     var body: some View {
         NavigationView{
@@ -31,33 +25,26 @@ struct PlaygroundView: View {
                 scoreBoardView()
                 typeOverView()
                 activityView()
+                    .focused($nameInFocus)
             }
             .navigationTitle("play".localized())
             .navigationBarTitleDisplayMode(.inline)
         }
         .onTapGesture(count:2) {
             viewModel.doubleTap = true
-            viewModel.Listen(value : viewModel.item)
-            print("\(viewModel.previousItem)")
-            print("\(viewModel.item)")
+            viewModel.Talk(value : viewModel.item)
         }
         .onAppear() {
+            self.nameInFocus = true
+            
             if (atStartup || viewModel.updateViewData) {
-                if !viewModel.Languages.isEmpty{
-                    print("Languages not empty")
-                    viewModel.items = (viewModel.typeActivity == "character") ?  viewModel.Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled() :
-                    viewModel.Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
-                    viewModel.item=viewModel.items[0]
-                }
-                viewModel.item=viewModel.items[0]
-                viewModel.Shuffle(indexLanguage: indexLanguage, indexMethod: indexMethod, indexLesson: indexLesson)
-                
+                viewModel.Shuffle()
                 atStartup = false
                 viewModel.updateViewData = false
             }
             
-            if (viewModel.readSound == "before") {
-                viewModel.Listen(value : viewModel.item)
+            if (viewModel.typePositionReading == .before) {
+                viewModel.Talk(value : viewModel.item)
             }
             else //nextone
             {
@@ -69,32 +56,28 @@ struct PlaygroundView: View {
 }
 
 struct typeOverView : View {
-    @EnvironmentObject var viewModel: PlaygroundViewModel
+    @EnvironmentObject var viewModel: LouisViewModel
     
     let monospacedFont = "Sono-Regular"
-    let child = 0
-    let adult = 1
-    let form = 2
-    let form_adult = 3
     
     var body: some View {
         Section {
-            let syllableString = (viewModel.indexPronounce == child) ? viewModel.item.replacingOccurrences(of: "-", with: " ") : viewModel.addSpaces(value: viewModel.stripString(value: viewModel.item))
+            let syllableString = (viewModel.typePronounceNew == .child) ? viewModel.item.replacingOccurrences(of: "-", with: " ") : viewModel.addSpaces(value: viewModel.stripString(value: viewModel.item))
             let tempString1 = (viewModel.syllable) ? syllableString :  viewModel.stripString(value: viewModel.item)
             
-            let prevSyllableString = (viewModel.indexPronounce == viewModel.child) ? viewModel.previousItem.replacingOccurrences(of: "-", with: " ") : viewModel.addSpaces(value: viewModel.stripString(value: viewModel.previousItem))
+            let prevSyllableString = (viewModel.typePronounceNew == .child) ? viewModel.previousItem.replacingOccurrences(of: "-", with: " ") : viewModel.addSpaces(value: viewModel.stripString(value: viewModel.previousItem))
             let prevtempString1 = (viewModel.syllable) ? prevSyllableString :  viewModel.stripString(value: viewModel.previousItem)
             
-            let  tempString = (viewModel.isPlaying) && (!viewModel.doubleTap) && (viewModel.readSound == "after") ? prevtempString1 : tempString1
+            let  tempString = (viewModel.isPlaying) && (!viewModel.doubleTap) && (viewModel.typePositionReading == .after) ? prevtempString1 : tempString1
             
-            if (viewModel.indexFont==0) {
+            if (viewModel.typeIndexFont == .text) {
                 Text("\(tempString)")
                     .font(.custom(monospacedFont, size: 32))
                     .frame(height:60)
             }
             else {
                 Text("\(tempString)")
-                    .font(Font.custom((viewModel.indexFont==1) ? "bartimeus6dots" : "bartimeus8dots", size: 32))
+                    .font(Font.custom((viewModel.typeIndexFont == .dots6) ? "bartimeus6dots" : "bartimeus8dots", size: 32))
                     .frame(height:60)
             }
         }
@@ -102,25 +85,21 @@ struct typeOverView : View {
 }
 
 struct overviewSettingsView : View {
-    @EnvironmentObject var viewModel: PlaygroundViewModel
-    @AppStorage("INDEX_ACTIVITY") var indexActivity = 0
-    
-    let CHARACTER = 0
-    let WORD = 1
+    @EnvironmentObject var viewModel: LouisViewModel
     
     var body: some View {
         HStack {
             Image(systemName: viewModel.conditional ? "checkmark.circle": "circle")
             Image(systemName: viewModel.isPlaying ? "speaker.wave.3" : "speaker")
             Spacer()
-            if ((viewModel.syllable) && (indexActivity==WORD)) || (indexActivity==CHARACTER) {
-                Text("\(viewModel.typePronounce)".localized())
+            if ((viewModel.syllable) && (viewModel.typeActivity == .word)) || (viewModel.typeActivity == .character) {
+                Text("\(viewModel.typePronounceNew.stringValue().localized())")
                 Spacer()
             }
-            let imageSound1 = viewModel.readSound=="before" ? "square.lefthalf.filled" : "square.split.2x1"
-            let imageSound2 = viewModel.readSound=="after" ? "square.righthalf.filled" : imageSound1
+            let imageSound1 = viewModel.typePositionReading == .before ? "square.lefthalf.filled" : "square.split.2x1"
+            let imageSound2 = viewModel.typePositionReading == .after ? "square.righthalf.filled" : imageSound1
             Image(systemName: imageSound2)
-            if (viewModel.talkWord && viewModel.syllable && viewModel.typeActivity=="word") {
+            if (viewModel.talkWord && viewModel.syllable && viewModel.typeActivity == .word) {
                 Image(systemName: "placeholdertext.fill")
             }
         }
@@ -128,7 +107,7 @@ struct overviewSettingsView : View {
 }
 
 struct progressView : View {
-    @EnvironmentObject var viewModel: PlaygroundViewModel
+    @EnvironmentObject var viewModel: LouisViewModel
     @State private var myColor = Color.green
     
     var body: some View {
@@ -136,21 +115,21 @@ struct progressView : View {
             Text("\(viewModel.count)")
             Spacer()
             LinearProgress(
-                progress: CGFloat(100*viewModel.count/viewModel.nrofTrys),
+                progress: CGFloat(100*viewModel.count/trys[viewModel.indexTrys]),
                 foregroundColor: myColor,
                 backgroundColor:  Color.green.opacity(0.2),
                 fillAxis: .horizontal
             )
             .frame(height: 5)
             Spacer()
-            Text("\(viewModel.nrofTrys)")
+            Text("\(trys[viewModel.indexTrys])")
         }
         .font(.footnote)
     }
 }
 
 struct scoreBoardView : View {
-    @EnvironmentObject var viewModel: PlaygroundViewModel
+    @EnvironmentObject var viewModel: LouisViewModel
     var body: some View {
         Section {
             VStack {
@@ -168,62 +147,87 @@ struct scoreBoardView : View {
 }
 
 struct methodLessonView : View {
-    @EnvironmentObject var viewModel: PlaygroundViewModel
-
-    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
-    @AppStorage("INDEX_METHOD") var indexMethod = 0
-    @AppStorage("INDEX_LESSON") var indexLesson = 0
+    @EnvironmentObject var viewModel: LouisViewModel
     
     var body: some View {
         HStack {
-            Text("\(viewModel.getMethodeName(indexLanguage: indexLanguage, indexMethod: indexMethod))")
+            Text("\(viewModel.getMethodeName())")
                 .bold()
             Spacer()
-            Text("\(viewModel.getLessonName(indexLanguage: indexLanguage, indexMethod: indexMethod, indexLesson: indexLesson))")
+            Text("\(viewModel.getLessonName())")
         }
         .font(.headline)
     }
 }
 
 struct activityView : View {
-    @EnvironmentObject var viewModel: PlaygroundViewModel
-    
-    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
-    @AppStorage("INDEX_METHOD") var indexMethod = 0
-    @AppStorage("INDEX_LESSON") var indexLesson = 0
-    
+    @EnvironmentObject var viewModel: LouisViewModel
     let monospacedFont = "Sono-Regular"
     
     @State private var input: String = ""
-    
     @FocusState private var isFocused: Bool
     
     var body: some View {
-        TextField("", text:$input)
-            .font(.custom(monospacedFont, size: 32))
-            .foregroundColor(.blue)
-            .focused($isFocused)
-            .textInputAutocapitalization(.never)
-            .disableAutocorrection(true)
-            .frame(height:60)
-            .onSubmit {
-                let result = viewModel.check(input: input, indexLanguage: indexLanguage, indexMethod: indexMethod, indexLesson: indexLesson)
-                if (result > -1) { indexLesson = result }
-                input = ""
-                isFocused = true
+        if viewModel.conditional {
+            if viewModel.typeActivity == .word {
+                VStack {
+                    TextField("", text:$input)
+                        .font(.custom(monospacedFont, size: 32))
+                        .foregroundColor(.blue)
+                        .focused($isFocused)
+                        .textInputAutocapitalization(.never)
+                        .disableAutocorrection(true)
+                        .frame(height:60)
+                        .onSubmit {
+                            let result = viewModel.check(input: input)
+                            if (result > -1) { viewModel.indexLesson = result }
+                            input = ""
+                            isFocused = true
+                        }
+                    Spacer()
+                    Text("\(input)")
+                        .frame(height: 60)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(viewModel.typeIndexFont == .text ? .custom(monospacedFont, size: 32): viewModel.typeIndexFont == .dots6 ? Font.custom("bartimeus6dots", size: 32) : Font.custom("bartimeus8dots", size: 32))
+                        .accessibilityHidden(true)
+                }
+            } else
+            {
+                HStack {
+                    TextField("", text:$input)
+                        .font(.custom(monospacedFont, size: 32))
+                        .foregroundColor(.blue)
+                        .focused($isFocused)
+                        .textInputAutocapitalization(.never)
+                        .disableAutocorrection(true)
+                        .onSubmit {
+                            let result = viewModel.check(input: input)
+                            if (result > -1) { viewModel.indexLesson = result }
+                            input = ""
+                            isFocused = true
+                        }
+                    Spacer()
+                    Text("\(input)")
+                        .font(viewModel.typeIndexFont == .text ? .custom(monospacedFont, size: 32): viewModel.typeIndexFont == .dots6 ? Font.custom("bartimeus6dots", size: 32) : Font.custom("bartimeus8dots", size: 32))
+                        .accessibilityHidden(true)
+                }
+                .frame(height:60)
             }
-//            .onAppear(perform: isFocused.toggle())
-        Text("\(input)")
-            .frame(height:60)
-            .font(viewModel.indexFont==0 ? .custom(monospacedFont, size: 32): viewModel.indexFont==1 ? Font.custom("bartimeus6dots", size: 32) : Font.custom("bartimeus8dots", size: 32))
-            .accessibilityHidden(true)
+        }
+        else
+        {
+            Button("Next") {
+                let result = viewModel.check(input: input)
+            }
+        }
     }
-        
+    
 }
 
 struct PlaygroundView_Previews: PreviewProvider {
     static var previews: some View {
         PlaygroundView()
+            .environmentObject(LouisViewModel())
     }
 }
 
