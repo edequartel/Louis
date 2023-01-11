@@ -31,7 +31,7 @@ final class LouisViewModel: ObservableObject {
     @Published var typeActivity : activityEnum = .character
     @Published var typePronounceNew : pronounceEnum = .child
     @Published var typePositionReading : positionReadingEnum = .not
-    @Published var typeIndexFont : fontEnum = .dots6
+    @Published var typeIndexFont : fontEnum = .dots8
     
     @Published var isPlaying = false
 
@@ -149,6 +149,10 @@ final class LouisViewModel: ObservableObject {
         return returnValue
     }
 
+    func TalkAgain() {
+        Talk(value: item)
+    }
+
     //maybe see character as a word with length 1, this function can be shorter
     func Talk(value : String) {
         Soundable.stopAll()
@@ -161,11 +165,22 @@ final class LouisViewModel: ObservableObject {
         
         //character
         if (typeActivity == .character) {
-            print("karakter \(value)")
+            print("character [\(value)]")
+        
             
             if (value.count==1) { //only with letters
-                let sound = Sound(fileName: typePronounceNew.prefixValue() + value + ".mp3")
-                sounds.append(sound)
+                
+                if let code = uniCode[value]
+                {
+                    let sound = Sound(fileName: code + ".mp3")
+                    sounds.append(sound)
+                }
+                else {
+                    let sound = Sound(fileName: typePronounceNew.prefixValue() + value.lowercased() + ".mp3")
+                    sounds.append(sound)
+                }
+                
+                
                 if (typePronounceNew == .meaning) {
                     let sound = Sound(fileName: "adult_" + value + ".mp3")
                     sounds.append(sound)

@@ -77,7 +77,7 @@ struct typeOverView : View {
             }
             else {
                 Text("\(tempString)")
-                    .font(Font.custom((viewModel.typeIndexFont == .dots6) ? "bartimeus6dots" : "bartimeus8dots", size: 32))
+                    .font(Font.custom("bartimeus8dots", size: 32))
                     .frame(height:60)
             }
         }
@@ -152,9 +152,20 @@ struct methodLessonView : View {
     var body: some View {
         HStack {
             Text("\(viewModel.getMethodeName())")
-                .bold()
+//                .padding()
+//                .overlay(
+//                    RoundedRectangle(cornerRadius: 16)
+//                        .stroke(.blue, lineWidth: 4)
+//                )
+                .foregroundColor(.bart_green)
             Spacer()
             Text("\(viewModel.getLessonName())")
+                .foregroundColor(.bart_green)
+//                .padding()
+//                .overlay(
+//                    RoundedRectangle(cornerRadius: 16)
+//                        .stroke(.blue, lineWidth: 4)
+//                )
         }
         .font(.headline)
     }
@@ -188,7 +199,7 @@ struct activityView : View {
                     Text("\(input)")
                         .frame(height: 60)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(viewModel.typeIndexFont == .text ? .custom(monospacedFont, size: 32): viewModel.typeIndexFont == .dots6 ? Font.custom("bartimeus6dots", size: 32) : Font.custom("bartimeus8dots", size: 32))
+                        .font(viewModel.typeIndexFont == .text ? .custom(monospacedFont, size: 32): Font.custom("bartimeus8dots", size: 32))
                         .accessibilityHidden(true)
                 }
             } else
@@ -208,7 +219,7 @@ struct activityView : View {
                         }
                     Spacer()
                     Text("\(input)")
-                        .font(viewModel.typeIndexFont == .text ? .custom(monospacedFont, size: 32): viewModel.typeIndexFont == .dots6 ? Font.custom("bartimeus6dots", size: 32) : Font.custom("bartimeus8dots", size: 32))
+                        .font(viewModel.typeIndexFont == .text ? .custom(monospacedFont, size: 32): Font.custom("bartimeus8dots", size: 32))
                         .accessibilityHidden(true)
                 }
                 .frame(height:60)
@@ -216,12 +227,20 @@ struct activityView : View {
         }
         else
         {
-            Button("Next") {
-                let result = viewModel.check(input: input)
+            Section {
+                Button("again".localized()) {
+                    viewModel.TalkAgain()
+                    print("again")
+                }
+            }
+            Section {
+                Button("next".localized()) {
+                    let result = viewModel.check(input: input)
+                    print("next")
+                }
             }
         }
     }
-    
 }
 
 struct PlaygroundView_Previews: PreviewProvider {

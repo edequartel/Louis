@@ -187,7 +187,7 @@ struct overviewGeneralView : View {
             
             Picker("font".localized(), selection: $indexFont) {
                 ForEach(fontEnum.allCases, id: \.self) { font in
-                    Text("\(font.stringValue())").tag(font.rawValue)
+                    Text("\(font.stringValue().localized())").tag(font.rawValue)
                 }
             }
             .onChange(of: indexFont) { tag in
