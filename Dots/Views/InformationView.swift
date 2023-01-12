@@ -20,7 +20,7 @@ struct InformationView: View {
     
     var body: some View {
         
-        NavigationView{
+//        NavigationView{
             Form {
                 Section {
                     Text("developedBy".localized())
@@ -54,10 +54,9 @@ struct InformationView: View {
                 }
                 .font(.footnote)
             }
-            .navigationTitle("information".localized())
-            .navigationBarTitleDisplayMode(.inline)
-        }
-//                .ignoresSafeArea()
+//            .navigationTitle("information".localized())
+//            .navigationBarTitleDisplayMode(.inline)
+//        }
     }
     
     

@@ -12,16 +12,16 @@ struct SettingsView: View {
     @EnvironmentObject var viewModel: LouisViewModel
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             Form {
                 overviewMethodsView()
                 overviewActivityView()
                 overviewGeneralView()
                 resetModelView()
             }
-            .navigationTitle("settings".localized())
-            .navigationBarTitleDisplayMode(.inline)
-        }
+//            .navigationTitle("settings".localized())
+//            .navigationBarTitleDisplayMode(.inline)
+//        }
     }
 }
 

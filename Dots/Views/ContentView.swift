@@ -18,35 +18,31 @@ struct ContentView: View {
     let numTabs = 3
            
     var body: some View {
-        TabView(selection: $selectedTab) {
-            PlaygroundView()
-                .tabItem {
-                    Image(systemName: "hand.point.up.braille.fill")
-                    Text("play".localized())
-                }.tag(0)
-                .highPriorityGesture(DragGesture().onEnded({ self.handleSwipe(translation: $0.translation.width)}))
-            SettingsView()
-                .tabItem {
-                    Image(systemName: "gearshape.fill")
-                    Text("settings".localized())
-                }.tag(1)
-                .highPriorityGesture(DragGesture().onEnded({ self.handleSwipe(translation: $0.translation.width)}))
-            InformationView()
-                .tabItem {
-                    Image(systemName: "info.circle.fill")
-                    Text("information".localized())
-                }.tag(2)
-                .highPriorityGesture(DragGesture().onEnded({ self.handleSwipe(translation: $0.translation.width)}))
-            
-            
-            
-            
-//            ProgressView()
-//                .tabItem {
-//                    Image(systemName: "asterisk")
-//                    Text("Progress")
-//                }
-        }
+            TabView(selection: $selectedTab) {
+                PlaygroundView()
+                    .tabItem {
+                        Image(systemName: "hand.point.up.braille.fill")
+                        Text("play".localized())
+                    }.tag(0)
+                    .highPriorityGesture(DragGesture().onEnded({ self.handleSwipe(translation: $0.translation.width)}))
+                SettingsView()
+                    .tabItem {
+                        Image(systemName: "gearshape.fill")
+                        Text("settings".localized())
+                    }.tag(1)
+                    .highPriorityGesture(DragGesture().onEnded({ self.handleSwipe(translation: $0.translation.width)}))
+                InformationView()
+                    .tabItem {
+                        Image(systemName: "info.circle.fill")
+                        Text("information".localized())
+                    }.tag(2)
+                    .highPriorityGesture(DragGesture().onEnded({ self.handleSwipe(translation: $0.translation.width)}))
+                //            ProgressView()
+                //                .tabItem {
+                //                    Image(systemName: "asterisk")
+                //                    Text("Progress")
+                //                }
+            }
     }
     
     private func handleSwipe(translation: CGFloat) {

@@ -20,16 +20,16 @@ struct PlaygroundView: View {
     @FocusState private var nameInFocus: Bool
     
     var body: some View {
-        NavigationView{
+//        NavigationView{
             Form {
                 scoreBoardView()
                 typeOverView()
                 activityView()
                     .focused($nameInFocus)
             }
-            .navigationTitle("play".localized())
-            .navigationBarTitleDisplayMode(.inline)
-        }
+//            .navigationTitle("play".localized())
+//            .navigationBarTitleDisplayMode(.inline)
+//        }
         .onTapGesture(count:2) {
             viewModel.doubleTap = true
             viewModel.Talk(value : viewModel.item)
@@ -227,12 +227,12 @@ struct activityView : View {
         }
         else
         {
-            Section {
-                Button("again".localized()) {
-                    viewModel.TalkAgain()
-                    print("again")
-                }
-            }
+//            Section {
+////                Button("again".localized()) {
+////                    viewModel.TalkAgain()
+////                    print("again")
+//                }
+//            }
             Section {
                 Button("next".localized()) {
                     let result = viewModel.check(input: input)
