@@ -19,8 +19,6 @@ struct InformationView: View {
     
     
     var body: some View {
-        
-        NavigationView{
             Form {
                 Section {
                     Text("developedBy".localized())
@@ -28,7 +26,6 @@ struct InformationView: View {
                 }
 
                 Section {
-//                    VStack (alignment: .leading) {
                         Link(destination: URL(string: "http://www.bartimeus.nl")!, label: {
                             Text("www.bartimeus.nl")
                         })
@@ -39,7 +36,6 @@ struct InformationView: View {
                         Link(destination: URL(string: "https://vimeo.com/showcase/9833359")!, label: {
                             Text("instructionVideos".localized())
                         })
-//                    }
                 }
 
                 Section {
@@ -54,10 +50,6 @@ struct InformationView: View {
                 }
                 .font(.footnote)
             }
-            .navigationTitle("information".localized())
-            .navigationBarTitleDisplayMode(.inline)
-        }
-//                .ignoresSafeArea()
     }
     
     
