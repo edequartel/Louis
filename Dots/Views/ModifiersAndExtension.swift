@@ -89,13 +89,11 @@ enum positionReadingEnum: Int, CaseIterable {
 
 enum fontEnum: Int, CaseIterable {
     case text = 0
-//    case dots6 = 1
     case dots8 = 1
     
     func stringValue() -> String {
         switch(self) {
         case .text: return "text"
-//        case .dots6: return "6dots"
         case .dots8: return "8dots"
         }
     }

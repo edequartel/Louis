@@ -20,16 +20,12 @@ struct PlaygroundView: View {
     @FocusState private var nameInFocus: Bool
     
     var body: some View {
-//        NavigationView{
             Form {
                 scoreBoardView()
                 typeOverView()
                 activityView()
                     .focused($nameInFocus)
             }
-//            .navigationTitle("play".localized())
-//            .navigationBarTitleDisplayMode(.inline)
-//        }
         .onTapGesture(count:2) {
             viewModel.doubleTap = true
             viewModel.Talk(value : viewModel.item)
@@ -195,18 +191,12 @@ struct activityView : View {
         }
         else
         {
-//            Section {
                 Button(action: {
                     let result = viewModel.check(input: input)
                     print("next")
                 }) {
                     Text("next".localized())
-//                        .background(Color.purple) // 1. Change the background color to purple
-//                        .foregroundColor(.bart_purple)  // 2. Set the foreground/font color to white
-//                            .font(.title)             // 3. Change the font type
-//                            .padding()
                 }
-//            }
         }
     }
 }
