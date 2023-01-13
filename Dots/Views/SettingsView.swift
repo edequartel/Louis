@@ -12,16 +12,12 @@ struct SettingsView: View {
     @EnvironmentObject var viewModel: LouisViewModel
     
     var body: some View {
-//        NavigationView {
             Form {
                 overviewMethodsView()
                 overviewActivityView()
                 overviewGeneralView()
                 resetModelView()
             }
-//            .navigationTitle("settings".localized())
-//            .navigationBarTitleDisplayMode(.inline)
-//        }
     }
 }
 
@@ -84,11 +80,11 @@ struct overviewActivityView : View {
     
     @AppStorage("INDEX_ACTIVITY") var indexActivity = 0
     @AppStorage("SYLLABLE") var syllable = false
+    @AppStorage("INDEX_PAUSES") var indexPauses = 0
+    @AppStorage("TALK_WORD") var talkWord = false 
     @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0
     
     @State var typeActivity: activityEnum = .character
-    
-    let pauses = [1, 2, 3, 4, 5]
     
     var body: some View {
         Section {
@@ -113,20 +109,21 @@ struct overviewActivityView : View {
             }
             
             if (viewModel.syllable) && (viewModel.typeActivity == .word) {
-                Toggle("talkword".localized(), isOn: $viewModel.talkWord)
-                    .onChange(of: viewModel.talkWord) {value in
+                Toggle("talkword".localized(), isOn: $talkWord)
+                    .onChange(of: talkWord) {value in
+                        viewModel.talkWord = talkWord
                     }
             }
             
             if (viewModel.syllable) && (viewModel.typeActivity == .word) {
-                Picker("pause".localized(),selection: $viewModel.indexPauses) {
+                Picker("pause".localized(),selection: $indexPauses) {
                     ForEach(0 ..< pauses.count, id: \.self) {
-                        Text("\(pauses[$0]) x").tag($0)
+                        Text("\(pauses[$0]) sec").tag($0)
                     }
                 }
-                .onChange(of: viewModel.indexPauses) {
+                .onChange(of: indexPauses) {
                     tag in
-                    viewModel.nrOfPause = pauses[tag]
+                    viewModel.indexPauses = pauses[tag]
                 }
             }
             
@@ -209,15 +206,18 @@ struct resetModelView : View {
     
     @AppStorage("INDEX_ACTIVITY") var indexActivity = 0
     @AppStorage("SYLLABLE") var syllable = false
-    @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0
-    @AppStorage("INDEX_TRYS") var indexTrys = 0
+    @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0 //child
+    @AppStorage("INDEX_TRYS") var indexTrys = 5
+    @AppStorage("INDEX_PAUSES") var indexPauses = 0
     @AppStorage("CONDITIONAL") var conditional = true
-    @AppStorage("INDEX_READING") var indexPositionReading = 0
-    @AppStorage("INDEX_FONT") var indexFont = 0
+    @AppStorage("INDEX_READING") var indexPositionReading = 1 //before
+    @AppStorage("INDEX_FONT") var indexFont = 1
         
     var body: some View {
         Section{
             Button {
+                indexLanguage = 0
+                viewModel.indexLanguage = indexLanguage
                 indexMethod = 0
                 viewModel.indexMethod = indexMethod
                 indexLesson = 0
@@ -231,18 +231,21 @@ struct resetModelView : View {
                 syllable = false
                 viewModel.syllable = syllable
                 
-                indexPronounce = 0
+                indexPronounce = 0 //child
                 if let pronouncation = pronounceEnum(rawValue: indexPronounce) {
                     viewModel.typePronounceNew = pronouncation
                 }
                 
-                indexTrys = 0
+                indexTrys = 5 // 13
                 viewModel.indexTrys = indexTrys
+                
+                indexPauses = 0
+                viewModel.indexPauses = indexPauses
                 
                 conditional = true
                 viewModel.conditional = conditional
                 
-                indexPositionReading = 0
+                indexPositionReading = 1
                 if let positionReading = positionReadingEnum(rawValue: indexPositionReading) {
                     viewModel.typePositionReading = positionReading
                 }
@@ -252,6 +255,7 @@ struct resetModelView : View {
                     viewModel.typeIndexFont = font
                 }
                 
+                viewModel.count = 0
             } label : {
                 Text("reset".localized())
             }

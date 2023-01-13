@@ -90,7 +90,7 @@ enum positionReadingEnum: Int, CaseIterable {
 enum fontEnum: Int, CaseIterable {
     case text = 0
 //    case dots6 = 1
-    case dots8 = 2
+    case dots8 = 1
     
     func stringValue() -> String {
         switch(self) {
@@ -101,7 +101,9 @@ enum fontEnum: Int, CaseIterable {
     }
 }
 
-let trys = [1, 2, 3, 5, 8, 13, 21, 999]
+let trys = [1, 2, 3, 5, 8, 15, 21, 999]
+
+let pauses = [1, 2, 3, 4, 5]
 
 let uniCode = [
     "!"  : "33",

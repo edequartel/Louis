@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 import Soundable
 import AVFoundation
 
 final class LouisViewModel: ObservableObject {
+    @Published var Languages: [Language] = Language.Language
+//  @Published var Languages: [Language] = [] for getData()
+    
     @Published var indexLanguage: Int = 0
     @Published var indexMethod: Int = 0
     @Published var indexLesson: Int = 0
@@ -17,13 +21,11 @@ final class LouisViewModel: ObservableObject {
     @Published var item: String = "bartimeus"
     @Published var previousItem: String = "previous"
     @Published var items =  ["bartimeus","n-oo-t","m-ie-s"]
-    @Published var Languages: [Language] = Language.Language
 
     @Published var indexTrys = 0
     @Published var indexPauses = 0
     @Published var syllable = true
     @Published var talkWord = false
-    @Published var nrOfPause = 1
     @Published var conditional = false
     @Published var indexReading = 0
     @Published var indexPronounce = 0
@@ -160,7 +162,7 @@ final class LouisViewModel: ObservableObject {
         var sounds: [Sound] = []
         
         func AddSilence() {
-            for _ in 0..<nrOfPause { sounds.append(Sound(fileName: "child_space.mp3")) }
+            for _ in 0..<pauses[indexPauses] { sounds.append(Sound(fileName: "child_space.mp3")) }
         }
         
         //character
@@ -224,12 +226,12 @@ final class LouisViewModel: ObservableObject {
                         }
                         
                         if (typePronounceNew == .meaning) { //form-adult
-                            let preOne : pronounceEnum = .adult
-                            sounds.append(Sound(fileName: preOne.prefixValue()+"\(i).mp3"))
-                            AddSilence()
-                            
                             let preSecond : pronounceEnum = .meaning
                             sounds.append(Sound(fileName: preSecond.prefixValue()+"\(i).mp3"))
+                            AddSilence()
+                            
+                            let preOne : pronounceEnum = .adult
+                            sounds.append(Sound(fileName: preOne.prefixValue()+"\(i).mp3"))
                             AddSilence()
                         }
                     }
@@ -275,4 +277,32 @@ final class LouisViewModel: ObservableObject {
             }
         }
     }
+    
+//    func getData() {
+//            guard let url = URL(string: "https://www.eduvip.nl/braillestudio-software/methodslouis_edit.json") else { fatalError("Missing URL") }
+//    
+//            let urlRequest = URLRequest(url: url)
+//    
+//            let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+//                if let error = error {
+//                    print("Request error: ", error)
+//                    return
+//                }
+//    
+//                guard let response = response as? HTTPURLResponse else { return }
+//    
+//                if response.statusCode == 200 {
+//                    guard let data = data else { return }
+//                    DispatchQueue.main.async {
+//                        do {
+//                            let decodedLanguages = try JSONDecoder().decode([Language].self, from: data)
+//                            self.Languages = decodedLanguages
+//                        } catch let error {
+//                            print("Error decoding: ", error)
+//                        }
+//                    }
+//                }
+//            }
+//            dataTask.resume()
+//        }
 }

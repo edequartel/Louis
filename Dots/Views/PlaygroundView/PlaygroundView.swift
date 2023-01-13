@@ -152,20 +152,10 @@ struct methodLessonView : View {
     var body: some View {
         HStack {
             Text("\(viewModel.getMethodeName())")
-//                .padding()
-//                .overlay(
-//                    RoundedRectangle(cornerRadius: 16)
-//                        .stroke(.blue, lineWidth: 4)
-//                )
                 .foregroundColor(.bart_green)
             Spacer()
             Text("\(viewModel.getLessonName())")
                 .foregroundColor(.bart_green)
-//                .padding()
-//                .overlay(
-//                    RoundedRectangle(cornerRadius: 16)
-//                        .stroke(.blue, lineWidth: 4)
-//                )
         }
         .font(.headline)
     }
@@ -180,11 +170,10 @@ struct activityView : View {
     
     var body: some View {
         if viewModel.conditional {
-            if viewModel.typeActivity == .word {
                 VStack {
                     TextField("", text:$input)
                         .font(.custom(monospacedFont, size: 32))
-                        .foregroundColor(.blue)
+                        .foregroundColor(.bart_green)
                         .focused($isFocused)
                         .textInputAutocapitalization(.never)
                         .disableAutocorrection(true)
@@ -198,47 +187,26 @@ struct activityView : View {
                     Spacer()
                     Text("\(input)")
                         .frame(height: 60)
+                        .foregroundColor(.bart_purple)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .font(viewModel.typeIndexFont == .text ? .custom(monospacedFont, size: 32): Font.custom("bartimeus8dots", size: 32))
                         .accessibilityHidden(true)
                 }
-            } else
-            {
-                HStack {
-                    TextField("", text:$input)
-                        .font(.custom(monospacedFont, size: 32))
-                        .foregroundColor(.blue)
-                        .focused($isFocused)
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
-                        .onSubmit {
-                            let result = viewModel.check(input: input)
-                            if (result > -1) { viewModel.indexLesson = result }
-                            input = ""
-                            isFocused = true
-                        }
-                    Spacer()
-                    Text("\(input)")
-                        .font(viewModel.typeIndexFont == .text ? .custom(monospacedFont, size: 32): Font.custom("bartimeus8dots", size: 32))
-                        .accessibilityHidden(true)
-                }
-                .frame(height:60)
-            }
         }
         else
         {
 //            Section {
-////                Button("again".localized()) {
-////                    viewModel.TalkAgain()
-////                    print("again")
-//                }
-//            }
-            Section {
-                Button("next".localized()) {
+                Button(action: {
                     let result = viewModel.check(input: input)
                     print("next")
+                }) {
+                    Text("next".localized())
+//                        .background(Color.purple) // 1. Change the background color to purple
+                        .foregroundColor(.bart_purple)  // 2. Set the foreground/font color to white
+//                            .font(.title)             // 3. Change the font type
+//                            .padding()
                 }
-            }
+//            }
         }
     }
 }

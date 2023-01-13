@@ -18,12 +18,14 @@ struct SplashScreenView: View {
     
     @AppStorage("INDEX_ACTIVITY") var indexActivity = 0
     @AppStorage("SYLLABLE") var syllable = false
-    @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0
-    @AppStorage("INDEX_TRYS") var indexTrys = 0
+    @AppStorage("TALK_WORD") var talkWord = false
+    @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0 //child
+    @AppStorage("INDEX_TRYS") var indexTrys = 5 // 13
+    @AppStorage("INDEX_PAUSES") var indexPauses = 0
     @AppStorage("CONDITIONAL") var conditional = true
-    @AppStorage("INDEX_READING") var indexPositionReading = 0
+    @AppStorage("INDEX_READING") var indexPositionReading = 1 //before
     @AppStorage("INDEX_FONT") var indexFont = 0
-        
+    
     @State private var isActive = false
     @State private var size = 0.8
     @State private var opacity = 0.5
@@ -47,13 +49,14 @@ struct SplashScreenView: View {
                 }
                 
                 viewModel.syllable = syllable
+                viewModel.talkWord = talkWord
+                viewModel.indexPauses = indexPauses
                 
                 if let pronouncation = pronounceEnum(rawValue: indexPronounce) {
                     viewModel.typePronounceNew = pronouncation
                 }
                 
                 viewModel.indexTrys = indexTrys
-                
                 viewModel.conditional = conditional
                 
                 if let positionReading = positionReadingEnum(rawValue: indexPositionReading) {

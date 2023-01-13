@@ -9750,7 +9750,7 @@
 		47A24DBB296C13D200BA287B /* LouisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A24DBA296C13D200BA287B /* LouisViewModel.swift */; };
 		47ACE3F1292222C100020519 /* bartimeus8dots.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47ACE3F0292222C100020519 /* bartimeus8dots.ttf */; };
 		47E993CE28E433DD00D32F53 /* SwiftProgress in Frameworks */ = {isa = PBXBuildFile; productRef = 47E993CD28E433DD00D32F53 /* SwiftProgress */; };
-		47EBF7C42860D80D00E8F230 /* methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EBF7C32860D80D00E8F230 /* methods.swift */; };
+		47EBF7C42860D80D00E8F230 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EBF7C32860D80D00E8F230 /* Model.swift */; };
 		47EBF805286200CA00E8F230 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EBF804286200CA00E8F230 /* LottieView.swift */; };
 		47EBF808286200F700E8F230 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 47EBF807286200F700E8F230 /* Lottie */; };
 		47EBF80C2862031200E8F230 /* dotsloader.json in Resources */ = {isa = PBXBuildFile; fileRef = 47EBF80B2862031200E8F230 /* dotsloader.json */; };
@@ -19526,7 +19526,7 @@
 		47A24DB7296C0ABB00BA287B /* methods-demo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "methods-demo.json"; sourceTree = "<group>"; };
 		47A24DBA296C13D200BA287B /* LouisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LouisViewModel.swift; sourceTree = "<group>"; };
 		47ACE3F0292222C100020519 /* bartimeus8dots.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bartimeus8dots.ttf; sourceTree = "<group>"; };
-		47EBF7C32860D80D00E8F230 /* methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = methods.swift; sourceTree = "<group>"; };
+		47EBF7C32860D80D00E8F230 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		47EBF804286200CA00E8F230 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		47EBF80B2862031200E8F230 /* dotsloader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dotsloader.json; sourceTree = "<group>"; };
 		6A0F2F6A7B27A14325C27112 /* Pods-Dots.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dots.debug.xcconfig"; path = "Target Support Files/Pods-Dots/Pods-Dots.debug.xcconfig"; sourceTree = "<group>"; };
@@ -29473,6 +29473,7 @@
 				47192A102858893C004FD2F3 /* ContentView.swift */,
 				47192A3D2858C057004FD2F3 /* SettingsView.swift */,
 				472226E128D84628002BF9E0 /* SheetView.swift */,
+				47A24DB5296B456700BA287B /* ModifiersAndExtension.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -29491,8 +29492,7 @@
 		4766E4D528B3B88D00852495 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				47EBF7C32860D80D00E8F230 /* methods.swift */,
-				47A24DB5296B456700BA287B /* ModifiersAndExtension.swift */,
+				47EBF7C32860D80D00E8F230 /* Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -39498,7 +39498,7 @@
 				47192A3E2858C057004FD2F3 /* SettingsView.swift in Sources */,
 				47192A0F2858893C004FD2F3 /* DotsApp.swift in Sources */,
 				47A24DB6296B456700BA287B /* ModifiersAndExtension.swift in Sources */,
-				47EBF7C42860D80D00E8F230 /* methods.swift in Sources */,
+				47EBF7C42860D80D00E8F230 /* Model.swift in Sources */,
 				47EBF805286200CA00E8F230 /* LottieView.swift in Sources */,
 				47192A392858BE7D004FD2F3 /* SplashScreenView.swift in Sources */,
 				47192A462858C086004FD2F3 /* AudioView.swift in Sources */,
@@ -39679,7 +39679,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 31;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = 278BFDM8KA;
 				ENABLE_PREVIEWS = YES;
@@ -39718,7 +39718,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 31;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = 278BFDM8KA;
 				ENABLE_PREVIEWS = YES;
