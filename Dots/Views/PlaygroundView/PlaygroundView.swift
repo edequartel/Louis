@@ -12,13 +12,13 @@ import AVFoundation
 
 struct PlaygroundView: View {
     @EnvironmentObject var viewModel: LouisViewModel
-    
+
     let nextword : SystemSoundID = 1113
-    
+
     @State private var atStartup = true
-    
+
     @FocusState private var nameInFocus: Bool
-    
+
     var body: some View {
 //        NavigationView{
             Form {
@@ -36,13 +36,13 @@ struct PlaygroundView: View {
         }
         .onAppear() {
             self.nameInFocus = true
-            
+
             if (atStartup || viewModel.updateViewData) {
                 viewModel.Shuffle()
                 atStartup = false
                 viewModel.updateViewData = false
             }
-            
+
             if (viewModel.typePositionReading == .before) {
                 viewModel.Talk(value : viewModel.item)
             }
@@ -52,24 +52,24 @@ struct PlaygroundView: View {
             }
         }
     }
-    
+
 }
 
 struct typeOverView : View {
     @EnvironmentObject var viewModel: LouisViewModel
-    
+
     let monospacedFont = "Sono-Regular"
-    
+
     var body: some View {
         Section {
             let syllableString = (viewModel.typePronounceNew == .child) ? viewModel.item.replacingOccurrences(of: "-", with: " ") : viewModel.addSpaces(value: viewModel.stripString(value: viewModel.item))
             let tempString1 = (viewModel.syllable) ? syllableString :  viewModel.stripString(value: viewModel.item)
-            
+
             let prevSyllableString = (viewModel.typePronounceNew == .child) ? viewModel.previousItem.replacingOccurrences(of: "-", with: " ") : viewModel.addSpaces(value: viewModel.stripString(value: viewModel.previousItem))
             let prevtempString1 = (viewModel.syllable) ? prevSyllableString :  viewModel.stripString(value: viewModel.previousItem)
-            
+
             let  tempString = (viewModel.isPlaying) && (!viewModel.doubleTap) && (viewModel.typePositionReading == .after) ? prevtempString1 : tempString1
-            
+
             if (viewModel.typeIndexFont == .text) {
                 Text("\(tempString)")
                     .font(.custom(monospacedFont, size: 32))
@@ -86,7 +86,7 @@ struct typeOverView : View {
 
 struct overviewSettingsView : View {
     @EnvironmentObject var viewModel: LouisViewModel
-    
+
     var body: some View {
         HStack {
             Image(systemName: viewModel.conditional ? "checkmark.circle": "circle")
@@ -109,7 +109,7 @@ struct overviewSettingsView : View {
 struct progressView : View {
     @EnvironmentObject var viewModel: LouisViewModel
     @State private var myColor = Color.green
-    
+
     var body: some View {
         HStack {
             Text("\(viewModel.count)")
@@ -148,7 +148,7 @@ struct scoreBoardView : View {
 
 struct methodLessonView : View {
     @EnvironmentObject var viewModel: LouisViewModel
-    
+
     var body: some View {
         HStack {
             Text("\(viewModel.getMethodeName())")
@@ -164,10 +164,10 @@ struct methodLessonView : View {
 struct activityView : View {
     @EnvironmentObject var viewModel: LouisViewModel
     let monospacedFont = "Sono-Regular"
-    
+
     @State private var input: String = ""
     @FocusState private var isFocused: Bool
-    
+
     var body: some View {
         if viewModel.conditional {
                 VStack {
@@ -195,11 +195,18 @@ struct activityView : View {
         }
         else
         {
+//            Section {
                 Button(action: {
                     let result = viewModel.check(input: input)
+                    print("next")
                 }) {
                     Text("next".localized())
+//                        .background(Color.purple) // 1. Change the background color to purple
+//                        .foregroundColor(.bart_purple)  // 2. Set the foreground/font color to white
+//                            .font(.title)             // 3. Change the font type
+//                            .padding()
                 }
+//            }
         }
     }
 }
@@ -210,5 +217,3 @@ struct PlaygroundView_Previews: PreviewProvider {
             .environmentObject(LouisViewModel())
     }
 }
-
-
