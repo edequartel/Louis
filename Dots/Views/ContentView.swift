@@ -10,6 +10,7 @@ import SwiftUI
 
 
 struct ContentView: View {
+//    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var viewModel: LouisViewModel
     
     @State private var selectedTab = 0
@@ -37,12 +38,10 @@ struct ContentView: View {
                         Text("information".localized())
                     }.tag(2)
                     .highPriorityGesture(DragGesture().onEnded({ self.handleSwipe(translation: $0.translation.width)}))
-                //            ProgressView()
-                //                .tabItem {
-                //                    Image(systemName: "asterisk")
-                //                    Text("Progress")
-                //                }
             }
+//            .foregroundColor(
+//                colorScheme == .dark ? .yellow : .bart_green 
+//                    )
     }
     
     private func handleSwipe(translation: CGFloat) {

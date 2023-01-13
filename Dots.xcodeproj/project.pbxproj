@@ -29467,7 +29467,8 @@
 		474CFEBB2875B49A0000BF85 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				47A24DB9296C13A200BA287B /* PlaygroundView */,
+				47A24DBA296C13D200BA287B /* LouisViewModel.swift */,
+				47192A412858C073004FD2F3 /* PlaygroundView.swift */,
 				47192A382858BE7D004FD2F3 /* SplashScreenView.swift */,
 				47192A3F2858C065004FD2F3 /* InformationView.swift */,
 				47192A102858893C004FD2F3 /* ContentView.swift */,
@@ -29495,15 +29496,6 @@
 				47EBF7C32860D80D00E8F230 /* Model.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		47A24DB9296C13A200BA287B /* PlaygroundView */ = {
-			isa = PBXGroup;
-			children = (
-				47192A412858C073004FD2F3 /* PlaygroundView.swift */,
-				47A24DBA296C13D200BA287B /* LouisViewModel.swift */,
-			);
-			path = PlaygroundView;
 			sourceTree = "<group>";
 		};
 		729E007B6A5F72EA0F37295E /* Frameworks */ = {

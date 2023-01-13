@@ -23,6 +23,7 @@ struct InformationView: View {
                 Section {
                     Text("developedBy".localized())
                         .font(.title)
+                        .foregroundColor(.bart_green)
                 }
 
                 Section {

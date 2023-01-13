@@ -104,7 +104,6 @@ struct overviewSettingsView : View {
 
 struct progressView : View {
     @EnvironmentObject var viewModel: LouisViewModel
-    @State private var myColor = Color.green
     
     var body: some View {
         HStack {
@@ -112,7 +111,7 @@ struct progressView : View {
             Spacer()
             LinearProgress(
                 progress: CGFloat(100*viewModel.count/trys[viewModel.indexTrys]),
-                foregroundColor: myColor,
+                foregroundColor: viewModel.myColor,
                 backgroundColor:  Color.green.opacity(0.2),
                 fillAxis: .horizontal
             )
@@ -148,10 +147,10 @@ struct methodLessonView : View {
     var body: some View {
         HStack {
             Text("\(viewModel.getMethodeName())")
-                .foregroundColor(.bart_green)
+//                .foregroundColor(.bart_green)
             Spacer()
             Text("\(viewModel.getLessonName())")
-                .foregroundColor(.bart_green)
+//                .foregroundColor(.bart_green)
         }
         .font(.headline)
     }
@@ -177,13 +176,14 @@ struct activityView : View {
                         .onSubmit {
                             let result = viewModel.check(input: input)
                             if (result > -1) { viewModel.indexLesson = result }
+                            //
+                            //
                             input = ""
                             isFocused = true
                         }
                     Spacer()
                     Text("\(input)")
                         .frame(height: 60)
-                        .foregroundColor(.bart_purple)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .font(viewModel.typeIndexFont == .text ? .custom(monospacedFont, size: 32): Font.custom("bartimeus8dots", size: 32))
                         .accessibilityHidden(true)

@@ -12,7 +12,7 @@ import AVFoundation
 
 final class LouisViewModel: ObservableObject {
     @Published var Languages: [Language] = Language.Language
-//  @Published var Languages: [Language] = [] for getData()
+//    @Published var Languages: [Language] = [] for getData()
     
     @Published var indexLanguage: Int = 0
     @Published var indexMethod: Int = 0
@@ -42,11 +42,12 @@ final class LouisViewModel: ObservableObject {
     @Published var doubleTap = false
     @Published var updateViewData = false
     @Published var brailleOn = true
+    
+    @Published var myColor = Color.green
 
     let synthesizer = AVSpeechSynthesizer()
     let nextword : SystemSoundID = 1113
     let failure : SystemSoundID = 1057
-    
     
     //get random a new item from selected lesson
     func Shuffle() {
@@ -117,6 +118,8 @@ final class LouisViewModel: ObservableObject {
         //this action, read type and enter to aknowledge
         var returnValue : Int = -1
         if (input == stripString(value: item)) || (!conditional) {
+            myColor = .green
+            
             if (typePositionReading == .after) {
                 Talk(value: item)
             }
@@ -132,10 +135,10 @@ final class LouisViewModel: ObservableObject {
                 count = 0
             }
 
-            //wait untill sound is ready before shuffle
+            //wait untill sound is ready before shuffle //<<
             Shuffle()
 
-            if (typePositionReading == .before) {
+            if (typePositionReading != .not) {
                 Talk(value : item)
             }
             else //nextone
@@ -147,6 +150,7 @@ final class LouisViewModel: ObservableObject {
             if count > 0 { count -= 1 }
             AudioServicesPlaySystemSound(failure)
             returnValue = -1
+            myColor = .orange
         }
         return returnValue
     }
@@ -280,17 +284,17 @@ final class LouisViewModel: ObservableObject {
     
 //    func getData() {
 //            guard let url = URL(string: "https://www.eduvip.nl/braillestudio-software/methodslouis_edit.json") else { fatalError("Missing URL") }
-//    
+//
 //            let urlRequest = URLRequest(url: url)
-//    
+//
 //            let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
 //                if let error = error {
 //                    print("Request error: ", error)
 //                    return
 //                }
-//    
+//
 //                guard let response = response as? HTTPURLResponse else { return }
-//    
+//
 //                if response.statusCode == 200 {
 //                    guard let data = data else { return }
 //                    DispatchQueue.main.async {

@@ -116,3 +116,11 @@ let uniCode = [
 ]
 
 
+extension Color {
+    static let lightGray = Color(
+        uiColor: UIColor.lightGray
+    )
+    static let darkGray = Color(
+        uiColor: UIColor.darkGray
+    )
+}
