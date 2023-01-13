@@ -135,10 +135,10 @@ final class LouisViewModel: ObservableObject {
                 count = 0
             }
 
-            //wait untill sound is ready before shuffle //<<
+            //wait untill sound is ready before shuffle
             Shuffle()
 
-            if (typePositionReading != .not) {
+            if (typePositionReading == .before) {
                 Talk(value : item)
             }
             else //nextone
