@@ -202,7 +202,7 @@ struct activityView : View {
                 }) {
                     Text("next".localized())
 //                        .background(Color.purple) // 1. Change the background color to purple
-                        .foregroundColor(.bart_purple)  // 2. Set the foreground/font color to white
+//                        .foregroundColor(.bart_purple)  // 2. Set the foreground/font color to white
 //                            .font(.title)             // 3. Change the font type
 //                            .padding()
                 }
