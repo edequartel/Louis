@@ -195,7 +195,7 @@ struct activityView : View {
         }
         else
         {
-            Button(action: {
+            Button(action: {//test
                 let result = viewModel.check(input: input)
                 print("next")
             }) {
