@@ -121,7 +121,7 @@ final class LouisViewModel: ObservableObject {
             myColor = .green
             
             if (typePositionReading == .after) {
-                Talk(value: item)
+                Talk(value: item.lowercased())
             }
 
             count += 1
@@ -139,7 +139,7 @@ final class LouisViewModel: ObservableObject {
             Shuffle()
 
             if (typePositionReading == .before) {
-                Talk(value : item)
+                Talk(value : item.lowercased())
             }
             else //nextone
             {
@@ -156,7 +156,7 @@ final class LouisViewModel: ObservableObject {
     }
 
     func TalkAgain() {
-        Talk(value: item)
+        Talk(value: item.lowercased())
     }
 
     //maybe see character as a word with length 1, this function can be shorter

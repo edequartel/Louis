@@ -28,7 +28,7 @@ struct PlaygroundView: View {
         }
         .onTapGesture(count:2) {
             viewModel.doubleTap = true
-            viewModel.Talk(value : viewModel.item)
+            viewModel.Talk(value : viewModel.item.lowercased())
         }
         .onAppear() {
             self.nameInFocus = true
@@ -40,7 +40,7 @@ struct PlaygroundView: View {
             }
             
             if (viewModel.typePositionReading == .before) {
-                viewModel.Talk(value : viewModel.item)
+                viewModel.Talk(value : viewModel.item.lowercased())
             }
             else //nextone
             {

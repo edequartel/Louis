@@ -281,7 +281,7 @@
             "name" : "leestekens",
             "letters" : "! # $ % & , .",
             "antiletters" : "",
-            "words" : "1 123 12 4 5 6 66 74 3234 212 42 3 4 3 2 3 4 234 242 4 32",
+            "words" : "! # $ % & , .",
             "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",
@@ -300,9 +300,9 @@
           {
             "id" : 8,
             "name" : "hoofdletters",
-            "letters" : "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z",
+            "letters" : "Aap Boot Cirkel Doos Erg Feest Gas Huis India Juist Koets Lach Meer Nooit Oost Pakket Quiz Roos Stad Tuin Uitpraten Voor Wiel Xenon Yoga Zong",
             "antiletters" : "",
-            "words" : "1 123 12 4 5 6 66 74 3234 212 42 3 4 3 2 3 4 234 242 4 32",
+            "words" : "Aap Boot Cirkel Doos Erg Feest Gas Huis India Juist Koets Lach Meer Nooit Oost Pakket Quiz Roos Stad Tuin Uitpraten Voor Wiel Xenon Yoga Zong \n",
             "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",
@@ -322,7 +322,7 @@
       },
       {
         "id" : 2,
-        "name" : "Marechal",
+        "name" : "Maréchal",
         "developer" : "VISIO",
         "information" : "Voor mensen die kunnen lezen en schrijven. ",
         "letters" : "b a l k m aa p e d ee g i s t v n o oo r u uu h w ie f ui z ei j ij c sch oe eu ou au ch ng nk aai ooi oei oor eur eer eeuw ieuw",
