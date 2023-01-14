@@ -20,12 +20,12 @@ struct PlaygroundView: View {
     @FocusState private var nameInFocus: Bool
     
     var body: some View {
-            Form {
-                scoreBoardView()
-                typeOverView()
-                activityView()
-                    .focused($nameInFocus)
-            }
+        Form {
+            scoreBoardView()
+            typeOverView()
+            activityView()
+                .focused($nameInFocus)
+        }
         .onTapGesture(count:2) {
             viewModel.doubleTap = true
             viewModel.Talk(value : viewModel.item)
@@ -147,10 +147,10 @@ struct methodLessonView : View {
     var body: some View {
         HStack {
             Text("\(viewModel.getMethodeName())")
-//                .foregroundColor(.bart_green)
+            //                .foregroundColor(.bart_green)
             Spacer()
             Text("\(viewModel.getLessonName())")
-//                .foregroundColor(.bart_green)
+            //                .foregroundColor(.bart_green)
         }
         .font(.headline)
     }
@@ -165,38 +165,36 @@ struct activityView : View {
     
     var body: some View {
         if viewModel.conditional {
-                VStack {
-                    TextField("", text:$input)
-                        .font(.custom(monospacedFont, size: 32))
-                        .foregroundColor(.bart_green)
-                        .focused($isFocused)
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
-                        .frame(height:60)
-                        .onSubmit {
-                            let result = viewModel.check(input: input)
-                            if (result > -1) { viewModel.indexLesson = result }
-                            //
-                            //
-                            input = ""
-                            isFocused = true
-                        }
-                    Spacer()
-                    Text("\(input)")
-                        .frame(height: 60)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(viewModel.typeIndexFont == .text ? .custom(monospacedFont, size: 32): Font.custom("bartimeus8dots", size: 32))
-                        .accessibilityHidden(true)
-                }
+            VStack {
+                TextField("", text:$input)
+                    .font(.custom(monospacedFont, size: 32))
+                    .foregroundColor(.bart_green)
+                    .focused($isFocused)
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
+                    .frame(height:60)
+                    .onSubmit {
+                        let result = viewModel.check(input: input)
+                        if (result > -1) { viewModel.indexLesson = result }
+                        //
+                        //
+                        input = ""
+                        isFocused = true
+                    }
+                Spacer()
+                Text("\(input)")
+                    .frame(height: 60)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(viewModel.typeIndexFont == .text ? .custom(monospacedFont, size: 32): Font.custom("bartimeus8dots", size: 32))
+                    .accessibilityHidden(true)
+            }
         }
         else
         {
-                Button(action: {
-                    let result = viewModel.check(input: input)
-                    print("next")
-                }) {
-                    Text("next".localized())
-                }
+            Button("next".localized()) {
+                let result = viewModel.check(input: input)
+            }
+            .disabled(viewModel.isPlaying)
         }
     }
 }

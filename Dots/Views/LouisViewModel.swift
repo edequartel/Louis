@@ -143,7 +143,7 @@ final class LouisViewModel: ObservableObject {
             }
             else //nextone
             {
-                AudioServicesPlaySystemSound(nextword)
+//                AudioServicesPlaySystemSound(nextword)
             }
         }
         else {
