@@ -22,7 +22,7 @@ final class LouisViewModel: ObservableObject {
     @Published var previousItem: String = "previous"
     @Published var items =  ["bartimeus","n-oo-t","m-ie-s"]
 
-    @Published var indexTrys = 0
+    @Published var indexTrys = 0 //<<<
     @Published var indexPauses = 0
     @Published var syllable = true
     @Published var talkWord = false
@@ -33,7 +33,7 @@ final class LouisViewModel: ObservableObject {
     @Published var typeActivity : activityEnum = .character
     @Published var typePronounceNew : pronounceEnum = .child
     @Published var typePositionReading : positionReadingEnum = .not
-    @Published var typeIndexFont : fontEnum = .dots8
+    @Published var typeIndexFont : fontEnum = .dots8 //<<<
     
     @Published var isPlaying = false
 

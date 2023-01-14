@@ -24,7 +24,7 @@ struct SplashScreenView: View {
     @AppStorage("INDEX_PAUSES") var indexPauses = 0
     @AppStorage("CONDITIONAL") var conditional = true
     @AppStorage("INDEX_READING") var indexPositionReading = 1 //before
-    @AppStorage("INDEX_FONT") var indexFont = 0
+    @AppStorage("INDEX_FONT") var indexFont = 1
     
     @State private var isActive = false
     @State private var size = 0.8
