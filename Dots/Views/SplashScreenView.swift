@@ -23,7 +23,7 @@ struct SplashScreenView: View {
     @AppStorage("INDEX_TRYS") var indexTrys = 5 // 13
     @AppStorage("INDEX_PAUSES") var indexPauses = 0
     @AppStorage("CONDITIONAL") var conditional = true
-    @AppStorage("INDEX_READING") var indexPositionReading = 1 //before
+    @AppStorage("INDEX_READING") var indexPosition = 1 //before
     @AppStorage("INDEX_FONT") var indexFont = 1
     
     @State private var isActive = false
@@ -58,8 +58,9 @@ struct SplashScreenView: View {
                 
                 viewModel.indexTrys = indexTrys
                 viewModel.conditional = conditional
+                                
                 
-                if let positionReading = positionReadingEnum(rawValue: indexPositionReading) {
+                if let positionReading = positionReadingEnum(rawValue: indexPosition) {
                     viewModel.typePositionReading = positionReading
                 }
              

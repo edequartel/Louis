@@ -149,8 +149,8 @@ struct overviewGeneralView : View {
     
     @AppStorage("INDEX_TRYS") var indexTrys = 5
     @AppStorage("CONDITIONAL") var conditional = true
-    @AppStorage("INDEX_READING") var indexPosition = 0
-    @AppStorage("INDEX_FONT") var indexFont = 0
+    @AppStorage("INDEX_READING") var indexPosition = 1
+    @AppStorage("INDEX_FONT") var indexFont = 1
     
     var body: some View {
         Section{
