@@ -21,6 +21,15 @@ struct InformationView: View {
     var body: some View {
             Form {
                 Section {
+                    Button("Print bundle") {
+                        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                        let fileURL = documentsURL.appendingPathComponent("Dutch.zip")
+                        print(documentsURL)
+                    }
+                    .padding(20)
+                }
+                
+                Section {
                     Text("developedBy".localized())
                         .font(.title)
                         .foregroundColor(.bart_green)

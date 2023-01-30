@@ -282,8 +282,6 @@ final class LouisViewModel: ObservableObject {
         }
     }
     
-//here we put the data for loading methods.json
-    
 //    func getData() {
 //            guard let url = URL(string: "https://www.eduvip.nl/braillestudio-software/methodslouis_edit.json") else { fatalError("Missing URL") }
 //

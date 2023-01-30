@@ -11,7 +11,29 @@ struct Language: Decodable, Identifiable {
     let name, code, comments, information: String
     let method: [Method]
 
-    static let Language: [Language] = Bundle.main.decode(file: "methods-demo.json")
+    static let Language: [Language] = loadLanguages()
+}
+
+//Load languages from the local file (earlier downloaded at startup if there was network connection)
+func loadLanguages() -> [Language] {
+    let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    let fileURL = documentDirectory.appendingPathComponent("methods-demo.json")
+
+    let data: Data
+    do {
+        data = try Data(contentsOf: fileURL)
+    } catch {
+        return []
+    }
+
+    let users: [Language]
+    do {
+        users = try JSONDecoder().decode([Language].self, from: data)
+    } catch {
+        return []
+    }
+
+    return users
 }
 
 // MARK: - Method
@@ -53,36 +75,3 @@ extension Bundle {
     }
 }
 
-
-//class Network: ObservableObject {
-//    @EnvironmentObject var network: Network
-//    @Published var Languages: [Language] = []
-//
-//    func getData() {
-//        guard let url = URL(string: "https://www.eduvip.nl/braillestudio-software/methodslouis_edit.json") else { fatalError("Missing URL") }
-//
-//        let urlRequest = URLRequest(url: url)
-//
-//        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-//            if let error = error {
-//                print("Request error: ", error)
-//                return
-//            }
-//
-//            guard let response = response as? HTTPURLResponse else { return }
-//
-//            if response.statusCode == 200 {
-//                guard let data = data else { return }
-//                DispatchQueue.main.async {
-//                    do {
-//                        let decodedLanguages = try JSONDecoder().decode([Language].self, from: data)
-//                        self.Languages = decodedLanguages
-//                    } catch let error {
-//                        print("Error decoding: ", error)
-//                    }
-//                }
-//            }
-//        }
-//        dataTask.resume()
-//    }
-//}
