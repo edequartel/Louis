@@ -12,7 +12,6 @@ import AVFoundation
 
 final class LouisViewModel: ObservableObject {
     @Published var Languages: [Language] = Language.Language
-//    @Published var Languages: [Language] = [] for getData()
     
     @Published var indexLanguage: Int = 0
     @Published var indexMethod: Int = 0

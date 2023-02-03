@@ -17,7 +17,7 @@
           {
             "id" : 0,
             "name" : "bal",
-            "letters" : "a b l aa ieuw oe ui",
+            "letters" : "a b l",
             "antiletters" : "",
             "words" : "aa-l a-l b-a b-aa-l b-a-l l-a l-a-l",
             "allwords" : "",
@@ -40,7 +40,7 @@
             "name" : "kam",
             "letters" : "k a m",
             "antiletters" : "",
-            "words" : "aa-k k-aa-k k-a-m k-m m-a m-aa-k m-a-k m-a-m m-a-m-a m-a-m-m-a",
+            "words" : "aa-k- k-aa-k k-a-m k-m m-a m-aa-k m-a-k m-a-m m-a-m-a m-a-m-m-a",
             "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",
@@ -103,7 +103,7 @@
             "name" : "aap+",
             "letters" : "a p b c k",
             "antiletters" : "",
-            "words" : "aak aal aap al kaak kaal kaap kalk kalm kam kamp kap klak klam klamp klap km la lak lal lam lama lamp lap ma maak maal mak mal mam mama mamma map pa paal pak pal palm pap papa pappa plak",
+            "words" : "aa-k aa-l aa-p a-l k-aa-k k-aa-l k-aa-p k-a-l-k k-a-l-m k-a-m k-a-m-p k-a-p k-l-a-k k-l-a-m k-l-a-m-p k-l-a-p k-m l-a l-a-k l-a-l l-a-m l-a-m-a l-a-m-p l-a-p m-a m-aa-k m-aa-l m-a-k m-a-l m-a-m m-a-m-a m-a-m-m-a m-a-p p-a p-a-a-l p-a-k p-a-l p-a-l-m p-a-p p-a-p-a p-a-p-p-a p-l-a-k",
             "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",
@@ -219,6 +219,90 @@
             "letters" : "b a l c g o p e f m v",
             "antiletters" : "",
             "words" : "aak aal aap af afgaf afgeef afkap afval afvalbak al alfa alle allemaal appel appelboom ba baal bagage bak bakmeel bal balg balk beek begaf bek bel beleg belg bepaal beval beveel bevel bevoel bevolk blaam blaf bleef bleek bloem bloembak bloemkool blok bob boef boeg boek boel boem bof bok bol bom bomvol boog boom cacao cafe cake cape cel cm cola collega coma eb eef effe egaal elf elk elke faam fabel fakkel fee fel felle flap flop foef fok ga gaaf gaap gaf gal gala galg galm galop gap gave gebak geblaf geef geel gek gekke geklaag gele geloof geloop gemak geval gevel gevoel gevolg goal gok golf gom kaak kaal kaap kabel kaf kalf kalk kalm kam kameel kamp kap kapel keek keel keep kef kegel kek kelk klaag klak klam klamp klap klef kleffe klem klep klepel klok klomp kloof klop km koe koek koel koele koepel kogel kok kol kolk kom komaf komma kook kookboek kool koop kop kopbal la laag label laf lafbek laffe lag lage lak lal lam lama lamel lamp lap lava leef leeg leegloop leek leem leemlaag leep lef leg legaal lege lego lek lekkage lekke lel leo lepel loef loep log logo logo lokaal lol lomp lompe loof loofboom loog look loom loop ma maag maak maal maf mag mak mal mam mama mamma map me mee meega meegaf meegevoel meel meepak meeval mek melk melkkoe melkpak melkvee memo mep moe mok mol mom mop of om oma ome omega omga omgaf omgeef omkeek omkom omlaag omleg omloop omval oog oogklep ook oom op opa opga opgaaf opgaf opgave opgeef opkeek opklap opklop opkoop oplap opleg oploop opmaak oppak opval opveeg opvolg ovaal pa paal pak pal palm palmboom pap papa pappa pek pekel pel pep plaag plak plakboek pleeg plek ploeg plof po poef poel poema pof polka polo pomp pook pool poolkap pop  vaag vaak vaal vak val vale valk vee veeg veel veelal vel vele vla vlaag vlag vlak vlam vlek vlo vloog voeg voel vogel vol volg volk volle volop",
+            "allwords" : "",
+            "sentence" : [
+              "bal bal bal la bla la",
+              "bla lab l b a a la"
+            ],
+            "comments" : "…",
+            "information" : "…",
+            "voice" : [
+              "bal.mp3",
+              "bla.mp3"
+            ],
+            "audio" : [
+              "bal.mp3"
+            ]
+          },
+          {
+            "id" : 5,
+            "name" : "alfabet",
+            "letters" : "a b c d e f g h i j k l m n o p q r s t u v w x y z",
+            "antiletters" : "",
+            "words" : "aak aal aap af afgaf afgeef afkap afval afvalbak al alfa alle allemaal appel appelboom ba baal bagage bak bakmeel bal balg balk beek begaf bek bel beleg belg bepaal beval beveel bevel bevoel bevolk blaam blaf bleef bleek bloem bloembak bloemkool blok bob boef boeg boek boel boem bof bok bol bom bomvol boog boom cacao cafe cake cape cel cm cola collega coma eb eef effe egaal elf elk elke faam fabel fakkel fee fel felle flap flop foef fok ga gaaf gaap gaf gal gala galg galm galop gap gave gebak geblaf geef geel gek gekke geklaag gele geloof geloop gemak geval gevel gevoel gevolg goal gok golf gom kaak kaal kaap kabel kaf kalf kalk kalm kam kameel kamp kap kapel keek keel keep kef kegel kek kelk klaag klak klam klamp klap klef kleffe klem klep klepel klok klomp kloof klop km koe koek koel koele koepel kogel kok kol kolk kom komaf komma kook kookboek kool koop kop kopbal la laag label laf lafbek laffe lag lage lak lal lam lama lamel lamp lap lava leef leeg leegloop leek leem leemlaag leep lef leg legaal lege lego lek lekkage lekke lel leo lepel loef loep log logo logo lokaal lol lomp lompe loof loofboom loog look loom loop ma maag maak maal maf mag mak mal mam mama mamma map me mee meega meegaf meegevoel meel meepak meeval mek melk melkkoe melkpak melkvee memo mep moe mok mol mom mop of om oma ome omega omga omgaf omgeef omkeek omkom omlaag omleg omloop omval oog oogklep ook oom op opa opga opgaaf opgaf opgave opgeef opkeek opklap opklop opkoop oplap opleg oploop opmaak oppak opval opveeg opvolg ovaal pa paal pak pal palm palmboom pap papa pappa pek pekel pel pep plaag plak plakboek pleeg plek ploeg plof po poef poel poema pof polka polo pomp pook pool poolkap pop  vaag vaak vaal vak val vale valk vee veeg veel veelal vel vele vla vlaag vlag vlak vlam vlek vlo vloog voeg voel vogel vol volg volk volle volop",
+            "allwords" : "",
+            "sentence" : [
+              "bal bal bal la bla la",
+              "bla lab l b a a la"
+            ],
+            "comments" : "…",
+            "information" : "…",
+            "voice" : [
+              "bal.mp3",
+              "bla.mp3"
+            ],
+            "audio" : [
+              "bal.mp3"
+            ]
+          },
+          {
+            "id" : 6,
+            "name" : "cijfers",
+            "letters" : "1 2 3 4 5 6 7 8 9 0",
+            "antiletters" : "",
+            "words" : "1 123 12 4 5 6 66 74 3234 212 42 3 4 3 2 3 4 234 242 4 32",
+            "allwords" : "",
+            "sentence" : [
+              "bal bal bal la bla la",
+              "bla lab l b a a la"
+            ],
+            "comments" : "…",
+            "information" : "…",
+            "voice" : [
+              "bal.mp3",
+              "bla.mp3"
+            ],
+            "audio" : [
+              "bal.mp3"
+            ]
+          },
+          {
+            "id" : 7,
+            "name" : "leestekens",
+            "letters" : "! # $ % & , .",
+            "antiletters" : "",
+            "words" : "1 123 12 4 5 6 66 74 3234 212 42 3 4 3 2 3 4 234 242 4 32",
+            "allwords" : "",
+            "sentence" : [
+              "bal bal bal la bla la",
+              "bla lab l b a a la"
+            ],
+            "comments" : "…",
+            "information" : "…",
+            "voice" : [
+              "bal.mp3",
+              "bla.mp3"
+            ],
+            "audio" : [
+              "bal.mp3"
+            ]
+          },
+          {
+            "id" : 8,
+            "name" : "hoofdletters",
+            "letters" : "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z",
+            "antiletters" : "",
+            "words" : "1 123 12 4 5 6 66 74 3234 212 42 3 4 3 2 3 4 234 242 4 32",
             "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",
