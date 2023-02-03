@@ -11,6 +11,8 @@ import Alamofire
 
 struct SplashScreenView: View {
     @EnvironmentObject var viewModel: LouisViewModel
+    let dataURL = "https://www.eduvip.nl/VSOdigitaal/louis/methods-demo.json"
+    @State private var errorMessage: String?
     
     @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
     @AppStorage("INDEX_METHOD") var indexMethod = 0
@@ -27,16 +29,12 @@ struct SplashScreenView: View {
     @AppStorage("INDEX_FONT") var indexFont = 1
     
     @State private var isActive = false
+    @State private var isDownloaded = false
     @State private var size = 0.8
     @State private var opacity = 0.5
     
-    @State private var isLoading = false
-    @State private var downloadComplete = false
-    let baseURL = "https://www.eduvip.nl/VSOdigitaal/louis/"
-    
     var body: some View {
-        if (isActive) && (downloadComplete) {
-//        if true {
+        if (isActive) && (isDownloaded) {
             ContentView()
         } else {
             VStack {
@@ -77,10 +75,9 @@ struct SplashScreenView: View {
                 let sound = Sound(fileName: "perkinsping.mp3")
                 sound.play()
                 
-                
-                //download file (now checking if file is downloaded
-                downloadFile(value: baseURL+"methods-demo.json")
-                
+                //
+                loadData()
+                //
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     withAnimation {
                         self.isActive = true
@@ -90,34 +87,55 @@ struct SplashScreenView: View {
         }
     }
     
-    //loading
-    func loadJSON() {
-        isLoading = true
-        DispatchQueue.global().async {
-            downloadFile(value: baseURL+"methods-demo.json")
-            self.isLoading = false
+    
+    //data is downloaded from url and then save as data.json
+    func loadData() {
+        print("loadData")
+        if let reachability = NetworkReachabilityManager(), reachability.isReachable {
+            AF.request(dataURL)
+                .validate()
+                .responseDecodable(of: [Item].self) { (response) in
+                    switch response.result {
+                    case .success(let value):
+                        //
+                        let encoder = JSONEncoder()
+                        do {
+                            let data = try encoder.encode(value)
+                            let documentsDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+                            let fileURL = documentsDirectory.appendingPathComponent("data.json")
+                            try data.write(to: fileURL)
+                            self.loadLocalData()
+                        } catch {
+                            self.errorMessage = error.localizedDescription
+                        }
+                        
+                        //
+                        viewModel.Languages = value
+                        self.errorMessage = nil
+                        
+                    case .failure(let error):
+                        self.errorMessage = error.localizedDescription
+                    }
+                }
+        } else {
+            loadLocalData()
         }
     }
     
-    //@State private var downloadComplete = false
-    //used to go to next view in SplashScreen
-    func downloadFile(value : String) {
-        let url = URL(string: value)!
-        let filename = url.lastPathComponent
-        let destination: DownloadRequest.Destination = { _, _ in
-            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let fileURL = documentsURL.appendingPathComponent(filename)
-            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+    //data which is download and earlier saved as data.json is used when there is now connection
+    func loadLocalData() {
+        print("loadLocalData")
+        do {
+            let documentsDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            let fileURL = documentsDirectory.appendingPathComponent("data.json")
+            let data = try Data(contentsOf: fileURL)
+            let items = try JSONDecoder().decode([Item].self, from: data)
+            viewModel.Languages = items
+            isDownloaded = true
         }
-        AF.download(url, to: destination)
-            .response { response in
-                if response.error == nil, let fileURL = response.fileURL {
-                    print("Downloaded \(fileURL)")
-                    downloadComplete = true
-                } else {
-                    print("Error downloading file: \(response.error!)")
-                }
-            }
+        catch {
+            self.errorMessage = error.localizedDescription
+        }
     }
 }
 
