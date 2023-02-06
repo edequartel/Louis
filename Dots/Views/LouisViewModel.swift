@@ -11,7 +11,7 @@ import Soundable
 import AVFoundation
 
 final class LouisViewModel: ObservableObject {
-//    @Published var Languages: [Language] = Language.Language
+    //    @Published var Languages: [Language] = Language.Language
     @Published var Languages: [Item] = []
     
     @Published var indexLanguage: Int = 0
@@ -21,7 +21,7 @@ final class LouisViewModel: ObservableObject {
     @Published var item: String = "bartimeus"
     @Published var previousItem: String = "previous"
     @Published var items =  ["bartimeus","n-oo-t","m-ie-s"]
-
+    
     @Published var indexTrys = 0 //<<<
     @Published var indexPauses = 0
     @Published var syllable = true
@@ -36,15 +36,15 @@ final class LouisViewModel: ObservableObject {
     @Published var typeIndexFont : fontEnum = .dots8 //<<<
     
     @Published var isPlaying = false
-
+    
     @Published var count = 0
-
+    
     @Published var doubleTap = false
     @Published var updateViewData = false
     @Published var brailleOn = true
     
     @Published var myColor = Color.green
-
+    
     let synthesizer = AVSpeechSynthesizer()
     let nextword : SystemSoundID = 1113
     let failure : SystemSoundID = 1057
@@ -117,13 +117,13 @@ final class LouisViewModel: ObservableObject {
     func check(input: String) -> Int {
         //this action, read type and enter to aknowledge
         var returnValue : Int = -1
-        if (input == stripString(value: item)) || (!conditional) {
+        if (input == stripString(value: item)) || (!self.conditional) {
             myColor = .green
             
             if (typePositionReading == .after) {
                 Talk(value: item.lowercased())
             }
-
+            
             count += 1
             if (count >= trys[indexTrys]) { //nextlevel
                 if indexLesson<(Languages[indexLanguage].method[indexMethod].lesson.count-1) {
@@ -134,16 +134,16 @@ final class LouisViewModel: ObservableObject {
                 }
                 count = 0
             }
-
+            
             //wait untill sound is ready before shuffle
             Shuffle()
-
+            
             if (typePositionReading == .before) {
                 Talk(value : item.lowercased())
             }
             else //nextone
             {
-//                AudioServicesPlaySystemSound(nextword)
+                //                AudioServicesPlaySystemSound(nextword)
             }
         }
         else {
@@ -154,11 +154,11 @@ final class LouisViewModel: ObservableObject {
         }
         return returnValue
     }
-
+    
     func TalkAgain() {
         Talk(value: item.lowercased())
     }
-
+    
     //maybe see character as a word with length 1, this function can be shorter
     func Talk(value : String) {
         Soundable.stopAll()
@@ -172,7 +172,7 @@ final class LouisViewModel: ObservableObject {
         //character
         if (typeActivity == .character) {
             print("character [\(value)]")
-        
+            
             
             if (value.count==1) { //only with letters
                 
@@ -281,32 +281,5 @@ final class LouisViewModel: ObservableObject {
             }
         }
     }
-    
-//    func getData() {
-//            guard let url = URL(string: "https://www.eduvip.nl/braillestudio-software/methodslouis_edit.json") else { fatalError("Missing URL") }
-//
-//            let urlRequest = URLRequest(url: url)
-//
-//            let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-//                if let error = error {
-//                    print("Request error: ", error)
-//                    return
-//                }
-//
-//                guard let response = response as? HTTPURLResponse else { return }
-//
-//                if response.statusCode == 200 {
-//                    guard let data = data else { return }
-//                    DispatchQueue.main.async {
-//                        do {
-//                            let decodedLanguages = try JSONDecoder().decode([Language].self, from: data)
-//                            self.Languages = decodedLanguages
-//                        } catch let error {
-//                            print("Error decoding: ", error)
-//                        }
-//                    }
-//                }
-//            }
-//            dataTask.resume()
-//        }
 }
+    
