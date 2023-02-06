@@ -155,6 +155,11 @@ final class LouisViewModel: ObservableObject {
         return returnValue
     }
     
+    func getDocumentDirectory() -> URL {
+        let fileManager = FileManager.default
+        return fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+    }
+    
     func TalkAgain() {
         Talk(value: item.lowercased())
     }
@@ -270,7 +275,13 @@ final class LouisViewModel: ObservableObject {
                 
                 
             } else { //not syllable just plays
-                let sound = Sound(fileName: myString+".mp3")
+                let zip = self.Languages[0].comments
+                print("=====>>>>\(zip)")
+                
+                let filename = "/"+zip+"/words/"+myString+".mp3"
+                let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                let fileURL = documentsURL.appendingPathComponent(filename)
+                let sound = Sound(url: fileURL)
                 isPlaying = true
                 sound.play() { error in
                     if let error = error {

@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "progressindicatorview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/exyte/ProgressIndicatorView.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "cb5bbf7faaee2aeb27d9ed2d14864c97bbd076de"
+      }
+    },
+    {
       "identity" : "stepperview",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/badrinathvm/StepperView",
@@ -34,6 +43,15 @@
       "state" : {
         "revision" : "9e086877c1f4813d5cab8435311ffd288c90fb63",
         "version" : "0.0.5"
+      }
+    },
+    {
+      "identity" : "ziparchive",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ZipArchive/ZipArchive",
+      "state" : {
+        "branch" : "master",
+        "revision" : "599f998fd5233b9c3ccdd289ae76342d34619dbf"
       }
     }
   ],

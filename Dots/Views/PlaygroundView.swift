@@ -86,8 +86,8 @@ struct overviewSettingsView : View {
     var body: some View {
         HStack {
 //            Image(systemName: viewModel.conditional ? "checkmark.circle": "circle")
-//            Image(systemName: viewModel.isPlaying ? "speaker.wave.3" : "speaker")
-//            Spacer()
+            Image(systemName: viewModel.isPlaying ? "speaker.wave.3" : "speaker")
+            Spacer()
             if ((viewModel.syllable) && (viewModel.typeActivity == .word)) || (viewModel.typeActivity == .character) {
                 Text("\(viewModel.typePronounceNew.stringValue().localized())")
                 Spacer()

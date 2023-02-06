@@ -74,7 +74,6 @@ struct SplashScreenView: View {
                 
                 let sound = Sound(fileName: "perkinsping.mp3")
                 sound.play()
-                
                 //
                 loadData()
                 //
@@ -91,6 +90,7 @@ struct SplashScreenView: View {
     //data is downloaded from url and then save as data.json
     func loadData() {
         print("loadData")
+        print("\(dataURL)")
         if let reachability = NetworkReachabilityManager(), reachability.isReachable {
             AF.request(dataURL)
                 .validate()

@@ -34,6 +34,7 @@ struct overviewMethodsView : View {
             Picker("Language".localized(), selection: $indexLanguage) {
                 ForEach(viewModel.Languages, id: \.id) { language in
                     Text(language.name).tag(language.id)
+//                    Text(language.comments)
                 }
             }
             .onChange(of: indexLanguage) { tag in

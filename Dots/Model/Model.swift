@@ -8,7 +8,7 @@ import Foundation
 // MARK: - ItemElement
 struct Item: Identifiable, Codable {
     let id: Int
-    let name, code, comments, information: String
+    let name, code, zip, comments, information: String
     let method: [Method]
 }
 
