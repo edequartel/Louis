@@ -276,12 +276,16 @@ final class LouisViewModel: ObservableObject {
                 
             } else { //not syllable just plays
                 let zip = self.Languages[0].comments
-                print("=====>>>>\(zip)")
-                
                 let filename = "/"+zip+"/words/"+myString+".mp3"
                 let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
                 let fileURL = documentsURL.appendingPathComponent(filename)
-                let sound = Sound(url: fileURL)
+            
+                //playfile fromURL
+                //ftp://qb192441_ev1@ww.eduvip.nl/VSOdigitaal/louis/audio/dutch/words/aanduwen.mp3
+//                let myurl = URL(string: "www.eduvip.nl/VSOdigitaal/louis/audio/dutch/words/aaien.mp3")!
+                let sound = Sound(url:fileURL)
+                //
+                
                 isPlaying = true
                 sound.play() { error in
                     if let error = error {

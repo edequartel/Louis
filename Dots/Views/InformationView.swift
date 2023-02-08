@@ -54,16 +54,16 @@ struct InformationView: View {
                     .frame(height: 8.0)
                     .foregroundColor(.green)
                 
-                Button("Play") {
-                    Soundable.stopAll()
-                    var sounds: [Sound] = []
-                    var fileURL = getDocumentDirectory().appendingPathComponent("/dutch/words/a/aap.mp3")
-                    sounds.append(Sound(fileName: fileURL.path))
-                    fileURL = getDocumentDirectory().appendingPathComponent("/dutch/words/a/aaien.mp3")
-                    sounds.append(Sound(fileName: fileURL.path))
-                    sounds.play()
-                }
-                .padding(10)
+//                Button("Play") {
+//                    Soundable.stopAll()
+//                    var sounds: [Sound] = []
+//                    var fileURL = getDocumentDirectory().appendingPathComponent("/dutch/words/a/aap.mp3")
+//                    sounds.append(Sound(fileName: fileURL.path))
+//                    fileURL = getDocumentDirectory().appendingPathComponent("/dutch/words/a/aaien.mp3")
+//                    sounds.append(Sound(fileName: fileURL.path))
+//                    sounds.play()
+//                }
+//                .padding(10)
             }
             
             
@@ -115,7 +115,8 @@ struct InformationView: View {
         self.message = value
         self.progress = 0
         self.showActivity = true
-        let url = URL(string: "https://www.eduvip.nl/VSOdigitaal/louis/"+value+".zip")!
+        let url = URL(string: "https://www.eduvip.nl/VSOdigitaal/louis/audio/"+value+".zip")!
+        print("downloading...")
         let destination: DownloadRequest.Destination = { _, _ in
             let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             let fileURL = documentsURL.appendingPathComponent("largeFile.zip")
