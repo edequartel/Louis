@@ -137,7 +137,7 @@ struct overviewActivityView : View {
                 .onChange(of: indexPronounce) { tag in
                     print("change in indexPronounce  \(tag)")
                     if let pronounce = pronounceEnum(rawValue: tag) {
-                        viewModel.typePronounceNew = pronounce
+                        viewModel.typePronounce = pronounce
                     }
                 }
             }
@@ -234,7 +234,7 @@ struct resetModelView : View {
                 
                 indexPronounce = 0 //child
                 if let pronouncation = pronounceEnum(rawValue: indexPronounce) {
-                    viewModel.typePronounceNew = pronouncation
+                    viewModel.typePronounce = pronouncation
                 }
                 
                 indexTrys = 5 // 13

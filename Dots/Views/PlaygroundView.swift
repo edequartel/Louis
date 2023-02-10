@@ -58,10 +58,10 @@ struct typeOverView : View {
     
     var body: some View {
         Section {
-            let syllableString = (viewModel.typePronounceNew == .child) ? viewModel.item.replacingOccurrences(of: "-", with: " ") : viewModel.addSpaces(value: viewModel.stripString(value: viewModel.item))
+            let syllableString = (viewModel.typePronounce == .child) ? viewModel.item.replacingOccurrences(of: "-", with: " ") : viewModel.addSpaces(value: viewModel.stripString(value: viewModel.item))
             let tempString1 = (viewModel.syllable) ? syllableString :  viewModel.stripString(value: viewModel.item)
             
-            let prevSyllableString = (viewModel.typePronounceNew == .child) ? viewModel.previousItem.replacingOccurrences(of: "-", with: " ") : viewModel.addSpaces(value: viewModel.stripString(value: viewModel.previousItem))
+            let prevSyllableString = (viewModel.typePronounce == .child) ? viewModel.previousItem.replacingOccurrences(of: "-", with: " ") : viewModel.addSpaces(value: viewModel.stripString(value: viewModel.previousItem))
             let prevtempString1 = (viewModel.syllable) ? prevSyllableString :  viewModel.stripString(value: viewModel.previousItem)
             
             let  tempString = (viewModel.isPlaying) && (!viewModel.doubleTap) && (viewModel.typePositionReading == .after) ? prevtempString1 : tempString1
@@ -89,7 +89,7 @@ struct overviewSettingsView : View {
             Image(systemName: viewModel.isPlaying ? "speaker.wave.3" : "speaker")
             Spacer()
             if ((viewModel.syllable) && (viewModel.typeActivity == .word)) || (viewModel.typeActivity == .character) {
-                Text("\(viewModel.typePronounceNew.stringValue().localized())")
+                Text("\(viewModel.typePronounce.stringValue().localized())")
                 Spacer()
             }
             let imageSound1 = viewModel.typePositionReading == .before ? "square.lefthalf.filled" : "square.split.2x1"

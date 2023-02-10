@@ -57,7 +57,7 @@ struct SplashScreenView: View {
                 viewModel.indexPauses = indexPauses
                 
                 if let pronouncation = pronounceEnum(rawValue: indexPronounce) {
-                    viewModel.typePronounceNew = pronouncation
+                    viewModel.typePronounce = pronouncation
                 }
                 
                 viewModel.indexTrys = indexTrys

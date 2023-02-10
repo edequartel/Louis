@@ -31,7 +31,7 @@ final class LouisViewModel: ObservableObject {
     @Published var indexPronounce = 0
     
     @Published var typeActivity : activityEnum = .character
-    @Published var typePronounceNew : pronounceEnum = .child
+    @Published var typePronounce : pronounceEnum = .child
     @Published var typePositionReading : positionReadingEnum = .not
     @Published var typeIndexFont : fontEnum = .dots8 //<<<
     
@@ -187,12 +187,12 @@ final class LouisViewModel: ObservableObject {
                     sounds.append(sound)
                 }
                 else {
-                    let sound = Sound(fileName: typePronounceNew.prefixValue() + value.lowercased() + ".mp3")
+                    let sound = Sound(fileName: typePronounce.prefixValue() + value.lowercased() + ".mp3")
                     sounds.append(sound)
                 }
                 
                 
-                if (typePronounceNew == .meaning) {
+                if (typePronounce == .meaning) {
                     let sound = Sound(fileName: "adult_" + value + ".mp3")
                     sounds.append(sound)
                 }
@@ -222,19 +222,19 @@ final class LouisViewModel: ObservableObject {
             let myString = value.replacingOccurrences(of: "-", with: "")
             
             if (syllable) {
-                if (typePronounceNew == .adult) || (typePronounceNew == .form) || (typePronounceNew == .meaning) {
+                if (typePronounce == .adult) || (typePronounce == .form) || (typePronounce == .meaning) {
                     for i in myString {
-                        if (typePronounceNew == .adult) { //adult
-                            sounds.append(Sound(fileName: typePronounceNew.prefixValue()+"\(i).mp3"))
+                        if (typePronounce == .adult) { //adult
+                            sounds.append(Sound(fileName: typePronounce.prefixValue()+"\(i).mp3"))
                             AddSilence()
                         }
                         
-                        if (typePronounceNew == .form) { //form
-                            sounds.append(Sound(fileName: typePronounceNew.prefixValue()+"\(i).mp3"))
+                        if (typePronounce == .form) { //form
+                            sounds.append(Sound(fileName: typePronounce.prefixValue()+"\(i).mp3"))
                             AddSilence()
                         }
                         
-                        if (typePronounceNew == .meaning) { //form-adult
+                        if (typePronounce == .meaning) { //form-adult
                             let preSecond : pronounceEnum = .meaning
                             sounds.append(Sound(fileName: preSecond.prefixValue()+"\(i).mp3"))
                             AddSilence()
