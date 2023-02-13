@@ -195,7 +195,7 @@ struct activityView : View {
                 let result = viewModel.check(input: input)
                 if (result > -1) { viewModel.indexLesson = result }
             }
-            .disabled(viewModel.isPlaying)
+            .disabled(viewModel.isPlaying) 
         }
     }
 }

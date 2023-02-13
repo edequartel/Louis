@@ -11,7 +11,6 @@ import Soundable
 import AVFoundation
 
 final class LouisViewModel: ObservableObject {
-    //    @Published var Languages: [Language] = Language.Language
     @Published var Languages: [Item] = []
     
     @Published var indexLanguage: Int = 0
@@ -22,7 +21,7 @@ final class LouisViewModel: ObservableObject {
     @Published var previousItem: String = "previous"
     @Published var items =  ["bartimeus","n-oo-t","m-ie-s"]
     
-    @Published var indexTrys = 0 //<<<
+    @Published var indexTrys = 0
     @Published var indexPauses = 0
     @Published var syllable = true
     @Published var talkWord = false
@@ -33,7 +32,7 @@ final class LouisViewModel: ObservableObject {
     @Published var typeActivity : activityEnum = .character
     @Published var typePronounce : pronounceEnum = .child
     @Published var typePositionReading : positionReadingEnum = .not
-    @Published var typeIndexFont : fontEnum = .dots8 //<<<
+    @Published var typeIndexFont : fontEnum = .dots8 
     
     @Published var isPlaying = false
     
@@ -160,6 +159,20 @@ final class LouisViewModel: ObservableObject {
         return fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
     }
     
+    func getBaseDirectory() -> URL {
+        let fileManager = FileManager.default
+        let docDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        return docDir.appendingPathComponent(Languages[indexLanguage].zip)
+    }
+    
+    func getPhoneticFile(value : String) -> URL {
+        return getBaseDirectory().appendingPathComponent("phonetic/"+typePronounce.prefixValue().lowercased()+"/"+value+".mp3")
+    }
+    
+    func getAudioFile(value : String) -> URL {
+        return getBaseDirectory().appendingPathComponent("words/"+value.lowercased()+".mp3")
+    }
+    
     func TalkAgain() {
         Talk(value: item.lowercased())
     }
@@ -171,7 +184,7 @@ final class LouisViewModel: ObservableObject {
         var sounds: [Sound] = []
         
         func AddSilence() {
-            for _ in 0..<pauses[indexPauses] { sounds.append(Sound(fileName: "child_space.mp3")) }
+            for _ in 0..<pauses[indexPauses] { sounds.append(Sound(url: getBaseDirectory().appendingPathComponent("phonetic/child/space.mp3"))) }
         }
         
         //character
@@ -179,23 +192,23 @@ final class LouisViewModel: ObservableObject {
             print("character [\(value)]")
             
             
-            if (value.count==1) { //only with letters
+            if (value.count==1) { //only with letters, value is the text in text
                 
                 if let code = uniCode[value]
                 {
-                    let sound = Sound(fileName: code + ".mp3")
+                    let sound = Sound(url: getPhoneticFile(value: code))
                     sounds.append(sound)
                 }
                 else {
-                    let sound = Sound(fileName: typePronounce.prefixValue() + value.lowercased() + ".mp3")
+                    let sound = Sound(url: getPhoneticFile(value: value))
                     sounds.append(sound)
                 }
-                
                 
                 if (typePronounce == .meaning) {
-                    let sound = Sound(fileName: "adult_" + value + ".mp3")
+                    let sound = Sound(url: getBaseDirectory().appendingPathComponent("phonetic/adult/"+value.lowercased()+".mp3"))
                     sounds.append(sound)
                 }
+                
                 isPlaying = true
                 sounds.play() { error in
                     if let error = error {
@@ -204,8 +217,9 @@ final class LouisViewModel: ObservableObject {
                     self.isPlaying = false
                 }
                 
-            } else { //tricky sounds gelden voor alle pronounce child/adult/form
+            } else { //tricky sounds gelden voor alle pronounce child/adult/form, tricky sounds are ui oe eu
                 let sound = Sound(fileName: value+".mp3")
+                
                 isPlaying = true
                 sound.play() { error in
                     if let error = error {
@@ -218,51 +232,32 @@ final class LouisViewModel: ObservableObject {
         
         //word
         if (typeActivity == .word) {
-            let myStringArr = value.components(separatedBy: "-")
-            let myString = value.replacingOccurrences(of: "-", with: "")
+            let myStringArr = value.components(separatedBy: "-") //divide the w-o-r-d in characters
+            let theWord = value.replacingOccurrences(of: "-", with: "") //make a word
             
-            if (syllable) {
-                if (typePronounce == .adult) || (typePronounce == .form) || (typePronounce == .meaning) {
-                    for i in myString {
-                        if (typePronounce == .adult) { //adult
-                            sounds.append(Sound(fileName: typePronounce.prefixValue()+"\(i).mp3"))
+            if (syllable) { //
+                if ((typePronounce == .adult) || (typePronounce == .form) || (typePronounce == .meaning)) {
+                    for char in theWord {
+                        if ((typePronounce == .adult) || (typePronounce == .form) || (typePronounce == .meaning)) { //adult
+                            sounds.append(Sound(url: getPhoneticFile(value: "\(char)")))
                             AddSilence()
                         }
-                        
-                        if (typePronounce == .form) { //form
-                            sounds.append(Sound(fileName: typePronounce.prefixValue()+"\(i).mp3"))
-                            AddSilence()
-                        }
-                        
                         if (typePronounce == .meaning) { //form-adult
-                            let preSecond : pronounceEnum = .meaning
-                            sounds.append(Sound(fileName: preSecond.prefixValue()+"\(i).mp3"))
-                            AddSilence()
-                            
-                            let preOne : pronounceEnum = .adult
-                            sounds.append(Sound(fileName: preOne.prefixValue()+"\(i).mp3"))
+                            sounds.append(Sound(url: getBaseDirectory().appendingPathComponent("phonetic/adult/"+char.lowercased()+".mp3")))
                             AddSilence()
                         }
                     }
                 }
                 
-                
                 else {//child
-                    for i in myStringArr {
-                        if (i.count > 1) { //just a normal phonem
-                            sounds.append(Sound(fileName: "\(i).mp3"))
-                            AddSilence()
-                            
-                        } else { //just a character
-                            let pronounceAsChild : pronounceEnum = .child
-                            sounds.append(Sound(fileName: pronounceAsChild.prefixValue() + "\(i).mp3"))
-                            AddSilence()
-                        }
+                    for char in myStringArr {
+                        sounds.append(Sound(url: getBaseDirectory().appendingPathComponent("phonetic/child/"+char.lowercased()+".mp3")))
+                        AddSilence()
                     }
                 }
                 
                 if talkWord {
-                    sounds.append(Sound(fileName: "\(myString).mp3" ))
+                    sounds.append(Sound(url: getAudioFile(value: theWord)))
                 }
                 
                 isPlaying = true
@@ -275,14 +270,7 @@ final class LouisViewModel: ObservableObject {
                 
                 
             } else { //not syllable just plays the word
-                let lang = Languages[indexLanguage].zip
-                let filename = "/"+lang+"/words/"+myString+".mp3"
-                let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                let fileURL = documentsURL.appendingPathComponent(filename)
-            
-
-                let sound = Sound(url: fileURL)
-                //
+                let sound = Sound(url: getAudioFile(value: theWord))
                 
                 isPlaying = true
                 sound.play() { error in
@@ -295,4 +283,4 @@ final class LouisViewModel: ObservableObject {
         }
     }
 }
-    
+

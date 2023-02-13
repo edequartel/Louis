@@ -65,10 +65,10 @@ enum pronounceEnum: Int, CaseIterable {
     
     func prefixValue() -> String {
         switch(self) {
-        case .child: return "child_"
-        case .adult: return "adult_"
-        case .form: return "form_"
-        case .meaning: return "form_"
+        case .child: return "child"
+        case .adult: return "adult"
+        case .form: return "form"
+        case .meaning: return "form"
         }
     }
 }
