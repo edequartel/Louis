@@ -152,6 +152,7 @@ final class LouisViewModel: ObservableObject {
             myColor = .orange
         }
         return returnValue
+        
     }
     
     func getDocumentDirectory() -> URL {
@@ -184,7 +185,7 @@ final class LouisViewModel: ObservableObject {
         var sounds: [Sound] = []
         
         func AddSilence() {
-            for _ in 0..<pauses[indexPauses] { sounds.append(Sound(url: getBaseDirectory().appendingPathComponent("phonetic/child/space.mp3"))) }
+            for _ in 0..<pauses[indexPauses] { sounds.append(Sound(url: getBaseDirectory().appendingPathComponent("words/space.mp3"))) }
         }
         
         //character

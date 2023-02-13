@@ -12,6 +12,8 @@ import ProgressIndicatorView
 import Soundable
 
 struct InformationView: View {
+    @EnvironmentObject var viewModel: LouisViewModel
+    
     @Environment(\.accessibilityVoiceOverEnabled) var voEnabled: Bool
     
     @Environment(\.colorScheme) private var colorScheme
@@ -26,44 +28,40 @@ struct InformationView: View {
     @State private var showActivity = false
     @State private var progress: CGFloat = 0
     
+    @State private var indexLanguage = 0
+    
     
     var body: some View {
         Form {
             Section {
                 Button("Print bundle") {
-//                    let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-//                    let fileURL = documentsURL.appendingPathComponent("dutch.zip")
                     print(getDocumentDirectory().path)
                 }
                 .padding(10)
                 
-                Button("Download Dutch") {
-                    self.downloadZipFile(value: "dutch")
+                Section {
+                    Picker("Select "+"Language".localized().lowercased(), selection: $indexLanguage) {
+                        ForEach(viewModel.Languages, id: \.id) { language in
+                            Text(language.name).tag(language.id)
+                            //                    Text(language.comments)
+                        }
+                    }
+//                    .onChange(of: indexLanguage) { tag in
+//                        self.downloadZipFile(value: viewModel.Languages[indexLanguage].zip)
+//                    }
+                    .padding(10)
+                    Button("Download") {
+                        self.downloadZipFile(value: viewModel.Languages[indexLanguage].zip)
+                    }
+                    .padding(10)
+                    
+                    
+                    ProgressIndicatorView(isVisible: $showProgressIndicator, type: .dashBar(progress: $progress, numberOfItems: 10))
+                        .frame(height: 8.0)
+                        .foregroundColor(.bart_green)
+                        .padding(10)
                 }
-                .padding(10)
-                Button("Download English") {
-                    self.downloadZipFile(value: "english")
-                }
-                .padding(10)
-                Button("Download Deutsch") {
-                    self.downloadZipFile(value: "deutsch")
-                }
-                .padding(10)
-                
-                ProgressIndicatorView(isVisible: $showProgressIndicator, type: .dashBar(progress: $progress, numberOfItems: 10))
-                    .frame(height: 8.0)
-                    .foregroundColor(.green)
-                
-//                Button("Play") {
-//                    Soundable.stopAll()
-//                    var sounds: [Sound] = []
-//                    var fileURL = getDocumentDirectory().appendingPathComponent("/dutch/words/a/aap.mp3")
-//                    sounds.append(Sound(fileName: fileURL.path))
-//                    fileURL = getDocumentDirectory().appendingPathComponent("/dutch/words/a/aaien.mp3")
-//                    sounds.append(Sound(fileName: fileURL.path))
-//                    sounds.play()
-//                }
-//                .padding(10)
+
             }
             
             
