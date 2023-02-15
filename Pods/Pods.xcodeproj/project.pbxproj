@@ -67,6 +67,8 @@
 		36F770395D18D723F0C6235FC5E5E5D6 /* Pods-Dots-DotsUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Dots-DotsUITests-Info.plist"; sourceTree = "<group>"; };
 		3A26CADB3067D47FEA43DE0E1E09D7B5 /* Sound.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Sound.swift; path = Source/Sound.swift; sourceTree = "<group>"; };
 		44C9C529DD915348DC7BF1FAEC9B7829 /* Soundable.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Soundable.modulemap; sourceTree = "<group>"; };
+		4783B12B299CB916001A6027 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DownloadView.swift; path = ../Dots/Views/DownloadView.swift; sourceTree = "<group>"; };
+		4783B12E299CC08C001A6027 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwiftUIView.swift; path = ../Dots/Views/SwiftUIView.swift; sourceTree = "<group>"; };
 		4D6C9847F9FEC71625E57CC04A12825E /* Pods_Dots.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dots.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EA444B2CEB1523902492FCB7D92A79 /* Pods-Dots-DotsUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Dots-DotsUITests.modulemap"; sourceTree = "<group>"; };
 		58BEA9C9105D69D93F5D3F47F5DCBDEB /* Pods-Dots-DotsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Dots-DotsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +202,8 @@
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
+				4783B12E299CC08C001A6027 /* SwiftUIView.swift */,
+				4783B12B299CB916001A6027 /* DownloadView.swift */,
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				D908CC44B53B795C0545B260F5FBA708 /* Pods */,

@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct ContentView: View {
 //    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var viewModel: LouisViewModel
@@ -16,7 +14,7 @@ struct ContentView: View {
     @State private var selectedTab = 0
    
     let minDragTranslationForSwipe: CGFloat = 50
-    let numTabs = 3
+    let numTabs = 4
            
     var body: some View {
             TabView(selection: $selectedTab) {
@@ -38,10 +36,13 @@ struct ContentView: View {
                         Text("information".localized())
                     }.tag(2)
                     .highPriorityGesture(DragGesture().onEnded({ self.handleSwipe(translation: $0.translation.width)}))
+                DownloadView()
+                    .tabItem {
+                        Image(systemName: "info.circle.fill")
+                        Text("Download".localized())
+                    }.tag(3)
+                    .highPriorityGesture(DragGesture().onEnded({ self.handleSwipe(translation: $0.translation.width)}))
             }
-//            .foregroundColor(
-//                colorScheme == .dark ? .yellow : .bart_green 
-//                    )
     }
     
     private func handleSwipe(translation: CGFloat) {

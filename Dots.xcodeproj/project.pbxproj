@@ -60,6 +60,8 @@
 		4766E4CB28B3519A00852495 /* StepperView in Frameworks */ = {isa = PBXBuildFile; productRef = 4766E4CA28B3519A00852495 /* StepperView */; };
 		4766E4CD28B351B200852495 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766E4CC28B351B200852495 /* ProgressView.swift */; };
 		476A36D128F06CDC00F3909B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 476A36D328F06CDC00F3909B /* Localizable.strings */; };
+		4783B12D299CBA5C001A6027 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4783B12C299CBA5C001A6027 /* DownloadView.swift */; };
+		4783B130299CC103001A6027 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4783B12F299CC103001A6027 /* SwiftUIView.swift */; };
 		47A24DB6296B456700BA287B /* ModifiersAndExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A24DB5296B456700BA287B /* ModifiersAndExtension.swift */; };
 		47A24DBB296C13D200BA287B /* LouisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A24DBA296C13D200BA287B /* LouisViewModel.swift */; };
 		47ACE3F1292222C100020519 /* bartimeus8dots.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47ACE3F0292222C100020519 /* bartimeus8dots.ttf */; };
@@ -150,6 +152,8 @@
 		476A36D228F06CDC00F3909B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		476A36D428F06CDE00F3909B /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		476A36D728F076D500F3909B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4783B12C299CBA5C001A6027 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
+		4783B12F299CC103001A6027 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		47A24DB5296B456700BA287B /* ModifiersAndExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifiersAndExtension.swift; sourceTree = "<group>"; };
 		47A24DBA296C13D200BA287B /* LouisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LouisViewModel.swift; sourceTree = "<group>"; };
 		47ACE3F0292222C100020519 /* bartimeus8dots.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bartimeus8dots.ttf; sourceTree = "<group>"; };
@@ -345,6 +349,7 @@
 		474CFEBB2875B49A0000BF85 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4783B12C299CBA5C001A6027 /* DownloadView.swift */,
 				47A24DBA296C13D200BA287B /* LouisViewModel.swift */,
 				47192A412858C073004FD2F3 /* PlaygroundView.swift */,
 				47192A382858BE7D004FD2F3 /* SplashScreenView.swift */,
@@ -352,6 +357,7 @@
 				47192A102858893C004FD2F3 /* ContentView.swift */,
 				47192A3D2858C057004FD2F3 /* SettingsView.swift */,
 				472226E128D84628002BF9E0 /* SheetView.swift */,
+				4783B12F299CC103001A6027 /* SwiftUIView.swift */,
 				47A24DB5296B456700BA287B /* ModifiersAndExtension.swift */,
 			);
 			path = Views;
@@ -678,6 +684,7 @@
 			files = (
 				47192A402858C065004FD2F3 /* InformationView.swift in Sources */,
 				47192A442858C07B004FD2F3 /* SearchWordView.swift in Sources */,
+				4783B130299CC103001A6027 /* SwiftUIView.swift in Sources */,
 				47192A422858C073004FD2F3 /* PlaygroundView.swift in Sources */,
 				47192A112858893C004FD2F3 /* ContentView.swift in Sources */,
 				472226E228D84628002BF9E0 /* SheetView.swift in Sources */,
@@ -685,6 +692,7 @@
 				47192A0F2858893C004FD2F3 /* DotsApp.swift in Sources */,
 				47A24DB6296B456700BA287B /* ModifiersAndExtension.swift in Sources */,
 				47EBF7C42860D80D00E8F230 /* Model.swift in Sources */,
+				4783B12D299CBA5C001A6027 /* DownloadView.swift in Sources */,
 				47EBF805286200CA00E8F230 /* LottieView.swift in Sources */,
 				47192A392858BE7D004FD2F3 /* SplashScreenView.swift in Sources */,
 				47192A462858C086004FD2F3 /* AudioView.swift in Sources */,

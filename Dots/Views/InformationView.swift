@@ -6,14 +6,8 @@
 //
 
 import SwiftUI
-import ZipArchive
-import Alamofire
-import ProgressIndicatorView
-import Soundable
 
 struct InformationView: View {
-    @EnvironmentObject var viewModel: LouisViewModel
-    
     @Environment(\.accessibilityVoiceOverEnabled) var voEnabled: Bool
     
     @Environment(\.colorScheme) private var colorScheme
@@ -23,50 +17,8 @@ struct InformationView: View {
     
     let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     
-    @State private var message = ""
-    @State private var showProgressIndicator = true
-    @State private var showActivity = false
-    @State private var progress: CGFloat = 0
-    
-    @State private var indexLanguage = 0
-    
-    
     var body: some View {
         Form {
-            Section {
-                Button("Print bundle") {
-                    print(getDocumentDirectory().path)
-                }
-                .padding(10)
-                
-                Section {
-                    Picker("Select "+"Language".localized().lowercased(), selection: $indexLanguage) {
-                        ForEach(viewModel.Languages, id: \.id) { language in
-                            Text(language.name).tag(language.id)
-                            //                    Text(language.comments)
-                        }
-                    }
-//                    .onChange(of: indexLanguage) { tag in
-//                        self.downloadZipFile(value: viewModel.Languages[indexLanguage].zip)
-//                    }
-                    .padding(10)
-                    Button("Download") {
-                        self.downloadZipFile(value: viewModel.Languages[indexLanguage].zip)
-                    }
-                    .padding(10)
-                    
-                    
-                    ProgressIndicatorView(isVisible: $showProgressIndicator, type: .dashBar(progress: $progress, numberOfItems: 10))
-                        .frame(height: 8.0)
-                        .foregroundColor(.bart_green)
-                        .padding(10)
-                }
-
-            }
-            
-            
-            
-            
             VStack {
                 Text("developedBy".localized())
                     .font(.title)
@@ -100,63 +52,12 @@ struct InformationView: View {
         }
     }
     
-    
     func version() -> String {
         let dictionary = Bundle.main.infoDictionary!
         let version = dictionary["CFBundleShortVersionString"] as! String
         let build = dictionary["CFBundleVersion"] as! String
         return "Version \(version) build \(build)"
     }
-    
-    
-    func downloadZipFile(value: String) {
-        self.message = value
-        self.progress = 0
-        self.showActivity = true
-        let url = URL(string: "https://www.eduvip.nl/VSOdigitaal/louis/audio/"+value+".zip")!
-        print("downloading...")
-        let destination: DownloadRequest.Destination = { _, _ in
-            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let fileURL = documentsURL.appendingPathComponent("largeFile.zip")
-            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
-        }
-        AF.download(url, to: destination)
-            .downloadProgress { progress in
-                self.progress = progress.fractionCompleted
-            }
-            .response { response in
-                if response.error == nil, let fileURL = response.fileURL {
-                    self.message = "\(value) downloaded successfully"
-                    self.unzip(fileURL)
-                    self.showActivity = false
-                    
-                } else {
-                    self.message = "Error downloading file"
-                }
-            }
-    }
-    
-    
-    func unzip(_ fileURL: URL) {
-        let destination = fileURL.deletingLastPathComponent()
-        if SSZipArchive.unzipFile(atPath: fileURL.path, toDestination: destination.path) {
-            self.message = "File unzipped successfully"
-            do { //delete file after unzipping
-                try FileManager.default.removeItem(at: fileURL)
-                print("remove item")
-            } catch {
-                self.message = "Error deleting file"
-            }
-        } else {
-            self.message = "Error unzipping file"
-        }
-    }
-    
-    func getDocumentDirectory() -> URL {
-        let fileManager = FileManager.default
-        return fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-    }
-    
 }
 
 
