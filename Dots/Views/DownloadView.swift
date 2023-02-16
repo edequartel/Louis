@@ -16,27 +16,9 @@ struct DownloadView: View {
         Section {
             List(viewModel.Languages, id: \.id) { language in
                 ListItemView(language: language)
-//                    .onLongPressGesture {
-//                        print(getDocumentDirectory().path)
-//                        print("deleted \(language.zip)")
-//                        deleteFolderFromMainBundle(folderName: language.zip)
-//                    }
             }
         }
     }
-    
-//    func deleteFolderFromMainBundle(folderName: String) {
-//        if let folderURL = Bundle.main.url(forResource: folderName, withExtension: nil) {
-//            do {
-//                try FileManager.default.removeItem(at: folderURL)
-//                print("Folder '\(folderName)' successfully deleted.")
-//            } catch {
-//                print("Error deleting folder '\(folderName)': \(error)")
-//            }
-//        } else {
-//            print("Folder '\(folderName)' does not exist in main bundle.")
-//        }
-//    }
     
     func getDocumentDirectory() -> URL {
         let fileManager = FileManager.default
@@ -52,6 +34,7 @@ struct ListItemView: View {
     @State private var showActivity = false
     @State private var progress: CGFloat = 0
     @State private var message = ""
+//    @State private var dirExists = false
     
     var body: some View {
         HStack {
@@ -72,7 +55,10 @@ struct ListItemView: View {
                     .padding(.trailing)
             }
         }
+        .foregroundColor(checkIfFolderExists(value : language.zip) ? .bart_green : .red)
+//        .onAppear(dirExists = checkIfFolderExists(value : language.zip))
     }
+        
     
     
     func downloadZipFile(value: String) {
