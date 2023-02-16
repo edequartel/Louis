@@ -18,37 +18,51 @@ struct InformationView: View {
     let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     
     var body: some View {
-        Form {
-            VStack {
-                Text("developedBy".localized())
-                    .font(.title)
-                    .foregroundColor(.bart_green)
+        NavigationView {
+            Form {
+                VStack {
+                    Text("developedBy".localized())
+                        .font(.title)
+                        .foregroundColor(.bart_green)
+                }
+                
+                Section(header: Text("Audio")) {
+                    NavigationLink(destination: DownloadView()) {
+                        Text("Download "+"languages".localized())
+                            .font(.footnote)
+                    }
+                }
+                
+                Section(header: Text("Links")) {
+                    Link(destination: URL(string: "http://www.bartimeus.nl")!, label: {
+                        Text("www.bartimeus.nl")
+                    })
+                    Link(destination: URL(string: "http://www.tastenbraille.com/wikilouis")!, label: {
+                        Text("louisOnline".localized())
+                        
+                    })
+                    Link(destination: URL(string: "https://vimeo.com/showcase/9833359")!, label: {
+                        Text("instructionVideos".localized())
+                    })
+                }
+                
+                Section(header: Text("Quick help")) {
+                    Text("helpshorttext".localized())
+                }
+                .font(.footnote)
+                
+                Section(header: Text("App details")) {
+                    Text(version())
+                    Text(locale.description)
+                    Text(voEnabled ? "Voiceover on" : "Voiceover off")
+                }
+                .font(.footnote)
             }
-            
-            Section {
-                Link(destination: URL(string: "http://www.bartimeus.nl")!, label: {
-                    Text("www.bartimeus.nl")
-                })
-                Link(destination: URL(string: "http://www.tastenbraille.com/wikilouis")!, label: {
-                    Text("louisOnline".localized())
-                    
-                })
-                Link(destination: URL(string: "https://vimeo.com/showcase/9833359")!, label: {
-                    Text("instructionVideos".localized())
-                })
-            }
-            
-            Section {
-                Text("helpshorttext".localized())
-            }
-            .font(.footnote)
-            
-            Section {
-                Text(version())
-                Text(locale.description)
-                Text(voEnabled ? "Voiceover on" : "Voiceover off")
-            }
-            .font(.footnote)
+//            .navigationBarItems(trailing:
+//                                    NavigationLink(destination: DownloadView()) {
+//                Image(systemName: "arrow.down.to.line.alt")
+//            }
+//            )
         }
     }
     
