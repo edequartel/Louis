@@ -34,32 +34,72 @@ struct ListItemView: View {
     @State private var showActivity = false
     @State private var progress: CGFloat = 0
     @State private var message = ""
-//    @State private var dirExists = false
+    @State private var folderExists = false
     
     var body: some View {
-        HStack {
-            Button(action: {
-                print("download selected zipfile")
-                downloadZipFile(value: language.zip)
-            }) {
-                HStack {
-                    Image(systemName: "square.and.arrow.down")
-                    Text("\(language.name)")
+        VStack {
+            HStack {
+                Button(action: {
+                    print("download selected zipfile")
+                    print(getDocumentDirectory().path)
+                    downloadZipFile(value: language.zip)
+                    folderExists = checkIfFolderExists(value: language.name) //<<<<<<
+                }) {
+                    HStack {
+                        Image(systemName: "square.and.arrow.down")
+                        Text("\(language.name)")
+                    }
+                }
+                .disabled((progress>0) && (progress < 1)) //checkIfFolderExists(value : language.zip) ||
+                
+                Spacer()
+                
+                //            if !(checkIfFolderExists(value : language.zip))
+                if ((progress>0) && (progress < 1)) {
+                    Text("\(String(format: "%.0f", progress * 100))%")
+                        .padding(.trailing)
+                }
+                
+                //
+            }
+            .foregroundColor(checkIfFolderExists(value : language.zip) ? .bart_green : .red)
+            
+            
+            if (checkIfFolderExists(value : language.zip)) {
+                Button(action: {
+                    deleteFolderFromDocumentsDirectory(folderName: language.zip)
+                    folderExists = checkIfFolderExists(value: language.name) //<<<<<<
+                    
+                }) {
+                    Text("Delete folder")
                 }
             }
-            .disabled((progress>0) && (progress < 1)) //checkIfFolderExists(value : language.zip) ||
-            Spacer()
-//            if !(checkIfFolderExists(value : language.zip))
-            if ((progress>0) && (progress < 1)) {
-                Text("\(String(format: "%.0f", progress * 100))%")
-                    .padding(.trailing)
+            //        .onAppear(dirExists = checkIfFolderExists(value : language.zip))
+            
+            if folderExists {
+                Text("The folder exists!")
+            } else {
+                Text("The folder does not exist.")
             }
         }
-        .foregroundColor(checkIfFolderExists(value : language.zip) ? .bart_green : .red)
-//        .onAppear(dirExists = checkIfFolderExists(value : language.zip))
+        .onAppear {
+            folderExists = checkIfFolderExists(value: language.zip) //<<<<<<
+        }
     }
-        
     
+       
+    
+    
+    func deleteFolderFromDocumentsDirectory(folderName: String) {
+        let fileManager = FileManager.default
+        do {
+            let documentsDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            let folderURL = documentsDirectory.appendingPathComponent(folderName)
+            try fileManager.removeItem(at: folderURL)
+        } catch let error as NSError {
+            print("Error deleting folder: \(error)")
+        }
+    }
     
     func downloadZipFile(value: String) {
         self.message = value
@@ -111,6 +151,11 @@ struct ListItemView: View {
         let exists = FileManager.default.fileExists(atPath: folderURL.path, isDirectory: &isDirectory)
         
         return exists && isDirectory.boolValue
+    }
+    
+    func getDocumentDirectory() -> URL {
+        let fileManager = FileManager.default
+        return fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
     }
 }
 
