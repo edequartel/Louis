@@ -5,6 +5,7 @@
 "activity" = "Activity";
 "adult" = "Adult";
 "after" = "After";
+"again" = "Again";
 "all" = "All";
 "before" = "Before";
 "brailleText" = "Braille text";
@@ -25,6 +26,7 @@
 "louisOnline" = "Louis online manual";
 "meaning" = "Shape-Adult";
 "method" = "Method";
+"next" = "Next";
 "not" = "Not";
 "nrofWords" = "Number of words";
 "nroftrys" = "Attempts";
@@ -43,5 +45,5 @@
 "text" = "Text";
 "update" = "Update";
 "word" = "Word";
-"next" = "Next";
-"again" = "Again";
+"messageNoAudio" = "There is no audio. \nBefore you can use Louis you have to download a language.\n\nInformation > Download languages > Choose language to download";
+"downloadLanguages" = "Download languages";

@@ -127,12 +127,13 @@ extension Color {
 
 struct Square: ViewModifier {
     var color : Color = .blue
+    var width : CGFloat = .infinity
     func body(content: Content) -> some View {
         content
             .foregroundColor(.white)
-            .font(.headline)
-            .padding()
-            .frame(minWidth: 0, maxWidth: 150)
+//            .font(.headline)
+            .padding(20)
+            .frame(minWidth: 0, maxWidth: width)
             .background(color)
             .cornerRadius(10)
     }

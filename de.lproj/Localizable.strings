@@ -5,6 +5,7 @@
 "activity" = "Aktivität";
 "adult" = "Erwachsene";
 "after" = "Hinter";
+"again" = "Wiederholen";
 "all" = "Alle";
 "before" = "Vor";
 "brailleText" = "Braille-Text";
@@ -25,6 +26,7 @@
 "louisOnline" = "Louis online-handbuch";
 "meaning" = "Forme-Erwachsene";
 "method" = "Method";
+"next" = "Nächster";
 "not" = "Nicht";
 "nrofWords" = "Anzahl der Wörter";
 "nroftrys" = "Versuchen";
@@ -43,5 +45,5 @@
 "text" = "Woter";
 "update" = "Aktualisieren";
 "word" = "Wort";
-"next" = "Nächster";
-"again" = "Wiederholen";
+"messageNoAudio" = "Es gibt keinen audio. \nLaden Sie eine Sprache herunter, bevor Sie den Louis verwenden.\n\nInformationen > Sprachen herunterladen > Sprache zum Herunterladen auswählen";
+"downloadLanguages" = "Sprachen herunterladen";

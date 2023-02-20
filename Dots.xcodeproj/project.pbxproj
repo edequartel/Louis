@@ -349,8 +349,8 @@
 		474CFEBB2875B49A0000BF85 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4783B12C299CBA5C001A6027 /* DownloadView.swift */,
 				47A24DBA296C13D200BA287B /* LouisViewModel.swift */,
+				4783B12C299CBA5C001A6027 /* DownloadView.swift */,
 				47192A412858C073004FD2F3 /* PlaygroundView.swift */,
 				47192A382858BE7D004FD2F3 /* SplashScreenView.swift */,
 				47192A3F2858C065004FD2F3 /* InformationView.swift */,

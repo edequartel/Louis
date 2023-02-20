@@ -20,13 +20,17 @@ struct PlaygroundView: View {
     @FocusState private var nameInFocus: Bool
     
     var body: some View {
-        Form {
+        VStack(alignment: .leading, spacing: 20) {
             scoreBoardView()
-            if (viewModel.conditional) { //1
+                .padding(20)
+            if (viewModel.conditional) {
                 typeOverView()
+                    .padding(20)
             }
             activityView()
+                .padding(20)
                 .focused($nameInFocus)
+            Spacer()
         }
         .onTapGesture(count:2) {
             viewModel.doubleTap = true
@@ -60,21 +64,13 @@ struct typeOverView : View {
     
     var body: some View {
         Section {
-            let syllableString = (viewModel.typePronounce == .child) ? viewModel.item.replacingOccurrences(of: "-", with: " ") : viewModel.addSpaces(value: viewModel.stripString(value: viewModel.item))
-            let tempString1 = (viewModel.syllable) ? syllableString :  viewModel.stripString(value: viewModel.item)
-            
-            let prevSyllableString = (viewModel.typePronounce == .child) ? viewModel.previousItem.replacingOccurrences(of: "-", with: " ") : viewModel.addSpaces(value: viewModel.stripString(value: viewModel.previousItem))
-            let prevtempString1 = (viewModel.syllable) ? prevSyllableString :  viewModel.stripString(value: viewModel.previousItem)
-            
-            let  tempString = (viewModel.isPlaying) && (!viewModel.doubleTap) && (viewModel.typePositionReading == .after) ? prevtempString1 : tempString1
-            
             if (viewModel.typeIndexFont == .text) {
-                Text("\(tempString)")
+                Text("\(viewModel.showString())")
                     .font(.custom(monospacedFont, size: 32))
                     .frame(height:60)
             }
             else {
-                Text("\(tempString)")
+                Text("\(viewModel.showString())")
                     .font(Font.custom("bartimeus8dots", size: 32))
                     .frame(height:60)
             }
@@ -90,6 +86,12 @@ struct overviewSettingsView : View {
         HStack {
 //            Image(systemName: viewModel.conditional ? "checkmark.circle": "circle")
             Image(systemName: viewModel.isPlaying ? "speaker.wave.3" : "speaker")
+                .frame(minWidth: 20, maxWidth: 20)
+//            HStack {
+//                Text(viewModel.showString())
+//                Spacer()
+//            }
+//                .frame(minWidth: 200, maxWidth: 200)
             Spacer()
             if ((viewModel.syllable) && (viewModel.typeActivity == .word)) || (viewModel.typeActivity == .character) {
                 Text("\(viewModel.typePronounce.stringValue().localized())")
@@ -150,10 +152,8 @@ struct methodLessonView : View {
     var body: some View {
         HStack {
             Text("\(viewModel.getMethodeName())")
-            //                .foregroundColor(.bart_green)
             Spacer()
             Text("\(viewModel.getLessonName())")
-            //                .foregroundColor(.bart_green)
         }
         .font(.headline)
     }
@@ -179,8 +179,6 @@ struct activityView : View {
                     .onSubmit {
                         let result = viewModel.check(input: input)
                         if (result > -1) { viewModel.indexLesson = result }
-                        //
-                        //
                         input = ""
                         isFocused = true
                     }
@@ -194,25 +192,21 @@ struct activityView : View {
         }
         else
         {
-            //later make it nicer same code as above!! //1
-            let syllableString = (viewModel.typePronounce == .child) ? viewModel.item.replacingOccurrences(of: "-", with: " ") : viewModel.addSpaces(value: viewModel.stripString(value: viewModel.item))
-            let tempString1 = (viewModel.syllable) ? syllableString :  viewModel.stripString(value: viewModel.item)
-            
-            let prevSyllableString = (viewModel.typePronounce == .child) ? viewModel.previousItem.replacingOccurrences(of: "-", with: " ") : viewModel.addSpaces(value: viewModel.stripString(value: viewModel.previousItem))
-            let prevtempString1 = (viewModel.syllable) ? prevSyllableString :  viewModel.stripString(value: viewModel.previousItem)
-            
-            let  tempString = (viewModel.isPlaying) && (!viewModel.doubleTap) && (viewModel.typePositionReading == .after) ? prevtempString1 : tempString1
-            
-            
-            //
-            Button("\(tempString)".localized()) {
+            Button(action: {
                 let result = viewModel.check(input: input)
                 if (result > -1) { viewModel.indexLesson = result }
+            }) {
+                Text("\(viewModel.showString())")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(viewModel.typeIndexFont == .text ? .custom(monospacedFont, size: 32): Font.custom("bartimeus8dots", size: 32))
             }
-            .disabled(viewModel.isPlaying) 
+            .disabled(viewModel.isPlaying)
+            .modifier(Square(color: .bart_green, width: .infinity))
         }
     }
 }
+
+
 
 struct PlaygroundView_Previews: PreviewProvider {
     static var previews: some View {

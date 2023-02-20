@@ -178,6 +178,16 @@ final class LouisViewModel: ObservableObject {
         Talk(value: item.lowercased())
     }
     
+    func showString() -> String {
+        let syllableString = (typePronounce == .child) ? item.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: item))
+        let tempString1 = (syllable) ? syllableString :  stripString(value: item)
+        
+        let prevSyllableString = (typePronounce == .child) ? previousItem.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: previousItem))
+        let prevtempString1 = (syllable) ? prevSyllableString :  stripString(value: previousItem)
+        
+       return (isPlaying) && (!doubleTap) && (typePositionReading == .after) ? prevtempString1 : tempString1
+    }
+    
     //maybe see character as a word with length 1, this function can be shorter
     func Talk(value : String) {
         Soundable.stopAll()

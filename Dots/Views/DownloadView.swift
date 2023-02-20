@@ -46,7 +46,7 @@ struct ListItemView: View {
                 })
                 {
                     Text("Delete")
-                        .modifier(Square(color: .red))
+                        .modifier(Square(color: .red, width: 120))
                 }
             } else {
                 Button(action: {
@@ -56,11 +56,11 @@ struct ListItemView: View {
                 })
                 { if (progress==0) {
                     Text("Download")
-                        .modifier(Square())
+                        .modifier(Square(width: 120))
                 } else
                     {
                     Text("\(String(format: "%.0f", progress * 100))%")
-                        .modifier(Square(color: .green))
+                        .modifier(Square(color: .bart_green, width: 120))
                     }
                 }
             }

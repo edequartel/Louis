@@ -5,6 +5,7 @@
 "activity" = "Activiteit";
 "adult" = "Volwassen";
 "after" = "Achter";
+"again" = "Herhaal";
 "all" = "Alles";
 "before" = "Voor";
 "brailleText" = "Tekst in Braille";
@@ -25,6 +26,7 @@
 "louisOnline" = "Louis online handleiding";
 "meaning" = "Vorm-Volwassen";
 "method" = "Methode";
+"next" = "Volgende";
 "not" = "Niet";
 "nrofWords" = "Aantal woorden";
 "nroftrys" = "Pogingen";
@@ -43,5 +45,5 @@
 "text" = "Tekst";
 "update" = "Bijwerken";
 "word" = "Woord";
-"next" = "Volgende";
-"again" = "Herhaal";
+"messageNoAudio" = "Er is geen audio. \nDownload eerst een taal voordat U Louis gebruikt.\n\nInformatie > Download talen > kies de taal voor downloaden";
+"downloadLanguages" = "Download talen";

@@ -210,7 +210,7 @@ struct resetModelView : View {
     @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0 //child
     @AppStorage("INDEX_TRYS") var indexTrys = 5
     @AppStorage("INDEX_PAUSES") var indexPauses = 0
-    @AppStorage("CONDITIONAL") var conditional = true
+    @AppStorage("CONDITIONAL") var conditional = false
     @AppStorage("INDEX_READING") var indexPositionReading = 1 //before
     @AppStorage("INDEX_FONT") var indexFont = 1
         
@@ -243,7 +243,7 @@ struct resetModelView : View {
                 indexPauses = 0
                 viewModel.indexPauses = indexPauses
                 
-                conditional = true
+                conditional = false
                 viewModel.conditional = conditional
                 
                 indexPositionReading = 1
