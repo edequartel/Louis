@@ -44,6 +44,7 @@ final class LouisViewModel: ObservableObject {
     
     @Published var myColor = Color.green
     
+    
     let synthesizer = AVSpeechSynthesizer()
     let nextword : SystemSoundID = 1113
     let failure : SystemSoundID = 1057

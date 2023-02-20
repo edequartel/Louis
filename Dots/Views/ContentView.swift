@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
 //    @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var viewModel: LouisViewModel
+//    @EnvironmentObject var viewModel: LouisViewModel
     
     @State private var selectedTab = 0
    
@@ -65,6 +65,6 @@ extension String {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(LouisViewModel())
+//            .environmentObject(LouisViewModel())
     }
 }

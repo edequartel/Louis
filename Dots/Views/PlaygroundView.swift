@@ -20,17 +20,18 @@ struct PlaygroundView: View {
     @FocusState private var nameInFocus: Bool
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
+//        VStack(alignment: .leading, spacing: 20) {
+        Form {
             scoreBoardView()
                 .padding(20)
-            if (viewModel.conditional) {
+//            if (viewModel.conditional) { //<=
                 typeOverView()
                     .padding(20)
-            }
+//            }
             activityView()
                 .padding(20)
                 .focused($nameInFocus)
-            Spacer()
+//            Spacer()
         }
         .onTapGesture(count:2) {
             viewModel.doubleTap = true
@@ -196,12 +197,21 @@ struct activityView : View {
                 let result = viewModel.check(input: input)
                 if (result > -1) { viewModel.indexLesson = result }
             }) {
-                Text("\(viewModel.showString())")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(viewModel.typeIndexFont == .text ? .custom(monospacedFont, size: 32): Font.custom("bartimeus8dots", size: 32))
+                Text("next".localized())
+                //                Text(viewModel.showString())
+                //                    .font(viewModel.typeIndexFont == .text ? .custom(monospacedFont, size: 32): Font.custom("bartimeus8dots", size: 32))
+                
             }
-            .disabled(viewModel.isPlaying)
-            .modifier(Square(color: .bart_green, width: .infinity))
+            //            Button(action: {
+            //                let result = viewModel.check(input: input)
+            //                if (result > -1) { viewModel.indexLesson = result }
+            //            }) {
+            //                Text("\(viewModel.showString())")
+            //                    .frame(maxWidth: .infinity, alignment: .leading)
+            //                    .font(viewModel.typeIndexFont == .text ? .custom(monospacedFont, size: 32): Font.custom("bartimeus8dots", size: 32))
+            //            }
+            //            .disabled(viewModel.isPlaying)
+            //            .modifier(Square(color: .bart_green, width: .infinity))
         }
     }
 }
