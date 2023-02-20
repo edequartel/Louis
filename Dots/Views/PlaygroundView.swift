@@ -22,7 +22,9 @@ struct PlaygroundView: View {
     var body: some View {
         Form {
             scoreBoardView()
-            typeOverView()
+            if (viewModel.conditional) { //1
+                typeOverView()
+            }
             activityView()
                 .focused($nameInFocus)
         }
@@ -79,6 +81,7 @@ struct typeOverView : View {
         }
     }
 }
+
 
 struct overviewSettingsView : View {
     @EnvironmentObject var viewModel: LouisViewModel
@@ -191,7 +194,18 @@ struct activityView : View {
         }
         else
         {
-            Button("next".localized()) {
+            //later make it nicer same code as above!! //1
+            let syllableString = (viewModel.typePronounce == .child) ? viewModel.item.replacingOccurrences(of: "-", with: " ") : viewModel.addSpaces(value: viewModel.stripString(value: viewModel.item))
+            let tempString1 = (viewModel.syllable) ? syllableString :  viewModel.stripString(value: viewModel.item)
+            
+            let prevSyllableString = (viewModel.typePronounce == .child) ? viewModel.previousItem.replacingOccurrences(of: "-", with: " ") : viewModel.addSpaces(value: viewModel.stripString(value: viewModel.previousItem))
+            let prevtempString1 = (viewModel.syllable) ? prevSyllableString :  viewModel.stripString(value: viewModel.previousItem)
+            
+            let  tempString = (viewModel.isPlaying) && (!viewModel.doubleTap) && (viewModel.typePositionReading == .after) ? prevtempString1 : tempString1
+            
+            
+            //
+            Button("\(tempString)".localized()) {
                 let result = viewModel.check(input: input)
                 if (result > -1) { viewModel.indexLesson = result }
             }

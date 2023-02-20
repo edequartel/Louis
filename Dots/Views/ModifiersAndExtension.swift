@@ -105,12 +105,12 @@ let pauses = [1, 2, 3, 4, 5]
 
 let uniCode = [
     "!"  : "33",
-//    "\"" : "34",
+    //    "\"" : "34",
     "#"  : "35",
     "$"  : "36",
     "%"  : "37",
     "&"  : "38",
-//    "'"  : "39",
+    //    "'"  : "39",
     ","  : "44",
     "."  : "46"
 ]
@@ -123,4 +123,17 @@ extension Color {
     static let darkGray = Color(
         uiColor: UIColor.darkGray
     )
+}
+
+struct Square: ViewModifier {
+    var color : Color = .blue
+    func body(content: Content) -> some View {
+        content
+            .foregroundColor(.white)
+            .font(.headline)
+            .padding()
+            .frame(minWidth: 0, maxWidth: 150)
+            .background(color)
+            .cornerRadius(10)
+    }
 }
