@@ -26,7 +26,7 @@ struct PlaygroundView: View {
                 .padding(20)
 //            if (viewModel.conditional) { //<=
                 typeOverView()
-                    .padding(20)
+//                    .padding(20)
 //            }
             activityView()
                 .padding(20)

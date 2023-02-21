@@ -53,6 +53,17 @@ final class LouisViewModel: ObservableObject {
     func Shuffle() {
         var teller = 0
         previousItem = item
+        
+        let fn = "/\(self.Languages[indexLanguage].zip)/words/\(item).mp3"
+        let fileExists = fileExistsInDocumentDirectory(fn)
+        if fileExists {
+            // File exists in main bundle's document directory
+            print("\(fn) exists")
+        } else {
+            // File does not exist in main bundle's document directory
+            print("\(fn) NOT exists")
+        }
+
         while (item==items[0]) {
             if (!Languages.isEmpty) {
                 items = (typeActivity == .character) ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled() :
@@ -61,6 +72,14 @@ final class LouisViewModel: ObservableObject {
             teller += 1
         }
         item = items[0]
+    }
+    
+    func fileExistsInDocumentDirectory(_ fileName: String) -> Bool {
+        if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let fileURL = documentDirectory.appendingPathComponent(fileName)
+            return FileManager.default.fileExists(atPath: fileURL.path)
+        }
+        return false
     }
     
     //text to speech

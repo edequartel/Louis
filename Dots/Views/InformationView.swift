@@ -41,7 +41,7 @@ struct InformationView: View {
                         Link(destination: URL(string: "http://www.bartimeus.nl")!, label: {
                             Text("www.bartimeus.nl")
                         })
-                        Link(destination: URL(string: "http://www.tastenbraille.com/wikilouis")!, label: {
+                        Link(destination: URL(string: "https://edequartel.github.io/Louis/")!, label: {
                             Text("louisOnline".localized())
                             
                         })
