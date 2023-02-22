@@ -26,8 +26,9 @@ struct SplashScreenView: View {
     @AppStorage("INDEX_TRYS") var indexTrys = 5 // 13
     @AppStorage("INDEX_PAUSES") var indexPauses = 0
     @AppStorage("CONDITIONAL") var conditional = true
+    @AppStorage("ASSIST") var assist = false
     @AppStorage("INDEX_READING") var indexPosition = 1 //before
-    @AppStorage("INDEX_FONT") var indexFont = 1
+//    @AppStorage("INDEX_FONT") var indexFont = 1
     
     @State private var isActive = false
     @State private var isDownloaded = false
@@ -74,15 +75,16 @@ struct SplashScreenView: View {
                 
                 viewModel.indexTrys = indexTrys
                 viewModel.conditional = conditional
+                viewModel.assist = assist
                 
                 
                 if let positionReading = positionReadingEnum(rawValue: indexPosition) {
                     viewModel.typePositionReading = positionReading
                 }
                 
-                if let font = fontEnum(rawValue: indexFont) {
-                    viewModel.typeIndexFont = font
-                }
+//                if let font = fontEnum(rawValue: indexFont) {
+//                    viewModel.typeIndexFont = font
+//                }
                 
                 let sound = Sound(fileName: "perkinsping.mp3")
                 sound.play()

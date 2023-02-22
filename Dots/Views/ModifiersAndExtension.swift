@@ -87,17 +87,17 @@ enum positionReadingEnum: Int, CaseIterable {
     }
 }
 
-enum fontEnum: Int, CaseIterable {
-    case text = 0
-    case dots8 = 1
-    
-    func stringValue() -> String {
-        switch(self) {
-        case .text: return "text"
-        case .dots8: return "8dots"
-        }
-    }
-}
+//enum fontEnum: Int, CaseIterable {
+//    case text = 0
+//    case dots8 = 1
+//    
+//    func stringValue() -> String {
+//        switch(self) {
+//        case .text: return "text"
+//        case .dots8: return "8dots"
+//        }
+//    }
+//}
 
 let trys = [1, 2, 3, 5, 8, 15, 21, 999]
 

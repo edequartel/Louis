@@ -63,11 +63,6 @@ struct InformationView: View {
                     .font(.footnote)
                 }
             }
-            //            .navigationBarItems(trailing:
-            //                                    NavigationLink(destination: DownloadView()) {
-            //                Image(systemName: "arrow.down.to.line.alt")
-            //            }
-            //            )
         }
     }
     

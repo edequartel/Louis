@@ -15,6 +15,7 @@
 "conditional" = "Conditional";
 "country" = "Country";
 "developedBy" = "Bartiméus Education\nZeist \nthe Netherlands";
+"downloadLanguages" = "Download languages";
 "font" = "Font";
 "form" = "Shape";
 "help" = "Help";
@@ -25,6 +26,7 @@
 "lesson" = "Lesson";
 "louisOnline" = "Louis online manual";
 "meaning" = "Shape-Adult";
+"messageNoAudio" = "There is no audio. \nBefore you can use Louis you have to download a language.\n\nInformation > Download languages > Choose language to download";
 "method" = "Method";
 "next" = "Next";
 "not" = "Not";
@@ -45,5 +47,5 @@
 "text" = "Text";
 "update" = "Update";
 "word" = "Word";
-"messageNoAudio" = "There is no audio. \nBefore you can use Louis you have to download a language.\n\nInformation > Download languages > Choose language to download";
-"downloadLanguages" = "Download languages";
+"assist" = "Assist";
+"flag" = "eng";

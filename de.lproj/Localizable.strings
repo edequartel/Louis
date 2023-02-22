@@ -15,6 +15,7 @@
 "conditional" = "Bedingt";
 "country" = "Land";
 "developedBy" = "Bartiméus Education\nZeist \ndie Niederlande";
+"downloadLanguages" = "Sprachen herunterladen";
 "font" = "Schriftart";
 "form" = "Forme";
 "help" = "Hilfe";
@@ -25,6 +26,7 @@
 "lesson" = "Lektion";
 "louisOnline" = "Louis online-handbuch";
 "meaning" = "Forme-Erwachsene";
+"messageNoAudio" = "Es gibt keinen audio. \nLaden Sie eine Sprache herunter, bevor Sie den Louis verwenden.\n\nInformationen > Sprachen herunterladen > Sprache zum Herunterladen auswählen";
 "method" = "Method";
 "next" = "Nächster";
 "not" = "Nicht";
@@ -45,5 +47,5 @@
 "text" = "Woter";
 "update" = "Aktualisieren";
 "word" = "Wort";
-"messageNoAudio" = "Es gibt keinen audio. \nLaden Sie eine Sprache herunter, bevor Sie den Louis verwenden.\n\nInformationen > Sprachen herunterladen > Sprache zum Herunterladen auswählen";
-"downloadLanguages" = "Sprachen herunterladen";
+"assist" = "Hilfe";
+"flag" = "ger";

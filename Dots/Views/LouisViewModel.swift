@@ -26,13 +26,14 @@ final class LouisViewModel: ObservableObject {
     @Published var syllable = true
     @Published var talkWord = false
     @Published var conditional = false
+    @Published var assist = false
     @Published var indexReading = 0
     @Published var indexPronounce = 0
     
     @Published var typeActivity : activityEnum = .character
     @Published var typePronounce : pronounceEnum = .child
     @Published var typePositionReading : positionReadingEnum = .not
-    @Published var typeIndexFont : fontEnum = .dots8 
+//    @Published var typeIndexFont : fontEnum = .dots8 
     
     @Published var isPlaying = false
     
