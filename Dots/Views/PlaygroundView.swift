@@ -19,19 +19,16 @@ struct PlaygroundView: View {
     
     @FocusState private var nameInFocus: Bool
     
+    @State private var textFieldText = ""
+    
     var body: some View {
-//        VStack(alignment: .leading, spacing: 20) {
         Form {
-            scoreBoardView()
-                .padding(20)
-//            if (viewModel.conditional) { //<=
+            scoreBoardView(textFieldText: $textFieldText)
+            if (viewModel.conditional) { //<=
                 typeOverView()
-//                    .padding(20)
-//            }
-            activityView()
-                .padding(20)
+            }
+            activityView(textFieldText: $textFieldText)
                 .focused($nameInFocus)
-//            Spacer()
         }
         .onTapGesture(count:2) {
             viewModel.doubleTap = true
@@ -58,53 +55,36 @@ struct PlaygroundView: View {
     
 }
 
-struct typeOverView : View {
+struct scoreBoardView : View {
     @EnvironmentObject var viewModel: LouisViewModel
-    
-    let monospacedFont = "Sono-Regular"
+    @Binding var textFieldText: String
     
     var body: some View {
         Section {
-            if (viewModel.typeIndexFont == .text) {
-                Text("\(viewModel.showString())")
-                    .font(.custom(monospacedFont, size: 32))
-                    .frame(height:60)
+            VStack {
+                methodLessonView()
+                Spacer()
+                progressView()
+                Spacer()
+                overviewSettingsView(textFieldText: $textFieldText)
+                    .font(.footnote)
             }
-            else {
-                Text("\(viewModel.showString())")
-                    .font(Font.custom("bartimeus8dots", size: 32))
-                    .frame(height:60)
-            }
+            .frame(height: 100)
         }
+        .accessibilityHidden(true)
     }
 }
 
-
-struct overviewSettingsView : View {
+struct methodLessonView : View {
     @EnvironmentObject var viewModel: LouisViewModel
     
     var body: some View {
         HStack {
-//            Image(systemName: viewModel.conditional ? "checkmark.circle": "circle")
-            Image(systemName: viewModel.isPlaying ? "speaker.wave.3" : "speaker")
-                .frame(minWidth: 20, maxWidth: 20)
-//            HStack {
-//                Text(viewModel.showString())
-//                Spacer()
-//            }
-//                .frame(minWidth: 200, maxWidth: 200)
+            Text("\(viewModel.getMethodeName())")
             Spacer()
-            if ((viewModel.syllable) && (viewModel.typeActivity == .word)) || (viewModel.typeActivity == .character) {
-                Text("\(viewModel.typePronounce.stringValue().localized())")
-                Spacer()
-            }
-            let imageSound1 = viewModel.typePositionReading == .before ? "square.lefthalf.filled" : "square.split.2x1"
-            let imageSound2 = viewModel.typePositionReading == .after ? "square.righthalf.filled" : imageSound1
-            Image(systemName: imageSound2)
-            if (viewModel.talkWord && viewModel.syllable && viewModel.typeActivity == .word) {
-                Image(systemName: "placeholdertext.fill")
-            }
+            Text("\(viewModel.getLessonName())")
         }
+        .font(.headline)
     }
 }
 
@@ -129,94 +109,103 @@ struct progressView : View {
     }
 }
 
-struct scoreBoardView : View {
+struct overviewSettingsView : View {
     @EnvironmentObject var viewModel: LouisViewModel
-    var body: some View {
-        Section {
-            VStack {
-                methodLessonView()
-                Spacer()
-                progressView()
-                Spacer()
-                overviewSettingsView()
-                    .font(.footnote)
-            }
-            .frame(height: 100)
-        }
-        .accessibilityHidden(true)
-    }
-}
-
-struct methodLessonView : View {
-    @EnvironmentObject var viewModel: LouisViewModel
+    @Binding var textFieldText: String
+    
+    let monospacedFont = "Sono-Regular"
     
     var body: some View {
         HStack {
-            Text("\(viewModel.getMethodeName())")
+            //            Image(systemName: viewModel.conditional ? "checkmark.circle": "circle")
+            HStack {
+                Image(systemName: viewModel.isPlaying ? "speaker.wave.3" : "speaker")
+                    .frame(minWidth: 20, maxWidth: 20)
+                Text(viewModel.showString())
+                Spacer()
+            }
+            .frame(minWidth: 200, maxWidth: 200)
             Spacer()
-            Text("\(viewModel.getLessonName())")
+            if ((viewModel.syllable) && (viewModel.typeActivity == .word)) || (viewModel.typeActivity == .character) {
+                Text("\(viewModel.typePronounce.stringValue().localized())")
+                Spacer()
+            }
+            HStack {
+                let imageSound1 = viewModel.typePositionReading == .before ? "square.lefthalf.filled" : "square.split.2x1"
+                let imageSound2 = viewModel.typePositionReading == .after ? "square.righthalf.filled" : imageSound1
+                Image(systemName: imageSound2)
+                if (viewModel.talkWord && viewModel.syllable && viewModel.typeActivity == .word) {
+                    Image(systemName: "placeholdertext.fill")
+                    Spacer()
+                }
+                Text(textFieldText)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+            }
         }
-        .font(.headline)
+    }
+}
+
+struct typeOverView : View {
+    @EnvironmentObject var viewModel: LouisViewModel
+    
+    let monospacedFont = "Sono-Regular"
+    
+    var body: some View {
+        Section {
+            if (viewModel.typeIndexFont == .text) {
+                Text("\(viewModel.showString())")
+                    .font(.custom(monospacedFont, size: 32))
+                    .frame(height:60)
+            }
+            else {
+                Text("\(viewModel.showString())")
+                    .font(Font.custom("bartimeus8dots", size: 32))
+                    .frame(height:60)
+            }
+        }
     }
 }
 
 struct activityView : View {
     @EnvironmentObject var viewModel: LouisViewModel
     let monospacedFont = "Sono-Regular"
-    
-    @State private var input: String = ""
+
+    @Binding var textFieldText: String
     @FocusState private var isFocused: Bool
     
     var body: some View {
         if viewModel.conditional {
-            VStack {
-                TextField("", text:$input)
-                    .font(.custom(monospacedFont, size: 32))
+            Section {
+                TextField("", text:$textFieldText)
+//                    .font(.custom(monospacedFont, size: 32))
+                    .font(viewModel.typeIndexFont == .text ? .custom(monospacedFont, size: 32): Font.custom("bartimeus8dots", size: 32))
                     .foregroundColor(.bart_green)
                     .focused($isFocused)
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
                     .frame(height:60)
                     .onSubmit {
-                        let result = viewModel.check(input: input)
+                        let result = viewModel.check(input: textFieldText)
                         if (result > -1) { viewModel.indexLesson = result }
-                        input = ""
+                        textFieldText = ""
                         isFocused = true
                     }
-                Spacer()
-                Text("\(input)")
-                    .frame(height: 60)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(viewModel.typeIndexFont == .text ? .custom(monospacedFont, size: 32): Font.custom("bartimeus8dots", size: 32))
-                    .accessibilityHidden(true)
             }
         }
         else
         {
             Button(action: {
-                let result = viewModel.check(input: input)
+                let result = viewModel.check(input: textFieldText)
                 if (result > -1) { viewModel.indexLesson = result }
             }) {
-                Text("next".localized())
-                //                Text(viewModel.showString())
-                //                    .font(viewModel.typeIndexFont == .text ? .custom(monospacedFont, size: 32): Font.custom("bartimeus8dots", size: 32))
+                Text(viewModel.showString())
+                    .font(viewModel.typeIndexFont == .text ? .custom(monospacedFont, size: 32): Font.custom("bartimeus8dots", size: 32))
                 
             }
-            //            Button(action: {
-            //                let result = viewModel.check(input: input)
-            //                if (result > -1) { viewModel.indexLesson = result }
-            //            }) {
-            //                Text("\(viewModel.showString())")
-            //                    .frame(maxWidth: .infinity, alignment: .leading)
-            //                    .font(viewModel.typeIndexFont == .text ? .custom(monospacedFont, size: 32): Font.custom("bartimeus8dots", size: 32))
-            //            }
-            //            .disabled(viewModel.isPlaying)
-            //            .modifier(Square(color: .bart_green, width: .infinity))
         }
     }
 }
-
-
 
 struct PlaygroundView_Previews: PreviewProvider {
     static var previews: some View {
