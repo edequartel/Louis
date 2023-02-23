@@ -33,7 +33,7 @@ struct overviewMethodsView : View {
         Section {
             Picker("Language".localized(), selection: $indexLanguage) {
                 ForEach(viewModel.Languages, id: \.id) { language in
-                    Text(language.name).tag(language.id)
+                    Text(language.name.localized()).tag(language.id)
 //                    Text(language.comments)
                 }
             }

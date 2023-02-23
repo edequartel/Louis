@@ -35,7 +35,7 @@ struct ListItemView: View {
     var body: some View {
         HStack {
 //            Text("")
-            Text("\(language.name)")
+            Text("\(language.zip)".localized())
 //                .modifier(Square(color: .green))
             Spacer()
             
