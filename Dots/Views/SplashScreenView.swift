@@ -82,10 +82,6 @@ struct SplashScreenView: View {
                     viewModel.typePositionReading = positionReading
                 }
                 
-//                if let font = fontEnum(rawValue: indexFont) {
-//                    viewModel.typeIndexFont = font
-//                }
-                
                 let sound = Sound(fileName: "perkinsping.mp3")
                 sound.play()
                 //
@@ -108,8 +104,7 @@ struct SplashScreenView: View {
     
     //data is downloaded from url and then save as data.json
     func loadData() {
-        print("loadData")
-        print("\(dataURL)")
+        print("loadData from: \(dataURL)")
         if let reachability = NetworkReachabilityManager(), reachability.isReachable {
             AF.request(dataURL)
                 .validate()
@@ -117,6 +112,7 @@ struct SplashScreenView: View {
                     switch response.result {
                     case .success(let value):
                         //
+                        print("downloading was a succes")
                         let encoder = JSONEncoder()
                         do {
                             let data = try encoder.encode(value)
@@ -133,6 +129,7 @@ struct SplashScreenView: View {
                         self.errorMessage = nil
                         
                     case .failure(let error):
+                        print("downloading was a failure")
                         self.errorMessage = error.localizedDescription
                     }
                 }

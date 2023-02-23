@@ -35,6 +35,7 @@ struct overviewMethodsView : View {
                 ForEach(viewModel.Languages, id: \.id) { language in
                     Text(language.name.localized()).tag(language.id)
 //                    Text(language.comments)
+//                    Text(language.zip)
                 }
             }
             .onChange(of: indexLanguage) { tag in
