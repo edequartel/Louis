@@ -216,6 +216,7 @@ struct activityView : View {
                     .font(Font.custom("bartimeus8dots", size: 32))
                 
             }
+//            .modifier(Square())
         }
     }
 }

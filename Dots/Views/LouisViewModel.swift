@@ -17,9 +17,9 @@ final class LouisViewModel: ObservableObject {
     @Published var indexMethod: Int = 0
     @Published var indexLesson: Int = 0
     
-    @Published var item: String = "bartimeus"
+    @Published var item: String = "bal"
     @Published var previousItem: String = "previous"
-    @Published var items =  ["bartimeus","n-oo-t","m-ie-s"]
+    @Published var items =  ["bal","n-oo-t","m-ie-s"]
     
     @Published var indexTrys = 0
     @Published var indexPauses = 0
@@ -33,7 +33,7 @@ final class LouisViewModel: ObservableObject {
     @Published var typeActivity : activityEnum = .character
     @Published var typePronounce : pronounceEnum = .child
     @Published var typePositionReading : positionReadingEnum = .not
-//    @Published var typeIndexFont : fontEnum = .dots8 
+//    @Published var typeIndexFont : fontEnum = .dots8
     
     @Published var isPlaying = false
     
@@ -55,17 +55,16 @@ final class LouisViewModel: ObservableObject {
         var teller = 0
         previousItem = item
         
-        let fn = "/\(self.Languages[indexLanguage].zip)/words/\(item).mp3"
-        let fileExists = fileExistsInDocumentDirectory(fn)
-        if fileExists {
+        if fileExists(value : item) {
             // File exists in main bundle's document directory
-            print("\(fn) exists")
+            print("\(item) exists")
         } else {
             // File does not exist in main bundle's document directory
-            print("\(fn) NOT exists")
+            print("\(item) NOT exists")
         }
 
-        while (item==items[0]) {
+        
+        while (item==items[0]) || (!fileExists(value: item)) {
             if (!Languages.isEmpty) {
                 items = (typeActivity == .character) ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled() :
                 Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
@@ -75,6 +74,17 @@ final class LouisViewModel: ObservableObject {
         item = items[0]
     }
     
+    func fileExists(value : String) -> Bool {
+        var fn : String
+        if (item.count>1) {
+            fn = "/\(self.Languages[indexLanguage].zip)/words/\(item).mp3"
+        } else {
+            fn = "/\(self.Languages[indexLanguage].zip)/phonetic/"+typePronounce.prefixValue().lowercased()+"/"+item+".mp3"
+        }
+        
+        return  fileExistsInDocumentDirectory(fn)
+    }
+                                        
     func fileExistsInDocumentDirectory(_ fileName: String) -> Bool {
         if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let fileURL = documentDirectory.appendingPathComponent(fileName)
