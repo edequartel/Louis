@@ -5,6 +5,7 @@
 "activity" = "Activity";
 "adult" = "Adult";
 "after" = "After";
+"again" = "Again";
 "all" = "All";
 "before" = "Before";
 "brailleText" = "Braille text";
@@ -14,6 +15,7 @@
 "conditional" = "Conditional";
 "country" = "Country";
 "developedBy" = "Bartiméus Education\nZeist \nthe Netherlands";
+"downloadLanguages" = "Download languages";
 "font" = "Font";
 "form" = "Shape";
 "help" = "Help";
@@ -24,7 +26,9 @@
 "lesson" = "Lesson";
 "louisOnline" = "Louis online manual";
 "meaning" = "Shape-Adult";
+"messageNoAudio" = "There is no audio. \nBefore you can use Louis you have to download a language.\n\nInformation > Download languages > Choose language to download";
 "method" = "Method";
+"next" = "Next";
 "not" = "Not";
 "nrofWords" = "Number of words";
 "nroftrys" = "Attempts";
@@ -43,5 +47,8 @@
 "text" = "Text";
 "update" = "Update";
 "word" = "Word";
-"next" = "Next";
-"again" = "Again";
+"assist" = "Assist";
+"flag" = "eng";
+"dutch" = "🇳🇱 Dutch";
+"english" = "🇬🇧 English";
+"deutsch" = "🇩🇪 German";

@@ -33,7 +33,9 @@ struct overviewMethodsView : View {
         Section {
             Picker("Language".localized(), selection: $indexLanguage) {
                 ForEach(viewModel.Languages, id: \.id) { language in
-                    Text(language.name).tag(language.id)
+                    Text(language.name.localized()).tag(language.id)
+//                    Text(language.comments)
+//                    Text(language.zip)
                 }
             }
             .onChange(of: indexLanguage) { tag in
@@ -136,7 +138,7 @@ struct overviewActivityView : View {
                 .onChange(of: indexPronounce) { tag in
                     print("change in indexPronounce  \(tag)")
                     if let pronounce = pronounceEnum(rawValue: tag) {
-                        viewModel.typePronounceNew = pronounce
+                        viewModel.typePronounce = pronounce
                     }
                 }
             }
@@ -147,10 +149,11 @@ struct overviewActivityView : View {
 struct overviewGeneralView : View {
     @EnvironmentObject var viewModel: LouisViewModel
     
-    @AppStorage("INDEX_TRYS") var indexTrys = 0
+    @AppStorage("INDEX_TRYS") var indexTrys = 5
     @AppStorage("CONDITIONAL") var conditional = true
-    @AppStorage("INDEX_READING") var indexPosition = 0
-    @AppStorage("INDEX_FONT") var indexFont = 0
+    @AppStorage("ASSIST") var assist = false
+    @AppStorage("INDEX_READING") var indexPosition = 1
+    @AppStorage("INDEX_FONT") var indexFont = 1
     
     var body: some View {
         Section{
@@ -170,6 +173,11 @@ struct overviewGeneralView : View {
                     viewModel.conditional = conditional
                 }
             
+            Toggle("assist".localized(), isOn: $assist)
+                .onChange(of: assist) {value in
+                    viewModel.assist = assist
+                }
+            
             Picker("reading".localized(), selection: $indexPosition) {
                 ForEach(positionReadingEnum.allCases, id: \.self) { position in
                     Text("\(position.stringValue().localized())").tag(position.rawValue)
@@ -182,17 +190,11 @@ struct overviewGeneralView : View {
                 }
             }
             
-            Picker("font".localized(), selection: $indexFont) {
-                ForEach(fontEnum.allCases, id: \.self) { font in
-                    Text("\(font.stringValue().localized())").tag(font.rawValue)
-                }
-            }
-            .onChange(of: indexFont) { tag in
-                print("change in indexFont \(tag)")
-                if let font = fontEnum(rawValue: tag) {
-                    viewModel.typeIndexFont = font
-                }
-            }
+//            Picker("font".localized(), selection: $indexFont) {
+//                ForEach(fontEnum.allCases, id: \.self) { font in
+//                    Text("\(font.stringValue().localized())").tag(font.rawValue)
+//                }
+//            }
         }
     }
 }
@@ -210,8 +212,9 @@ struct resetModelView : View {
     @AppStorage("INDEX_TRYS") var indexTrys = 5
     @AppStorage("INDEX_PAUSES") var indexPauses = 0
     @AppStorage("CONDITIONAL") var conditional = true
+    @AppStorage("ASSIST") var assist = false
     @AppStorage("INDEX_READING") var indexPositionReading = 1 //before
-    @AppStorage("INDEX_FONT") var indexFont = 1
+//    @AppStorage("INDEX_FONT") var indexFont = 1
         
     var body: some View {
         Section{
@@ -233,7 +236,7 @@ struct resetModelView : View {
                 
                 indexPronounce = 0 //child
                 if let pronouncation = pronounceEnum(rawValue: indexPronounce) {
-                    viewModel.typePronounceNew = pronouncation
+                    viewModel.typePronounce = pronouncation
                 }
                 
                 indexTrys = 5 // 13
@@ -242,18 +245,21 @@ struct resetModelView : View {
                 indexPauses = 0
                 viewModel.indexPauses = indexPauses
                 
-                conditional = true
+                conditional = false
                 viewModel.conditional = conditional
+                
+                assist = true
+                viewModel.conditional = assist
                 
                 indexPositionReading = 1
                 if let positionReading = positionReadingEnum(rawValue: indexPositionReading) {
                     viewModel.typePositionReading = positionReading
                 }
                 
-                indexFont = 1
-                if let font = fontEnum(rawValue: indexFont) {
-                    viewModel.typeIndexFont = font
-                }
+//                indexFont = 1
+//                if let font = fontEnum(rawValue: indexFont) {
+//                    viewModel.typeIndexFont = font
+//                }
                 
                 viewModel.count = 0
             } label : {

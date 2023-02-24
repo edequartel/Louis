@@ -44,6 +44,7 @@ Methods are on a server. Therefore these can be easily changed and added when ne
 5. Speech: how the letters are spoken 
 
 ### General
+
 1. Trys: number of trys
 2. Conditional: when on type the letter/word.on braille display 
 3. Reading: audio before/after/not on braille display 
@@ -51,6 +52,19 @@ Methods are on a server. Therefore these can be easily changed and added when ne
 
 ## Installation soundable
 In folder and terminal
+
 1. pod init
 2. pod install
 3. pos update
+
+## Test in testFlight
+
+Sent a mail to edequartel@protonmail.com and you will be added to the testflight team. 
+
+## Localisation
+
+If you are interested in Louis and want to localise it to your language you need.  
+
+1. **audio files** with spoken words,
+2. files for individual characters and signs,
+3. a **method** for learning braille (the order in   which you provide braille)

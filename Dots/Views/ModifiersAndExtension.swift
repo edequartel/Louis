@@ -65,10 +65,10 @@ enum pronounceEnum: Int, CaseIterable {
     
     func prefixValue() -> String {
         switch(self) {
-        case .child: return "child_"
-        case .adult: return "adult_"
-        case .form: return "form_"
-        case .meaning: return "form_"
+        case .child: return "child"
+        case .adult: return "adult"
+        case .form: return "form"
+        case .meaning: return "form"
         }
     }
 }
@@ -87,19 +87,17 @@ enum positionReadingEnum: Int, CaseIterable {
     }
 }
 
-enum fontEnum: Int, CaseIterable {
-    case text = 0
-//    case dots6 = 1
-    case dots8 = 1
-    
-    func stringValue() -> String {
-        switch(self) {
-        case .text: return "text"
-//        case .dots6: return "6dots"
-        case .dots8: return "8dots"
-        }
-    }
-}
+//enum fontEnum: Int, CaseIterable {
+//    case text = 0
+//    case dots8 = 1
+//    
+//    func stringValue() -> String {
+//        switch(self) {
+//        case .text: return "text"
+//        case .dots8: return "8dots"
+//        }
+//    }
+//}
 
 let trys = [1, 2, 3, 5, 8, 15, 21, 999]
 
@@ -107,14 +105,36 @@ let pauses = [1, 2, 3, 4, 5]
 
 let uniCode = [
     "!"  : "33",
-//    "\"" : "34",
+    //    "\"" : "34",
     "#"  : "35",
     "$"  : "36",
     "%"  : "37",
     "&"  : "38",
-//    "'"  : "39",
+    //    "'"  : "39",
     ","  : "44",
     "."  : "46"
 ]
 
 
+extension Color {
+    static let lightGray = Color(
+        uiColor: UIColor.lightGray
+    )
+    static let darkGray = Color(
+        uiColor: UIColor.darkGray
+    )
+}
+
+struct Square: ViewModifier {
+    var color : Color = .blue
+    var width : CGFloat = .infinity
+    func body(content: Content) -> some View {
+        content
+            .foregroundColor(.white)
+//            .font(.headline)
+            .padding(20)
+            .frame(minWidth: 0, maxWidth: width)
+            .background(color)
+            .cornerRadius(10)
+    }
+}
