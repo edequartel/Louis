@@ -55,16 +55,18 @@ final class LouisViewModel: ObservableObject {
         var teller = 0
         previousItem = item
         
-        if fileExists(value : item) {
-            // File exists in main bundle's document directory
-            print("\(item) exists")
-        } else {
-            // File does not exist in main bundle's document directory
-            print("\(item) NOT exists")
-        }
+        
+//        if fileExists(value : stripString(value: item)) {
+//            // File exists in main bundle's document directory
+//            print("\(stripString(value: item)) exists")
+//        } else {
+//            // File does not exist in main bundle's document directory
+//            print("\(stripString(value: item)) NOT exists")
+//        }
 
         
-        while (item==items[0]) || (!fileExists(value: item)) {
+        while (item==items[0]) || (!fileExists(value: stripString(value: item))) {
+//        while (item==items[0]) {
             if (!Languages.isEmpty) {
                 items = (typeActivity == .character) ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled() :
                 Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
@@ -76,12 +78,11 @@ final class LouisViewModel: ObservableObject {
     
     func fileExists(value : String) -> Bool {
         var fn : String
-        if (item.count>1) {
-            fn = "/\(self.Languages[indexLanguage].zip)/words/\(item).mp3"
+        if (value.count>1) {
+            fn = "/\(self.Languages[indexLanguage].zip)/words/\(value).mp3"
         } else {
-            fn = "/\(self.Languages[indexLanguage].zip)/phonetic/"+typePronounce.prefixValue().lowercased()+"/"+item+".mp3"
+            fn = "/\(self.Languages[indexLanguage].zip)/phonetic/"+typePronounce.prefixValue().lowercased()+"/"+value+".mp3"
         }
-        
         return  fileExistsInDocumentDirectory(fn)
     }
                                         
