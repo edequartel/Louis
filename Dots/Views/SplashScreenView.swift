@@ -13,8 +13,9 @@ import ZipArchive
 struct SplashScreenView: View {
     @EnvironmentObject var viewModel: LouisViewModel
 //    let dataURL = "https://www.eduvip.nl/VSOdigitaal/louis/methods-demo.json"
-    let dataURL = "https://raw.githubusercontent.com/edequartel/Louis/main/Documents/methods-demo.json"
+    let dataURL = "https://raw.githubusercontent.com/edequartel/Louis/refactor/Documents/methods-demo.json"
 //    let dataURL = "https://github.com/edequartel/Louis/blob/main/Documents/methods-demo.json"
+
     @State private var errorMessage: String?
     
     @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
