@@ -26,9 +26,11 @@ struct InformationView: View {
                         Text("developedBy".localized())
                             .font(.title)
                             .modifier(Square(color: .bart_green))
+//                            .frame(maxWidth: .infinity)
+                            
                         Spacer()
                     }
-//                    .padding(20)
+                    .padding(EdgeInsets(top: -0, leading: -0, bottom: 0, trailing: -0))
                     
                     Section(header: Text("Audio")) {
                         NavigationLink(destination: DownloadView()) {

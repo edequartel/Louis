@@ -12,6 +12,7 @@ import AVFoundation
 
 struct PlaygroundView: View {
     @EnvironmentObject var viewModel: LouisViewModel
+    @Environment(\.accessibilityVoiceOverEnabled) var voEnabled: Bool
     
     let nextword : SystemSoundID = 1113
     
@@ -22,6 +23,7 @@ struct PlaygroundView: View {
     @State private var textFieldText = ""
     
     var body: some View {
+                NavigationView {
         Form {
             scoreBoardView(textFieldText: $textFieldText)
             if (viewModel.conditional) { //<=
@@ -30,12 +32,21 @@ struct PlaygroundView: View {
             activityView(textFieldText: $textFieldText)
                 .focused($nameInFocus)
         }
+                    
+        .navigationBarItems(trailing: 
+                                Button(action: {
+            nameInFocus.toggle()
+        }, label: {
+            Image(systemName: nameInFocus ? "keyboard.fill" : "keyboard")
+        })
+        )
+                    
         .onTapGesture(count:2) {
             viewModel.doubleTap = true
             viewModel.Talk(value : viewModel.item.lowercased())
         }
         .onAppear() {
-            self.nameInFocus = true
+            self.nameInFocus = voEnabled
             
             if (atStartup || viewModel.updateViewData) {
                 viewModel.Shuffle()
@@ -50,10 +61,10 @@ struct PlaygroundView: View {
             {
                 AudioServicesPlaySystemSound(nextword)
             }
-        }
-        .onAppear() {
+            
             textFieldText = ""
         }
+    }
 //        .ignoresSafeArea(.container)
     }
 }

@@ -55,26 +55,27 @@ final class LouisViewModel: ObservableObject {
         var teller = 0
         previousItem = item
         
-        
-//        if fileExists(value : stripString(value: item)) {
-//            // File exists in main bundle's document directory
-//            print("\(stripString(value: item)) exists")
-//        } else {
-//            // File does not exist in main bundle's document directory
-//            print("\(stripString(value: item)) NOT exists")
-//        }
-
-        
         while (item==items[0]) || (!fileExists(value: stripString(value: item))) {
 //        while (item==items[0]) {
             if (!Languages.isEmpty) {
-                items = (typeActivity == .character) ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters.components(separatedBy: " ").shuffled() :
-                Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words.components(separatedBy: " ").shuffled()
+                let tempLetters = cleanUpString(Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters)
+                let tempWords = cleanUpString(Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words)
+                items = (typeActivity == .character) ? tempLetters.components(separatedBy: " ").shuffled() : tempWords.components(separatedBy: " ").shuffled()
             } else { items.shuffle() }
             teller += 1
         }
         item = items[0]
     }
+    
+    func cleanUpString(_ input: String) -> String {
+        let pattern = "\\s{2,}"
+        let regex = try! NSRegularExpression(pattern: pattern, options: [])
+        let range = NSRange(location: 0, length: input.utf16.count)
+        var output = regex.stringByReplacingMatches(in: input, options: [], range: range, withTemplate: " ")
+        output = output.trimmingCharacters(in: .whitespacesAndNewlines)
+        return output
+    }
+
     
     func fileExists(value : String) -> Bool {
         var fn : String
