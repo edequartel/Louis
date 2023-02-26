@@ -12,15 +12,17 @@ import AVFoundation
 
 struct PlaygroundView: View {
     @EnvironmentObject var viewModel: LouisViewModel
+    @FocusState private var nameInFocus: Bool
     @Environment(\.accessibilityVoiceOverEnabled) var voEnabled: Bool
     
     let nextword : SystemSoundID = 1113
     
     @State private var atStartup = true
-    
-    @FocusState private var nameInFocus: Bool
-    
     @State private var textFieldText = ""
+
+    @State private var text = "Voice"
+    @State private var lastWord = ""
+    
     
     var body: some View {
                 NavigationView {
@@ -40,11 +42,10 @@ struct PlaygroundView: View {
             Image(systemName: nameInFocus ? "keyboard.fill" : "keyboard")
         })
         )
-                    
-        .onTapGesture(count:2) {
-            viewModel.doubleTap = true
-            viewModel.Talk(value : viewModel.item.lowercased())
-        }
+//        .onTapGesture(count:2) {
+//            viewModel.doubleTap = true
+//            viewModel.Talk(value : viewModel.item.lowercased())
+//        }
         .onAppear() {
             self.nameInFocus = voEnabled
             
@@ -219,18 +220,21 @@ struct activityView : View {
         }
         else
         {
-            Button(action: {
-                let result = viewModel.check(input: textFieldText)
-                if (result > -1) { viewModel.indexLesson = result }
-            }) {
-                Text(viewModel.showString())
-                    .font(Font.custom("bartimeus8dots", size: 32))
-                
+            Section {
+                Button(action: {
+                    let result = viewModel.check(input: textFieldText)
+                    if (result > -1) { viewModel.indexLesson = result }
+                }) {
+                    Text(viewModel.showString())
+                        .font(Font.custom("bartimeus8dots", size: 32))
+                    
+                }
+               
             }
-//            .modifier(Square())
         }
     }
 }
+
 
 struct PlaygroundView_Previews: PreviewProvider {
     static var previews: some View {

@@ -33,9 +33,9 @@ struct overviewMethodsView : View {
         Section {
             Picker("Language".localized(), selection: $indexLanguage) {
                 ForEach(viewModel.Languages, id: \.id) { language in
-                    Text(language.name.localized()).tag(language.id)
-//                    Text(language.comments)
-//                    Text(language.zip)
+                    if (checkIfFolderExists(value: language.zip)) {
+                        Text(language.name.localized()).tag(language.id)
+                    }
                 }
             }
             .onChange(of: indexLanguage) { tag in
@@ -73,6 +73,16 @@ struct overviewMethodsView : View {
                 viewModel.count = 0
             }
         }
+    }
+    
+    func checkIfFolderExists(value : String) -> Bool {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let folderURL = documentsDirectory.appendingPathComponent(value)
+        
+        var isDirectory: ObjCBool = false
+        let exists = FileManager.default.fileExists(atPath: folderURL.path, isDirectory: &isDirectory)
+        
+        return exists && isDirectory.boolValue
     }
 }
 
