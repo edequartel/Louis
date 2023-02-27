@@ -36,6 +36,10 @@ struct overviewMethodsView : View {
                     if (checkIfFolderExists(value: language.zip)) {
                         Text(language.name.localized()).tag(language.id)
                     }
+//                    } else {
+//                        Text("\(language.name.localized()) NO")
+//                            .tag(language.id)
+//                    }
                 }
             }
             .onChange(of: indexLanguage) { tag in

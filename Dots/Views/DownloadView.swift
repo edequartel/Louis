@@ -25,12 +25,18 @@ struct DownloadView: View {
 
 
 struct ListItemView: View {
+    @EnvironmentObject var viewModel: LouisViewModel
+
+    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
+    @AppStorage("INDEX_METHOD") var indexMethod = 0
+    
     let language : Item
     
     @State private var showProgressIndicator = true
     @State private var progress: CGFloat = 0
     @State private var message = ""
     @State private var folderExists = false
+    @State private var showingAlert = false
     
     var body: some View {
         HStack {
@@ -42,14 +48,26 @@ struct ListItemView: View {
             if (folderExists) {
                 Button(action: {
                     print("Delete")
-                    deleteFolderFromDocumentsDirectory(folderName: language.zip)
-                    progress = 0
+                    if nrofLanguages() > 1 {
+                        deleteFolderFromDocumentsDirectory(folderName: language.zip)
+                        progress = 0
+                        
+                        viewModel.indexLanguage = indexLanguage
+                        indexMethod = 0
+                        
+                        
+                    } else {
+                            showingAlert = true
+                        }
                 })
                 {
                     Text("Delete")
                         .modifier(Square(color: .red, width: 120))
                         .font(.footnote)
                 }
+                .alert("Minimum number of languages is one.", isPresented: $showingAlert) {
+                            Button("OK", role: .cancel) { }
+                        }
             } else {
                 Button(action: {
                     print("download ")
@@ -71,6 +89,22 @@ struct ListItemView: View {
         .onAppear {folderExists = checkIfFolderExists(value: language.zip)}
     }
     
+    func nrofLanguages() -> Int {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+////        let folderURL = documentsDirectory.appendingPathComponent(value)
+//        
+//        
+//        do {
+//            let items = try FileManager.contentsOfDirectory(documentsDirectory.absoluteString)  //(at atPath: documentsDirectory.path)
+//
+//            for item in items {
+//                print("Found \(item)")
+//            }
+//        } catch {
+//            // failed to read directory – bad permissions, perhaps?
+//        }
+        return 3
+    }
     
     func deleteFolderFromDocumentsDirectory(folderName: String) {
         let fileManager = FileManager.default

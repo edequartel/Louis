@@ -65,7 +65,16 @@ struct InformationView: View {
                     .font(.footnote)
                 }
             }
+//            .navigationBarItems(
+//                                trailing:
+//                                    Button( action: { NavigationLink("", destination: DownloadView()) })
+//                                {
+//                                    Image(systemName: "square.and.arrow.down.fill")
+//                                    }
+//                            )
         }
+        
+        
     }
     
     func version() -> String {

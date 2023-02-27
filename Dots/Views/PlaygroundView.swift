@@ -19,54 +19,54 @@ struct PlaygroundView: View {
     
     @State private var atStartup = true
     @State private var textFieldText = ""
-
+    
     @State private var text = "Voice"
     @State private var lastWord = ""
     
     
     var body: some View {
-                NavigationView {
-        Form {
-            scoreBoardView(textFieldText: $textFieldText)
-            if (viewModel.conditional) { //<=
-                typeOverView()
+        NavigationView {
+            Form {
+                scoreBoardView(textFieldText: $textFieldText)
+                if (viewModel.conditional) { //<=
+                    typeOverView()
+                }
+                activityView(textFieldText: $textFieldText)
+                    .focused($nameInFocus)
             }
-            activityView(textFieldText: $textFieldText)
-                .focused($nameInFocus)
+            
+            .navigationBarItems(trailing:
+                                    Button(action: {
+                nameInFocus.toggle()
+            }, label: {
+                Image(systemName: nameInFocus ? "keyboard.fill" : "keyboard")
+            })
+            )
+            //        .onTapGesture(count:2) {
+            //            viewModel.doubleTap = true
+            //            viewModel.Talk(value : viewModel.item.lowercased())
+            //        }
+            .onAppear() {
+                self.nameInFocus = voEnabled
+                
+                if (atStartup || viewModel.updateViewData) {
+                    viewModel.Shuffle()
+                    atStartup = false
+                    viewModel.updateViewData = false
+                }
+                
+                if (viewModel.typePositionReading == .before) {
+                    viewModel.Talk(value : viewModel.item.lowercased())
+                }
+                else //nextone
+                {
+                    AudioServicesPlaySystemSound(nextword)
+                }
+                
+                textFieldText = ""
+            }
         }
-                    
-        .navigationBarItems(trailing: 
-                                Button(action: {
-            nameInFocus.toggle()
-        }, label: {
-            Image(systemName: nameInFocus ? "keyboard.fill" : "keyboard")
-        })
-        )
-//        .onTapGesture(count:2) {
-//            viewModel.doubleTap = true
-//            viewModel.Talk(value : viewModel.item.lowercased())
-//        }
-        .onAppear() {
-            self.nameInFocus = voEnabled
-            
-            if (atStartup || viewModel.updateViewData) {
-                viewModel.Shuffle()
-                atStartup = false
-                viewModel.updateViewData = false
-            }
-            
-            if (viewModel.typePositionReading == .before) {
-                viewModel.Talk(value : viewModel.item.lowercased())
-            }
-            else //nextone
-            {
-                AudioServicesPlaySystemSound(nextword)
-            }
-            
-            textFieldText = ""
-        }
-    }
-//        .ignoresSafeArea(.container)
+        //        .ignoresSafeArea(.container)
     }
 }
 
@@ -131,10 +131,10 @@ struct progressView : View {
 
 struct overviewSettingsView : View {
     @EnvironmentObject var viewModel: LouisViewModel
-
+    
     var body: some View {
         HStack {
-//            Image(systemName: viewModel.conditional ? "checkmark.circle": "circle")
+            //            Image(systemName: viewModel.conditional ? "checkmark.circle": "circle")
             Image(systemName: viewModel.isPlaying ? "speaker.wave.3" : "speaker")
             Spacer()
             if ((viewModel.syllable) && (viewModel.typeActivity == .word)) || (viewModel.typeActivity == .character) {
@@ -161,20 +161,20 @@ struct imageSpeakView : View {
 struct assistView : View {
     @EnvironmentObject var viewModel: LouisViewModel
     @Binding var textFieldText: String
-
+    
     let monospacedFont = "Sono-Regular"
-
+    
     var body: some View {
         
-            HStack {
-                
-                Text(viewModel.showString())
-                
-                Spacer()
-                Text(textFieldText)
-                    .lineLimit(1)
-                    .truncationMode(.tail)
-
+        HStack {
+            
+            Text(viewModel.showString())
+            
+            Spacer()
+            Text(textFieldText)
+                .lineLimit(1)
+                .truncationMode(.tail)
+            
         }
     }
 }
@@ -196,7 +196,7 @@ struct typeOverView : View {
 struct activityView : View {
     @EnvironmentObject var viewModel: LouisViewModel
     let monospacedFont = "Sono-Regular"
-
+    
     @Binding var textFieldText: String
     @FocusState private var isFocused: Bool
     
@@ -229,7 +229,7 @@ struct activityView : View {
                         .font(Font.custom("bartimeus8dots", size: 32))
                     
                 }
-               
+                
             }
         }
     }
