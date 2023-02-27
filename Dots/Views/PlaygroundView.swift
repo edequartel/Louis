@@ -35,18 +35,16 @@ struct PlaygroundView: View {
                 activityView(textFieldText: $textFieldText)
                     .focused($nameInFocus)
             }
-            
+            .navigationBarTitle(Text("play".localized()), displayMode: .inline)
             .navigationBarItems(trailing:
                                     Button(action: {
                 nameInFocus.toggle()
             }, label: {
-                Image(systemName: nameInFocus ? "keyboard.fill" : "keyboard")
-            })
-            )
-            //        .onTapGesture(count:2) {
-            //            viewModel.doubleTap = true
-            //            viewModel.Talk(value : viewModel.item.lowercased())
-            //        }
+                if (viewModel.conditional) {
+                    Image(systemName: nameInFocus ? "keyboard.fill" : "keyboard")
+                }
+            }))
+
             .onAppear() {
                 self.nameInFocus = voEnabled
                 

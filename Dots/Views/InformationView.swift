@@ -17,27 +17,24 @@ struct InformationView: View {
     
     let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     
+    
     var body: some View {
+        
         NavigationView {
-            //            Form {
             VStack {
                 Form {
                     HStack {
                         Text("developedBy".localized())
                             .font(.title)
                             .modifier(Square(color: .bart_green))
-//                            .frame(maxWidth: .infinity)
-                            
-                        Spacer()
                     }
-                    .padding(EdgeInsets(top: -0, leading: -0, bottom: 0, trailing: -0))
                     
-                    Section(header: Text("Audio")) { //??
-                        NavigationLink(destination: DownloadView()) {
-                            Text("Download "+"languages".localized())
-                            //                            .font(.footnote)
-                        }
-                    }
+//                    Section(header: Text("Audio")) { //??
+//                        NavigationLink(destination: DownloadView()) {
+//                            Text("Download "+"languages".localized())
+//                            //                            .font(.footnote)
+//                        }
+//                    }
                     
                     Section(header: Text("Links")) {
                         Link(destination: URL(string: "http://www.bartimeus.nl")!, label: {
@@ -52,26 +49,24 @@ struct InformationView: View {
                         })
                     }
                     
-                    Section(header: Text("Quick help")) {
-                        Text("helpshorttext".localized())
-                    }
-                    .font(.footnote)
+//                    Section(header: Text("Quick help")) {
+//                        Text("helpshorttext".localized())
+//                    }
+//                    .font(.footnote)
                     
                     Section(header: Text("App details")) {
                         Text(version())
                         Text(locale.description)
-                        Text(voEnabled ? "Voiceover on" : "Voiceover off")
+//                        Text(voEnabled ? "Voiceover on" : "Voiceover off")
                     }
                     .font(.footnote)
                 }
             }
-//            .navigationBarItems( //??
-//                                trailing:
-//                                    Button( action: { NavigationLink("", destination: DownloadView()) })
-//                                {
-//                                    Image(systemName: "square.and.arrow.down.fill")
-//                                    }
-//                            )
+            .navigationBarTitle(Text("information".localized()), displayMode: .inline)
+            .navigationBarItems(trailing:
+                                NavigationLink(destination: DownloadView()) {
+                                Image(systemName: "square.and.arrow.down")
+                            })
         }
         
         

@@ -11,13 +11,82 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject var viewModel: LouisViewModel
     
+    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
+    @AppStorage("INDEX_METHOD") var indexMethod = 0
+    @AppStorage("INDEX_LESSON") var indexLesson = 0
+    
+    @AppStorage("INDEX_ACTIVITY") var indexActivity = 0
+    @AppStorage("SYLLABLE") var syllable = false
+    @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0 //child
+    @AppStorage("INDEX_TRYS") var indexTrys = 5
+    @AppStorage("INDEX_PAUSES") var indexPauses = 0
+    @AppStorage("CONDITIONAL") var conditional = true
+    @AppStorage("ASSIST") var assist = false
+    @AppStorage("INDEX_READING") var indexPositionReading = 1 //before
+    
     var body: some View {
+        NavigationView {
             Form {
                 overviewMethodsView()
                 overviewActivityView()
                 overviewGeneralView()
-                resetModelView()
+                //            resetModelView()
             }
+            .navigationBarTitle(Text("settings".localized()), displayMode: .inline)
+            .navigationBarItems(trailing:
+                                    Button(action: {
+                reset()
+            }, label: {
+                Image(systemName: "restart.circle.fill")
+            }))
+        }
+    }
+    
+    
+    func reset() {
+        indexLanguage = 0
+        viewModel.indexLanguage = indexLanguage
+        indexMethod = 0
+        viewModel.indexMethod = indexMethod
+        indexLesson = 0
+        viewModel.indexLesson = indexLesson
+        
+        indexActivity = 0
+        if let activity = activityEnum(rawValue: indexActivity) {
+            viewModel.typeActivity = activity
+        }
+        
+        syllable = false
+        viewModel.syllable = syllable
+        
+        indexPronounce = 0 //child
+        if let pronouncation = pronounceEnum(rawValue: indexPronounce) {
+            viewModel.typePronounce = pronouncation
+        }
+        
+        indexTrys = 5 // 13
+        viewModel.indexTrys = indexTrys
+        
+        indexPauses = 0
+        viewModel.indexPauses = indexPauses
+        
+        conditional = false
+        viewModel.conditional = conditional
+        
+        assist = true
+        viewModel.conditional = assist
+        
+        indexPositionReading = 1
+        if let positionReading = positionReadingEnum(rawValue: indexPositionReading) {
+            viewModel.typePositionReading = positionReading
+        }
+        
+//                indexFont = 1
+//                if let font = fontEnum(rawValue: indexFont) {
+//                    viewModel.typeIndexFont = font
+//                }
+        
+        viewModel.count = 0
     }
 }
 

@@ -29,9 +29,9 @@ struct ContentView: View {
                         Text("information".localized())
                     }
             }
-            .onAppear {
-                SwiftSpeech.requestSpeechRecognitionAuthorization()
-            }
+//            .onAppear {
+//                SwiftSpeech.requestSpeechRecognitionAuthorization()
+//            }
     }
 }
 
