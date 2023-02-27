@@ -48,7 +48,7 @@ struct ListItemView: View {
             if (folderExists) {
                 Button(action: {
                     print("Delete")
-                    if nrofLanguages() > 1 {
+                    if nrofLanguages() > 1 { //??
                         deleteFolderFromDocumentsDirectory(folderName: language.zip)
                         progress = 0
                         
@@ -89,20 +89,9 @@ struct ListItemView: View {
         .onAppear {folderExists = checkIfFolderExists(value: language.zip)}
     }
     
-    func nrofLanguages() -> Int {
+    func nrofLanguages() -> Int { //??
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-////        let folderURL = documentsDirectory.appendingPathComponent(value)
-//        
-//        
-//        do {
-//            let items = try FileManager.contentsOfDirectory(documentsDirectory.absoluteString)  //(at atPath: documentsDirectory.path)
-//
-//            for item in items {
-//                print("Found \(item)")
-//            }
-//        } catch {
-//            // failed to read directory – bad permissions, perhaps?
-//        }
+
         return 3
     }
     

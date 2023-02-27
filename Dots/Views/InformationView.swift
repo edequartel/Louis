@@ -32,7 +32,7 @@ struct InformationView: View {
                     }
                     .padding(EdgeInsets(top: -0, leading: -0, bottom: 0, trailing: -0))
                     
-                    Section(header: Text("Audio")) {
+                    Section(header: Text("Audio")) { //??
                         NavigationLink(destination: DownloadView()) {
                             Text("Download "+"languages".localized())
                             //                            .font(.footnote)
@@ -65,7 +65,7 @@ struct InformationView: View {
                     .font(.footnote)
                 }
             }
-//            .navigationBarItems(
+//            .navigationBarItems( //??
 //                                trailing:
 //                                    Button( action: { NavigationLink("", destination: DownloadView()) })
 //                                {
