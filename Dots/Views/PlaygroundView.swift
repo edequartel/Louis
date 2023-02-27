@@ -230,20 +230,22 @@ struct activityView : View {
                         .font(Font.custom("bartimeus8dots", size: 32))
                 }
             }
-//            Section {
-//                SpeechView()
-//            }
+//            SpeechView()
         }
+        
+        
+//        Section {
+//            SpeechView()
+//        }
+        
     }
 }
 
 struct SpeechView: View {
     @EnvironmentObject var viewModel: LouisViewModel
-    //    @Binding var textFieldText: String
-    
     var locale: Locale
     
-    @State private var text = "Tap to Speak"
+    @State private var text = ""
     @State private var lastWord = ""
     
     public init(locale: Locale = .autoupdatingCurrent) {
@@ -252,26 +254,29 @@ struct SpeechView: View {
     
     public var body: some View {
         VStack(spacing: 35.0) {
-            //            Text(text)
-            Text(lastWord)
-            Spacer()
+//            Text(text)
+//            Text(lastWord)
             SwiftSpeech.RecordButton()
                 .swiftSpeechToggleRecordingOnTap(locale: self.locale)//, animation: .spring(response: 0.3, dampingFraction: 0.5, blendDuration: 0))
-                .onRecognizeLatest(update: $text)
+                .onRecognizeLatest(includePartialResults: true, update: $text)
+                .printRecognizedText(includePartialResults: true)
         }
         .onChange(of: text) { newValue in
             lastWord = lastSpoken(value: text)
-            let result = viewModel.check(input: "textFieldText")
-            if (result > -1) { viewModel.indexLesson = result }
+            
+            if (lastWord != "none") {
+                let result = viewModel.check(input: lastWord)
+                if (result > -1) { viewModel.indexLesson = result }
+            }
         }
     }
     
     func lastSpoken(value : String) -> String {
         let words = value.split(separator: " ")
         if let lastWordString = words.last {
-            return String(lastWordString)
+            return String(lastWordString).lowercased()
         }
-        return "nee"
+        return "none"
     }
     
 }
