@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftSpeech
 
 struct ContentView: View {
 //    @Environment(\.colorScheme) var colorScheme
@@ -27,6 +28,9 @@ struct ContentView: View {
                         Image(systemName: "info.circle.fill")
                         Text("information".localized())
                     }
+            }
+            .onAppear {
+                SwiftSpeech.requestSpeechRecognitionAuthorization()
             }
     }
 }

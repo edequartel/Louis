@@ -9,6 +9,7 @@ import SwiftUI
 import Soundable
 import SwiftProgress
 import AVFoundation
+import SwiftSpeech
 
 struct PlaygroundView: View {
     @EnvironmentObject var viewModel: LouisViewModel
@@ -227,12 +228,52 @@ struct activityView : View {
                 }) {
                     Text(viewModel.showString())
                         .font(Font.custom("bartimeus8dots", size: 32))
-                    
                 }
-                
             }
+//            Section {
+//                SpeechView()
+//            }
         }
     }
+}
+
+struct SpeechView: View {
+    @EnvironmentObject var viewModel: LouisViewModel
+    //    @Binding var textFieldText: String
+    
+    var locale: Locale
+    
+    @State private var text = "Tap to Speak"
+    @State private var lastWord = ""
+    
+    public init(locale: Locale = .autoupdatingCurrent) {
+        self.locale = locale
+    }
+    
+    public var body: some View {
+        VStack(spacing: 35.0) {
+            //            Text(text)
+            Text(lastWord)
+            Spacer()
+            SwiftSpeech.RecordButton()
+                .swiftSpeechToggleRecordingOnTap(locale: self.locale)//, animation: .spring(response: 0.3, dampingFraction: 0.5, blendDuration: 0))
+                .onRecognizeLatest(update: $text)
+        }
+        .onChange(of: text) { newValue in
+            lastWord = lastSpoken(value: text)
+            let result = viewModel.check(input: "textFieldText")
+            if (result > -1) { viewModel.indexLesson = result }
+        }
+    }
+    
+    func lastSpoken(value : String) -> String {
+        let words = value.split(separator: " ")
+        if let lastWordString = words.last {
+            return String(lastWordString)
+        }
+        return "nee"
+    }
+    
 }
 
 

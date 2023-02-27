@@ -24,6 +24,7 @@
 		47192A462858C086004FD2F3 /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47192A452858C086004FD2F3 /* AudioView.swift */; };
 		47192A5B2858CB8F004FD2F3 /* bartimeus6dots.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */; };
 		472226E228D84628002BF9E0 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472226E128D84628002BF9E0 /* SheetView.swift */; };
+		472B107F29AD25EC00EC685C /* SwiftSpeech in Frameworks */ = {isa = PBXBuildFile; productRef = 472B107E29AD25EC00EC685C /* SwiftSpeech */; };
 		472C7C12290F0E0D00DA12E9 /* bartimeusb.json in Resources */ = {isa = PBXBuildFile; fileRef = 472C7C11290F0E0D00DA12E9 /* bartimeusb.json */; };
 		472C7C14290F0E5500DA12E9 /* bartimeusbigb.json in Resources */ = {isa = PBXBuildFile; fileRef = 472C7C13290F0E5500DA12E9 /* bartimeusbigb.json */; };
 		473DCCAA2891430D00CDFF47 /* spotlight120.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCC902891430D00CDFF47 /* spotlight120.png */; };
@@ -172,6 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				472B107F29AD25EC00EC685C /* SwiftSpeech in Frameworks */,
 				47B09A26298805250030B9CF /* Alamofire in Frameworks */,
 				4766E4CB28B3519A00852495 /* StepperView in Frameworks */,
 				47403EE729910ED7005EFBA7 /* ProgressIndicatorView in Frameworks */,
@@ -415,6 +417,7 @@
 				47403EE329910C68005EFBA7 /* ZipArchive */,
 				47403EE629910ED7005EFBA7 /* ProgressIndicatorView */,
 				4765613F29ABF13100658927 /* SwiftProgress */,
+				472B107E29AD25EC00EC685C /* SwiftSpeech */,
 			);
 			productName = Dots;
 			productReference = 47192A0B2858893C004FD2F3 /* Dots.app */;
@@ -500,6 +503,7 @@
 				47403EE229910C68005EFBA7 /* XCRemoteSwiftPackageReference "ZipArchive" */,
 				47403EE529910ED7005EFBA7 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */,
 				4765613E29ABF13100658927 /* XCRemoteSwiftPackageReference "SwiftProgress" */,
+				472B107D29AD25EC00EC685C /* XCRemoteSwiftPackageReference "SwiftSpeech" */,
 			);
 			productRefGroup = 47192A0C2858893C004FD2F3 /* Products */;
 			projectDirPath = "";
@@ -881,6 +885,8 @@
 				INFOPLIST_FILE = Dots/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Louis;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app uses the mircrophone to record audio for speech recognition.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "This app uses speech recognition to convert your speech into text.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -920,6 +926,8 @@
 				INFOPLIST_FILE = Dots/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Louis;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app uses the mircrophone to record audio for speech recognition.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "This app uses speech recognition to convert your speech into text.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1065,6 +1073,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		472B107D29AD25EC00EC685C /* XCRemoteSwiftPackageReference "SwiftSpeech" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Cay-Zhang/SwiftSpeech";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		47403EE229910C68005EFBA7 /* XCRemoteSwiftPackageReference "ZipArchive" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ZipArchive/ZipArchive";
@@ -1116,6 +1132,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		472B107E29AD25EC00EC685C /* SwiftSpeech */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 472B107D29AD25EC00EC685C /* XCRemoteSwiftPackageReference "SwiftSpeech" */;
+			productName = SwiftSpeech;
+		};
 		47403EE329910C68005EFBA7 /* ZipArchive */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 47403EE229910C68005EFBA7 /* XCRemoteSwiftPackageReference "ZipArchive" */;
