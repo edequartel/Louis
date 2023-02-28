@@ -63,10 +63,7 @@ struct InformationView: View {
                 }
             }
             .navigationBarTitle(Text("information".localized()), displayMode: .inline)
-            .navigationBarItems(trailing:
-                                NavigationLink(destination: DownloadView()) {
-                                Image(systemName: "square.and.arrow.down")
-                            })
+            
         }
         
         

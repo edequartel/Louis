@@ -42,6 +42,7 @@ struct PlaygroundView: View {
             }, label: {
                 if (viewModel.conditional) {
                     Image(systemName: nameInFocus ? "keyboard.fill" : "keyboard")
+                        .accessibilityLabel("keyboard".localized())
                 }
             }))
 

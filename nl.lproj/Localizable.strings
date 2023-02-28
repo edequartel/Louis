@@ -7,6 +7,7 @@
 "after" = "Achter";
 "again" = "Herhaal";
 "all" = "Alles";
+"assist" = "Hulp";
 "before" = "Voor";
 "brailleText" = "Tekst in Braille";
 "character" = "Karakter";
@@ -14,8 +15,12 @@
 "chop" = "Hakken";
 "conditional" = "Voorwaardelijk";
 "country" = "Land";
+"deutsch" = "🇩🇪 Duits";
 "developedBy" = "Bartiméus Onderwijs\nZeist \nNederland";
 "downloadLanguages" = "Download talen";
+"dutch" = "🇳🇱 Nederlands";
+"english" = "🇬🇧 Engels";
+"flag" = "nl";
 "font" = "Lettertype";
 "form" = "Vorm";
 "help" = "Help";
@@ -47,8 +52,4 @@
 "text" = "Tekst";
 "update" = "Bijwerken";
 "word" = "Woord";
-"assist" = "Hulp";
-"flag" = "nl";
-"dutch" = "🇳🇱 Nederlands";
-"english" = "🇬🇧 Engels";
-"deutsch" = "🇩🇪 Duits";
+"download" = "Downloaden";

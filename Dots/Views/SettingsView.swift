@@ -8,6 +8,21 @@
 import SwiftUI
 
 
+struct myStorage {
+    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
+    @AppStorage("INDEX_METHOD") var indexMethod = 0
+    @AppStorage("INDEX_LESSON") var indexLesson = 0
+    
+    @AppStorage("INDEX_ACTIVITY") var indexActivity = 0
+    @AppStorage("SYLLABLE") var syllable = false
+    @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0 //child
+    @AppStorage("INDEX_TRYS") var indexTrys = 5
+    @AppStorage("INDEX_PAUSES") var indexPauses = 0
+    @AppStorage("CONDITIONAL") var conditional = false
+    @AppStorage("ASSIST") var assist = true
+    @AppStorage("INDEX_READING") var indexPositionReading = 1 //before
+}
+
 struct SettingsView: View {
     @EnvironmentObject var viewModel: LouisViewModel
     
@@ -20,8 +35,8 @@ struct SettingsView: View {
     @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0 //child
     @AppStorage("INDEX_TRYS") var indexTrys = 5
     @AppStorage("INDEX_PAUSES") var indexPauses = 0
-    @AppStorage("CONDITIONAL") var conditional = true
-    @AppStorage("ASSIST") var assist = false
+    @AppStorage("CONDITIONAL") var conditional = false
+    @AppStorage("ASSIST") var assist = true
     @AppStorage("INDEX_READING") var indexPositionReading = 1 //before
     
     var body: some View {
@@ -30,15 +45,21 @@ struct SettingsView: View {
                 overviewMethodsView()
                 overviewActivityView()
                 overviewGeneralView()
-                //            resetModelView()
+//                            resetModelView()
             }
             .navigationBarTitle(Text("settings".localized()), displayMode: .inline)
             .navigationBarItems(trailing:
-                                    Button(action: {
-                reset()
-            }, label: {
-                Image(systemName: "restart.circle.fill")
-            }))
+                                    NavigationLink(destination: DownloadView()) {
+                Image(systemName: "square.and.arrow.down")
+                    .accessibilityLabel("download".localized())
+            })
+//            .navigationBarItems(trailing:
+//                                    Button(action: {
+//                reset()
+//            }, label: {
+//                Image(systemName: "backward.end")
+//                    .accessibilityLabel("reset".localized())
+//            }))
         }
     }
     
@@ -233,8 +254,8 @@ struct overviewGeneralView : View {
     @EnvironmentObject var viewModel: LouisViewModel
     
     @AppStorage("INDEX_TRYS") var indexTrys = 5
-    @AppStorage("CONDITIONAL") var conditional = true
-    @AppStorage("ASSIST") var assist = false
+    @AppStorage("CONDITIONAL") var conditional = false
+    @AppStorage("ASSIST") var assist = true
     @AppStorage("INDEX_READING") var indexPosition = 1
     @AppStorage("INDEX_FONT") var indexFont = 1
     
@@ -294,8 +315,8 @@ struct resetModelView : View {
     @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0 //child
     @AppStorage("INDEX_TRYS") var indexTrys = 5
     @AppStorage("INDEX_PAUSES") var indexPauses = 0
-    @AppStorage("CONDITIONAL") var conditional = true
-    @AppStorage("ASSIST") var assist = false
+    @AppStorage("CONDITIONAL") var conditional = false
+    @AppStorage("ASSIST") var assist = true
     @AppStorage("INDEX_READING") var indexPositionReading = 1 //before
 //    @AppStorage("INDEX_FONT") var indexFont = 1
         

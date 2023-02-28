@@ -90,7 +90,7 @@ struct ListItemView: View {
     }
     
     func nrofLanguages() -> Int { //??
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+//        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 
         return 3
     }

@@ -323,7 +323,7 @@
       },
       {
         "id" : 2,
-        "name" : "Marechal",
+        "name" : "Maréchal",
         "developer" : "VISIO",
         "information" : "Voor mensen die kunnen lezen en schrijven. ",
         "letters" : "b a l k m aa p e d ee g i s t v n o oo r u uu h w ie f ui z ei j ij c sch oe eu ou au ch ng nk aai ooi oei oor eur eer eeuw ieuw",
@@ -498,7 +498,7 @@
             "name" : "kam",
             "letters" : "k a m",
             "antiletters" : "",
-            "words" : "aa-k- k-aa-k k-a-m k-m m-a m-aa-k m-a-k m-a-m m-a-m-a m-a-m-m-a",
+            "words" : "car boat house cat hat",
             "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",

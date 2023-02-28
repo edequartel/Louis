@@ -58,6 +58,7 @@ struct SplashScreenView: View {
             .onAppear {
                 print(getDocumentDirectory().path)
                 audioDownloaded = (countVisibleSubdirectoriesInDocumentsDirectory() != 0)
+                if (audioDownloaded) { print("audioDownloaded != 0") }
                 viewModel.indexLanguage = indexLanguage
                 viewModel.indexMethod = indexMethod
                 viewModel.indexLesson = indexLesson
@@ -151,6 +152,7 @@ struct SplashScreenView: View {
             let items = try JSONDecoder().decode([Item].self, from: data)
             viewModel.Languages = items
             isDownloaded = true
+            print("isDownloaded")
         }
         catch {
             self.errorMessage = error.localizedDescription
