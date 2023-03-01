@@ -62,8 +62,9 @@ final class LouisViewModel: ObservableObject {
 
         while (item==items[0]) {
                 let str = (typeActivity == .character) ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters : Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words
+            print("before cleaning \(str)")
                 items = cleanUpString(str)
-            print("items \(items)")
+            print("after items \(items)")
         }
         item = items[0]
     }
