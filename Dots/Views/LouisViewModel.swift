@@ -17,7 +17,7 @@ final class LouisViewModel: ObservableObject {
     @Published var indexMethod: Int = 0
     @Published var indexLesson: Int = 0
     
-    @Published var item: String = "bal"
+    @Published var item: String = "xxx"
     @Published var previousItem: String = "previous"
     @Published var items =  ["bal","n-oo-t","m-ie-s"]
     
@@ -26,7 +26,7 @@ final class LouisViewModel: ObservableObject {
     @Published var syllable = true
     @Published var talkWord = false
     @Published var conditional = false
-    @Published var assist = false
+    @Published var assist = true
     @Published var indexReading = 0
     @Published var indexPronounce = 0
     
@@ -50,18 +50,28 @@ final class LouisViewModel: ObservableObject {
     let nextword : SystemSoundID = 1113
     let failure : SystemSoundID = 1057
     
+    init() {
+        print("init")
+    }
+    
     //get random a new item from selected lesson
     func Shuffle() {
         var teller = 0
+        
         previousItem = item
         
-        while (item==items[0]) || (!fileExists(value: stripString(value: item))) {
-//        while (item==items[0]) {
+//        while (item==items[0])  || (!fileExists(value: stripString(value: item))) {
+        while (item==items[0]) {
+            if !fileExists(value: stripString(value: item)) {
+                print("ERROR 001 : file \(item) does not exist \(items[0])")
+                print(items)
+            }
+            
             if (!Languages.isEmpty) {
                 let tempLetters = cleanUpString(Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters)
                 let tempWords = cleanUpString(Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words)
                 items = (typeActivity == .character) ? tempLetters.components(separatedBy: " ").shuffled() : tempWords.components(separatedBy: " ").shuffled()
-            } else { items.shuffle() }
+            } //else { items.shuffle() }
             teller += 1
         }
         item = items[0]
@@ -74,16 +84,19 @@ final class LouisViewModel: ObservableObject {
         var output = regex.stringByReplacingMatches(in: input, options: [], range: range, withTemplate: " ")
         output = output.trimmingCharacters(in: .whitespacesAndNewlines)
         return output
+//        return input
     }
 
     
     func fileExists(value : String) -> Bool {
         var fn : String
+        print("value \(value)")
         if (value.count>1) {
             fn = "/\(self.Languages[indexLanguage].zip)/words/\(value).mp3"
         } else {
             fn = "/\(self.Languages[indexLanguage].zip)/phonetic/"+typePronounce.prefixValue().lowercased()+"/"+value+".mp3"
         }
+        print(fn)
         return  fileExistsInDocumentDirectory(fn)
     }
                                         
@@ -263,6 +276,7 @@ final class LouisViewModel: ObservableObject {
                 
             } else { //tricky sounds gelden voor alle pronounce child/adult/form, tricky sounds are ui oe eu
                 let sound = Sound(fileName: value+".mp3")
+                print("tricky sounds [\(value)]")
                 
                 isPlaying = true
                 sound.play() { error in
@@ -276,6 +290,8 @@ final class LouisViewModel: ObservableObject {
         
         //word
         if (typeActivity == .word) {
+            print("word [\(value)]")
+            
             let myStringArr = value.components(separatedBy: "-") //divide the w-o-r-d in characters
             let theWord = value.replacingOccurrences(of: "-", with: "") //make a word
             

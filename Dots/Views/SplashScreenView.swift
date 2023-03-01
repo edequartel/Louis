@@ -28,8 +28,8 @@ struct SplashScreenView: View {
     @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0 //child
     @AppStorage("INDEX_TRYS") var indexTrys = 5 // 13
     @AppStorage("INDEX_PAUSES") var indexPauses = 0
-    @AppStorage("CONDITIONAL") var conditional = true
-    @AppStorage("ASSIST") var assist = false
+    @AppStorage("CONDITIONAL") var conditional = false
+    @AppStorage("ASSIST") var assist = true
     @AppStorage("INDEX_READING") var indexPosition = 1 //before
 //    @AppStorage("INDEX_FONT") var indexFont = 1
     
