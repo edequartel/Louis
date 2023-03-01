@@ -56,37 +56,38 @@ final class LouisViewModel: ObservableObject {
     
     //get random a new item from selected lesson
     func Shuffle() {
-        var teller = 0
         
         previousItem = item
         
-//        while (item==items[0])  || (!fileExists(value: stripString(value: item))) {
+
         while (item==items[0]) {
-            if !fileExists(value: stripString(value: item)) {
-                print("ERROR 001 : file \(item) does not exist \(items[0])")
-                print(items)
-            }
-            
-            if (!Languages.isEmpty) {
-                let tempLetters = cleanUpString(Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters)
-                let tempWords = cleanUpString(Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words)
-                items = (typeActivity == .character) ? tempLetters.components(separatedBy: " ").shuffled() : tempWords.components(separatedBy: " ").shuffled()
-            } //else { items.shuffle() }
-            teller += 1
+                let str = (typeActivity == .character) ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters : Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words
+                items = cleanUpString(str)
+            print("items \(items)")
         }
         item = items[0]
     }
     
-    func cleanUpString(_ input: String) -> String {
+    func cleanUpString(_ input: String) -> Array<String>  {
         let pattern = "\\s{2,}"
         let regex = try! NSRegularExpression(pattern: pattern, options: [])
         let range = NSRange(location: 0, length: input.utf16.count)
-        var output = regex.stringByReplacingMatches(in: input, options: [], range: range, withTemplate: " ")
-        output = output.trimmingCharacters(in: .whitespacesAndNewlines)
-        return output
-//        return input
+        let output = regex.stringByReplacingMatches(in: input, options: [], range: range, withTemplate: " ")
+        
+        
+        let stripOutput = stripString(value: output.trimmingCharacters(in: .whitespacesAndNewlines)).components(separatedBy: " ") //nice seperated string
+        
+        var filterOutput : Array<String> = [""]
+        for word in stripOutput {
+            if fileExists(value: String(word)) {
+                filterOutput.append(String(word))
+            }
+        }
+        return filterOutput.shuffled()
     }
 
+    
+    
     
     func fileExists(value : String) -> Bool {
         var fn : String
@@ -173,6 +174,7 @@ final class LouisViewModel: ObservableObject {
             if (count >= trys[indexTrys]) { //nextlevel
                 if indexLesson<(Languages[indexLanguage].method[indexMethod].lesson.count-1) {
                     returnValue = indexLesson + 1
+                    
                 }
                 else {
                     returnValue = 0
