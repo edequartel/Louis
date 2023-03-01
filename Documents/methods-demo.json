@@ -477,7 +477,7 @@
             "name" : "bal",
             "letters" : "a b l",
             "antiletters" : "",
-            "words" : "  battery    beauti ful abi *lity habit helpful notexistingname",
+            "words" : "  battery  battery   beauti ful abi *lity habit helpful notexistingname",
             "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",

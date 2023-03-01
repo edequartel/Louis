@@ -84,7 +84,7 @@ final class LouisViewModel: ObservableObject {
                 filterOutput.append(String(word))
             }
         }
-        return filterOutput.shuffled()
+        return Array(Set(filterOutput.shuffled())) //filterOutput.shuffled()
     }
 
     
