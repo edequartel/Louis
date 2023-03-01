@@ -77,7 +77,7 @@ final class LouisViewModel: ObservableObject {
         
         let stripOutput = stripString(value: output.trimmingCharacters(in: .whitespacesAndNewlines)).components(separatedBy: " ") //nice seperated string
         
-        var filterOutput : Array<String> = [""]
+        var filterOutput : Array<String> = []
         for word in stripOutput {
             if fileExists(value: String(word)) {
                 filterOutput.append(String(word))
