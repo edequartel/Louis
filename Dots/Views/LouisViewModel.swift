@@ -52,6 +52,7 @@ final class LouisViewModel: ObservableObject {
     
     init() {
         print("init")
+        Shuffle() //??
     }
     
     //get random a new item from selected lesson

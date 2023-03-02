@@ -139,6 +139,7 @@ struct overviewMethodsView : View {
                 indexLesson = 0
                 viewModel.indexLesson = 0
                 viewModel.count = 0
+                viewModel.Shuffle() //?
             }
 
             Picker("method".localized(), selection: $indexMethod) {
@@ -153,6 +154,7 @@ struct overviewMethodsView : View {
                 viewModel.indexLesson = 0                
                 viewModel.updateViewData = true
                 viewModel.count = 0
+                viewModel.Shuffle() //?
             }
 
             Picker("lesson".localized(), selection: $viewModel.indexLesson) {
@@ -165,6 +167,7 @@ struct overviewMethodsView : View {
                 indexLesson = viewModel.indexLesson
                 viewModel.updateViewData = true
                 viewModel.count = 0
+                viewModel.Shuffle() //?
             }
         }
     }
