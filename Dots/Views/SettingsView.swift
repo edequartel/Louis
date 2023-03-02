@@ -8,21 +8,6 @@
 import SwiftUI
 
 
-struct myStorage {
-    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
-    @AppStorage("INDEX_METHOD") var indexMethod = 0
-    @AppStorage("INDEX_LESSON") var indexLesson = 0
-    
-    @AppStorage("INDEX_ACTIVITY") var indexActivity = 0
-    @AppStorage("SYLLABLE") var syllable = false
-    @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0 //child
-    @AppStorage("INDEX_TRYS") var indexTrys = 5
-    @AppStorage("INDEX_PAUSES") var indexPauses = 0
-    @AppStorage("CONDITIONAL") var conditional = false
-    @AppStorage("ASSIST") var assist = true
-    @AppStorage("INDEX_READING") var indexPositionReading = 1 //before
-}
-
 struct SettingsView: View {
     @EnvironmentObject var viewModel: LouisViewModel
     

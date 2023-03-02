@@ -10,7 +10,30 @@ import SwiftUI
 import Soundable
 import AVFoundation
 
+class UserSettings: ObservableObject {
+    @AppStorage("darkModeEnabled") var darkModeEnabled: Bool = false
+    
+    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
+    @AppStorage("INDEX_METHOD") var indexMethod = 0
+    @AppStorage("INDEX_LESSON") var indexLesson = 0
+    
+    @AppStorage("INDEX_ACTIVITY") var indexActivity = 0
+    @AppStorage("SYLLABLE") var syllable = false
+    @AppStorage("TALK_WORD") var talkWord = false
+    @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0 //child
+    @AppStorage("INDEX_TRYS") var indexTrys = 5 // 13
+    @AppStorage("INDEX_PAUSES") var indexPauses = 0
+    @AppStorage("CONDITIONAL") var conditional = false
+    @AppStorage("ASSIST") var assist = true
+    @AppStorage("INDEX_READING") var indexPosition = 1 //before
+}
+
 final class LouisViewModel: ObservableObject {
+    //appstorage <
+    @StateObject var settings = UserSettings()
+    //appstorage <
+    
+    
     @Published var Languages: [Item] = []
     
     @Published var indexLanguage: Int = 0
