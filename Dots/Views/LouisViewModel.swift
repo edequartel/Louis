@@ -75,7 +75,7 @@ final class LouisViewModel: ObservableObject {
     
     init() {
         print("init")
-        Shuffle() //??
+//        Shuffle() //??
     }
     
     //get random a new item from selected lesson
@@ -83,9 +83,8 @@ final class LouisViewModel: ObservableObject {
         
         previousItem = item
         
-
         while (item==items[0]) {
-                let str = (typeActivity == .character) ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters : Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words
+            let str = (typeActivity == .character) ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters : Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words
             print("before cleaning \(str)")
                 items = cleanUpString(str)
             print("after items \(items)")
