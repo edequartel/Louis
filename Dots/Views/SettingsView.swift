@@ -11,9 +11,9 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject var viewModel: LouisViewModel
     
-    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
-    @AppStorage("INDEX_METHOD") var indexMethod = 0
-    @AppStorage("INDEX_LESSON") var indexLesson = 0
+//    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
+//    @AppStorage("INDEX_METHOD") var indexMethod = 0
+//    @AppStorage("INDEX_LESSON") var indexLesson = 0
     
     @AppStorage("INDEX_ACTIVITY") var indexActivity = 0
     @AppStorage("SYLLABLE") var syllable = false
@@ -50,12 +50,12 @@ struct SettingsView: View {
     
     
     func reset() {
-        indexLanguage = 0
-        viewModel.indexLanguage = indexLanguage
-        indexMethod = 0
-        viewModel.indexMethod = indexMethod
-        indexLesson = 0
-        viewModel.indexLesson = indexLesson
+//        indexLanguage = 0
+        viewModel.indexLanguage = 0
+//        indexMethod = 0
+        viewModel.indexMethod = 0
+//        indexLesson = 0
+        viewModel.indexLesson = 0
         
         indexActivity = 0
         if let activity = activityEnum(rawValue: indexActivity) {
@@ -100,13 +100,13 @@ struct SettingsView: View {
 struct overviewMethodsView : View {
     @EnvironmentObject var viewModel: LouisViewModel
 
-    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
-    @AppStorage("INDEX_METHOD") var indexMethod = 0
-    @AppStorage("INDEX_LESSON") var indexLesson = 0
+//    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
+//    @AppStorage("INDEX_METHOD") var indexMethod = 0
+//    @AppStorage("INDEX_LESSON") var indexLesson = 0
 
     var body: some View {
         Section {
-            Picker("Language".localized(), selection: $indexLanguage) {
+            Picker("Language".localized(), selection: $viewModel.indexLanguage) {
                 ForEach(viewModel.Languages, id: \.id) { language in
                     if (checkIfFolderExists(value: language.zip)) {
                         Text(language.name.localized()).tag(language.id)
@@ -117,25 +117,25 @@ struct overviewMethodsView : View {
 //                    }
                 }
             }
-            .onChange(of: indexLanguage) { tag in
-                viewModel.indexLanguage = indexLanguage
-                indexMethod = 0
+            .onChange(of: viewModel.indexLanguage) { tag in
+//                viewModel.indexLanguage = indexLanguage
+//                indexMethod = 0
                 viewModel.indexMethod = 0
-                indexLesson = 0
+//                indexLesson = 0
                 viewModel.indexLesson = 0
                 viewModel.count = 0
                 viewModel.Shuffle() //?
             }
 
-            Picker("method".localized(), selection: $indexMethod) {
-                ForEach(viewModel.Languages[indexLanguage].method, id: \.id) { method in
+            Picker("method".localized(), selection: $viewModel.indexMethod) {
+                ForEach(viewModel.Languages[viewModel.indexLanguage].method, id: \.id) { method in
                     Text(method.name).tag(method.id)
                 }
             }
-            .onChange(of: indexMethod) { tag in
+            .onChange(of: viewModel.indexMethod) { tag in
                 print("Change in tag method: \(tag)")
-                viewModel.indexMethod = indexMethod
-                indexLesson = 0
+//                viewModel.indexMethod = indexMethod
+//                indexLesson = 0
                 viewModel.indexLesson = 0                
                 viewModel.updateViewData = true
                 viewModel.count = 0
@@ -143,13 +143,13 @@ struct overviewMethodsView : View {
             }
 
             Picker("lesson".localized(), selection: $viewModel.indexLesson) {
-                ForEach(viewModel.Languages[indexLanguage].method[indexMethod].lesson, id: \.id) { lesson in
+                ForEach(viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson, id: \.id) { lesson in
                     Text(lesson.name).tag(lesson.id)
                 }
             }
             .onChange(of: viewModel.indexLesson) { tag in
                 print("Change in tag lesson: \(tag)")
-                indexLesson = viewModel.indexLesson
+//                indexLesson = viewModel.indexLesson
                 viewModel.updateViewData = true
                 viewModel.count = 0
                 viewModel.Shuffle() //?

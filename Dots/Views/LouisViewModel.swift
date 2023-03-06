@@ -13,9 +13,13 @@ import AVFoundation
 final class LouisViewModel: ObservableObject {
     @Published var Languages: [Item] = []
     
-    @Published var indexLanguage: Int = 0
-    @Published var indexMethod: Int = 0
-    @Published var indexLesson: Int = 0
+    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
+    @AppStorage("INDEX_METHOD") var indexMethod = 0
+    @AppStorage("INDEX_LESSON") var indexLesson = 0
+    
+//    @Published var indexLanguage: Int = 0
+//    @Published var indexMethod: Int = 0
+//    @Published var indexLesson: Int = 0
     
     @Published var item: String = "xxx"
     @Published var previousItem: String = "previous"
