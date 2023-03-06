@@ -12,6 +12,8 @@ import ZipArchive
 
 struct SplashScreenView: View {
     @EnvironmentObject var viewModel: LouisViewModel
+    @Environment(\.locale) private var locale
+    
 //    let dataURL = "https://www.eduvip.nl/VSOdigitaal/louis/methods-demo.json"
     let dataURL = "https://raw.githubusercontent.com/edequartel/Louis/refactor/Documents/methods-demo.json"
 //    let dataURL = "https://github.com/edequartel/Louis/blob/main/Documents/methods-demo.json"
@@ -50,7 +52,7 @@ struct SplashScreenView: View {
                     .frame(width: 150, height: 150)
 //                Spacer()
                 if (countVisibleSubdirectoriesInDocumentsDirectory() == 0) {
-                    Text(message)
+                    Text("\(message) \(locale.description)")
                     Text("\(String(format: "%.0f", progress * 100))%")
                 }
                 
@@ -92,7 +94,14 @@ struct SplashScreenView: View {
                 loadData()
                 //
                 if (countVisibleSubdirectoriesInDocumentsDirectory() == 0) {
-                    downloadZipFile(value: "dutch")
+//                    if (locale.languageCode == "nl") {
+                        downloadZipFile(value: "dutch")
+//                        viewModel.indexLanguage = 0
+//                    }
+//                    else {
+//                        downloadZipFile(value: "english")
+//                        viewModel.indexlanguage = 1
+//                    }
                 }
                 //
                 

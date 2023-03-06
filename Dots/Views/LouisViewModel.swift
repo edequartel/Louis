@@ -10,30 +10,7 @@ import SwiftUI
 import Soundable
 import AVFoundation
 
-class UserSettings: ObservableObject {
-    @AppStorage("darkModeEnabled") var darkModeEnabled: Bool = false
-    
-    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
-    @AppStorage("INDEX_METHOD") var indexMethod = 0
-    @AppStorage("INDEX_LESSON") var indexLesson = 0
-    
-    @AppStorage("INDEX_ACTIVITY") var indexActivity = 0
-    @AppStorage("SYLLABLE") var syllable = false
-    @AppStorage("TALK_WORD") var talkWord = false
-    @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0 //child
-    @AppStorage("INDEX_TRYS") var indexTrys = 5 // 13
-    @AppStorage("INDEX_PAUSES") var indexPauses = 0
-    @AppStorage("CONDITIONAL") var conditional = false
-    @AppStorage("ASSIST") var assist = true
-    @AppStorage("INDEX_READING") var indexPosition = 1 //before
-}
-
 final class LouisViewModel: ObservableObject {
-    //appstorage <
-    @StateObject var settings = UserSettings()
-    //appstorage <
-    
-    
     @Published var Languages: [Item] = []
     
     @Published var indexLanguage: Int = 0
@@ -75,7 +52,7 @@ final class LouisViewModel: ObservableObject {
     
     init() {
         print("init")
-//        Shuffle() //??
+        Shuffle() //??
     }
     
     //get random a new item from selected lesson
@@ -85,9 +62,9 @@ final class LouisViewModel: ObservableObject {
         
         while (item==items[0]) {
             let str = (typeActivity == .character) ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters : Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words
-            print("before cleaning \(str)")
+//            print("before cleaning \(str)")
                 items = cleanUpString(str)
-            print("after items \(items)")
+//            print("after items \(items)")
         }
         item = items[0]
     }
@@ -97,31 +74,30 @@ final class LouisViewModel: ObservableObject {
         let regex = try! NSRegularExpression(pattern: pattern, options: [])
         let range = NSRange(location: 0, length: input.utf16.count)
         let output = regex.stringByReplacingMatches(in: input, options: [], range: range, withTemplate: " ")
+        let outputTrimmed = output.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: " ")
         
-        
-        let stripOutput = stripString(value: output.trimmingCharacters(in: .whitespacesAndNewlines)).components(separatedBy: " ") //nice seperated string
+//        let stripOutput = stripString(value: output.trimmingCharacters(in: .whitespacesAndNewlines)).components(separatedBy: " ") //nice seperated string
         
         var filterOutput : Array<String> = []
-        for word in stripOutput {
-            if fileExists(value: String(word)) {
+        for word in outputTrimmed {
+            print("..\(word)")
+            if fileExists(value: stripString(value: String(word))) {
                 filterOutput.append(String(word))
             }
         }
-        return Array(Set(filterOutput.shuffled())) //filterOutput.shuffled()
+        return Array(Set(filterOutput.shuffled()))
     }
 
     
-    
-    
     func fileExists(value : String) -> Bool {
         var fn : String
-        print("value \(value)")
+//        print("value \(value)")
         if (value.count>1) {
             fn = "/\(self.Languages[indexLanguage].zip)/words/\(value).mp3"
         } else {
             fn = "/\(self.Languages[indexLanguage].zip)/phonetic/"+typePronounce.prefixValue().lowercased()+"/"+value+".mp3"
         }
-        print(fn)
+//        print(fn)
         return  fileExistsInDocumentDirectory(fn)
     }
                                         
