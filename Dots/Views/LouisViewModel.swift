@@ -67,13 +67,20 @@ final class LouisViewModel: ObservableObject {
         
         while (item==items[0]) {
             let str = (activityType == .character) ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters : Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words
+            
             items = cleanUpString(str)
+//            print("indexLanguage \(indexLanguage)")
+//            print("indexMethod \(indexMethod)")
+//            print("indexLesson \(indexLesson)")
+//            print("str \(str)")
+//            print("items \(items)")
+//            print("item \(item) = \(items[0])")
+//
             
             // Check if the items array has at least one element
-            if items.count > 0 {
-                item = items[0]
-            } else {
+            if items.count <= 0 {
                 // Handle the case where the items array is empty
+                print("error handling: there are no items")
                 break
             }
         }

@@ -117,7 +117,7 @@ struct progressView : View {
             Spacer()
             LinearProgress(
                 progress: CGFloat(100*viewModel.count/trys[viewModel.indexTrys]),
-                foregroundColor: viewModel.myColor,
+                foregroundColor: Color.bart_green,
                 backgroundColor:  Color.green.opacity(0.2),
                 fillAxis: .horizontal
             )
@@ -181,7 +181,7 @@ struct typeOverView : View {
         Section {
             Text("\(viewModel.showString())")
                 .font(Font.custom("bartimeus8dots", size: 32))
-                .foregroundColor(.blue)
+                .foregroundColor(Color.bart_green)
                 .frame(height:60)
         }
     }
@@ -204,7 +204,7 @@ struct activityView : View {
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
                     .frame(height:60)
-                    .disabled(viewModel.isPlaying)
+//                    .disabled(viewModel.isPlaying)
                     .onSubmit {
                         let result = viewModel.check(input: textFieldText)
                         if (result > -1) { viewModel.indexLesson = result }
@@ -217,7 +217,7 @@ struct activityView : View {
         {
             Section {
                 VStack {
-//                    Spacer()
+                    Spacer()
                     Button(action: {
                         let result = viewModel.check(input: textFieldText)
                         if (result > -1) { viewModel.indexLesson = result }
@@ -225,25 +225,19 @@ struct activityView : View {
                         if viewModel.showString().count == 1 {
                             Text(viewModel.showString())
                                 .font(Font.custom("bartimeus8dots", size: 64))
-                                .modifier(Square(color: .bart_green))
+                                .foregroundColor(.bart_green)
+//                                .modifier(Square(color: .bart_green))
                         } else {
                             Text(viewModel.showString())
                                 .font(Font.custom("bartimeus8dots", size: 32))
+                                .foregroundColor(.bart_green)
                         }
 
                     }
-//                    Spacer()
+                    Spacer()
                 }
-                .padding(.vertical)
             }
-            //            SpeechView()
         }
-        
-        
-        //        Section {
-        //            SpeechView()
-        //        }
-        
     }
 }
 

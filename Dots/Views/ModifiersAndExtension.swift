@@ -31,6 +31,7 @@ extension View {
 extension Color {
     static let bart_green = Color(red: 0 / 255, green: 130 / 255, blue: 69 / 255)
     static let bart_purple = Color(red: 130 / 255, green: 0 / 255, blue: 62 / 255)
+    static let bart_complement = Color(red: 255 / 255, green: 125 / 255, blue: 0 / 255)
 }
 
 //enums
@@ -135,5 +136,15 @@ struct Square: ViewModifier {
             .frame(minWidth: 0, maxWidth: width)
             .background(color)
             .cornerRadius(10)
+    }
+}
+
+struct Border: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .foregroundColor(.bart_green)
+            .padding(20)
+            .border(Color.bart_green, width: 5)
+            .cornerRadius(5)
     }
 }
