@@ -17,27 +17,24 @@ final class LouisViewModel: ObservableObject {
     @AppStorage("INDEX_METHOD") var indexMethod = 0
     @AppStorage("INDEX_LESSON") var indexLesson = 0
     
-//    @Published var indexLanguage: Int = 0
-//    @Published var indexMethod: Int = 0
-//    @Published var indexLesson: Int = 0
+    @AppStorage("INDEX_ACTIVITY") var indexActivity = 0
+    @AppStorage("SYLLABLE") var syllable = false
+    @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0 //child
+    @AppStorage("INDEX_TRYS") var indexTrys = 5 // 13
+    @AppStorage("INDEX_PAUSES") var indexPauses = 0
+    @AppStorage("CONDITIONAL") var conditional = false
+    @AppStorage("ASSIST") var assist = true
+    @AppStorage("INDEX_READING") var indexPosition = 1 //before
+    @AppStorage("TALK_WORD") var talkWord = false
     
     @Published var item: String = "xxx"
     @Published var previousItem: String = "previous"
     @Published var items =  ["bal","n-oo-t","m-ie-s"]
     
-    @Published var indexTrys = 0
-    @Published var indexPauses = 0
-    @Published var syllable = true
-    @Published var talkWord = false
-    @Published var conditional = false
-    @Published var assist = true
-    @Published var indexReading = 0
-    @Published var indexPronounce = 0
     
     @Published var typeActivity : activityEnum = .character
     @Published var typePronounce : pronounceEnum = .child
     @Published var typePositionReading : positionReadingEnum = .not
-//    @Published var typeIndexFont : fontEnum = .dots8
     
     @Published var isPlaying = false
     
@@ -80,8 +77,6 @@ final class LouisViewModel: ObservableObject {
         let output = regex.stringByReplacingMatches(in: input, options: [], range: range, withTemplate: " ")
         let outputTrimmed = output.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: " ")
         
-//        let stripOutput = stripString(value: output.trimmingCharacters(in: .whitespacesAndNewlines)).components(separatedBy: " ") //nice seperated string
-        
         var filterOutput : Array<String> = []
         for word in outputTrimmed {
             print("..\(word)")
@@ -95,13 +90,11 @@ final class LouisViewModel: ObservableObject {
     
     func fileExists(value : String) -> Bool {
         var fn : String
-//        print("value \(value)")
         if (value.count>1) {
             fn = "/\(self.Languages[indexLanguage].zip)/words/\(value).mp3"
         } else {
             fn = "/\(self.Languages[indexLanguage].zip)/phonetic/"+typePronounce.prefixValue().lowercased()+"/"+value+".mp3"
         }
-//        print(fn)
         return  fileExistsInDocumentDirectory(fn)
     }
                                         

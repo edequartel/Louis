@@ -26,10 +26,6 @@ struct DownloadView: View {
 
 struct ListItemView: View {
     @EnvironmentObject var viewModel: LouisViewModel
-
-    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
-    @AppStorage("INDEX_METHOD") var indexMethod = 0
-    
     let language : Item
     
     @State private var showProgressIndicator = true
@@ -40,9 +36,7 @@ struct ListItemView: View {
     
     var body: some View {
         HStack {
-//            Text("")
             Text("\(language.zip)".localized())
-//                .modifier(Square(color: .green))
             Spacer()
             
             if (folderExists) {
@@ -51,11 +45,6 @@ struct ListItemView: View {
                     if nrofLanguages() > 1 { //??
                         deleteFolderFromDocumentsDirectory(folderName: language.zip)
                         progress = 0
-                        
-                        viewModel.indexLanguage = indexLanguage
-                        indexMethod = 0
-                        
-                        
                     } else {
                             showingAlert = true
                         }
