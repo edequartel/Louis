@@ -16,7 +16,6 @@ final class LouisViewModel: ObservableObject {
     @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
     @AppStorage("INDEX_METHOD") var indexMethod = 0
     @AppStorage("INDEX_LESSON") var indexLesson = 0
-    
     @AppStorage("INDEX_ACTIVITY") var indexActivity = 0
     @AppStorage("SYLLABLE") var syllable = false
     @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0 //child
@@ -27,9 +26,16 @@ final class LouisViewModel: ObservableObject {
     @AppStorage("INDEX_READING") var indexPosition = 1 //before
     @AppStorage("TALK_WORD") var talkWord = false
     
+    @AppStorage("ACTIVITY_TYPE") var activityTypeRawValue = 0
+    var activityType: activityEnum {
+            get { activityEnum(rawValue: activityTypeRawValue) ?? .character }
+            set { activityTypeRawValue = newValue.rawValue }
+        }
+    
     @Published var item: String = "xxx"
     @Published var previousItem: String = "previous"
     @Published var items =  ["bal","n-oo-t","m-ie-s"]
+    
     
     
     @Published var typeActivity : activityEnum = .character
@@ -40,7 +46,7 @@ final class LouisViewModel: ObservableObject {
     
     @Published var count = 0
     
-    @Published var doubleTap = false
+//    @Published var doubleTap = false
     @Published var updateViewData = false
     @Published var brailleOn = true
     
@@ -62,7 +68,7 @@ final class LouisViewModel: ObservableObject {
         previousItem = item
         
         while (item==items[0]) {
-            let str = (typeActivity == .character) ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters : Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words
+            let str = (activityType == .character) ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters : Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words
 //            print("before cleaning \(str)")
                 items = cleanUpString(str)
 //            print("after items \(items)")
@@ -79,7 +85,6 @@ final class LouisViewModel: ObservableObject {
         
         var filterOutput : Array<String> = []
         for word in outputTrimmed {
-            print("..\(word)")
             if fileExists(value: stripString(value: String(word))) {
                 filterOutput.append(String(word))
             }
@@ -115,46 +120,28 @@ final class LouisViewModel: ObservableObject {
         utterance.volume = Float(0.5)
         synthesizer.speak(utterance)
     }
-    
-    func getLanguageName()->String {
-        if !Languages.isEmpty {
-            return Languages[indexLanguage].name
-        }
-        else {
-            return "unknown Language"
-        }
+
+    func getMethodeName() -> String {
+        return Languages.indices.contains(indexLanguage) &&
+               Languages[indexLanguage].method.indices.contains(indexMethod)
+            ? Languages[indexLanguage].method[indexMethod].name
+            : "unknown Method"
     }
     
-    func getMethodeName()->String {
-        if !Languages.isEmpty {
-            return Languages[indexLanguage].method[indexMethod].name
-        } else {
-            return "unknown Method"
-        }
+    func getLessonName() -> String {
+        return Languages.indices.contains(indexLanguage) &&
+               Languages[indexLanguage].method.indices.contains(indexMethod) &&
+               Languages[indexLanguage].method[indexMethod].lesson.indices.contains(indexLesson)
+               ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].name
+               : "unknown Lesson"
     }
-    
-    func getLessonName()->String {
-        if !Languages.isEmpty {
-            return Languages[indexLanguage].method[indexMethod].lesson[indexLesson].name
-        }
-        else {
-            return "unknown Lesson"
-        }
-    }
-    
     
     func stripString(value: String)->String {
         return value.replacingOccurrences(of: "-", with: "")
     }
     
-    func addSpaces(value: String)->String{
-        var temp = ""
-        for char in value {
-            temp.append("\(char)")
-            temp.append(" ")
-        }
-        if temp.count>0 { temp.removeLast() }
-        return temp
+    func addSpaces(value: String) -> String {
+        return value.map { String($0) }.joined(separator: " ")
     }
     
     func check(input: String) -> Int {
@@ -223,15 +210,29 @@ final class LouisViewModel: ObservableObject {
         Talk(value: item.lowercased())
     }
     
+//    func showString() -> String {
+//        let syllableString = (typePronounce == .child)
+//            ? item.replacingOccurrences(of: "-", with: " ")
+//            : addSpaces(value: stripString(value: item))
+//
+//        let tempString1 = (syllable) ? syllableString
+//        :  item.replacingOccurrences(of: "-", with: "")
+//
+//        let prevSyllableString = (typePronounce == .child) ? previousItem.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: previousItem))
+//        let prevtempString1 = (syllable) ? prevSyllableString :  previousItem.replacingOccurrences(of: "-", with: "")
+//
+//       return (isPlaying) && (!doubleTap) && (typePositionReading == .after) ? prevtempString1 : tempString1
+//    }
+//
     func showString() -> String {
         let syllableString = (typePronounce == .child) ? item.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: item))
-        let tempString1 = (syllable) ? syllableString :  stripString(value: item)
-        
+        let tempString1 = syllable ? syllableString : item.replacingOccurrences(of: "-", with: "")
         let prevSyllableString = (typePronounce == .child) ? previousItem.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: previousItem))
-        let prevtempString1 = (syllable) ? prevSyllableString :  stripString(value: previousItem)
-        
-       return (isPlaying) && (!doubleTap) && (typePositionReading == .after) ? prevtempString1 : tempString1
+        let prevtempString1 = syllable ? prevSyllableString : previousItem.replacingOccurrences(of: "-", with: "")
+        return isPlaying && typePositionReading == .after ? prevtempString1 : tempString1
     }
+
+
     
     //maybe see character as a word with length 1, this function can be shorter
     func Talk(value : String) {
@@ -244,7 +245,7 @@ final class LouisViewModel: ObservableObject {
         }
         
         //character
-        if (typeActivity == .character) {
+        if (activityType == .character) {
             print("character [\(value)]")
             
             
@@ -288,7 +289,7 @@ final class LouisViewModel: ObservableObject {
         }
         
         //word
-        if (typeActivity == .word) {
+        if (activityType == .word) {
             print("word [\(value)]")
             
             let myStringArr = value.components(separatedBy: "-") //divide the w-o-r-d in characters

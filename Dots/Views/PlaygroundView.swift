@@ -227,7 +227,6 @@ struct activityView : View {
                 }) {
                     Text(viewModel.showString())
                         .font(Font.custom("bartimeus8dots", size: 32))
-                        
                 }
             }
 //            SpeechView()

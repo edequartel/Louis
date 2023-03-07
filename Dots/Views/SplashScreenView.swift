@@ -19,22 +19,6 @@ struct SplashScreenView: View {
 //    let dataURL = "https://github.com/edequartel/Louis/blob/main/Documents/methods-demo.json"
 
     @State private var errorMessage: String?
-    
-    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
-    @AppStorage("INDEX_METHOD") var indexMethod = 0
-    @AppStorage("INDEX_LESSON") var indexLesson = 0
-    
-    @AppStorage("INDEX_ACTIVITY") var indexActivity = 0
-    @AppStorage("SYLLABLE") var syllable = false
-    @AppStorage("TALK_WORD") var talkWord = false
-    @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0 //child
-    @AppStorage("INDEX_TRYS") var indexTrys = 5 // 13
-    @AppStorage("INDEX_PAUSES") var indexPauses = 0
-    @AppStorage("CONDITIONAL") var conditional = false
-    @AppStorage("ASSIST") var assist = true
-    @AppStorage("INDEX_READING") var indexPosition = 1 //before
-//    @AppStorage("INDEX_FONT") var indexFont = 1
-    
     @State private var isActive = false
     @State private var isDownloaded = false
     @State private var audioDownloaded = false
@@ -61,33 +45,6 @@ struct SplashScreenView: View {
                 print(getDocumentDirectory().path)
                 audioDownloaded = (countVisibleSubdirectoriesInDocumentsDirectory() != 0)
                 if (audioDownloaded) { print("audioDownloaded != 0") }
-                viewModel.indexLanguage = indexLanguage
-                viewModel.indexMethod = indexMethod
-                viewModel.indexLesson = indexLesson
-                viewModel.conditional = conditional
-                
-                
-                if let activity = activityEnum(rawValue: indexActivity) {
-                    viewModel.typeActivity = activity
-                }
-                
-                viewModel.syllable = syllable
-                viewModel.talkWord = talkWord
-                viewModel.indexPauses = indexPauses
-                
-                if let pronouncation = pronounceEnum(rawValue: indexPronounce) {
-                    viewModel.typePronounce = pronouncation
-                }
-                
-                viewModel.indexTrys = indexTrys
-                viewModel.conditional = conditional
-                viewModel.assist = assist
-                
-                
-                if let positionReading = positionReadingEnum(rawValue: indexPosition) {
-                    viewModel.typePositionReading = positionReading
-                }
-                
                 let sound = Sound(fileName: "perkinsping.mp3")
                 sound.play()
                 //

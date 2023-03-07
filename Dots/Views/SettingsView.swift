@@ -17,7 +17,7 @@ struct SettingsView: View {
                 overviewMethodsView()
                 overviewActivityView()
                 overviewGeneralView()
-//              resetModelView()
+              resetModelView()
             }
             .navigationBarTitle(Text("settings".localized()), displayMode: .inline)
             .navigationBarItems(trailing:
@@ -95,6 +95,22 @@ struct overviewActivityView : View {
     
     var body: some View {
         Section {
+            VStack {
+                Picker("activity".localized(), selection: $viewModel.activityType) {
+                    ForEach(activityEnum.allCases, id: \.self) { activityType in
+                        Text(activityType.stringValue().localized()).tag(activityType)
+                    }
+                }
+                //                        .pickerStyle(MenuPickerStyle())
+                .onChange(of: viewModel.indexActivity) { tag in
+                    print("change in indexActivity  \(tag)")
+                    viewModel.typeActivity = activityEnum(rawValue: tag) ?? .character
+                    viewModel.updateViewData = true
+                }
+            }
+        }
+        
+        Section {
             Picker("activity".localized(), selection: $viewModel.indexActivity) {
                 ForEach(activityEnum.allCases, id: \.self) { typ in
                     Text("\(typ.stringValue().localized())").tag(typ.rawValue)
@@ -131,9 +147,7 @@ struct overviewActivityView : View {
                 }
                 .onChange(of: viewModel.indexPronounce) { tag in
                     print("change in indexPronounce  \(tag)")
-                    if let pronounce = pronounceEnum(rawValue: tag) {
-                        viewModel.typePronounce = pronounce
-                    }
+                    viewModel.typePronounce = pronounceEnum(rawValue: tag) ?? .child
                 }
             }
         }
@@ -158,18 +172,7 @@ struct overviewGeneralView : View {
             Toggle("conditional".localized(), isOn: $viewModel.conditional)
             
             Toggle("assist".localized(), isOn: $viewModel.assist)
-            
-            
-//            Picker("reading".localized(), selection: $viewModel.typePositionReading) {
-//                ForEach(positionReadingEnum.allCases, id: \.self) {
-//                    Text($0.stringValue().localized()).tag($0)
-//                }
-//            }
-//            .onChange(of: viewModel.typePositionReading) { tag in
-//                print("change in indexPosition \(tag)")
-//            }
-
-            
+                        
             Picker("reading".localized(), selection: $viewModel.indexPosition) {
                 ForEach(positionReadingEnum.allCases, id: \.self) { position in
                     Text("\(position.stringValue().localized())").tag(position.rawValue)
@@ -177,9 +180,8 @@ struct overviewGeneralView : View {
             }
             .onChange(of: viewModel.indexPosition) { tag in
                 print("change in indexPosition \(tag)")
-                if let position = positionReadingEnum(rawValue: tag) {
-                    viewModel.typePositionReading = position
-                }
+                viewModel.typePositionReading = positionReadingEnum(rawValue: tag) ?? .before
+
             }
         }
     }
@@ -203,21 +205,13 @@ struct resetModelView : View {
         viewModel.indexLanguage = 0
         viewModel.indexMethod = 0
         viewModel.indexLesson = 0
-        
-        if let activity = activityEnum(rawValue: viewModel.indexActivity) {
-            viewModel.typeActivity = activity
-        }
-        
+        viewModel.typeActivity = activityEnum(rawValue: viewModel.indexActivity) ?? .word
         viewModel.syllable = false
-        
-        if let pronouncation = pronounceEnum(rawValue: viewModel.indexPronounce) {
-            viewModel.typePronounce = pronouncation
-        }
-        
+        viewModel.typePronounce = pronounceEnum(rawValue: viewModel.indexPronounce) ?? .child
         viewModel.indexTrys = 5 //13
         viewModel.indexPauses = 0
         viewModel.conditional = false
-        viewModel.conditional = true
+        viewModel.assist = true
         viewModel.typePositionReading = positionReadingEnum(rawValue: viewModel.indexPosition) ?? .before
         viewModel.count = 0
     }
