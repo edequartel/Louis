@@ -55,7 +55,7 @@ struct PlaygroundView: View {
                     viewModel.updateViewData = false
                 }
                 
-                if (viewModel.typePositionReading == .before) {
+                if (viewModel.positionReadingType == .before) {
                     viewModel.Talk(value : viewModel.item.lowercased())
                 }
                 else //nextone
@@ -137,8 +137,8 @@ struct overviewSettingsView : View {
             //            Image(systemName: viewModel.conditional ? "checkmark.circle": "circle")
             Image(systemName: viewModel.isPlaying ? "speaker.wave.3" : "speaker")
             Spacer()
-            if ((viewModel.syllable) && (viewModel.typeActivity == .word)) || (viewModel.typeActivity == .character) {
-                Text("\(viewModel.typePronounce.stringValue().localized())")
+            if ((viewModel.syllable) && (viewModel.activityType == .word)) || (viewModel.activityType == .character) {
+                Text("\(viewModel.pronounceType.stringValue().localized())")
                 Spacer()
             }
             imageSpeakView()
@@ -149,10 +149,10 @@ struct overviewSettingsView : View {
 struct imageSpeakView : View {
     @EnvironmentObject var viewModel: LouisViewModel
     var body: some View {
-        let imageSound1 = viewModel.typePositionReading == .before ? "square.lefthalf.filled" : "square.split.2x1"
-        let imageSound2 = viewModel.typePositionReading == .after ? "square.righthalf.filled" : imageSound1
+        let imageSound1 = viewModel.positionReadingType == .before ? "square.lefthalf.filled" : "square.split.2x1"
+        let imageSound2 = viewModel.positionReadingType == .after ? "square.righthalf.filled" : imageSound1
         Image(systemName: imageSound2)
-        if (viewModel.talkWord && viewModel.syllable && viewModel.typeActivity == .word) {
+        if (viewModel.talkWord && viewModel.syllable && viewModel.activityType == .word) {
             Image(systemName: "placeholdertext.fill")
         }
     }

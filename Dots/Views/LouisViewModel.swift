@@ -16,9 +16,7 @@ final class LouisViewModel: ObservableObject {
     @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
     @AppStorage("INDEX_METHOD") var indexMethod = 0
     @AppStorage("INDEX_LESSON") var indexLesson = 0
-    @AppStorage("INDEX_ACTIVITY") var indexActivity = 0
     @AppStorage("SYLLABLE") var syllable = false
-    @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0 //child
     @AppStorage("INDEX_TRYS") var indexTrys = 5 // 13
     @AppStorage("INDEX_PAUSES") var indexPauses = 0
     @AppStorage("CONDITIONAL") var conditional = false
@@ -26,32 +24,32 @@ final class LouisViewModel: ObservableObject {
     @AppStorage("INDEX_READING") var indexPosition = 1 //before
     @AppStorage("TALK_WORD") var talkWord = false
     
-    @AppStorage("ACTIVITY_TYPE") var activityTypeRawValue = 0
+    @AppStorage("ACTIVITY_TYPE") var activityTypeRawValue = 1
     var activityType: activityEnum {
             get { activityEnum(rawValue: activityTypeRawValue) ?? .character }
             set { activityTypeRawValue = newValue.rawValue }
         }
     
+    @AppStorage("PRONOUNCE_TYPE") var pronounceTypeRawValue = 0
+    var pronounceType: pronounceEnum {
+            get { pronounceEnum(rawValue: pronounceTypeRawValue) ?? .child }
+            set { pronounceTypeRawValue = newValue.rawValue }
+        }
+    
+    @AppStorage("POSITION_TYPE") var positionTypeRawValue = 0
+    var positionReadingType: positionReadingEnum {
+        get { positionReadingEnum(rawValue: positionTypeRawValue) ?? .before }
+            set { positionTypeRawValue = newValue.rawValue }
+        }
+    
     @Published var item: String = "xxx"
     @Published var previousItem: String = "previous"
     @Published var items =  ["bal","n-oo-t","m-ie-s"]
-    
-    
-    
-    @Published var typeActivity : activityEnum = .character
-    @Published var typePronounce : pronounceEnum = .child
-    @Published var typePositionReading : positionReadingEnum = .not
-    
     @Published var isPlaying = false
-    
     @Published var count = 0
-    
-//    @Published var doubleTap = false
     @Published var updateViewData = false
     @Published var brailleOn = true
-    
     @Published var myColor = Color.green
-    
     
     let synthesizer = AVSpeechSynthesizer()
     let nextword : SystemSoundID = 1113
@@ -98,7 +96,7 @@ final class LouisViewModel: ObservableObject {
         if (value.count>1) {
             fn = "/\(self.Languages[indexLanguage].zip)/words/\(value).mp3"
         } else {
-            fn = "/\(self.Languages[indexLanguage].zip)/phonetic/"+typePronounce.prefixValue().lowercased()+"/"+value+".mp3"
+            fn = "/\(self.Languages[indexLanguage].zip)/phonetic/"+pronounceType.prefixValue().lowercased()+"/"+value+".mp3"
         }
         return  fileExistsInDocumentDirectory(fn)
     }
@@ -146,11 +144,13 @@ final class LouisViewModel: ObservableObject {
     
     func check(input: String) -> Int {
         //this action, read type and enter to aknowledge
+        print("check")
         var returnValue : Int = -1
-        if (input == stripString(value: item)) || (!self.conditional) {
+        if (input == stripString(value: item)) || (!conditional) {
+            print(">>>\(stripString(value: item))")
             myColor = .green
             
-            if (typePositionReading == .after) {
+            if (positionReadingType == .after) {
                 Talk(value: item.lowercased())
             }
             
@@ -169,7 +169,7 @@ final class LouisViewModel: ObservableObject {
             //wait untill sound is ready before shuffle
             Shuffle()
             
-            if (typePositionReading == .before) {
+            if (positionReadingType == .before) {
                 Talk(value : item.lowercased())
             }
             else //nextone
@@ -199,7 +199,7 @@ final class LouisViewModel: ObservableObject {
     }
     
     func getPhoneticFile(value : String) -> URL {
-        return getBaseDirectory().appendingPathComponent("phonetic/"+typePronounce.prefixValue().lowercased()+"/"+value+".mp3")
+        return getBaseDirectory().appendingPathComponent("phonetic/"+pronounceType.prefixValue().lowercased()+"/"+value+".mp3")
     }
     
     func getAudioFile(value : String) -> URL {
@@ -210,32 +210,19 @@ final class LouisViewModel: ObservableObject {
         Talk(value: item.lowercased())
     }
     
-//    func showString() -> String {
-//        let syllableString = (typePronounce == .child)
-//            ? item.replacingOccurrences(of: "-", with: " ")
-//            : addSpaces(value: stripString(value: item))
-//
-//        let tempString1 = (syllable) ? syllableString
-//        :  item.replacingOccurrences(of: "-", with: "")
-//
-//        let prevSyllableString = (typePronounce == .child) ? previousItem.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: previousItem))
-//        let prevtempString1 = (syllable) ? prevSyllableString :  previousItem.replacingOccurrences(of: "-", with: "")
-//
-//       return (isPlaying) && (!doubleTap) && (typePositionReading == .after) ? prevtempString1 : tempString1
-//    }
-//
     func showString() -> String {
-        let syllableString = (typePronounce == .child) ? item.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: item))
+        let syllableString = (pronounceType == .child) ? item.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: item))
         let tempString1 = syllable ? syllableString : item.replacingOccurrences(of: "-", with: "")
-        let prevSyllableString = (typePronounce == .child) ? previousItem.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: previousItem))
+        let prevSyllableString = (pronounceType == .child) ? previousItem.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: previousItem))
         let prevtempString1 = syllable ? prevSyllableString : previousItem.replacingOccurrences(of: "-", with: "")
-        return isPlaying && typePositionReading == .after ? prevtempString1 : tempString1
+        return isPlaying && positionReadingType == .after ? prevtempString1 : tempString1
     }
 
 
     
     //maybe see character as a word with length 1, this function can be shorter
     func Talk(value : String) {
+        print("talk() \(value)")
         Soundable.stopAll()
         isPlaying = false
         var sounds: [Sound] = []
@@ -261,7 +248,7 @@ final class LouisViewModel: ObservableObject {
                     sounds.append(sound)
                 }
                 
-                if (typePronounce == .meaning) {
+                if (pronounceType == .meaning) {
                     let sound = Sound(url: getBaseDirectory().appendingPathComponent("phonetic/adult/"+value.lowercased()+".mp3"))
                     sounds.append(sound)
                 }
@@ -296,13 +283,13 @@ final class LouisViewModel: ObservableObject {
             let theWord = value.replacingOccurrences(of: "-", with: "") //make a word
             
             if (syllable) { //
-                if ((typePronounce == .adult) || (typePronounce == .form) || (typePronounce == .meaning)) {
+                if ((pronounceType == .adult) || (pronounceType == .form) || (pronounceType == .meaning)) {
                     for char in theWord {
-                        if ((typePronounce == .adult) || (typePronounce == .form) || (typePronounce == .meaning)) { //adult
+                        if ((pronounceType == .adult) || (pronounceType == .form) || (pronounceType == .meaning)) { //adult
                             sounds.append(Sound(url: getPhoneticFile(value: "\(char)")))
                             AddSilence()
                         }
-                        if (typePronounce == .meaning) { //form-adult
+                        if (pronounceType == .meaning) { //form-adult
                             sounds.append(Sound(url: getBaseDirectory().appendingPathComponent("phonetic/adult/"+char.lowercased()+".mp3")))
                             AddSilence()
                         }
