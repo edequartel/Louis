@@ -42,7 +42,7 @@ struct ListItemView: View {
             if (folderExists) {
                 Button(action: {
                     print("Delete")
-                    if nrofLanguages() > 1 { //??
+                    if countVisibleSubdirectoriesInDocumentsDirectory() > 1 { //??
                         deleteFolderFromDocumentsDirectory(folderName: language.zip)
                         progress = 0
                     } else {
@@ -54,7 +54,7 @@ struct ListItemView: View {
                         .modifier(Square(color: .red, width: 120))
                         .font(.footnote)
                 }
-                .alert("Minimum number of languages is one.", isPresented: $showingAlert) {
+                .alert("minimumlanguages".localized(), isPresented: $showingAlert) {
                             Button("OK", role: .cancel) { }
                         }
             } else {
@@ -78,10 +78,22 @@ struct ListItemView: View {
         .onAppear {folderExists = checkIfFolderExists(value: language.zip)}
     }
     
-    func nrofLanguages() -> Int { //??
-//        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-
-        return 3
+    func countVisibleSubdirectoriesInDocumentsDirectory() -> Int {
+        var count = 0
+        if let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            do {
+                let contents = try FileManager.default.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles, .skipsSubdirectoryDescendants])
+                for item in contents {
+                    var isDirectory: ObjCBool = false
+                    if FileManager.default.fileExists(atPath: item.path, isDirectory: &isDirectory) && isDirectory.boolValue {
+                        count += 1
+                    }
+                }
+            } catch {
+                // Handle error here
+            }
+        }
+        return count
     }
     
     func deleteFolderFromDocumentsDirectory(folderName: String) {

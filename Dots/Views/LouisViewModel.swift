@@ -199,6 +199,7 @@ final class LouisViewModel: ObservableObject {
     }
     
     func getPhoneticFile(value : String) -> URL {
+        print("getPhoneticFile() \(value)")
         return getBaseDirectory().appendingPathComponent("phonetic/"+pronounceType.prefixValue().lowercased()+"/"+value+".mp3")
     }
     
@@ -211,10 +212,20 @@ final class LouisViewModel: ObservableObject {
     }
     
     func showString() -> String {
-        let syllableString = (pronounceType == .child) ? item.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: item))
+        print(">>\(item)")
+        
+        
+        let syllableString = (pronounceType == .child)  && (item.components(separatedBy: "-").count != 1)  ? item.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: item))
+        print("\(syllableString)")
+        
         let tempString1 = syllable ? syllableString : item.replacingOccurrences(of: "-", with: "")
-        let prevSyllableString = (pronounceType == .child) ? previousItem.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: previousItem))
+        
+        let prevSyllableString = (pronounceType == .child) && (item.components(separatedBy: "-").count != 1) ? previousItem.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: previousItem))
+        
+        
         let prevtempString1 = syllable ? prevSyllableString : previousItem.replacingOccurrences(of: "-", with: "")
+        
+        
         return isPlaying && positionReadingType == .after ? prevtempString1 : tempString1
     }
 
@@ -223,6 +234,8 @@ final class LouisViewModel: ObservableObject {
     //maybe see character as a word with length 1, this function can be shorter
     func Talk(value : String) {
         print("talk() \(value)")
+        print("getBaseDirectory() \(getBaseDirectory())")
+        print("getDocumentDirectory() \(getDocumentDirectory())")
         Soundable.stopAll()
         isPlaying = false
         var sounds: [Sound] = []
@@ -279,10 +292,15 @@ final class LouisViewModel: ObservableObject {
         if (activityType == .word) {
             print("word [\(value)]")
             
-            let myStringArr = value.components(separatedBy: "-") //divide the w-o-r-d in characters
+            var myStringArr = value.components(separatedBy: "-") //divide the w-o-r-d in characters
+            if myStringArr.count == 1 { //and if not dividing so one string
+               myStringArr = value.map { String($0) }
+            }
+            
             let theWord = value.replacingOccurrences(of: "-", with: "") //make a word
             
             if (syllable) { //
+                print("syllable")
                 if ((pronounceType == .adult) || (pronounceType == .form) || (pronounceType == .meaning)) {
                     for char in theWord {
                         if ((pronounceType == .adult) || (pronounceType == .form) || (pronounceType == .meaning)) { //adult
@@ -297,6 +315,8 @@ final class LouisViewModel: ObservableObject {
                 }
                 
                 else {//child
+                    print("child")
+//                    print(myStringArr)
                     for char in myStringArr {
                         sounds.append(Sound(url: getBaseDirectory().appendingPathComponent("phonetic/child/"+char.lowercased()+".mp3")))
                         AddSilence()

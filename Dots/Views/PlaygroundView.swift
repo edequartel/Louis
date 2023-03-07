@@ -123,7 +123,7 @@ struct progressView : View {
             )
             .frame(height: 5)
             Spacer()
-            Text("\(trys[viewModel.indexTrys])")
+            Text(trys[viewModel.indexTrys] != 999 ? "\(trys[viewModel.indexTrys])" : "∞")
         }
         .font(.footnote)
     }
@@ -162,14 +162,9 @@ struct assistView : View {
     @EnvironmentObject var viewModel: LouisViewModel
     @Binding var textFieldText: String
     
-    let monospacedFont = "Sono-Regular"
-    
     var body: some View {
-        
         HStack {
-            
-            Text(viewModel.showString())
-            
+            Text(viewModel.showString().replacingOccurrences(of: " ", with: ""))
             Spacer()
             Text(textFieldText)
                 .lineLimit(1)
@@ -182,12 +177,11 @@ struct assistView : View {
 struct typeOverView : View {
     @EnvironmentObject var viewModel: LouisViewModel
     
-    let monospacedFont = "Sono-Regular"
-    
     var body: some View {
         Section {
             Text("\(viewModel.showString())")
                 .font(Font.custom("bartimeus8dots", size: 32))
+                .foregroundColor(.blue)
                 .frame(height:60)
         }
     }
@@ -210,6 +204,7 @@ struct activityView : View {
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
                     .frame(height:60)
+                    .disabled(viewModel.isPlaying)
                     .onSubmit {
                         let result = viewModel.check(input: textFieldText)
                         if (result > -1) { viewModel.indexLesson = result }
@@ -227,6 +222,7 @@ struct activityView : View {
                 }) {
                     Text(viewModel.showString())
                         .font(Font.custom("bartimeus8dots", size: 32))
+//                        .foregroundColor(.bart_green)
                 }
             }
 //            SpeechView()

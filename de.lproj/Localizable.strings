@@ -17,6 +17,7 @@
 "country" = "Land";
 "deutsch" = "🇩🇪 Deutsch";
 "developedBy" = "Bartiméus Education\nZeist \ndie Niederlande";
+"download" = "Herunterladen";
 "downloadLanguages" = "Sprachen herunterladen";
 "dutch" = "🇳🇱 Holländisch";
 "english" = "🇬🇧 Englisch";
@@ -52,4 +53,4 @@
 "text" = "Woter";
 "update" = "Aktualisieren";
 "word" = "Wort";
-"download" = "Herunterladen";
+"minimumlanguages" = "Die minimale Anzahl von Sprachen ist eins.";

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Soundable
 
 
 struct SettingsView: View {
@@ -32,47 +33,50 @@ struct SettingsView: View {
 
 struct overviewMethodsView : View {
     @EnvironmentObject var viewModel: LouisViewModel
-
+    
     var body: some View {
         Section {
             Picker("Language".localized(), selection: $viewModel.indexLanguage) {
                 ForEach(viewModel.Languages, id: \.id) { language in
                     if (checkIfFolderExists(value: language.zip)) {
                         Text(language.name.localized()).tag(language.id)
+                            .lineLimit(1)
+                            .truncationMode(.tail)
                     }
                 }
             }
+            .pickerStyle(MenuPickerStyle())
             .onChange(of: viewModel.indexLanguage) { tag in
                 viewModel.indexMethod = 0
                 viewModel.indexLesson = 0
                 viewModel.count = 0
-//                viewModel.Shuffle() //?
+                viewModel.updateViewData = true
             }
-
+            
             Picker("method".localized(), selection: $viewModel.indexMethod) {
                 ForEach(viewModel.Languages[viewModel.indexLanguage].method, id: \.id) { method in
                     Text(method.name).tag(method.id)
                 }
             }
+            .pickerStyle(MenuPickerStyle())
+            .frame(height: 40)
             .onChange(of: viewModel.indexMethod) { tag in
                 print("Change in tag method: \(tag)")
                 viewModel.indexLesson = 0
                 viewModel.updateViewData = true
                 viewModel.count = 0
-//                viewModel.Shuffle() //?
             }
-
+            
             Picker("lesson".localized(), selection: $viewModel.indexLesson) {
                 ForEach(viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson, id: \.id) { lesson in
                     Text(lesson.name).tag(lesson.id)
                 }
             }
-            
+            .pickerStyle(MenuPickerStyle())
             .onChange(of: viewModel.indexLesson) { tag in
                 print("Change in tag lesson: \(tag)")
                 viewModel.updateViewData = true
                 viewModel.count = 0
-//                viewModel.Shuffle() //?
             }
         }
     }
@@ -91,7 +95,7 @@ struct overviewMethodsView : View {
 
 struct overviewActivityView : View {
     @EnvironmentObject var viewModel: LouisViewModel
-
+    
     var body: some View {
         Section {
             Picker("activity".localized(), selection: $viewModel.activityType) {
@@ -119,6 +123,7 @@ struct overviewActivityView : View {
                         Text("\(pauses[$0]) sec").tag($0)
                     }
                 }
+                .pickerStyle(MenuPickerStyle())
             }
             
             if ((viewModel.syllable) && (viewModel.activityType == .word)) || (viewModel.activityType == .character) {
@@ -140,9 +145,10 @@ struct overviewGeneralView : View {
         Section{
             Picker("nroftrys".localized(), selection: $viewModel.indexTrys) {
                 ForEach(0 ..< trys.count, id: \.self) {
-                    Text("\(trys[$0])").tag($0)
+                    Text(trys[$0] != 999 ? "\(trys[$0])" : "∞").tag($0)
                 }
             }
+            .pickerStyle(MenuPickerStyle())
             .onChange(of: viewModel.indexTrys) { tag in
                 print("change in nrofWords \(trys[tag])")
                 viewModel.count = 0
@@ -158,14 +164,14 @@ struct overviewGeneralView : View {
                 }
             }
             .pickerStyle(MenuPickerStyle())
-
+            
         }
     }
 }
 
 struct resetModelView : View {
     @EnvironmentObject var viewModel: LouisViewModel
-        
+    
     var body: some View {
         Section{
             Button {

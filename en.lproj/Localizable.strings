@@ -17,6 +17,7 @@
 "country" = "Country";
 "deutsch" = "🇩🇪 German";
 "developedBy" = "Bartiméus Education\nZeist \nthe Netherlands";
+"download" = "Download";
 "downloadLanguages" = "Download languages";
 "dutch" = "🇳🇱 Dutch";
 "english" = "🇬🇧 English";
@@ -52,4 +53,4 @@
 "text" = "Text";
 "update" = "Update";
 "word" = "Word";
-"download" = "Download";
+"minimumlanguages" = "Minimum number of languages is one.";

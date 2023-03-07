@@ -36,7 +36,7 @@ struct SplashScreenView: View {
                     .frame(width: 150, height: 150)
 //                Spacer()
                 if (countVisibleSubdirectoriesInDocumentsDirectory() == 0) {
-                    Text("\(message) \(locale.description)")
+                    Text("\(message)")
                     Text("\(String(format: "%.0f", progress * 100))%")
                 }
                 
@@ -51,14 +51,14 @@ struct SplashScreenView: View {
                 loadData()
                 //
                 if (countVisibleSubdirectoriesInDocumentsDirectory() == 0) {
-//                    if (locale.languageCode == "nl") {
+                    if (locale.languageCode == "nl") {
                         downloadZipFile(value: "dutch")
-//                        viewModel.indexLanguage = 0
-//                    }
-//                    else {
-//                        downloadZipFile(value: "english")
-//                        viewModel.indexlanguage = 1
-//                    }
+                        viewModel.indexLanguage = 0
+                    }
+                    else {
+                        downloadZipFile(value: "english")
+                        viewModel.indexLanguage = 1
+                    }
                 }
                 //
                 
