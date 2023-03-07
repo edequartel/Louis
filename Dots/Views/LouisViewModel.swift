@@ -17,7 +17,7 @@ final class LouisViewModel: ObservableObject {
     @AppStorage("INDEX_METHOD") var indexMethod = 0
     @AppStorage("INDEX_LESSON") var indexLesson = 0
     @AppStorage("SYLLABLE") var syllable = false
-    @AppStorage("INDEX_TRYS") var indexTrys = 5 // 13
+    @AppStorage("INDEX_TRYS") var indexTrys = 4
     @AppStorage("INDEX_PAUSES") var indexPauses = 0
     @AppStorage("CONDITIONAL") var conditional = false
     @AppStorage("ASSIST") var assist = true
@@ -36,7 +36,7 @@ final class LouisViewModel: ObservableObject {
             set { pronounceTypeRawValue = newValue.rawValue }
         }
     
-    @AppStorage("POSITION_TYPE") var positionTypeRawValue = 0
+    @AppStorage("POSITION_TYPE") var positionTypeRawValue = 1
     var positionReadingType: positionReadingEnum {
         get { positionReadingEnum(rawValue: positionTypeRawValue) ?? .before }
             set { positionTypeRawValue = newValue.rawValue }
@@ -212,9 +212,7 @@ final class LouisViewModel: ObservableObject {
     }
     
     func showString() -> String {
-        print(">>\(item)")
-        
-        
+//        print(">>\(item)")
         let syllableString = (pronounceType == .child)  && (item.components(separatedBy: "-").count != 1)  ? item.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: item))
         print("\(syllableString)")
         

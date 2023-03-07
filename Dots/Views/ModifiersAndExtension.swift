@@ -131,7 +131,6 @@ struct Square: ViewModifier {
     func body(content: Content) -> some View {
         content
             .foregroundColor(.white)
-//            .font(.headline)
             .padding(20)
             .frame(minWidth: 0, maxWidth: width)
             .background(color)

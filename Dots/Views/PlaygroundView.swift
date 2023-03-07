@@ -45,7 +45,7 @@ struct PlaygroundView: View {
                         .accessibilityLabel("keyboard".localized())
                 }
             }))
-
+            
             .onAppear() {
                 self.nameInFocus = voEnabled
                 
@@ -216,22 +216,33 @@ struct activityView : View {
         else
         {
             Section {
-                Button(action: {
-                    let result = viewModel.check(input: textFieldText)
-                    if (result > -1) { viewModel.indexLesson = result }
-                }) {
-                    Text(viewModel.showString())
-                        .font(Font.custom("bartimeus8dots", size: 32))
-//                        .foregroundColor(.bart_green)
+                VStack {
+//                    Spacer()
+                    Button(action: {
+                        let result = viewModel.check(input: textFieldText)
+                        if (result > -1) { viewModel.indexLesson = result }
+                    }) {
+                        if viewModel.showString().count == 1 {
+                            Text(viewModel.showString())
+                                .font(Font.custom("bartimeus8dots", size: 64))
+                                .modifier(Square(color: .bart_green))
+                        } else {
+                            Text(viewModel.showString())
+                                .font(Font.custom("bartimeus8dots", size: 32))
+                        }
+
+                    }
+//                    Spacer()
                 }
+                .padding(.vertical)
             }
-//            SpeechView()
+            //            SpeechView()
         }
         
         
-//        Section {
-//            SpeechView()
-//        }
+        //        Section {
+        //            SpeechView()
+        //        }
         
     }
 }
@@ -249,8 +260,8 @@ struct SpeechView: View {
     
     public var body: some View {
         VStack(spacing: 35.0) {
-//            Text(text)
-//            Text(lastWord)
+            //            Text(text)
+            //            Text(lastWord)
             SwiftSpeech.RecordButton()
                 .swiftSpeechToggleRecordingOnTap(locale: self.locale)//, animation: .spring(response: 0.3, dampingFraction: 0.5, blendDuration: 0))
                 .onRecognizeLatest(includePartialResults: true, update: $text)
@@ -275,7 +286,6 @@ struct SpeechView: View {
     }
     
 }
-
 
 struct PlaygroundView_Previews: PreviewProvider {
     static var previews: some View {

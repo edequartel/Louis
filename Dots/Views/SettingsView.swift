@@ -45,7 +45,6 @@ struct overviewMethodsView : View {
                     }
                 }
             }
-            .pickerStyle(MenuPickerStyle())
             .onChange(of: viewModel.indexLanguage) { tag in
                 viewModel.indexMethod = 0
                 viewModel.indexLesson = 0
@@ -58,7 +57,6 @@ struct overviewMethodsView : View {
                     Text(method.name).tag(method.id)
                 }
             }
-            .pickerStyle(MenuPickerStyle())
             .frame(height: 40)
             .onChange(of: viewModel.indexMethod) { tag in
                 print("Change in tag method: \(tag)")
@@ -72,7 +70,6 @@ struct overviewMethodsView : View {
                     Text(lesson.name).tag(lesson.id)
                 }
             }
-            .pickerStyle(MenuPickerStyle())
             .onChange(of: viewModel.indexLesson) { tag in
                 print("Change in tag lesson: \(tag)")
                 viewModel.updateViewData = true
@@ -103,7 +100,6 @@ struct overviewActivityView : View {
                     Text(activityType.stringValue().localized()).tag(activityType)
                 }
             }
-            .pickerStyle(MenuPickerStyle())
             .onChange(of: viewModel.activityType) { tag in
                 print("change in indexActivity  \(tag)")
                 viewModel.updateViewData = true
@@ -123,7 +119,6 @@ struct overviewActivityView : View {
                         Text("\(pauses[$0]) sec").tag($0)
                     }
                 }
-                .pickerStyle(MenuPickerStyle())
             }
             
             if ((viewModel.syllable) && (viewModel.activityType == .word)) || (viewModel.activityType == .character) {
@@ -132,7 +127,6 @@ struct overviewActivityView : View {
                         Text(pronounceType.stringValue().localized())//.tag(pronounceType)
                     }
                 }
-                .pickerStyle(MenuPickerStyle())
             }
         }
     }
@@ -148,7 +142,6 @@ struct overviewGeneralView : View {
                     Text(trys[$0] != 999 ? "\(trys[$0])" : "∞").tag($0)
                 }
             }
-            .pickerStyle(MenuPickerStyle())
             .onChange(of: viewModel.indexTrys) { tag in
                 print("change in nrofWords \(trys[tag])")
                 viewModel.count = 0
@@ -163,8 +156,6 @@ struct overviewGeneralView : View {
                     Text(positionReadingType.stringValue().localized())//.tag(pronounceType)
                 }
             }
-            .pickerStyle(MenuPickerStyle())
-            
         }
     }
 }
@@ -190,7 +181,7 @@ struct resetModelView : View {
         viewModel.activityType = .word
         viewModel.syllable = false
         viewModel.pronounceType = .child
-        viewModel.indexTrys = 5 //13
+        viewModel.indexTrys = 4 
         viewModel.indexPauses = 0
         viewModel.conditional = false
         viewModel.assist = true

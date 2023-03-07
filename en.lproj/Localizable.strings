@@ -34,6 +34,7 @@
 "meaning" = "Shape-Adult";
 "messageNoAudio" = "There is no audio. \nBefore you can use Louis you have to download a language.\n\nInformation > Download languages > Choose language to download";
 "method" = "Method";
+"minimumlanguages" = "Minimum number of languages is one";
 "next" = "Next";
 "not" = "Not";
 "nrofWords" = "Number of words";
@@ -53,4 +54,3 @@
 "text" = "Text";
 "update" = "Update";
 "word" = "Word";
-"minimumlanguages" = "Minimum number of languages is one.";

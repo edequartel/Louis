@@ -34,6 +34,7 @@
 "meaning" = "Vorm-Volwassen";
 "messageNoAudio" = "Er is geen audio. \nDownload eerst een taal voordat U Louis gebruikt.\n\nInformatie > Download talen > kies de taal voor downloaden";
 "method" = "Methode";
+"minimumlanguages" = "Minimale aantal talen is één";
 "next" = "Volgende";
 "not" = "Niet";
 "nrofWords" = "Aantal woorden";
@@ -53,4 +54,3 @@
 "text" = "Tekst";
 "update" = "Bijwerken";
 "word" = "Woord";
-"minimumlanguages" = "Minimaal aantal talen is één.";

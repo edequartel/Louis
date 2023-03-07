@@ -34,6 +34,7 @@
 "meaning" = "Forme-Erwachsene";
 "messageNoAudio" = "Es gibt keinen audio. \nLaden Sie eine Sprache herunter, bevor Sie den Louis verwenden.\n\nInformationen > Sprachen herunterladen > Sprache zum Herunterladen auswählen";
 "method" = "Method";
+"minimumlanguages" = "Die minimale Anzahl von Sprachen ist eins";
 "next" = "Nächster";
 "not" = "Nicht";
 "nrofWords" = "Anzahl der Wörter";
@@ -53,4 +54,3 @@
 "text" = "Woter";
 "update" = "Aktualisieren";
 "word" = "Wort";
-"minimumlanguages" = "Die minimale Anzahl von Sprachen ist eins.";
