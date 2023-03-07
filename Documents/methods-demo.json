@@ -20,7 +20,7 @@
             "name" : "bal",
             "letters" : "a b l",
             "antiletters" : "",
-            "words" : "aa-l a-l b-a b-aa-l b-a-l l-a l-a-l",
+            "words" : "aa-l a-l b-a b-aa-l b-a-l l-a l-a-l bartimeus",
             "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",
@@ -323,7 +323,7 @@
       },
       {
         "id" : 2,
-        "name" : "Marechal",
+        "name" : "Maréchal",
         "developer" : "VISIO",
         "information" : "Voor mensen die kunnen lezen en schrijven. ",
         "letters" : "b a l k m aa p e d ee g i s t v n o oo r u uu h w ie f ui z ei j ij c sch oe eu ou au ch ng nk aai ooi oei oor eur eer eeuw ieuw",
@@ -466,7 +466,7 @@
     "method" : [
       {
         "id" : 0,
-        "name" : "Met punt op pad",
+        "name" : "Dot by dot",
         "developer" : "Bartiméus Education",
         "information" : "Voor kinderen. ",
         "letters" : "b a l k m aa p e d ee g i s t v n o oo r u uu h w ie f ui z ei j ij c sch oe eu ou au ch ng nk aai ooi oei oor eur eer eeuw ieuw",
@@ -477,7 +477,7 @@
             "name" : "bal",
             "letters" : "a b l",
             "antiletters" : "",
-            "words" : "battery beautiful ability habit helpful",
+            "words" : "  battery  battery   beauti ful abi *lity habit helpful notexistingname",
             "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",
@@ -498,7 +498,7 @@
             "name" : "kam",
             "letters" : "k a m",
             "antiletters" : "",
-            "words" : "aa-k- k-aa-k k-a-m k-m m-a m-aa-k m-a-k m-a-m m-a-m-a m-a-m-m-a",
+            "words" : "car boat house cat hat",
             "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",
@@ -519,7 +519,7 @@
             "name" : "kam+",
             "letters" : "k a m",
             "antiletters" : "",
-            "words" : "aa-k aa-l a-l b-a b-aa-l b-a-k b-a-l b-a-l-k k-aa-k k-aa-l k-a-l-k k-l-a-k l-a l-a-k l-a-l",
+            "words" : "road book pen pencil",
             "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",
@@ -540,7 +540,7 @@
             "name" : "aap",
             "letters" : "a a p",
             "antiletters" : "",
-            "words" : "aa-p p-a p-a-p p-a-p-a p-a-p-p-a",
+            "words" : "phone glasses window box",
             "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",
@@ -561,7 +561,7 @@
             "name" : "aap+",
             "letters" : "a p b c k",
             "antiletters" : "",
-            "words" : "aa-k aa-l aa-p a-l k-aa-k k-aa-l k-aa-p k-a-l-k k-a-l-m k-a-m k-a-m-p k-a-p k-l-a-k k-l-a-m k-l-a-m-p k-l-a-p k-m l-a l-a-k l-a-l l-a-m l-a-m-a l-a-m-p l-a-p m-a m-aa-k m-aa-l m-a-k m-a-l m-a-m m-a-m-a m-a-m-m-a m-a-p p-a p-a-a-l p-a-k p-a-l p-a-l-m p-a-p p-a-p-a p-a-p-p-a p-l-a-k",
+            "words" : "paint lamp floor door water rain",
             "allwords" : "",
             "sentence" : [
               "bal bal bal la bla la",

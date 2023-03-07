@@ -17,25 +17,24 @@ struct InformationView: View {
     
     let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     
+    
     var body: some View {
+        
         NavigationView {
-            //            Form {
             VStack {
                 Form {
                     HStack {
                         Text("developedBy".localized())
                             .font(.title)
                             .modifier(Square(color: .bart_green))
-                        Spacer()
                     }
-//                    .padding(20)
                     
-                    Section(header: Text("Audio")) {
-                        NavigationLink(destination: DownloadView()) {
-                            Text("Download "+"languages".localized())
-                            //                            .font(.footnote)
-                        }
-                    }
+//                    Section(header: Text("Audio")) { //??
+//                        NavigationLink(destination: DownloadView()) {
+//                            Text("Download "+"languages".localized())
+//                            //                            .font(.footnote)
+//                        }
+//                    }
                     
                     Section(header: Text("Links")) {
                         Link(destination: URL(string: "http://www.bartimeus.nl")!, label: {
@@ -50,20 +49,24 @@ struct InformationView: View {
                         })
                     }
                     
-                    Section(header: Text("Quick help")) {
-                        Text("helpshorttext".localized())
-                    }
-                    .font(.footnote)
+//                    Section(header: Text("Quick help")) {
+//                        Text("helpshorttext".localized())
+//                    }
+//                    .font(.footnote)
                     
                     Section(header: Text("App details")) {
                         Text(version())
                         Text(locale.description)
-                        Text(voEnabled ? "Voiceover on" : "Voiceover off")
+//                        Text(voEnabled ? "Voiceover on" : "Voiceover off")
                     }
                     .font(.footnote)
                 }
             }
+            .navigationBarTitle(Text("information".localized()), displayMode: .inline)
+            
         }
+        
+        
     }
     
     func version() -> String {

@@ -7,6 +7,7 @@
 "after" = "After";
 "again" = "Again";
 "all" = "All";
+"assist" = "Assist";
 "before" = "Before";
 "brailleText" = "Braille text";
 "character" = "Character";
@@ -14,8 +15,13 @@
 "chop" = "Chop";
 "conditional" = "Conditional";
 "country" = "Country";
+"deutsch" = "🇩🇪 German";
 "developedBy" = "Bartiméus Education\nZeist \nthe Netherlands";
+"download" = "Download";
 "downloadLanguages" = "Download languages";
+"dutch" = "🇳🇱 Dutch";
+"english" = "🇬🇧 English";
+"flag" = "eng";
 "font" = "Font";
 "form" = "Shape";
 "help" = "Help";
@@ -47,8 +53,4 @@
 "text" = "Text";
 "update" = "Update";
 "word" = "Word";
-"assist" = "Assist";
-"flag" = "eng";
-"dutch" = "🇳🇱 Dutch";
-"english" = "🇬🇧 English";
-"deutsch" = "🇩🇪 German";
+"minimumlanguages" = "Minimum number of languages is one.";

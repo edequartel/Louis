@@ -41,8 +41,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/EnesKaraosman/SwiftProgress.git",
       "state" : {
-        "revision" : "9e086877c1f4813d5cab8435311ffd288c90fb63",
-        "version" : "0.0.5"
+        "branch" : "master",
+        "revision" : "9e086877c1f4813d5cab8435311ffd288c90fb63"
+      }
+    },
+    {
+      "identity" : "swiftspeech",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Cay-Zhang/SwiftSpeech",
+      "state" : {
+        "branch" : "master",
+        "revision" : "6e41f289f5ccc1751ef5674972d46b48b326c4c6"
       }
     },
     {

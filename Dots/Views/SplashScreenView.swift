@@ -12,24 +12,13 @@ import ZipArchive
 
 struct SplashScreenView: View {
     @EnvironmentObject var viewModel: LouisViewModel
-    let dataURL = "https://www.eduvip.nl/VSOdigitaal/louis/methods-demo.json"
+    @Environment(\.locale) private var locale
+    
+//    let dataURL = "https://www.eduvip.nl/VSOdigitaal/louis/methods-demo.json"
+    let dataURL = "https://raw.githubusercontent.com/edequartel/Louis/refactor/Documents/methods-demo.json"
+//    let dataURL = "https://github.com/edequartel/Louis/blob/main/Documents/methods-demo.json"
+
     @State private var errorMessage: String?
-    
-    @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
-    @AppStorage("INDEX_METHOD") var indexMethod = 0
-    @AppStorage("INDEX_LESSON") var indexLesson = 0
-    
-    @AppStorage("INDEX_ACTIVITY") var indexActivity = 0
-    @AppStorage("SYLLABLE") var syllable = false
-    @AppStorage("TALK_WORD") var talkWord = false
-    @AppStorage("INDEX_PRONOUNCE") var indexPronounce = 0 //child
-    @AppStorage("INDEX_TRYS") var indexTrys = 5 // 13
-    @AppStorage("INDEX_PAUSES") var indexPauses = 0
-    @AppStorage("CONDITIONAL") var conditional = true
-    @AppStorage("ASSIST") var assist = false
-    @AppStorage("INDEX_READING") var indexPosition = 1 //before
-//    @AppStorage("INDEX_FONT") var indexFont = 1
-    
     @State private var isActive = false
     @State private var isDownloaded = false
     @State private var audioDownloaded = false
@@ -47,7 +36,7 @@ struct SplashScreenView: View {
                     .frame(width: 150, height: 150)
 //                Spacer()
                 if (countVisibleSubdirectoriesInDocumentsDirectory() == 0) {
-                    Text(message)
+                    Text("\(message)")
                     Text("\(String(format: "%.0f", progress * 100))%")
                 }
                 
@@ -55,40 +44,21 @@ struct SplashScreenView: View {
             .onAppear {
                 print(getDocumentDirectory().path)
                 audioDownloaded = (countVisibleSubdirectoriesInDocumentsDirectory() != 0)
-                viewModel.indexLanguage = indexLanguage
-                viewModel.indexMethod = indexMethod
-                viewModel.indexLesson = indexLesson
-                viewModel.conditional = conditional
-                
-                
-                if let activity = activityEnum(rawValue: indexActivity) {
-                    viewModel.typeActivity = activity
-                }
-                
-                viewModel.syllable = syllable
-                viewModel.talkWord = talkWord
-                viewModel.indexPauses = indexPauses
-                
-                if let pronouncation = pronounceEnum(rawValue: indexPronounce) {
-                    viewModel.typePronounce = pronouncation
-                }
-                
-                viewModel.indexTrys = indexTrys
-                viewModel.conditional = conditional
-                viewModel.assist = assist
-                
-                
-                if let positionReading = positionReadingEnum(rawValue: indexPosition) {
-                    viewModel.typePositionReading = positionReading
-                }
-                
+                if (audioDownloaded) { print("audioDownloaded != 0") }
                 let sound = Sound(fileName: "perkinsping.mp3")
                 sound.play()
                 //
                 loadData()
                 //
                 if (countVisibleSubdirectoriesInDocumentsDirectory() == 0) {
-                    downloadZipFile(value: "dutch")
+                    if (locale.languageCode == "nl") {
+                        downloadZipFile(value: "dutch")
+                        viewModel.indexLanguage = 0
+                    }
+                    else {
+                        downloadZipFile(value: "english")
+                        viewModel.indexLanguage = 1
+                    }
                 }
                 //
                 
@@ -148,6 +118,7 @@ struct SplashScreenView: View {
             let items = try JSONDecoder().decode([Item].self, from: data)
             viewModel.Languages = items
             isDownloaded = true
+            print("isDownloaded")
         }
         catch {
             self.errorMessage = error.localizedDescription

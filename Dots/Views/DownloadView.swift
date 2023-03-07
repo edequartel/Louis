@@ -25,31 +25,38 @@ struct DownloadView: View {
 
 
 struct ListItemView: View {
+    @EnvironmentObject var viewModel: LouisViewModel
     let language : Item
     
     @State private var showProgressIndicator = true
     @State private var progress: CGFloat = 0
     @State private var message = ""
     @State private var folderExists = false
+    @State private var showingAlert = false
     
     var body: some View {
         HStack {
-//            Text("")
             Text("\(language.zip)".localized())
-//                .modifier(Square(color: .green))
             Spacer()
             
             if (folderExists) {
                 Button(action: {
                     print("Delete")
-                    deleteFolderFromDocumentsDirectory(folderName: language.zip)
-                    progress = 0
+                    if countVisibleSubdirectoriesInDocumentsDirectory() > 1 { //??
+                        deleteFolderFromDocumentsDirectory(folderName: language.zip)
+                        progress = 0
+                    } else {
+                            showingAlert = true
+                        }
                 })
                 {
                     Text("Delete")
                         .modifier(Square(color: .red, width: 120))
                         .font(.footnote)
                 }
+                .alert("minimumlanguages".localized(), isPresented: $showingAlert) {
+                            Button("OK", role: .cancel) { }
+                        }
             } else {
                 Button(action: {
                     print("download ")
@@ -71,6 +78,23 @@ struct ListItemView: View {
         .onAppear {folderExists = checkIfFolderExists(value: language.zip)}
     }
     
+    func countVisibleSubdirectoriesInDocumentsDirectory() -> Int {
+        var count = 0
+        if let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            do {
+                let contents = try FileManager.default.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles, .skipsSubdirectoryDescendants])
+                for item in contents {
+                    var isDirectory: ObjCBool = false
+                    if FileManager.default.fileExists(atPath: item.path, isDirectory: &isDirectory) && isDirectory.boolValue {
+                        count += 1
+                    }
+                }
+            } catch {
+                // Handle error here
+            }
+        }
+        return count
+    }
     
     func deleteFolderFromDocumentsDirectory(folderName: String) {
         let fileManager = FileManager.default

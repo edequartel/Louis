@@ -7,6 +7,7 @@
 "after" = "Hinter";
 "again" = "Wiederholen";
 "all" = "Alle";
+"assist" = "Hilfe";
 "before" = "Vor";
 "brailleText" = "Braille-Text";
 "character" = "Zeichen";
@@ -14,8 +15,13 @@
 "chop" = "Hauen";
 "conditional" = "Bedingt";
 "country" = "Land";
+"deutsch" = "🇩🇪 Deutsch";
 "developedBy" = "Bartiméus Education\nZeist \ndie Niederlande";
+"download" = "Herunterladen";
 "downloadLanguages" = "Sprachen herunterladen";
+"dutch" = "🇳🇱 Holländisch";
+"english" = "🇬🇧 Englisch";
+"flag" = "ger";
 "font" = "Schriftart";
 "form" = "Forme";
 "help" = "Hilfe";
@@ -47,8 +53,4 @@
 "text" = "Woter";
 "update" = "Aktualisieren";
 "word" = "Wort";
-"assist" = "Hilfe";
-"flag" = "ger";
-"dutch" = "🇳🇱 Holländisch";
-"english" = "🇬🇧 Englisch";
-"deutsch" = "🇩🇪 Deutsch";
+"minimumlanguages" = "Die minimale Anzahl von Sprachen ist eins.";

@@ -24,6 +24,7 @@
 		47192A462858C086004FD2F3 /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47192A452858C086004FD2F3 /* AudioView.swift */; };
 		47192A5B2858CB8F004FD2F3 /* bartimeus6dots.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */; };
 		472226E228D84628002BF9E0 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472226E128D84628002BF9E0 /* SheetView.swift */; };
+		472B107F29AD25EC00EC685C /* SwiftSpeech in Frameworks */ = {isa = PBXBuildFile; productRef = 472B107E29AD25EC00EC685C /* SwiftSpeech */; };
 		472C7C12290F0E0D00DA12E9 /* bartimeusb.json in Resources */ = {isa = PBXBuildFile; fileRef = 472C7C11290F0E0D00DA12E9 /* bartimeusb.json */; };
 		472C7C14290F0E5500DA12E9 /* bartimeusbigb.json in Resources */ = {isa = PBXBuildFile; fileRef = 472C7C13290F0E5500DA12E9 /* bartimeusbigb.json */; };
 		473DCCAA2891430D00CDFF47 /* spotlight120.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCC902891430D00CDFF47 /* spotlight120.png */; };
@@ -57,6 +58,7 @@
 		474CFEBA287551170000BF85 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 474CFEB9287551170000BF85 /* README.md */; };
 		4758321A29912309007CB0E3 /* perkinspingdoorvoer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4758321829912308007CB0E3 /* perkinspingdoorvoer.mp3 */; };
 		4758321B29912309007CB0E3 /* perkinsping.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4758321929912309007CB0E3 /* perkinsping.mp3 */; };
+		4765614029ABF13100658927 /* SwiftProgress in Frameworks */ = {isa = PBXBuildFile; productRef = 4765613F29ABF13100658927 /* SwiftProgress */; };
 		4766E4CB28B3519A00852495 /* StepperView in Frameworks */ = {isa = PBXBuildFile; productRef = 4766E4CA28B3519A00852495 /* StepperView */; };
 		4766E4CD28B351B200852495 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766E4CC28B351B200852495 /* ProgressView.swift */; };
 		476A36D128F06CDC00F3909B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 476A36D328F06CDC00F3909B /* Localizable.strings */; };
@@ -66,7 +68,6 @@
 		47A24DBB296C13D200BA287B /* LouisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A24DBA296C13D200BA287B /* LouisViewModel.swift */; };
 		47ACE3F1292222C100020519 /* bartimeus8dots.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47ACE3F0292222C100020519 /* bartimeus8dots.ttf */; };
 		47B09A26298805250030B9CF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 47B09A25298805250030B9CF /* Alamofire */; };
-		47E993CE28E433DD00D32F53 /* SwiftProgress in Frameworks */ = {isa = PBXBuildFile; productRef = 47E993CD28E433DD00D32F53 /* SwiftProgress */; };
 		47EBF7C42860D80D00E8F230 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EBF7C32860D80D00E8F230 /* Model.swift */; };
 		47EBF805286200CA00E8F230 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EBF804286200CA00E8F230 /* LottieView.swift */; };
 		47EBF808286200F700E8F230 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 47EBF807286200F700E8F230 /* Lottie */; };
@@ -172,12 +173,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				472B107F29AD25EC00EC685C /* SwiftSpeech in Frameworks */,
 				47B09A26298805250030B9CF /* Alamofire in Frameworks */,
 				4766E4CB28B3519A00852495 /* StepperView in Frameworks */,
 				47403EE729910ED7005EFBA7 /* ProgressIndicatorView in Frameworks */,
 				47EBF808286200F700E8F230 /* Lottie in Frameworks */,
-				47E993CE28E433DD00D32F53 /* SwiftProgress in Frameworks */,
 				3667B97670EB45DDEB1DB8EE /* Pods_Dots.framework in Frameworks */,
+				4765614029ABF13100658927 /* SwiftProgress in Frameworks */,
 				47403EE429910C68005EFBA7 /* ZipArchive in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,10 +413,11 @@
 			packageProductDependencies = (
 				47EBF807286200F700E8F230 /* Lottie */,
 				4766E4CA28B3519A00852495 /* StepperView */,
-				47E993CD28E433DD00D32F53 /* SwiftProgress */,
 				47B09A25298805250030B9CF /* Alamofire */,
 				47403EE329910C68005EFBA7 /* ZipArchive */,
 				47403EE629910ED7005EFBA7 /* ProgressIndicatorView */,
+				4765613F29ABF13100658927 /* SwiftProgress */,
+				472B107E29AD25EC00EC685C /* SwiftSpeech */,
 			);
 			productName = Dots;
 			productReference = 47192A0B2858893C004FD2F3 /* Dots.app */;
@@ -496,10 +499,11 @@
 			packageReferences = (
 				47EBF806286200F700E8F230 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				4766E4C928B3519A00852495 /* XCRemoteSwiftPackageReference "StepperView" */,
-				47E993CC28E433DD00D32F53 /* XCRemoteSwiftPackageReference "SwiftProgress" */,
 				47B09A24298805250030B9CF /* XCRemoteSwiftPackageReference "Alamofire" */,
 				47403EE229910C68005EFBA7 /* XCRemoteSwiftPackageReference "ZipArchive" */,
 				47403EE529910ED7005EFBA7 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */,
+				4765613E29ABF13100658927 /* XCRemoteSwiftPackageReference "SwiftProgress" */,
+				472B107D29AD25EC00EC685C /* XCRemoteSwiftPackageReference "SwiftSpeech" */,
 			);
 			productRefGroup = 47192A0C2858893C004FD2F3 /* Products */;
 			projectDirPath = "";
@@ -873,7 +877,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 43;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = 278BFDM8KA;
 				ENABLE_PREVIEWS = YES;
@@ -881,6 +885,8 @@
 				INFOPLIST_FILE = Dots/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Louis;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app uses the mircrophone to record audio for speech recognition.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "This app uses speech recognition to convert your speech into text.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -912,7 +918,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 43;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = 278BFDM8KA;
 				ENABLE_PREVIEWS = YES;
@@ -920,6 +926,8 @@
 				INFOPLIST_FILE = Dots/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Louis;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app uses the mircrophone to record audio for speech recognition.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "This app uses speech recognition to convert your speech into text.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1065,6 +1073,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		472B107D29AD25EC00EC685C /* XCRemoteSwiftPackageReference "SwiftSpeech" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Cay-Zhang/SwiftSpeech";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		47403EE229910C68005EFBA7 /* XCRemoteSwiftPackageReference "ZipArchive" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ZipArchive/ZipArchive";
@@ -1076,6 +1092,14 @@
 		47403EE529910ED7005EFBA7 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/exyte/ProgressIndicatorView.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		4765613E29ABF13100658927 /* XCRemoteSwiftPackageReference "SwiftProgress" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/EnesKaraosman/SwiftProgress.git";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -1097,14 +1121,6 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		47E993CC28E433DD00D32F53 /* XCRemoteSwiftPackageReference "SwiftProgress" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/EnesKaraosman/SwiftProgress.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.5;
-			};
-		};
 		47EBF806286200F700E8F230 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios";
@@ -1116,6 +1132,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		472B107E29AD25EC00EC685C /* SwiftSpeech */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 472B107D29AD25EC00EC685C /* XCRemoteSwiftPackageReference "SwiftSpeech" */;
+			productName = SwiftSpeech;
+		};
 		47403EE329910C68005EFBA7 /* ZipArchive */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 47403EE229910C68005EFBA7 /* XCRemoteSwiftPackageReference "ZipArchive" */;
@@ -1126,6 +1147,11 @@
 			package = 47403EE529910ED7005EFBA7 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */;
 			productName = ProgressIndicatorView;
 		};
+		4765613F29ABF13100658927 /* SwiftProgress */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4765613E29ABF13100658927 /* XCRemoteSwiftPackageReference "SwiftProgress" */;
+			productName = SwiftProgress;
+		};
 		4766E4CA28B3519A00852495 /* StepperView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4766E4C928B3519A00852495 /* XCRemoteSwiftPackageReference "StepperView" */;
@@ -1135,11 +1161,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 47B09A24298805250030B9CF /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		47E993CD28E433DD00D32F53 /* SwiftProgress */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 47E993CC28E433DD00D32F53 /* XCRemoteSwiftPackageReference "SwiftProgress" */;
-			productName = SwiftProgress;
 		};
 		47EBF807286200F700E8F230 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
