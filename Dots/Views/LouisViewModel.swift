@@ -115,12 +115,12 @@ final class LouisViewModel: ObservableObject {
             fn = "/\(self.Languages[indexLanguage].zip)/words/\(value).mp3"
         } else {
             //
-            fn = "/\(self.Languages[indexLanguage].zip)/phonetic/"+pronounceType.prefixValue().lowercased()+"/"+value+".mp3"
+            fn = "/\(self.Languages[indexLanguage].zip)/phonetic/"+pronounceType.prefixValue().lowercased()+"/"+value.lowercased()+".mp3"
             if !fileExistsInDocumentDirectory(fn) {
                 if let code = uniCode[value] {
-                    log.debug("code \(code)")
+//                    log.debug("code \(code)")
                     fn = "/\(self.Languages[indexLanguage].zip)/phonetic/"+pronounceType.prefixValue().lowercased()+"/"+code+".mp3"
-                    log.debug("filename \(fn)")
+                    log.verbose("filename \(fn)")
                 }
             }
         }
@@ -290,7 +290,7 @@ final class LouisViewModel: ObservableObject {
                     let sound = Sound(url: getBaseDirectory().appendingPathComponent("phonetic/adult/"+value.lowercased()+".mp3"))
                     sounds.append(sound)
                 }
-                
+
                 isPlaying = true
                 self.log.debug("Talk() \(sounds)")
                 

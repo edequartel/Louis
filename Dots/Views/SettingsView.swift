@@ -59,7 +59,7 @@ struct overviewMethodsView : View {
             }
             .frame(height: 40)
             .onChange(of: viewModel.indexMethod) { tag in
-                print("Change in tag method: \(tag)")
+//                print("Change in tag method: \(tag)")
                 viewModel.indexLesson = 0
                 viewModel.updateViewData = true
                 viewModel.count = 0
@@ -71,7 +71,7 @@ struct overviewMethodsView : View {
                 }
             }
             .onChange(of: viewModel.indexLesson) { tag in
-                print("Change in tag lesson: \(tag)")
+//                print("Change in tag lesson: \(tag)")
                 viewModel.updateViewData = true
                 viewModel.count = 0
             }
@@ -109,7 +109,7 @@ struct overviewActivityView : View {
                 }
             }
             .onChange(of: viewModel.activityType) { tag in
-                print("change in indexActivity  \(tag)")
+//                print("change in indexActivity  \(tag)")
                 viewModel.updateViewData = true
             }
             
