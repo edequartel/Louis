@@ -72,6 +72,7 @@
 		47EBF805286200CA00E8F230 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EBF804286200CA00E8F230 /* LottieView.swift */; };
 		47EBF808286200F700E8F230 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 47EBF807286200F700E8F230 /* Lottie */; };
 		47EBF80C2862031200E8F230 /* dotsloader.json in Resources */ = {isa = PBXBuildFile; fileRef = 47EBF80B2862031200E8F230 /* dotsloader.json */; };
+		47F4C02629BA0CB200CA5D25 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 47F4C02529BA0CB200CA5D25 /* SwiftyBeaver */; };
 		523B46B23370F87318C315DE /* Pods_Dots_DotsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C073F15AF76D1A977901310 /* Pods_Dots_DotsUITests.framework */; };
 		8A5CDAAF80689AC11621EB44 /* Pods_DotsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AEA6DD3E2AE22C2563E698 /* Pods_DotsTests.framework */; };
 /* End PBXBuildFile section */
@@ -181,6 +182,7 @@
 				3667B97670EB45DDEB1DB8EE /* Pods_Dots.framework in Frameworks */,
 				4765614029ABF13100658927 /* SwiftProgress in Frameworks */,
 				47403EE429910C68005EFBA7 /* ZipArchive in Frameworks */,
+				47F4C02629BA0CB200CA5D25 /* SwiftyBeaver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,9 +353,9 @@
 		474CFEBB2875B49A0000BF85 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				47A24DBA296C13D200BA287B /* LouisViewModel.swift */,
 				4783B12C299CBA5C001A6027 /* DownloadView.swift */,
 				47192A412858C073004FD2F3 /* PlaygroundView.swift */,
+				47A24DBA296C13D200BA287B /* LouisViewModel.swift */,
 				47192A382858BE7D004FD2F3 /* SplashScreenView.swift */,
 				47192A3F2858C065004FD2F3 /* InformationView.swift */,
 				47192A102858893C004FD2F3 /* ContentView.swift */,
@@ -418,6 +420,7 @@
 				47403EE629910ED7005EFBA7 /* ProgressIndicatorView */,
 				4765613F29ABF13100658927 /* SwiftProgress */,
 				472B107E29AD25EC00EC685C /* SwiftSpeech */,
+				47F4C02529BA0CB200CA5D25 /* SwiftyBeaver */,
 			);
 			productName = Dots;
 			productReference = 47192A0B2858893C004FD2F3 /* Dots.app */;
@@ -504,6 +507,7 @@
 				47403EE529910ED7005EFBA7 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */,
 				4765613E29ABF13100658927 /* XCRemoteSwiftPackageReference "SwiftProgress" */,
 				472B107D29AD25EC00EC685C /* XCRemoteSwiftPackageReference "SwiftSpeech" */,
+				47F4C02429BA0CB200CA5D25 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
 			);
 			productRefGroup = 47192A0C2858893C004FD2F3 /* Products */;
 			projectDirPath = "";
@@ -877,7 +881,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 45;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = 278BFDM8KA;
 				ENABLE_PREVIEWS = YES;
@@ -918,7 +922,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 45;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = 278BFDM8KA;
 				ENABLE_PREVIEWS = YES;
@@ -1129,6 +1133,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		47F4C02429BA0CB200CA5D25 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyBeaver/SwiftyBeaver.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1166,6 +1178,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 47EBF806286200F700E8F230 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		47F4C02529BA0CB200CA5D25 /* SwiftyBeaver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 47F4C02429BA0CB200CA5D25 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
+			productName = SwiftyBeaver;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

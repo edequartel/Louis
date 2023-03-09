@@ -9,22 +9,25 @@ import SwiftUI
 import Soundable
 import Alamofire
 import ZipArchive
+import SwiftyBeaver
 
 struct SplashScreenView: View {
     @EnvironmentObject var viewModel: LouisViewModel
+    let log = SwiftyBeaver.self
     @Environment(\.locale) private var locale
     
 //    let dataURL = "https://www.eduvip.nl/VSOdigitaal/louis/methods-demo.json"
-    let dataURL = "https://raw.githubusercontent.com/edequartel/Louis/refactor/Documents/methods-demo.json"
+//    let dataURL = "https://raw.githubusercontent.com/edequartel/Louis/refactor/Documents/methods-demo.json"
 //    let dataURL = "https://github.com/edequartel/Louis/blob/main/Documents/methods-demo.json"
+    let dataURL = "https://raw.githubusercontent.com/edequartel/braillemethods/main/Documents/methods-demo.json"
 
-    @State private var errorMessage: String?
+//    @State private var errorMessage: String?
     @State private var isActive = false
     @State private var isDownloaded = false
     @State private var audioDownloaded = false
     @State private var size = 0.8
     @State private var opacity = 0.5
-    @State private var message = ""
+//    @State private var message = ""
     @State private var progress: CGFloat = 0
     
     var body: some View {
@@ -36,7 +39,6 @@ struct SplashScreenView: View {
                     .frame(width: 150, height: 150)
 //                Spacer()
                 if (countVisibleSubdirectoriesInDocumentsDirectory() == 0) {
-                    Text("\(message)")
                     Text("\(String(format: "%.0f", progress * 100))%")
                 }
                 
@@ -44,7 +46,7 @@ struct SplashScreenView: View {
             .onAppear {
                 print(getDocumentDirectory().path)
                 audioDownloaded = (countVisibleSubdirectoriesInDocumentsDirectory() != 0)
-                if (audioDownloaded) { print("audioDownloaded != 0") }
+                if (audioDownloaded) { log.verbose("audioDownloaded != 0") }
                 let sound = Sound(fileName: "perkinsping.mp3")
                 sound.play()
                 //
@@ -74,7 +76,7 @@ struct SplashScreenView: View {
     
     //data is downloaded from url and then save as data.json
     func loadData() {
-        print("loadData from: \(dataURL)")
+        log.debug("loadData from: \(dataURL)")
         if let reachability = NetworkReachabilityManager(), reachability.isReachable {
             AF.request(dataURL)
                 .validate()
@@ -82,7 +84,7 @@ struct SplashScreenView: View {
                     switch response.result {
                     case .success(let value):
                         //
-                        print("downloading was a succes")
+                        log.debug("downloading was a succes")
                         let encoder = JSONEncoder()
                         do {
                             let data = try encoder.encode(value)
@@ -91,16 +93,15 @@ struct SplashScreenView: View {
                             try data.write(to: fileURL)
                             self.loadLocalData()
                         } catch {
-                            self.errorMessage = error.localizedDescription
+                            self.log.error(error.localizedDescription)
                         }
                         
                         //
                         viewModel.Languages = value
-                        self.errorMessage = nil
                         
                     case .failure(let error):
-                        print("downloading was a failure")
-                        self.errorMessage = error.localizedDescription
+                        log.error("downloading was a failure")
+                        self.log.error(error.localizedDescription)
                     }
                 }
         } else {
@@ -110,7 +111,7 @@ struct SplashScreenView: View {
     
     //data which is download and earlier saved as data.json is used when there is now connection
     func loadLocalData() {
-        print("loadLocalData")
+        log.debug("loadLocalData")
         do {
             let documentsDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             let fileURL = documentsDirectory.appendingPathComponent("data.json")
@@ -118,10 +119,10 @@ struct SplashScreenView: View {
             let items = try JSONDecoder().decode([Item].self, from: data)
             viewModel.Languages = items
             isDownloaded = true
-            print("isDownloaded")
+            log.debug("isDownloaded")
         }
         catch {
-            self.errorMessage = error.localizedDescription
+            self.log.error(error.localizedDescription)
         }
     }
     
@@ -150,7 +151,7 @@ struct SplashScreenView: View {
     }
     
     func downloadZipFile(value: String) {
-        self.message = "Downloading "+value
+        log.debug("downloadZipFile() \(value)")
         self.progress = 0
         let url = URL(string: "https://www.eduvip.nl/VSOdigitaal/louis/audio/"+value+".zip")!
         let destination: DownloadRequest.Destination = { _, _ in
@@ -164,33 +165,33 @@ struct SplashScreenView: View {
             }
             .response { response in
                 if response.error == nil {
-                    self.message = "\(value) downloaded successfully"
+                    log.debug("\(value) downloaded successfully")
                     self.unzip(value)
                     
                 } else {
-                    self.message = "Error downloading file"
+                    log.error("Error downloading file")
                 }
             }
     }
     
     func unzip(_ value: String) {
-        self.message = "Unzipping "+value
+        log.debug("unzip() \(value)")
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let fileURL = documentsURL.appendingPathComponent(value+".zip")
         let destination = fileURL.deletingLastPathComponent()
         if SSZipArchive.unzipFile(atPath: fileURL.path, toDestination: destination.path) {
-            self.message = "File unzipped successfully"
+            log.error("File unzipped successfully")
             do { //delete file after unzipping
                 try FileManager.default.removeItem(at: fileURL)
-                print("remove item")
-                print(fileURL.absoluteString)
+                log.debug("remove item")
+                log.debug(fileURL.absoluteString)
                 audioDownloaded = true
 //                folderExists = checkIfFolderExists(value: value)
             } catch {
-                self.message = "Error deleting file"
+                log.error("Error deleting file")
             }
         } else {
-            self.message = "Error unzipping file"
+            log.error("Error unzipping file")
         }
     }
  

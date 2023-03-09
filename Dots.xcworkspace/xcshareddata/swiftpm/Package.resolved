@@ -55,6 +55,15 @@
       }
     },
     {
+      "identity" : "swiftybeaver",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftyBeaver/SwiftyBeaver.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "1080914828ef1c9ca9cd2bad50667b3d847dabff"
+      }
+    },
+    {
       "identity" : "ziparchive",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ZipArchive/ZipArchive",

@@ -10,6 +10,7 @@ import Soundable
 import SwiftProgress
 import AVFoundation
 import SwiftSpeech
+import SwiftyBeaver
 
 struct PlaygroundView: View {
     @EnvironmentObject var viewModel: LouisViewModel
@@ -23,7 +24,6 @@ struct PlaygroundView: View {
     
     @State private var text = "Voice"
     @State private var lastWord = ""
-    
     
     var body: some View {
         NavigationView {
@@ -73,6 +73,8 @@ struct PlaygroundView: View {
 struct scoreBoardView : View {
     @EnvironmentObject var viewModel: LouisViewModel
     @Binding var textFieldText: String
+    
+    let log = SwiftyBeaver.self
     
     var body: some View {
         Section {

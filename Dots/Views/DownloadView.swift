@@ -8,6 +8,7 @@
 import SwiftUI
 import ZipArchive
 import Alamofire
+import SwiftyBeaver
 
 struct DownloadView: View {
     @EnvironmentObject var viewModel: LouisViewModel
@@ -30,7 +31,8 @@ struct ListItemView: View {
     
     @State private var showProgressIndicator = true
     @State private var progress: CGFloat = 0
-    @State private var message = ""
+//    @State private var message = ""
+    let log = SwiftyBeaver.self
     @State private var folderExists = false
     @State private var showingAlert = false
     
@@ -41,7 +43,7 @@ struct ListItemView: View {
             
             if (folderExists) {
                 Button(action: {
-                    print("Delete")
+                    log.debug("Delete")
                     if countVisibleSubdirectoriesInDocumentsDirectory() > 1 { //??
                         deleteFolderFromDocumentsDirectory(folderName: language.zip)
                         progress = 0
@@ -110,10 +112,10 @@ struct ListItemView: View {
     }
     
     func downloadZipFile(value: String) {
-        self.message = value
+        log.debug("downloadZipFile() \(value)")
         self.progress = 0
         let url = URL(string: "https://www.eduvip.nl/VSOdigitaal/louis/audio/"+value+".zip")!
-        print("downloading... \(value)")
+        log.debug("downloading... \(value)")
         let destination: DownloadRequest.Destination = { _, _ in
             let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             let fileURL = documentsURL.appendingPathComponent(value+".zip")
@@ -125,11 +127,11 @@ struct ListItemView: View {
             }
             .response { response in
                 if response.error == nil {
-                    self.message = "\(value) downloaded successfully"
+                    log.error("\(value) downloaded successfully")
                     self.unzip(value)
                     
                 } else {
-                    self.message = "Error downloading file"
+                    log.error("Error downloading file")
                 }
             }
     }
@@ -139,17 +141,17 @@ struct ListItemView: View {
         let fileURL = documentsURL.appendingPathComponent(value+".zip")
         let destination = fileURL.deletingLastPathComponent()
         if SSZipArchive.unzipFile(atPath: fileURL.path, toDestination: destination.path) {
-            self.message = "File unzipped successfully"
+            log.debug("File unzipped successfully")
             do { //delete file after unzipping
                 try FileManager.default.removeItem(at: fileURL)
                 print("remove item")
                 print(fileURL.absoluteString)
                 folderExists = checkIfFolderExists(value: value)
             } catch {
-                self.message = "Error deleting file"
+                log.error("Error deleting file")
             }
         } else {
-            self.message = "Error unzipping file"
+            log.error("Error unzipping file")
         }
     }
     
@@ -173,6 +175,7 @@ struct ListItemView: View {
 struct DownloadView_Previews: PreviewProvider {
     static var previews: some View {
         DownloadView()
+            .environmentObject(LouisViewModel())
     }
 }
 

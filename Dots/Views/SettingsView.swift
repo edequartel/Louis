@@ -75,6 +75,14 @@ struct overviewMethodsView : View {
                 viewModel.updateViewData = true
                 viewModel.count = 0
             }
+            
+            if (viewModel.activityType == .character) {
+                Text(viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].letters)
+                .font(.footnote)
+            } else {
+                    Text(viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].words)
+                        .font(.footnote)
+                }
         }
     }
     
@@ -199,3 +207,9 @@ struct SettingsView_Previews: PreviewProvider {
 
 
 
+
+//struct Previews_SettingsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+//    }
+//}

@@ -28,6 +28,11 @@ struct ContentView: View {
                         Image(systemName: "info.circle.fill")
                         Text("information".localized())
                     }
+//                SwiftUIView() for tests
+//                    .tabItem {
+//                        Image(systemName: "info.circle.fill")
+//                        Text("test".localized())
+//                    }
             }
 //            .onAppear {
 //                SwiftSpeech.requestSpeechRecognitionAuthorization()

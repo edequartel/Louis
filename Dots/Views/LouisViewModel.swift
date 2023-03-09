@@ -9,8 +9,11 @@ import Foundation
 import SwiftUI
 import Soundable
 import AVFoundation
+import SwiftyBeaver
 
 final class LouisViewModel: ObservableObject {
+    let log = SwiftyBeaver.self
+    
     @Published var Languages: [Item] = []
     
     @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
@@ -56,7 +59,7 @@ final class LouisViewModel: ObservableObject {
     let failure : SystemSoundID = 1057
     
     init() {
-        print("init")
+        log.debug("init")
         Shuffle() //??
     }
     
@@ -64,6 +67,8 @@ final class LouisViewModel: ObservableObject {
     func Shuffle() {
         
         previousItem = item
+        
+        log.debug("Shuffle, items: \(items) item: \(item)")
         
         while (item==items[0]) {
             let str = (activityType == .character) ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters : Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words
@@ -80,7 +85,7 @@ final class LouisViewModel: ObservableObject {
             // Check if the items array has at least one element
             if items.count <= 0 {
                 // Handle the case where the items array is empty
-                print("error handling: there are no items")
+                log.error("error handling: there are no items")
                 break
             }
         }
@@ -109,8 +114,17 @@ final class LouisViewModel: ObservableObject {
         if (value.count>1) {
             fn = "/\(self.Languages[indexLanguage].zip)/words/\(value).mp3"
         } else {
+            //
             fn = "/\(self.Languages[indexLanguage].zip)/phonetic/"+pronounceType.prefixValue().lowercased()+"/"+value+".mp3"
+            if !fileExistsInDocumentDirectory(fn) {
+                if let code = uniCode[value] {
+                    log.debug("code \(code)")
+                    fn = "/\(self.Languages[indexLanguage].zip)/phonetic/"+pronounceType.prefixValue().lowercased()+"/"+code+".mp3"
+                    log.debug("filename \(fn)")
+                }
+            }
         }
+        
         return  fileExistsInDocumentDirectory(fn)
     }
                                         
@@ -124,7 +138,7 @@ final class LouisViewModel: ObservableObject {
     
     //text to speech
     func Speak(value: String) {
-        print(value)
+        log.debug("Speak "+value)
         let utterance = AVSpeechUtterance(string: value)
         utterance.voice = AVSpeechSynthesisVoice(language: "nl") //"nl" //voices[6]
         utterance.rate = Float(0.5)
@@ -157,10 +171,10 @@ final class LouisViewModel: ObservableObject {
     
     func check(input: String) -> Int {
         //this action, read type and enter to aknowledge
-        print("check")
+        log.debug("check()")
         var returnValue : Int = -1
         if (input == stripString(value: item)) || (!conditional) {
-            print(">>>\(stripString(value: item))")
+            log.debug("stripString() \(stripString(value: item))")
             myColor = .green
             
             if (positionReadingType == .after) {
@@ -212,7 +226,7 @@ final class LouisViewModel: ObservableObject {
     }
     
     func getPhoneticFile(value : String) -> URL {
-        print("getPhoneticFile() \(value)")
+        log.debug("getPhoneticFile() \(value)")
         return getBaseDirectory().appendingPathComponent("phonetic/"+pronounceType.prefixValue().lowercased()+"/"+value+".mp3")
     }
     
@@ -225,9 +239,8 @@ final class LouisViewModel: ObservableObject {
     }
     
     func showString() -> String {
-//        print(">>\(item)")
         let syllableString = (pronounceType == .child)  && (item.components(separatedBy: "-").count != 1)  ? item.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: item))
-        print("\(syllableString)")
+        log.verbose("showstring() \(syllableString)")
         
         let tempString1 = syllable ? syllableString : item.replacingOccurrences(of: "-", with: "")
         
@@ -244,9 +257,10 @@ final class LouisViewModel: ObservableObject {
     
     //maybe see character as a word with length 1, this function can be shorter
     func Talk(value : String) {
-        print("talk() \(value)")
-        print("getBaseDirectory() \(getBaseDirectory())")
-        print("getDocumentDirectory() \(getDocumentDirectory())")
+        log.verbose("Talk() \(value)")
+//        log.verbose("getBaseDirectory() \(getBaseDirectory())")
+//        log.verbose("getDocumentDirectory() \(getDocumentDirectory())")
+        
         Soundable.stopAll()
         isPlaying = false
         var sounds: [Sound] = []
@@ -257,11 +271,11 @@ final class LouisViewModel: ObservableObject {
         
         //character
         if (activityType == .character) {
-            print("character [\(value)]")
+            log.debug("Talk() character [\(value)]")
             
             
-            if (value.count==1) { //only with letters, value is the text in text
-                
+            if (value.count==1) { //only with characters, value is the text in text
+                log.debug("Characters \(value)")
                 if let code = uniCode[value]
                 {
                     let sound = Sound(url: getPhoneticFile(value: code))
@@ -278,21 +292,23 @@ final class LouisViewModel: ObservableObject {
                 }
                 
                 isPlaying = true
+                self.log.debug("Talk() \(sounds)")
+                
                 sounds.play() { error in
                     if let error = error {
-                        print("error: \(error.localizedDescription)")
+                        self.log.error(error.localizedDescription)
                     }
                     self.isPlaying = false
                 }
                 
             } else { //tricky sounds gelden voor alle pronounce child/adult/form, tricky sounds are ui oe eu
                 let sound = Sound(fileName: value+".mp3")
-                print("tricky sounds [\(value)]")
+                log.debug("Talk() tricky sounds [\(value)]")
                 
                 isPlaying = true
                 sound.play() { error in
                     if let error = error {
-                        print("error: \(error.localizedDescription)")
+                        self.log.error(error.localizedDescription)
                     }
                     self.isPlaying = false
                 }
@@ -301,7 +317,7 @@ final class LouisViewModel: ObservableObject {
         
         //word
         if (activityType == .word) {
-            print("word [\(value)]")
+            log.debug("Talk() word [\(value)]")
             
             var myStringArr = value.components(separatedBy: "-") //divide the w-o-r-d in characters
             if myStringArr.count == 1 { //and if not dividing so one string
@@ -311,7 +327,6 @@ final class LouisViewModel: ObservableObject {
             let theWord = value.replacingOccurrences(of: "-", with: "") //make a word
             
             if (syllable) { //
-                print("syllable")
                 if ((pronounceType == .adult) || (pronounceType == .form) || (pronounceType == .meaning)) {
                     for char in theWord {
                         if ((pronounceType == .adult) || (pronounceType == .form) || (pronounceType == .meaning)) { //adult
@@ -326,8 +341,6 @@ final class LouisViewModel: ObservableObject {
                 }
                 
                 else {//child
-                    print("child")
-//                    print(myStringArr)
                     for char in myStringArr {
                         sounds.append(Sound(url: getBaseDirectory().appendingPathComponent("phonetic/child/"+char.lowercased()+".mp3")))
                         AddSilence()
@@ -341,7 +354,7 @@ final class LouisViewModel: ObservableObject {
                 isPlaying = true
                 sounds.play { error in
                     if let error = error {
-                        print("error: \(error.localizedDescription)")
+                        self.log.error(error.localizedDescription)
                     }
                     self.isPlaying = false
                 }
@@ -353,7 +366,7 @@ final class LouisViewModel: ObservableObject {
                 isPlaying = true
                 sound.play() { error in
                     if let error = error {
-                        print("error: \(error.localizedDescription)")
+                        self.log.error(error.localizedDescription)
                     }
                     self.isPlaying = false
                 }
