@@ -68,18 +68,18 @@ final class LouisViewModel: ObservableObject {
         
         previousItem = item
         
-        log.debug("Shuffle, items: \(items) item: \(item)")
+        log.debug("Shuffle() items: \(items) item: \(item)")
         
         while (item==items[0]) {
             let str = (activityType == .character) ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters : Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words
             
             items = cleanUpString(str)
-//            print("indexLanguage \(indexLanguage)")
-//            print("indexMethod \(indexMethod)")
-//            print("indexLesson \(indexLesson)")
-//            print("str \(str)")
-//            print("items \(items)")
-//            print("item \(item) = \(items[0])")
+            log.debug("indexLanguage \(indexLanguage)")
+            log.debug("indexMethod \(indexMethod)")
+            log.debug("indexLesson \(indexLesson)")
+            log.debug("str \(str)")
+            log.debug("items \(items)")
+            log.debug("item \(item) = \(items[0])")
 //
             
             // Check if the items array has at least one element
@@ -101,7 +101,7 @@ final class LouisViewModel: ObservableObject {
         
         var filterOutput : Array<String> = []
         for word in outputTrimmed {
-            if fileExists(value: stripString(value: String(word))) {
+            if fileExists(value: stripString(value: String(word).lowercased())) { 
                 filterOutput.append(String(word))
             }
         }

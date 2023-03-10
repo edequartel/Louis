@@ -8,68 +8,65 @@
 import SwiftUI
 
 struct SwiftUIView: View {
-        let targetWord = "SwiftUI"
-        @State private var text = ""
-        @State private var cursorPosition = 0
-        @State private var wordUnderCursor = ""
-        @FocusState private var isFocused: Bool
+    let filterCharacters = "rosbm"
+    
+    var body: some View {
+        let fileManager = FileManager.default
 
-        var body: some View {
-            Text("Test")
-//            VStack {
-//                TextField("Enter text here", text: $text)
-//                    .focused($isFocused)
-//                    .onChange(of: isFocused) { focused in
-//                        if focused {
-//                            // Get the cursor position and word under the cursor when the TextField gains focus
-//                            let (newPosition, newWord) = getCursorPositionAndWord()
-//                            cursorPosition = newPosition
-//                            wordUnderCursor = newWord
-//                        }
-//                    }
-//                    .onChange(of: text) { newText in
-//                        // Get the cursor position and word under the cursor when the text changes
-//                        let (newPosition, newWord) = getCursorPositionAndWord()
-//                        cursorPosition = newPosition
-//                        wordUnderCursor = newWord
-//                    }
-//                    .background(
-//                        ZStack {
-//                            if wordUnderCursor == targetWord {
-//                                Color.green
-//                            } else if !wordUnderCursor.isEmpty {
-//                                Color.red
-//                            }
-//                        }
-//                    )
-//
-//                HStack {
-//                    Text("Cursor position:")
-//                    TextField("", value: $cursorPosition, formatter: NumberFormatter())
-//                        .keyboardType(.numberPad)
-//                }
-//                HStack {
-//                    Text("Character under cursor:")
-//                    TextField("", text: .constant(String(Array(text)[cursorPosition])))
-//                        .disabled(true)
-//                }
-//                HStack {
-//                    Text("Word under cursor:")
-//                    TextField("", text: $wordUnderCursor)
-//                        .disabled(true)
-//                }
+        guard let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            fatalError("Could not get documents directory path")
+        }
+
+        let audioPath = documentsPath.appendingPathComponent("dutch/words")
+
+        do {
+            let directoryContents = try fileManager.contentsOfDirectory(atPath: audioPath.path)
+
+            // Extract file names without extension and filter based on criteria
+            let filteredNames = directoryContents.map { (fileName: String) -> String in
+                let parts = fileName.split(separator: ".")
+                let nameWithoutExtension = parts.first ?? ""
+                return String(nameWithoutExtension)
+            }.filter { (name: String) -> Bool in
+                let nameSet = Set(name)
+                let filterSet = Set(filterCharacters)
+
+                return nameSet.isSubset(of: filterSet) && filterSet.isSuperset(of: nameSet)
             }
-        
-//        func getCursorPositionAndWord() -> (Int, String) {
-//            let startPosition = text.startIndex
-//            let selectedRange = text.selectedTextRange
-//            let cursorPosition = text.distance(from: startPosition, to: selectedRange?.start ?? startPosition)
-//            let wordRange = text.rangeOfComposedCharacterSequence(at: text.index(startPosition, offsetBy: cursorPosition))
-//            let word = String(text[wordRange])
-//            return (cursorPosition, word)
-//            return(2,"test")
-//        }
+
+            // Use filtered names to populate a list view
+            return List(filteredNames, id: \.self) { name in
+                Text(name)
+                    .font(.footnote)
+            }
+
+        } catch {
+            fatalError("Could not get contents of \(audioPath.path) folder: \(error.localizedDescription)")
+        }
     }
+}
+
+
+//struct SwiftUIView: View {
+//    let words = ["apple", "banana", "cherry", "date", "elderberry","bal","ba","la"]
+//       let filterCharacters = "al"
+//
+//       var body: some View {
+//           let filteredWords = words.filter { word in
+//               let wordCharacters = Set(word)
+//               let filterCharactersSet = Set(filterCharacters)
+//
+//               // Check that all characters in the word are also in the filter set,
+//               // and that the filter set contains all characters in the word
+//               return wordCharacters.isSubset(of: filterCharactersSet) &&
+//                   filterCharactersSet.isSuperset(of: wordCharacters)
+//           }
+//
+//           return List(filteredWords, id: \.self) { word in
+//               Text(word)
+//           }
+//       }
+//}
 
 
 struct SwiftUIView_Previews: PreviewProvider {
@@ -77,3 +74,5 @@ struct SwiftUIView_Previews: PreviewProvider {
         SwiftUIView()
     }
 }
+
+

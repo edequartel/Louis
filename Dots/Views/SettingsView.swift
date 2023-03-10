@@ -33,6 +33,7 @@ struct SettingsView: View {
 
 struct overviewMethodsView : View {
     @EnvironmentObject var viewModel: LouisViewModel
+    let maxHeight: CGFloat = 100
     
     var body: some View {
         Section {
@@ -78,11 +79,17 @@ struct overviewMethodsView : View {
             
             if (viewModel.activityType == .character) {
                 Text(viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].letters)
-                .font(.footnote)
+                    .frame(maxHeight: maxHeight)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .font(.footnote)
+                    .foregroundColor(.gray)
             } else {
-                    Text(viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].words)
-                        .font(.footnote)
-                }
+                Text(viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].words)
+                    .frame(maxHeight: maxHeight)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .font(.footnote)
+                    .foregroundColor(.gray)
+            }
         }
     }
     
