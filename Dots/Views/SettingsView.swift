@@ -82,14 +82,19 @@ struct overviewMethodsView : View {
                     .font(.footnote)
                     .foregroundColor(.gray)
             } else {
-//                Text(getMP3Files(atPath: "dutch/words",
-//                                 containingCharacters: viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].letters,
-//                                 minLength: 0,
-//                                 maxLength: 30)
-//                    .joined(separator: " ")
-//                )
-//                .font(.footnote)
-//                .foregroundColor(.gray)
+                Text(viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].letters)
+                    .frame(maxHeight: maxHeight)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .font(.footnote)
+                    .foregroundColor(.gray)
+                Text(getMP3Files(atPath: "dutch/words",
+                                 containingCharacters: viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].letters,
+                                 minLength: 0,
+                                 maxLength: 30)
+                    .joined(separator: " ")
+                )
+                .font(.footnote)
+                .foregroundColor(.gray)
             }
         }
     }
@@ -213,11 +218,3 @@ struct SettingsView_Previews: PreviewProvider {
     }
 }
 
-
-
-
-//struct Previews_SettingsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
-//    }
-//}
