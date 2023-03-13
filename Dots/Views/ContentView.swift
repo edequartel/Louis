@@ -34,10 +34,10 @@ struct ContentView: View {
 //                        Image(systemName: "pencil.circle")
 //                        Text("AudioList".localized())
 //                    }
-//                LibLouisView()
+//                TestView()
 //                    .tabItem {
 //                        Image(systemName: "pencil.circle")
-//                        Text("libLouis".localized())
+//                        Text("Test".localized())
 //                    }
 //                TextFieldCursorView()
 //                    .tabItem {

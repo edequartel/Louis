@@ -56,7 +56,7 @@ struct PlaygroundView: View {
                 }
                 
                 if (viewModel.positionReadingType == .before) {
-                    viewModel.Talk(value : viewModel.item.lowercased())
+                    viewModel.talk(value : viewModel.item.lowercased())
                 }
                 else //nextone
                 {
