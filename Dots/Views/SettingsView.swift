@@ -75,19 +75,14 @@ struct overviewMethodsView : View {
                 viewModel.count = 0
             }
             
-            if (viewModel.activityType == .character) {
-                Text(viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].letters)
-                    .frame(maxHeight: maxHeight)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .font(.footnote)
-                    .foregroundColor(.gray)
-            } else {
-                Text(viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].letters)
-                    .frame(maxHeight: maxHeight)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .font(.footnote)
-                    .foregroundColor(.gray)
-                Text(getMP3Files(atPath: "dutch/words",
+            Text(viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].letters)
+                .frame(maxHeight: maxHeight)
+                .fixedSize(horizontal: false, vertical: true)
+                .font(.footnote)
+                .foregroundColor(.gray)
+            
+            if (viewModel.activityType == .word) {
+                Text(getMP3Files(atPath: "\(viewModel.Languages[viewModel.indexLanguage].zip)/words",
                                  containingCharacters: viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].letters,
                                  minLength: 0,
                                  maxLength: 30)

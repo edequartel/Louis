@@ -72,7 +72,7 @@ final class LouisViewModel: ObservableObject {
         
         while (item==items[0]) {
             let str = (activityType == .character) ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters :
-            getMP3Files(atPath: "dutch/words", containingCharacters: Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters, minLength: 0, maxLength: 30).joined(separator: " ")
+            getMP3Files(atPath: "\(Languages[indexLanguage].zip)/words", containingCharacters: Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters, minLength: 0, maxLength: 30).joined(separator: " ")
             
             items = cleanUpString(str)
             log.debug("indexLanguage \(indexLanguage)")
