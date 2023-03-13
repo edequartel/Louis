@@ -127,7 +127,7 @@ struct ListItemView: View {
             }
             .response { response in
                 if response.error == nil {
-                    log.error("\(value) downloaded successfully")
+                    log.debug("\(value) downloaded successfully")
                     self.unzip(value)
                     
                 } else {

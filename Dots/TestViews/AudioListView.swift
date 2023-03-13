@@ -33,6 +33,7 @@ func filterNamesWithCharacters(_ names: [String], characters: String) -> [String
 
 
 struct AudioListView: View {
+    @EnvironmentObject var viewModel: LouisViewModel
     @State private var characters = "abkl"
     @State private var minLength  = "0"
     @State private var maxLength  = "10"
@@ -50,7 +51,7 @@ struct AudioListView: View {
             }
             .padding()
             
-            List(getMP3Files(atPath: "dutch/words", containingCharacters: characters, minLength: Int(minLength), maxLength: Int(maxLength)), id: \.self) { fileName in
+            List(getMP3Files(atPath: "\(viewModel.Languages[viewModel.indexLanguage].zip)/words", containingCharacters: characters, minLength: Int(minLength), maxLength: Int(maxLength)), id: \.self) { fileName in
                 Text(fileName)
             }
         }

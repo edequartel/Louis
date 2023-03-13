@@ -62,7 +62,15 @@ struct SplashScreenView: View {
                         viewModel.indexLanguage = 1
                     }
                 }
+                
                 //
+//                viewModel.indexLanguage = 0
+//                viewModel.indexMethod = 0
+//                viewModel.indexLesson = 0
+                //
+                
+                
+                
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     withAnimation {
