@@ -29,7 +29,7 @@ struct ContentView: View {
                         Text("information".localized())
                     }
                 //--VV testViews
-                SwiftUIView()
+                AudioListView()
                     .tabItem {
                         Image(systemName: "pencil.circle")
                         Text("AudioList".localized())
