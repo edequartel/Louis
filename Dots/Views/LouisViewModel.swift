@@ -71,7 +71,8 @@ final class LouisViewModel: ObservableObject {
         log.debug("Shuffle() items: \(items) item: \(item)")
         
         while (item==items[0]) {
-            let str = (activityType == .character) ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters : Languages[indexLanguage].method[indexMethod].lesson[indexLesson].words
+            let str = (activityType == .character) ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters :
+            getMP3Files(atPath: "dutch/words", containingCharacters: Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters, minLength: 0, maxLength: 30).joined(separator: " ")
             
             items = cleanUpString(str)
             log.debug("indexLanguage \(indexLanguage)")

@@ -91,6 +91,7 @@ struct SplashScreenView: View {
                             let documentsDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
                             let fileURL = documentsDirectory.appendingPathComponent("data.json")
                             try data.write(to: fileURL)
+                            log.debug("file writing")
                             self.loadLocalData()
                         } catch {
                             self.log.error(error.localizedDescription)

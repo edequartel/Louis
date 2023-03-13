@@ -23,23 +23,10 @@ struct Method: Identifiable, Codable {
 // MARK: - Lesson
 struct Lesson: Identifiable, Codable {
     let id: Int
-    let name, letters, antiletters, words: String
+    let name, letters: String
     let allwords: String
     let sentence: [String]
     let comments: String
-    let information: Information
-    let voice, audio: [Audio]
+    let information: String
 }
 
-enum Audio: String, Codable {
-    case balMp3 = "bal.mp3"
-    case blaMp3 = "bla.mp3"
-}
-
-enum Information: String, Codable {
-    case empty = ".."
-    case information = "…"
-    case metPuntOpPadBlz10 = "met punt op pad blz. 10"
-}
-
-//typealias Item = [ItemElement]

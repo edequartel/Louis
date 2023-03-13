@@ -60,7 +60,6 @@ struct overviewMethodsView : View {
             }
             .frame(height: 40)
             .onChange(of: viewModel.indexMethod) { tag in
-//                print("Change in tag method: \(tag)")
                 viewModel.indexLesson = 0
                 viewModel.updateViewData = true
                 viewModel.count = 0
@@ -72,7 +71,6 @@ struct overviewMethodsView : View {
                 }
             }
             .onChange(of: viewModel.indexLesson) { tag in
-//                print("Change in tag lesson: \(tag)")
                 viewModel.updateViewData = true
                 viewModel.count = 0
             }
@@ -84,11 +82,14 @@ struct overviewMethodsView : View {
                     .font(.footnote)
                     .foregroundColor(.gray)
             } else {
-                Text(viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].words)
-                    .frame(maxHeight: maxHeight)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .font(.footnote)
-                    .foregroundColor(.gray)
+//                Text(getMP3Files(atPath: "dutch/words",
+//                                 containingCharacters: viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].letters,
+//                                 minLength: 0,
+//                                 maxLength: 30)
+//                    .joined(separator: " ")
+//                )
+//                .font(.footnote)
+//                .foregroundColor(.gray)
             }
         }
     }
