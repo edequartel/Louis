@@ -70,9 +70,6 @@ final class LouisViewModel: ObservableObject {
         
         log.debug("Shuffle() items: \(items) item: \(item)")
         
-        
-    
-        
         while (item==items[0]) {
             let str = (activityType == .character) ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters :
             getMP3Files(atPath: "\(Languages[indexLanguage].zip)/words", containingCharacters: Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters, minLength: 0, maxLength: 30).joined(separator: " ")
@@ -261,7 +258,7 @@ final class LouisViewModel: ObservableObject {
     
     //maybe see character as a word with length 1, this function can be shorter
     func Talk(value : String) {
-        log.verbose("Talk() \(value)")
+        log.info("Talk() \(value)")
 //        log.verbose("getBaseDirectory() \(getBaseDirectory())")
 //        log.verbose("getDocumentDirectory() \(getDocumentDirectory())")
         
@@ -276,7 +273,6 @@ final class LouisViewModel: ObservableObject {
         //character
         if (activityType == .character) {
             log.debug("Talk() character [\(value)]")
-            
             
             if (value.count==1) { //only with characters, value is the text in text
                 log.debug("Characters \(value)")
@@ -323,11 +319,17 @@ final class LouisViewModel: ObservableObject {
         if (activityType == .word) {
             log.debug("Talk() word [\(value)]")
             
+            //
+            
+            
+            
+            
             var myStringArr = value.components(separatedBy: "-") //divide the w-o-r-d in characters
             if myStringArr.count == 1 { //and if not dividing so one string
                myStringArr = value.map { String($0) }
             }
             
+            //
             let theWord = value.replacingOccurrences(of: "-", with: "") //make a word
             
             if (syllable) { //
