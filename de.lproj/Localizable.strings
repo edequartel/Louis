@@ -54,3 +54,7 @@
 "text" = "Woter";
 "update" = "Aktualisieren";
 "word" = "Wort";
+"uppercase" = "GROßSCHRIFT";
+"lowercase" = "kleingeschrieben";
+"capitalisation" = "Großbuchstabe";
+"caseconversion" = "Zeichen";

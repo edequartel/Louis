@@ -44,6 +44,14 @@ final class LouisViewModel: ObservableObject {
         get { positionReadingEnum(rawValue: positionTypeRawValue) ?? .before }
         set { positionTypeRawValue = newValue.rawValue }
     }
+
+    @AppStorage("CASE_CONVERSION") var selectedConversionRawValue = 0
+    var conversionType: caseConversionEnum{
+        get { caseConversionEnum(rawValue: selectedConversionRawValue) ?? .lowerCase}
+        set { selectedConversionRawValue = newValue.rawValue }
+    }
+    
+    
     
     @Published var item: String = "xxx"
     @Published var previousItem: String = "previous"
@@ -94,6 +102,7 @@ final class LouisViewModel: ObservableObject {
         }
         item = items[0]
     }
+    
     
     func cleanUpString(_ input: String) -> Array<String>  {
         let pattern = "\\s{2,}"
@@ -243,23 +252,38 @@ final class LouisViewModel: ObservableObject {
     
     func showString() -> String {
         log.debug("showString() \(item)")
-        let separators = ["eeuw","sch","eeu","ij","ooi","aa","ui","oo","eu","ei"] //long sounds
-        var itemArray = recursiveConcatenate(item, by: separators)
+        // Return the appropriate string based on playing and position reading mode
+        var temp = isPlaying && positionReadingType == .after
+        ? createShowString(item: previousItem,syllable: syllable)
+        : createShowString(item: item,syllable: syllable)
         
-        let syllableString = (pronounceType == .child)  && (itemArray.components(separatedBy: "-").count != 1)  ? itemArray.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: item))
-        log.debug("1. showstring() \(syllableString)")
+//        switch conversionType {
+//        case .lowerCase:
+//            temp = temp.lowercased()
+//        case .upperCase:
+//            temp = temp.uppercased()
+//        case .capitalisation:
+//            temp = temp.capitalized
+//        }
         
-        let tempString1 = syllable ? syllableString : item.replacingOccurrences(of: "-", with: "")
-        
-        let prevSyllableString = (pronounceType == .child) && (item.components(separatedBy: "-").count != 1) ? previousItem.replacingOccurrences(of: "-", with: " ") : addSpaces(value: stripString(value: previousItem))
-        
-        
-        let prevtempString1 = syllable ? prevSyllableString : previousItem.replacingOccurrences(of: "-", with: "")
-        
-        
-        return isPlaying && positionReadingType == .after ? prevtempString1 : tempString1
+        return temp
     }
-    
+
+    func createShowString(item: String, syllable: Bool) -> String {
+        // Split the item string into an array based on the separators
+        let itemArray = recursiveConcatenate(item, by: separators)
+            
+        // Convert the array into a string with spaces added between syllables
+        let syllableString = (pronounceType == .child) && (itemArray.components(separatedBy: "-").count != 1)
+            ? itemArray.replacingOccurrences(of: "-", with: " ") // the seperated string
+            : item
+            
+        // Create a temporary string without spaces between syllables, if syllable mode is on
+        let tempString = syllable ? syllableString : item.replacingOccurrences(of: "-", with: "")
+        
+        return tempString
+    }
+
     
     //maybe see character as a word with length 1, this function can be shorter
     func talk(value : String) {

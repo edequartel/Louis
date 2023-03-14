@@ -64,9 +64,9 @@ struct SplashScreenView: View {
                 }
                 
                 //
-//                viewModel.indexLanguage = 0
-//                viewModel.indexMethod = 0
-//                viewModel.indexLesson = 0
+                viewModel.indexLanguage = 0
+                viewModel.indexMethod = 0
+                viewModel.indexLesson = 0
                 //
                 
 

@@ -88,6 +88,20 @@ enum positionReadingEnum: Int, CaseIterable {
     }
 }
 
+enum caseConversionEnum: Int, CaseIterable {
+    case lowerCase = 0
+    case upperCase = 1
+    case capitalisation = 2
+    
+    func stringValue() -> String {
+        switch(self) {
+        case .lowerCase: return "lowercase"
+        case .upperCase: return "uppercase"
+        case .capitalisation: return "capitalisation"
+        }
+    }
+}
+
 //enum fontEnum: Int, CaseIterable {
 //    case text = 0
 //    case dots8 = 1
@@ -148,3 +162,6 @@ struct Border: ViewModifier {
             .cornerRadius(5)
     }
 }
+
+// Define separators for long sounds
+let separators = ["eeuw", "sch", "eeu", "ij", "ooi", "aa", "ui", "oo", "eu", "ei"]

@@ -54,3 +54,7 @@
 "text" = "Tekst";
 "update" = "Bijwerken";
 "word" = "Woord";
+"uppercase" = "HOOFDLETTERS";
+"lowercase" = "kleine letters";
+"capitalisation" = "Hoofdletter";
+"caseconversion" = "Karakters";

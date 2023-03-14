@@ -54,3 +54,7 @@
 "text" = "Text";
 "update" = "Update";
 "word" = "Word";
+"uppercase" = "UPPERCASE";
+"lowercase" = "lowercase";
+"capitalisation" = "Capitalise";
+"caseconversion" = "Characters";

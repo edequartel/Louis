@@ -48,10 +48,15 @@ func recursiveSplit(_ str: String, by separators: [String]) -> [(isSeparator: Bo
     return result
 }
 
-func recursiveConcatenate(_ str: String, by separators: [String]) -> String {
-    let splitArray = recursiveSplit(str, by: separators)
+func recursiveConcatenate(_ str: String, by separators: [String]? = nil) -> String {
+    let splitArray = recursiveSplit(str, by: separators ?? [" "]) // using default separator "-" if separators is nil or empty
     return splitArray.map { $0.value }.joined(separator: "-")
 }
+
+//func recursiveConcatenate(_ str: String, by separators: [String]) -> String {
+//    let splitArray = recursiveSplit(str, by: separators)
+//    return splitArray.map { $0.value }.joined(separator: "-")
+//}
 
 //-----------------------------------------------------------------------------------
 

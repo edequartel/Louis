@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Soundable
+import SwiftyBeaver
 
 
 struct SettingsView: View {
@@ -33,6 +34,7 @@ struct SettingsView: View {
 
 struct overviewMethodsView : View {
     @EnvironmentObject var viewModel: LouisViewModel
+    let log = SwiftyBeaver.self
     let maxHeight: CGFloat = 100
     
     var body: some View {
@@ -61,8 +63,8 @@ struct overviewMethodsView : View {
             .frame(height: 40)
             .onChange(of: viewModel.indexMethod) { tag in
                 viewModel.indexLesson = 0
-                viewModel.updateViewData = true
                 viewModel.count = 0
+                viewModel.updateViewData = true
             }
             
             Picker("lesson".localized(), selection: $viewModel.indexLesson) {
@@ -75,22 +77,23 @@ struct overviewMethodsView : View {
                 viewModel.count = 0
             }
             
-            Text(viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].letters)
-                .frame(maxHeight: maxHeight)
-                .fixedSize(horizontal: false, vertical: true)
-                .font(.footnote)
-                .foregroundColor(.gray)
-            
-            if (viewModel.activityType == .word) {
-                Text(getMP3Files(atPath: "\(viewModel.Languages[viewModel.indexLanguage].zip)/words",
-                                 containingCharacters: viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].letters,
-                                 minLength: 0,
-                                 maxLength: 30)
-                    .joined(separator: " ")
-                )
-                .font(.footnote)
-                .foregroundColor(.gray)
-            }
+//            Text(viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].letters)
+//                .frame(maxHeight: maxHeight)
+//                .fixedSize(horizontal: false, vertical: true)
+//                .font(.footnote)
+//                .foregroundColor(.gray)
+
+//
+//            if (viewModel.activityType == .word) {
+//                Text(getMP3Files(atPath: "\(viewModel.Languages[viewModel.indexLanguage].zip)/words",
+//                                 containingCharacters: viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].letters,
+//                                 minLength: 0,
+//                                 maxLength: 30)
+//                    .joined(separator: " ")
+//                )
+//                .font(.footnote)
+//                .foregroundColor(.gray)
+//            }
         }
     }
     
@@ -144,6 +147,20 @@ struct overviewActivityView : View {
                     }
                 }
             }
+            
+            if (viewModel.syllable) && (viewModel.activityType == .word) {
+                Picker("pause".localized(),selection: $viewModel.indexPauses) {
+                    ForEach(0 ..< pauses.count, id: \.self) {
+                        Text("\(pauses[$0]) sec").tag($0)
+                    }
+                }
+            }
+            
+//            Picker("caseconversion", selection: $viewModel.conversionType) {
+//                            ForEach(caseConversionEnum.allCases, id: \.self) { conversionType in
+//                                Text(conversionType.stringValue().localized())
+//                            }
+//                        }
         }
     }
 }
