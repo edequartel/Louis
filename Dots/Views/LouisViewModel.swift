@@ -81,8 +81,8 @@ final class LouisViewModel: ObservableObject {
         log.debug("Shuffle() items: \(items) item: \(item)")
         
         while (item==items[0]) {
-            let str = (activityType == .character) ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters :
-            getMP3Files(atPath: "\(Languages[indexLanguage].zip)/words", containingCharacters: Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters, minLength: 0, maxLength: 30).joined(separator: " ")
+            let str = (activityType == .character) ? getLetters() :
+            getMP3Files(atPath: "\(Languages[indexLanguage].zip)/words", containingCharacters: getLetters(), minLength: 0, maxLength: 30).joined(separator: " ")
             
             items = cleanUpString(str)
             log.debug("indexLanguage \(indexLanguage)")
@@ -103,6 +103,32 @@ final class LouisViewModel: ObservableObject {
         item = items[0]
     }
     
+    func getLetters() -> String {
+//        Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters!
+        if let language = Languages.indices.contains(indexLanguage) ? Languages[indexLanguage] : nil,
+           let method = language.method.indices.contains(indexMethod) ? language.method[indexMethod] : nil,
+           let lesson = method.lesson.indices.contains(indexLesson) ? method.lesson[indexLesson] : nil,
+           let letters = lesson.letters {
+           return letters
+        } else {
+           // code to execute if the indexes are out of range
+            return ("")
+        }
+
+    }
+    
+    func getAssistWord () -> String {
+        var temp : String
+        switch conversionType {
+        case .lowerCase:
+            temp = showString().replacingOccurrences(of: " ", with: "").lowercased()
+        case .upperCase:
+            temp = showString().replacingOccurrences(of: " ", with: "").uppercased()
+        case .capitalisation:
+            temp = showString().replacingOccurrences(of: " ", with: "").capitalized
+        }
+        return temp
+    }
     
     func cleanUpString(_ input: String) -> Array<String>  {
         let pattern = "\\s{2,}"
@@ -252,23 +278,26 @@ final class LouisViewModel: ObservableObject {
     
     func showString() -> String {
         log.debug("showString() \(item)")
+
         // Return the appropriate string based on playing and position reading mode
-        var temp = isPlaying && positionReadingType == .after
+        let temp = isPlaying && positionReadingType == .after
         ? createShowString(item: previousItem,syllable: syllable)
         : createShowString(item: item,syllable: syllable)
-        
-//        switch conversionType {
-//        case .lowerCase:
-//            temp = temp.lowercased()
-//        case .upperCase:
-//            temp = temp.uppercased()
-//        case .capitalisation:
-//            temp = temp.capitalized
-//        }
-        
+ 
         return temp
     }
 
+//    //
+//            var tempItem : String
+//            switch conversionType {
+//            case .lowerCase:
+//                tempItem = item.lowercased()
+//            case .upperCase:
+//                tempItem = item.uppercased()
+//            case .capitalisation:
+//                tempItem = item,.capitalized
+//            }
+    
     func createShowString(item: String, syllable: Bool) -> String {
         // Split the item string into an array based on the separators
         let itemArray = recursiveConcatenate(item, by: separators)

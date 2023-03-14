@@ -77,23 +77,25 @@ struct overviewMethodsView : View {
                 viewModel.count = 0
             }
             
-//            Text(viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].letters)
-//                .frame(maxHeight: maxHeight)
-//                .fixedSize(horizontal: false, vertical: true)
-//                .font(.footnote)
-//                .foregroundColor(.gray)
+            Text(viewModel.getLetters())
+                .frame(maxHeight: maxHeight)
+                .fixedSize(horizontal: false, vertical: true)
+                .font(.footnote)
+                .foregroundColor(.bart_green)
 
 //
-//            if (viewModel.activityType == .word) {
-//                Text(getMP3Files(atPath: "\(viewModel.Languages[viewModel.indexLanguage].zip)/words",
-//                                 containingCharacters: viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].letters,
-//                                 minLength: 0,
-//                                 maxLength: 30)
-//                    .joined(separator: " ")
-//                )
-//                .font(.footnote)
-//                .foregroundColor(.gray)
-//            }
+            if (viewModel.activityType == .word) {
+                Text(getMP3Files(atPath: "\(viewModel.Languages[viewModel.indexLanguage].zip)/words",
+                                 containingCharacters: viewModel.getLetters(),
+                                 minLength: 0,
+                                 maxLength: 30)
+                    .joined(separator: " ")
+                )
+                .frame(maxHeight: maxHeight)
+                .fixedSize(horizontal: false, vertical: true)
+                .font(.footnote)
+                .foregroundColor(.gray)
+            }
         }
     }
     
@@ -156,11 +158,11 @@ struct overviewActivityView : View {
                 }
             }
             
-//            Picker("caseconversion", selection: $viewModel.conversionType) {
-//                            ForEach(caseConversionEnum.allCases, id: \.self) { conversionType in
-//                                Text(conversionType.stringValue().localized())
-//                            }
-//                        }
+            Picker("caseconversion", selection: $viewModel.conversionType) {
+                            ForEach(caseConversionEnum.allCases, id: \.self) { conversionType in
+                                Text(conversionType.stringValue().localized())
+                            }
+                        }
         }
     }
 }
