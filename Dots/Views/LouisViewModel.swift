@@ -287,38 +287,60 @@ final class LouisViewModel: ObservableObject {
         return temp
     }
 
-//    //
-//            var tempItem : String
-//            switch conversionType {
-//            case .lowerCase:
-//                tempItem = item.lowercased()
-//            case .upperCase:
-//                tempItem = item.uppercased()
-//            case .capitalisation:
-//                tempItem = item,.capitalized
-//            }
+    func insertSpacesAfterEachCharacter(_ string: String) -> String {
+        var stringWithSpaces = ""
+        
+        for (index, char) in string.enumerated() {
+            if index != string.count - 1 {
+                stringWithSpaces += "\(char) "
+            } else {
+                stringWithSpaces += "\(char)"
+            }
+        }
+        
+        return stringWithSpaces
+    }
     
     func createShowString(item: String, syllable: Bool) -> String {
+        //perpare string for casing
+        var tempItem : String
+        switch conversionType {
+        case .lowerCase:
+            tempItem = item.lowercased()
+        case .upperCase:
+            tempItem = item.uppercased()
+        case .capitalisation:
+            tempItem = item.capitalized
+        }
+        
         // Split the item string into an array based on the separators
-        let itemArray = recursiveConcatenate(item, by: separators)
-            
+        let itemSeparateArray = recursiveConcatenate(tempItem, by: separators)
+        let itemSpaceArray = insertSpacesAfterEachCharacter(tempItem)
+        
         // Convert the array into a string with spaces added between syllables
-        let syllableString = (pronounceType == .child) && (itemArray.components(separatedBy: "-").count != 1)
-            ? itemArray.replacingOccurrences(of: "-", with: " ") // the seperated string
-            : item
-            
+        let syllableString = (pronounceType == .child) && (itemSeparateArray.components(separatedBy: "-").count != 1)
+        ? itemSeparateArray.replacingOccurrences(of: "-", with: " ") // the seperated string
+        : itemSpaceArray
+        
         // Create a temporary string without spaces between syllables, if syllable mode is on
-        let tempString = syllable ? syllableString : item.replacingOccurrences(of: "-", with: "")
+        let tempString = syllable ? syllableString : tempItem
         
         return tempString
     }
 
+    func playSound(_ sound: Sound) {
+        isPlaying = true
+        sound.play() { error in
+            if let error = error {
+                self.log.error(error.localizedDescription)
+            }
+            self.isPlaying = false
+        }
+    }
     
     //maybe see character as a word with length 1, this function can be shorter
     func talk(value : String) {
         log.verbose("Talk() \(value)")
-        //        log.verbose("getBaseDirectory() \(getBaseDirectory())")
-        //        log.verbose("getDocumentDirectory() \(getDocumentDirectory())")
         
         Soundable.stopAll()
         isPlaying = false
@@ -377,7 +399,7 @@ final class LouisViewModel: ObservableObject {
         //word
         if (activityType == .word) {
             log.debug("Talk() word [\(value)]")
-            let separators = ["eeuw","sch","eeu","ij","ooi","aa","ui","oo","eu","ei"] //long sounds
+//            let separators = ["eeuw","sch","eeu","ij","ooi","aa","ui","oo","eu","ei"] //long sounds
             var myStringArr = recursiveConcatenate(value, by: separators).components(separatedBy: "-")
 //            var myStringArr = value.components(separatedBy: "-") //divide the w-o-r-d in characters
             if myStringArr.count == 1 { //and if not dividing so one string
@@ -418,6 +440,8 @@ final class LouisViewModel: ObservableObject {
                     }
                     self.isPlaying = false
                 }
+                
+                
                 
                 
             } else { //not syllable just plays the word
