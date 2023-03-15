@@ -157,12 +157,6 @@ struct overviewActivityView : View {
                     }
                 }
             }
-            
-            Picker("caseconversion", selection: $viewModel.conversionType) {
-                            ForEach(caseConversionEnum.allCases, id: \.self) { conversionType in
-                                Text(conversionType.stringValue().localized())
-                            }
-                        }
         }
     }
 }
@@ -191,6 +185,14 @@ struct overviewGeneralView : View {
                     Text(positionReadingType.stringValue().localized())//.tag(pronounceType)
                 }
             }
+            
+            Picker("caseconversion", selection: $viewModel.conversionType) {
+                            ForEach(caseConversionEnum.allCases, id: \.self) { conversionType in
+                                Text(conversionType.stringValue().localized())
+                            }
+                        }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding(10)
         }
     }
 }

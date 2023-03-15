@@ -44,7 +44,7 @@ final class LouisViewModel: ObservableObject {
         get { positionReadingEnum(rawValue: positionTypeRawValue) ?? .before }
         set { positionTypeRawValue = newValue.rawValue }
     }
-
+    
     @AppStorage("CASE_CONVERSION") var selectedConversionRawValue = 0
     var conversionType: caseConversionEnum{
         get { caseConversionEnum(rawValue: selectedConversionRawValue) ?? .lowerCase}
@@ -104,17 +104,17 @@ final class LouisViewModel: ObservableObject {
     }
     
     func getLetters() -> String {
-//        Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters!
+        //        Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters!
         if let language = Languages.indices.contains(indexLanguage) ? Languages[indexLanguage] : nil,
            let method = language.method.indices.contains(indexMethod) ? language.method[indexMethod] : nil,
            let lesson = method.lesson.indices.contains(indexLesson) ? method.lesson[indexLesson] : nil,
            let letters = lesson.letters {
-           return letters
+            return letters
         } else {
-           // code to execute if the indexes are out of range
+            // code to execute if the indexes are out of range
             return ("")
         }
-
+        
     }
     
     func getAssistWord () -> String {
@@ -278,15 +278,15 @@ final class LouisViewModel: ObservableObject {
     
     func showString() -> String {
         log.debug("showString() \(item)")
-
+        
         // Return the appropriate string based on playing and position reading mode
         let temp = isPlaying && positionReadingType == .after
         ? createShowString(item: previousItem,syllable: syllable)
         : createShowString(item: item,syllable: syllable)
- 
+        
         return temp
     }
-
+    
     func insertSpacesAfterEachCharacter(_ string: String) -> String {
         var stringWithSpaces = ""
         
@@ -302,7 +302,9 @@ final class LouisViewModel: ObservableObject {
     }
     
     func createShowString(item: String, syllable: Bool) -> String {
-        //perpare string for casing
+        //ISSUE #43 When pronounceType == .child and case != lowerCase words are separated in single characters and not in phonem
+        log.debug("createShowString \(item) syllable \(syllable)")
+        //prepare string for casing
         var tempItem : String
         switch conversionType {
         case .lowerCase:
@@ -316,31 +318,26 @@ final class LouisViewModel: ObservableObject {
         // Split the item string into an array based on the separators
         let itemSeparateArray = recursiveConcatenate(tempItem, by: separators)
         let itemSpaceArray = insertSpacesAfterEachCharacter(tempItem)
+        log.debug("\t itemSeparateArray: \(itemSeparateArray)")
+        log.debug("\t itemSpaceArray: \(itemSpaceArray)")
+        
         
         // Convert the array into a string with spaces added between syllables
         let syllableString = (pronounceType == .child) && (itemSeparateArray.components(separatedBy: "-").count != 1)
         ? itemSeparateArray.replacingOccurrences(of: "-", with: " ") // the seperated string
         : itemSpaceArray
         
+        log.debug("\t syllableString: \(syllableString)")
         // Create a temporary string without spaces between syllables, if syllable mode is on
         let tempString = syllable ? syllableString : tempItem
         
         return tempString
     }
-
-    func playSound(_ sound: Sound) {
-        isPlaying = true
-        sound.play() { error in
-            if let error = error {
-                self.log.error(error.localizedDescription)
-            }
-            self.isPlaying = false
-        }
-    }
+    
     
     //maybe see character as a word with length 1, this function can be shorter
     func talk(value : String) {
-        log.verbose("Talk() \(value)")
+        log.debug("Talk() \(value)")
         
         Soundable.stopAll()
         isPlaying = false
@@ -350,67 +347,44 @@ final class LouisViewModel: ObservableObject {
             for _ in 0..<pauses[indexPauses] { sounds.append(Sound(url: getBaseDirectory().appendingPathComponent("words/space.mp3"))) }
         }
         
-        //character
-        if (activityType == .character) {
-            log.debug("Talk() character [\(value)]")
-            
-            
-            if (value.count==1) { //only with characters, value is the text in text
-                log.debug("Characters \(value)")
-                if let code = uniCode[value]
-                {
-                    let sound = Sound(url: getPhoneticFile(value: code))
-                    sounds.append(sound)
+        func playSounds() {
+            log.debug("playing sounds")
+            isPlaying = true
+            sounds.play() { error in
+                if let error = error {
+                    self.log.error(error.localizedDescription)
                 }
-                else {
-                    let sound = Sound(url: getPhoneticFile(value: value))
-                    sounds.append(sound)
-                }
-                
-                if (pronounceType == .meaning) {
-                    let sound = Sound(url: getBaseDirectory().appendingPathComponent("phonetic/adult/"+value.lowercased()+".mp3"))
-                    sounds.append(sound)
-                }
-                
-                isPlaying = true
-                self.log.debug("Talk() \(sounds)")
-                
-                sounds.play() { error in
-                    if let error = error {
-                        self.log.error(error.localizedDescription)
-                    }
-                    self.isPlaying = false
-                }
-                
-            } else { //tricky sounds gelden voor alle pronounce child/adult/form, tricky sounds are ui oe eu
-                let sound = Sound(fileName: value+".mp3")
-                log.debug("Talk() tricky sounds [\(value)]")
-                
-                isPlaying = true
-                sound.play() { error in
-                    if let error = error {
-                        self.log.error(error.localizedDescription)
-                    }
-                    self.isPlaying = false
-                }
+                self.isPlaying = false
             }
         }
         
-        //word
-        if (activityType == .word) {
-            log.debug("Talk() word [\(value)]")
-//            let separators = ["eeuw","sch","eeu","ij","ooi","aa","ui","oo","eu","ei"] //long sounds
-            var myStringArr = recursiveConcatenate(value, by: separators).components(separatedBy: "-")
-//            var myStringArr = value.components(separatedBy: "-") //divide the w-o-r-d in characters
-            if myStringArr.count == 1 { //and if not dividing so one string
-                myStringArr = value.map { String($0) }
+        
+        func talkaCharacter() {
+            log.info("Talk() character [\(value)]")
+            if (value.count==1) { //only with characters, value is the text in text
+                log.debug("Characters \(value)")
+                if let code = uniCode[value] {
+                    sounds.append(Sound(url: getPhoneticFile(value: code)))
+                } else {
+                    sounds.append(Sound(url: getPhoneticFile(value: value)))
+                }
+                if pronounceType == .meaning {
+                    sounds.append(Sound(url: getBaseDirectory().appendingPathComponent("phonetic/adult/" + (value.lowercased()) + ".mp3")))
+                }
+                playSounds()
+                
+            } else { //tricky sounds gelden voor alle pronounce child/adult/form, tricky sounds are ui oe eu
+                log.error("Talk() tricky sounds [\(value)]")
+                sounds.append(Sound(fileName: value+".mp3"))
+                playSounds()
             }
-            
-            let theWord = value.replacingOccurrences(of: "-", with: "") //make a word
-            
+        }
+        
+        func talkaWord() {
+            log.info("Talk() word [\(value)]")
             if (syllable) { //
                 if ((pronounceType == .adult) || (pronounceType == .form) || (pronounceType == .meaning)) {
-                    for char in theWord {
+                    for char in value {
                         if ((pronounceType == .adult) || (pronounceType == .form) || (pronounceType == .meaning)) { //adult
                             sounds.append(Sound(url: getPhoneticFile(value: "\(char)")))
                             AddSilence()
@@ -423,39 +397,30 @@ final class LouisViewModel: ObservableObject {
                 }
                 
                 else {//child
-                    for char in myStringArr {
-                        sounds.append(Sound(url: getBaseDirectory().appendingPathComponent("phonetic/child/"+char.lowercased()+".mp3")))
+                    var separatedString = recursiveConcatenate(value, by: separators).components(separatedBy: "-")
+                    log.debug("separatedString: \(separatedString)")
+                    for item in separatedString {
+                        sounds.append(Sound(url: getBaseDirectory().appendingPathComponent("phonetic/child/"+item.lowercased()+".mp3")))
                         AddSilence()
                     }
+                    
                 }
-                
                 if talkWord {
-                    sounds.append(Sound(url: getAudioFile(value: theWord)))
+                    sounds.append(Sound(url: getAudioFile(value: value)))
                 }
-                
-                isPlaying = true
-                sounds.play { error in
-                    if let error = error {
-                        self.log.error(error.localizedDescription)
-                    }
-                    self.isPlaying = false
-                }
-                
-                
-                
-                
+                playSounds()
             } else { //not syllable just plays the word
-                let sound = Sound(url: getAudioFile(value: theWord))
-                
-                isPlaying = true
-                sound.play() { error in
-                    if let error = error {
-                        self.log.error(error.localizedDescription)
-                    }
-                    self.isPlaying = false
-                }
+                sounds.append(Sound(url: getAudioFile(value: value)))
+                playSounds()
             }
         }
+        
+        //character
+        if (activityType == .character) {
+            talkaCharacter()
+            
+        } else
+        {talkaWord()}
     }
 }
 

@@ -10,6 +10,8 @@
 "assist" = "Assist";
 "before" = "Before";
 "brailleText" = "Braille text";
+"capitalisation" = "Word";
+"caseconversion" = "Characters";
 "character" = "Character";
 "child" = "Child";
 "chop" = "Chop";
@@ -31,6 +33,7 @@
 "keyboard" = "Keyboard";
 "lesson" = "Lesson";
 "louisOnline" = "Louis online manual";
+"lowercase" = "word";
 "meaning" = "Shape-Adult";
 "messageNoAudio" = "There is no audio. \nBefore you can use Louis you have to download a language.\n\nInformation > Download languages > Choose language to download";
 "method" = "Method";
@@ -53,8 +56,5 @@
 "talkword" = "Read word";
 "text" = "Text";
 "update" = "Update";
+"uppercase" = "WORD";
 "word" = "Word";
-"uppercase" = "UPPERCASE";
-"lowercase" = "lowercase";
-"capitalisation" = "Capitalise";
-"caseconversion" = "Characters";

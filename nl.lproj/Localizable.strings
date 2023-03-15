@@ -10,6 +10,8 @@
 "assist" = "Hulp";
 "before" = "Voor";
 "brailleText" = "Tekst in Braille";
+"capitalisation" = "Woord";
+"caseconversion" = "Karakters";
 "character" = "Karakter";
 "child" = "Kind";
 "chop" = "Hakken";
@@ -31,6 +33,7 @@
 "keyboard" = "Toetsenbord";
 "lesson" = "Les";
 "louisOnline" = "Louis online handleiding";
+"lowercase" = "woord";
 "meaning" = "Vorm-Volwassen";
 "messageNoAudio" = "Er is geen audio. \nDownload eerst een taal voordat U Louis gebruikt.\n\nInformatie > Download talen > kies de taal voor downloaden";
 "method" = "Methode";
@@ -53,8 +56,5 @@
 "talkword" = "Woord lezen";
 "text" = "Tekst";
 "update" = "Bijwerken";
+"uppercase" = "WOORD";
 "word" = "Woord";
-"uppercase" = "HOOFDLETTERS";
-"lowercase" = "kleine letters";
-"capitalisation" = "Hoofdletter";
-"caseconversion" = "Karakters";

@@ -21,7 +21,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         file.logFileURL = URL(fileURLWithPath: "/tmp/app_info.log")
 
         console.format = "EDQ: $Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c: $M"
-        console.minLevel = .debug
+        console.minLevel = .info
         
         log.addDestination(console)
         log.addDestination(file)
