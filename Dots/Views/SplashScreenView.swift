@@ -12,6 +12,7 @@ import ZipArchive
 import SwiftyBeaver
 
 struct SplashScreenView: View {
+    @Environment(\.scenePhase) private var scenePhase
     @EnvironmentObject var viewModel: LouisViewModel
     let log = SwiftyBeaver.self
     @Environment(\.locale) private var locale
@@ -63,11 +64,13 @@ struct SplashScreenView: View {
                     }
                 }
                 
-                //
-//                viewModel.indexLanguage = 0
-//                viewModel.indexMethod = 0
-//                viewModel.indexLesson = 0
-                //
+//                if scenePhase == .active {
+//                    // App just launched or restarted after a crash
+//                    log.error("App launched or restarted after a crash")
+//                    viewModel.indexLanguage = 0
+//                    viewModel.indexMethod = 0
+//                    viewModel.indexLesson = 0
+//                }
                 
 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {

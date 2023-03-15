@@ -103,13 +103,20 @@ final class LouisViewModel: ObservableObject {
         item = items[0]
     }
     
+    func sortAndSpaceCharacters(in string: String) -> String {
+        var characters = string.map { String($0) } // convert string to array of characters
+        characters = Array(Set(characters)).sorted() // remove duplicates and sort characters
+        let spacedString = characters.joined(separator: " ") // join characters with spaces
+        return spacedString
+    }
+    
     func getLetters() -> String {
         //        Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters!
         if let language = Languages.indices.contains(indexLanguage) ? Languages[indexLanguage] : nil,
            let method = language.method.indices.contains(indexMethod) ? language.method[indexMethod] : nil,
            let lesson = method.lesson.indices.contains(indexLesson) ? method.lesson[indexLesson] : nil,
            let letters = lesson.letters {
-            return letters
+            return sortAndSpaceCharacters(in: letters)
         } else {
             // code to execute if the indexes are out of range
             return ("")
