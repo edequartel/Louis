@@ -169,4 +169,11 @@ let separators = ["eeuw", "sch", "eeu", "ooi", "ij", "aa", "ui", "oo", "eu", "ei
                   "EEUW", "SCH", "EEU", "OOI", "IJ", "AA", "UI", "OO", "EU", "EI",
                   "Eeuw", "Sch", "Eeu", "Ij", "Ooi", "Aa", "Ui", "Oo", "Eu", "Ei"]
 
+extension Array {
+    subscript(safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
+
+
 

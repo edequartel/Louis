@@ -65,11 +65,11 @@ struct SplashScreenView: View {
                 }
                 
 //                if scenePhase == .active {
-//                    // App just launched or restarted after a crash
+                    // App just launched or restarted after a crash
 //                    log.error("App launched or restarted after a crash")
-//                    viewModel.indexLanguage = 0
-//                    viewModel.indexMethod = 0
-//                    viewModel.indexLesson = 0
+                    viewModel.indexLanguage = 0
+                    viewModel.indexMethod = 0
+                    viewModel.indexLesson = 0
 //                }
                 
 

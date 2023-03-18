@@ -51,8 +51,6 @@ final class LouisViewModel: ObservableObject {
         set { selectedConversionRawValue = newValue.rawValue }
     }
     
-    
-    
     @Published var item: String = "xxx"
     @Published var previousItem: String = "previous"
     @Published var items =  ["bal","n-oo-t","m-ie-s"]
@@ -112,7 +110,6 @@ final class LouisViewModel: ObservableObject {
         let spacedString = characters.joined(separator: " ") // join characters with spaces
         return spacedString.trimmingCharacters(in: .whitespacesAndNewlines) // remove spaces at the beginning and end of the string
     }
-
     
     func getLanguageName() -> String {
         return Languages.indices.contains(indexLanguage)
@@ -126,7 +123,7 @@ final class LouisViewModel: ObservableObject {
         ? Languages[indexLanguage].method[indexMethod].name
         : "unknown Method"
     }
-    
+
     func getLessonName() -> String {
         return Languages.indices.contains(indexLanguage) &&
         Languages[indexLanguage].method.indices.contains(indexMethod) &&
@@ -134,7 +131,6 @@ final class LouisViewModel: ObservableObject {
         ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].name
         : "unknown Lesson"
     }
-    
     func getLetters() -> String {
         //        Languages[indexLanguage].method[indexMethod].lesson[indexLesson].letters!
         if let language = Languages.indices.contains(indexLanguage) ? Languages[indexLanguage] : nil,
@@ -146,7 +142,6 @@ final class LouisViewModel: ObservableObject {
             // code to execute if the indexes are out of range
             return ("")
         }
-        
     }
     
     func getAssistWord () -> String {

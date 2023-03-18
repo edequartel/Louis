@@ -66,15 +66,21 @@ struct overviewMethodsView : View {
                 viewModel.count = 0
                 viewModel.updateViewData = true
             }
-            
-            Picker("lesson".localized(), selection: $viewModel.indexLesson) {
-                ForEach(viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson, id: \.id) { lesson in
-                    Text(lesson.name).tag(lesson.id)
+
+            if let language = viewModel.Languages[safe: viewModel.indexLanguage],
+               let method = language.method[safe: viewModel.indexMethod]
+            {
+                Picker("lesson".localized(), selection: $viewModel.indexLesson) {
+                    ForEach(method.lesson, id: \.id) { lesson in
+                        Text(lesson.name).tag(lesson.id)
+                    }
                 }
-            }
-            .onChange(of: viewModel.indexLesson) { tag in
-                viewModel.updateViewData = true
-                viewModel.count = 0
+                .onChange(of: viewModel.indexLesson) { tag in
+                    viewModel.updateViewData = true
+                    viewModel.count = 0
+                }
+            } else {
+                Text("No lessons available").foregroundColor(.red)
             }
             
             Text(viewModel.getLetters())
@@ -192,7 +198,6 @@ struct overviewGeneralView : View {
                             }
                         }
             .pickerStyle(SegmentedPickerStyle())
-            .padding(10)
         }
     }
 }
