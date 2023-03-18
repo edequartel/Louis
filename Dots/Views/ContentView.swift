@@ -28,12 +28,7 @@ struct ContentView: View {
                         Image(systemName: "info.circle.fill")
                         Text("information".localized())
                     }
-                //--VV testViews
-//                AudioListView()
-//                    .tabItem {
-//                        Image(systemName: "pencil.circle")
-//                        Text("AudioList".localized())
-//                    }
+                //--VV testViewvuur
 //                TestView()
 //                    .tabItem {
 //                        Image(systemName: "pencil.circle")

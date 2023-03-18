@@ -84,7 +84,10 @@ final class LouisViewModel: ObservableObject {
             let str = (activityType == .character) ? getLetters() :
             getMP3Files(atPath: "\(Languages[indexLanguage].zip)/words", containingCharacters: getLetters(), minLength: 0, maxLength: 30).joined(separator: " ")
             
+            
             items = cleanUpString(str)
+            
+            
             log.debug("indexLanguage \(indexLanguage)")
             log.debug("indexMethod \(indexMethod)")
             log.debug("indexLesson \(indexLesson)")
@@ -107,7 +110,29 @@ final class LouisViewModel: ObservableObject {
         var characters = string.map { String($0) } // convert string to array of characters
         characters = Array(Set(characters)).sorted() // remove duplicates and sort characters
         let spacedString = characters.joined(separator: " ") // join characters with spaces
-        return spacedString
+        return spacedString.trimmingCharacters(in: .whitespacesAndNewlines) // remove spaces at the beginning and end of the string
+    }
+
+    
+    func getLanguageName() -> String {
+        return Languages.indices.contains(indexLanguage)
+        ? Languages[indexLanguage].name
+        : "unknown Language"
+    }
+    
+    func getMethodeName() -> String {
+        return Languages.indices.contains(indexLanguage) &&
+        Languages[indexLanguage].method.indices.contains(indexMethod)
+        ? Languages[indexLanguage].method[indexMethod].name
+        : "unknown Method"
+    }
+    
+    func getLessonName() -> String {
+        return Languages.indices.contains(indexLanguage) &&
+        Languages[indexLanguage].method.indices.contains(indexMethod) &&
+        Languages[indexLanguage].method[indexMethod].lesson.indices.contains(indexLesson)
+        ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].name
+        : "unknown Lesson"
     }
     
     func getLetters() -> String {
@@ -191,21 +216,6 @@ final class LouisViewModel: ObservableObject {
         synthesizer.speak(utterance)
     }
     
-    func getMethodeName() -> String {
-        return Languages.indices.contains(indexLanguage) &&
-        Languages[indexLanguage].method.indices.contains(indexMethod)
-        ? Languages[indexLanguage].method[indexMethod].name
-        : "unknown Method"
-    }
-    
-    func getLessonName() -> String {
-        return Languages.indices.contains(indexLanguage) &&
-        Languages[indexLanguage].method.indices.contains(indexMethod) &&
-        Languages[indexLanguage].method[indexMethod].lesson.indices.contains(indexLesson)
-        ? Languages[indexLanguage].method[indexMethod].lesson[indexLesson].name
-        : "unknown Lesson"
-    }
-    
     func stripString(value: String)->String {
         return value.replacingOccurrences(of: "-", with: "")
     }
@@ -227,6 +237,8 @@ final class LouisViewModel: ObservableObject {
             }
             
             count += 1
+            
+            
             if (count >= trys[indexTrys]) { //nextlevel
                 if indexLesson<(Languages[indexLanguage].method[indexMethod].lesson.count-1) {
                     returnValue = indexLesson + 1

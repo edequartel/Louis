@@ -165,6 +165,8 @@ struct Border: ViewModifier {
 
 // Define separators for long sounds
 //Issue 45 these longSound separators are now only for Dutch has to be implemented in the JSON file
-let separators = ["eeuw", "sch", "eeu", "ij", "ooi", "aa", "ui", "oo", "eu", "ei"]
+let separators = ["eeuw", "sch", "eeu", "ooi", "ij", "aa", "ui", "oo", "eu", "ei",
+                  "EEUW", "SCH", "EEU", "OOI", "IJ", "AA", "UI", "OO", "EU", "EI",
+                  "Eeuw", "Sch", "Eeu", "Ij", "Ooi", "Aa", "Ui", "Oo", "Eu", "Ei"]
 
 
