@@ -82,7 +82,24 @@ struct overviewMethodsView : View {
             } else {
                 Text("No lessons available").foregroundColor(.red)
             }
+            //
+//            if options.indices.contains(index) {
+//                               Text(options[index]).tag(index)
+//                           }
+//            
+//            Picker("lesson".localized(), selection: $viewModel.indexLesson) {
+//                ForEach(method.lesson, id: \.id) { lesson in
+//                    Text(lesson.name).tag(lesson.id)
+//                }
+//            }
+//            .onChange(of: viewModel.indexLesson) { tag in
+//                viewModel.updateViewData = true
+//                viewModel.count = 0
+//            }
+            //
             
+            
+            //
             Text(viewModel.getLetters())
                 .frame(maxHeight: maxHeight)
                 .fixedSize(horizontal: false, vertical: true)
