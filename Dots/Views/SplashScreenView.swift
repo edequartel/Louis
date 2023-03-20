@@ -17,28 +17,28 @@ struct SplashScreenView: View {
     let log = SwiftyBeaver.self
     @Environment(\.locale) private var locale
     
-//    let dataURL = "https://www.eduvip.nl/VSOdigitaal/louis/methods-demo.json"
-//    let dataURL = "https://raw.githubusercontent.com/edequartel/Louis/refactor/Documents/methods-demo.json"
-//    let dataURL = "https://github.com/edequartel/Louis/blob/main/Documents/methods-demo.json"
+    //    let dataURL = "https://www.eduvip.nl/VSOdigitaal/louis/methods-demo.json"
+    //    let dataURL = "https://raw.githubusercontent.com/edequartel/Louis/refactor/Documents/methods-demo.json"
+    //    let dataURL = "https://github.com/edequartel/Louis/blob/main/Documents/methods-demo.json"
     let dataURL = "https://raw.githubusercontent.com/edequartel/braillemethods/main/Documents/methods-demo.json"
-
-//    @State private var errorMessage: String?
+    
+    //    @State private var errorMessage: String?
     @State private var isActive = false
     @State private var isDownloaded = false
     @State private var audioDownloaded = false
     @State private var size = 0.8
     @State private var opacity = 0.5
-//    @State private var message = ""
+    //    @State private var message = ""
     @State private var progress: CGFloat = 0
     
     var body: some View {
         if (isActive) && (isDownloaded) && (audioDownloaded) {
-              ContentView()
+            ContentView()
         } else {
             VStack {
                 LottieView(lottieFile: "bartimeusbigb")
                     .frame(width: 150, height: 150)
-//                Spacer()
+                //                Spacer()
                 if (countVisibleSubdirectoriesInDocumentsDirectory() == 0) {
                     Text("\(String(format: "%.0f", progress * 100))%")
                 }
@@ -64,15 +64,13 @@ struct SplashScreenView: View {
                     }
                 }
                 
-//                if scenePhase == .active {
-                    // App just launched or restarted after a crash
-//                    log.error("App launched or restarted after a crash")
-                    viewModel.indexLanguage = 0
-                    viewModel.indexMethod = 0
-                    viewModel.indexLesson = 0
-//                }
+                //
+                viewModel.indexLanguage = 0
+                viewModel.indexMethod = 0
+                viewModel.indexLesson = 0
+                //
                 
-
+                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     withAnimation {
                         self.isActive = true
@@ -153,7 +151,7 @@ struct SplashScreenView: View {
         }
         return count
     }
-
+    
     
     func getDocumentDirectory() -> URL {
         let fileManager = FileManager.default
@@ -196,7 +194,7 @@ struct SplashScreenView: View {
                 log.debug("remove item")
                 log.debug(fileURL.absoluteString)
                 audioDownloaded = true
-//                folderExists = checkIfFolderExists(value: value)
+                //                folderExists = checkIfFolderExists(value: value)
             } catch {
                 log.error("Error deleting file")
             }
@@ -204,8 +202,8 @@ struct SplashScreenView: View {
             log.error("Error unzipping file")
         }
     }
- 
-
+    
+    
 }
 
 struct SplashScreenView_Previews: PreviewProvider {

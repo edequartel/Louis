@@ -411,7 +411,7 @@ final class LouisViewModel: ObservableObject {
                 }
                 
                 else {//child
-                    var separatedString = recursiveConcatenate(value, by: separators).components(separatedBy: "-")
+                    let separatedString = recursiveConcatenate(value, by: separators).components(separatedBy: "-")
                     log.debug("separatedString: \(separatedString)")
                     for item in separatedString {
                         sounds.append(Sound(url: getBaseDirectory().appendingPathComponent("phonetic/child/"+item.lowercased()+".mp3")))
