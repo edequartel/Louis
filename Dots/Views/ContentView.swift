@@ -29,21 +29,21 @@ struct ContentView: View {
                         Text("information".localized())
                     }
                 //--VV testViewvuur
-                TestView()
-                    .tabItem {
-                        Image(systemName: "pencil.circle")
-                        Text("Test".localized())
-                    }
-                AudioListView()
-                    .tabItem {
-                        Image(systemName: "pencil.circle")
-                        Text("Audio".localized())
-                    }
-                TextFieldCursorView()
-                    .tabItem {
-                        Image(systemName: "pencil.circle")
-                        Text("TextFieldCursor".localized())
-                    }
+//                TestView()
+//                    .tabItem {
+//                        Image(systemName: "pencil.circle")
+//                        Text("Test".localized())
+//                    }
+//                AudioListView()
+//                    .tabItem {
+//                        Image(systemName: "pencil.circle")
+//                        Text("Audio".localized())
+//                    }
+//                TextFieldCursorView()
+//                    .tabItem {
+//                        Image(systemName: "pencil.circle")
+//                        Text("TextFieldCursor".localized())
+//                    }
                 
                 
             }

@@ -67,6 +67,7 @@ struct overviewMethodsView : View {
                 viewModel.updateViewData = true
             }
 
+            //
             if let language = viewModel.Languages[safe: viewModel.indexLanguage],
                let method = language.method[safe: viewModel.indexMethod]
             {
@@ -82,20 +83,6 @@ struct overviewMethodsView : View {
             } else {
                 Text("No lessons available").foregroundColor(.red)
             }
-            //
-//            if options.indices.contains(index) {
-//                               Text(options[index]).tag(index)
-//                           }
-//            
-//            Picker("lesson".localized(), selection: $viewModel.indexLesson) {
-//                ForEach(method.lesson, id: \.id) { lesson in
-//                    Text(lesson.name).tag(lesson.id)
-//                }
-//            }
-//            .onChange(of: viewModel.indexLesson) { tag in
-//                viewModel.updateViewData = true
-//                viewModel.count = 0
-//            }
             //
             
             
@@ -145,7 +132,6 @@ struct overviewActivityView : View {
                 }
             }
             .onChange(of: viewModel.activityType) { tag in
-//                print("change in indexActivity  \(tag)")
                 viewModel.updateViewData = true
             }
             
@@ -169,14 +155,6 @@ struct overviewActivityView : View {
                 Picker("pronouncation".localized(), selection: $viewModel.pronounceType) {
                     ForEach(pronounceEnum.allCases, id: \.self) { pronounceType in
                         Text(pronounceType.stringValue().localized())//.tag(pronounceType)
-                    }
-                }
-            }
-            
-            if (viewModel.syllable) && (viewModel.activityType == .word) {
-                Picker("pause".localized(),selection: $viewModel.indexPauses) {
-                    ForEach(0 ..< pauses.count, id: \.self) {
-                        Text("\(pauses[$0]) sec").tag($0)
                     }
                 }
             }
