@@ -60,9 +60,26 @@ struct InformationView: View {
 //                        Text(voEnabled ? "Voiceover on" : "Voiceover off")
                     }
                     .font(.footnote)
+                    
+                    
                 }
             }
             .navigationBarTitle(Text("information".localized()), displayMode: .inline)
+//            .navigationBarItems(trailing:
+//                                    NavigationLink(destination: TestView()) {
+//                Image(systemName: "testtube.2")
+//                    .accessibilityLabel("test".localized())
+//            })
+            .navigationBarItems(trailing:
+                                    NavigationLink(destination: AudioListView()) {
+                Image(systemName: "headphones")
+                    .accessibilityLabel("audio".localized())
+            })
+            .navigationBarItems(leading:
+                                    NavigationLink(destination: TextFieldCursorView()) {
+                Image(systemName: "character.textbox")
+                    .accessibilityLabel("textfield".localized())
+            })
             
         }
         
