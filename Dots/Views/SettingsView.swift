@@ -188,10 +188,16 @@ struct overviewGeneralView : View {
             }
             
             Picker("caseconversion", selection: $viewModel.conversionType) {
-                            ForEach(caseConversionEnum.allCases, id: \.self) { conversionType in
-                                Text(conversionType.stringValue().localized())
-                            }
-                        }
+                if (viewModel.activityType == .character) {
+                    ForEach(caseConversionEnum.allCases.prefix(2), id: \.self) { conversionType in
+                        Text(conversionType.stringValue().localized().prefix(1))
+                    }
+                } else {
+                    ForEach(caseConversionEnum.allCases, id: \.self) { conversionType in
+                        Text(conversionType.stringValue().localized())
+                    }
+                }
+            }
             .pickerStyle(SegmentedPickerStyle())
         }
     }
