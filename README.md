@@ -12,7 +12,6 @@ This is a device that is connected by bluetooth with an iOS device and shows bra
 This software is developed in the Netherlands, therefore Dutch methods are implemented.
 
 * Met punt op pad (children)
-* Braillepi (adults)
 * Maréchal (adult)
 
 ## Localisation
