@@ -16,7 +16,7 @@ This software is developed in the Netherlands, therefore Dutch methods are imple
 * Maréchal (adult)
 
 ## Localisation
-Methods are on a server. Therefore these can be easily changed and added when neccesary.
+Methods are on a server. Therefore these can be easily changed and added when neccesary. The audio-files have to be downloaded once. When installing the app English or Dutch file are downloading.
 
 ## How to use
 1. Connect refreshable Braille display
@@ -30,6 +30,8 @@ Methods are on a server. Therefore these can be easily changed and added when ne
 ## Screenhots
 ![](screenshots/screenshot.png)
 
+## Video (Dutch)
+[Video met overzicht]([https://vimeo.com/810543898)
 ## Settings
 
 ### Method
@@ -46,20 +48,12 @@ Methods are on a server. Therefore these can be easily changed and added when ne
 ### General
 
 1. Trys: number of trys
-2. Conditional: when on type the letter/word.on braille display 
+2. Conditional: whether you type the letter/word on braille display or go with a button to the next word.
 3. Reading: audio before/after/not on braille display 
-4. Font: font to be shown
-
-## Installation soundable
-In folder and terminal
-
-1. pod init
-2. pod install
-3. pos update
 
 ## Test in testFlight
 
-Sent a mail to edequartel@protonmail.com and you will be added to the testflight team. 
+Sent a mail to edequartel@barttimeus.nl and you will be added to the testflight team. 
 
 ## Localisation
 
