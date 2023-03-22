@@ -30,7 +30,8 @@ Methods are on a server. Therefore these can be easily changed and added when ne
 ![](screenshots/screenshot.png)
 
 ## Video (Dutch)
-[Video met overzicht]([https://vimeo.com/810543898)
+[Video met overzicht](https://vimeo.com/810543898)
+
 ## Settings
 
 ### Method
