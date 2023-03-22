@@ -133,6 +133,9 @@ struct overviewActivityView : View {
             }
             .onChange(of: viewModel.activityType) { tag in
                 viewModel.updateViewData = true
+                if viewModel.activityType == .character {
+                    viewModel.conversionType = .lowerCase
+                }
             }
             
             if (viewModel.activityType == .word) {

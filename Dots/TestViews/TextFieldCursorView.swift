@@ -14,12 +14,21 @@ struct TextFieldCursorView: View {
     var body: some View {
         VStack {
             Text("Cursor Position: \(cursorPosition ?? 0)")
+            Text("Text: \(text)")
+            Text("")
             TextView(text: text, cursorPosition: cursorPosition)
+            
             UITextViewWrapper(text: $text, cursorPosition: $cursorPosition)
                 .border(Color.black)
                 .padding(10)
-Spacer()
-//            TextStringView(text: text, cursorPosition: cursorPosition)
+            Spacer()
+            //Text(substring(from: "this is a nice day", at: 11) ?? "")
+//            Button("Now") {
+//                let str = "It is a nice day wat denk je hiervan"
+//                if let identifier = substringAtCursorPosition(in: str, cursorPosition: 11) {
+//                    print(identifier) // Output: "nice"
+//                }
+//            }
         }
     }
 }
