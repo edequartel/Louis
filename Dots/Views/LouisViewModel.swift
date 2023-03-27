@@ -223,7 +223,9 @@ final class LouisViewModel: ObservableObject {
         //this action, read type and enter to aknowledge
         log.debug("check()")
         var returnValue : Int = -1
-        if (input == stripString(value: item)) || (!conditional) {
+//        if (input == stripString(value: item)) || (!conditional) { adjusted 270323:1151
+        if (input == getAssistWord()) || (!conditional) {
+                
             log.debug("stripString() \(stripString(value: item))")
             myColor = .green
             
