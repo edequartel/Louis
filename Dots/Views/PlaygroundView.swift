@@ -166,7 +166,7 @@ struct assistView : View {
     
     var body: some View {
         HStack {
-            Text(">"+viewModel.getAssistWord())
+            Text(viewModel.getAssistWord())
             Spacer()
             Text(textFieldText)
                 .lineLimit(1)
