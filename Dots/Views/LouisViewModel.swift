@@ -318,7 +318,6 @@ final class LouisViewModel: ObservableObject {
     }
     
     func createShowString(item: String, syllable: Bool) -> String {
-        //ISSUE #43 When pronounceType == .child and case != lowerCase words are separated in single characters and not in phonem
         log.debug("createShowString \(item) syllable \(syllable)")
         //prepare string for casing
         var tempItem : String
@@ -331,6 +330,7 @@ final class LouisViewModel: ObservableObject {
             tempItem = item.capitalized
         }
         
+        let separators = Languages[indexLanguage].information.components(separatedBy: " ")
         // Split the item string into an array based on the separators
         let itemSeparateArray = recursiveConcatenate(tempItem, by: separators)
         let itemSpaceArray = insertSpacesAfterEachCharacter(tempItem)
@@ -413,6 +413,7 @@ final class LouisViewModel: ObservableObject {
                 }
                 
                 else {//child
+                    let separators = Languages[indexLanguage].information.components(separatedBy: " ")
                     let separatedString = recursiveConcatenate(value, by: separators).components(separatedBy: "-")
                     log.debug("separatedString: \(separatedString)")
                     for item in separatedString {
