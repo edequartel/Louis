@@ -65,11 +65,11 @@ struct InformationView: View {
                 }
             }
             .navigationBarTitle(Text("information".localized()), displayMode: .inline)
-//            .navigationBarItems(trailing:
-//                                    NavigationLink(destination: TestView()) {
-//                Image(systemName: "testtube.2")
-//                    .accessibilityLabel("test".localized())
-//            })
+            .navigationBarItems(trailing:
+                                    NavigationLink(destination: TestView()) {
+                Image(systemName: "testtube.2")
+                    .accessibilityLabel("test".localized())
+            })
             .navigationBarItems(trailing:
                                     NavigationLink(destination: AudioListView()) {
                 Image(systemName: "headphones")

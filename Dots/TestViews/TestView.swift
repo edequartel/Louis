@@ -14,12 +14,13 @@ struct TestView: View {
     
     
     var body: some View {
-        Button("Split") {
-//            let splitArray = recursiveSplit(str, by: separators)
-//            print(splitArray) // Output: [(false, "l"), (true, "eeu"), (false, ""), (true, "a"), (false, "w")]
-            let outputStr = recursiveConcatenate(str, by: separators)
-            print(outputStr)
+        ZStack {
+            Color(.blue)
+            VStack {
+                Text("okidoki")
+            }
         }
+        .ignoresSafeArea()
     }
 }
 

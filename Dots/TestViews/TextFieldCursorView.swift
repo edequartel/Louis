@@ -17,11 +17,9 @@ struct TextFieldCursorView: View {
             Text("Text: \(text)")
             Text("")
             TextView(text: text, cursorPosition: cursorPosition)
-            Spacer()
             UITextViewWrapper(text: $text, cursorPos: $cursorPosition)
                 .border(Color.black)
                 .padding(10)
-//            Spacer()
         }
     }
 }
@@ -33,10 +31,7 @@ struct TextView: View {
     var body: some View {
         VStack {
             Text("Char at cursor: \(textAtIndex(index: cursorPosition))")
-//            Spacer()
             Text("Text at cursor: \(getWordFromIndex(from: text, position: cursorPosition ?? 0))")
-//            Spacer()
-            
         }
     }
     func getWordFromIndex(from inputString: String, position: Int) -> String {
