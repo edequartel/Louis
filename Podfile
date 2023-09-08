@@ -7,13 +7,13 @@ target 'Dots' do
 
   # Pods for Dots
 
-  target 'DotsTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+#  target 'DotsTests' do
+#    inherit! :search_paths
+#    # Pods for testing
+#  end
+#  target 'DotsUITests' do
+#    # Pods for testing
+#  end
 
-  target 'DotsUITests' do
-    # Pods for testing
-  end
   pod 'Soundable', '~> 1.0'
 end
