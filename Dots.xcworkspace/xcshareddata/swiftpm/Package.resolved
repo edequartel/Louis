@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/exyte/ProgressIndicatorView.git",
       "state" : {
-        "branch" : "master",
-        "revision" : "cb5bbf7faaee2aeb27d9ed2d14864c97bbd076de"
+        "revision" : "4a4d888d7599ecd61f215f17cc1ceea5c8006ef3",
+        "version" : "0.0.4"
       }
     },
     {

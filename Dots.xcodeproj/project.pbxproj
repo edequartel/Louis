@@ -27,6 +27,7 @@
 		472B107F29AD25EC00EC685C /* SwiftSpeech in Frameworks */ = {isa = PBXBuildFile; productRef = 472B107E29AD25EC00EC685C /* SwiftSpeech */; };
 		472C7C12290F0E0D00DA12E9 /* bartimeusb.json in Resources */ = {isa = PBXBuildFile; fileRef = 472C7C11290F0E0D00DA12E9 /* bartimeusb.json */; };
 		472C7C14290F0E5500DA12E9 /* bartimeusbigb.json in Resources */ = {isa = PBXBuildFile; fileRef = 472C7C13290F0E5500DA12E9 /* bartimeusbigb.json */; };
+		4730964C2AD3D5EE009D9F58 /* ProgressIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 4730964B2AD3D5EE009D9F58 /* ProgressIndicatorView */; };
 		473DCCAA2891430D00CDFF47 /* spotlight120.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCC902891430D00CDFF47 /* spotlight120.png */; };
 		473DCCAB2891430D00CDFF47 /* ipad76.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCC912891430D00CDFF47 /* ipad76.png */; };
 		473DCCAC2891430D00CDFF47 /* notification40.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCC922891430D00CDFF47 /* notification40.png */; };
@@ -54,7 +55,6 @@
 		473DCCC22891430D00CDFF47 /* ipadSettings58.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCCA82891430D00CDFF47 /* ipadSettings58.png */; };
 		473DCCC32891430D00CDFF47 /* ipadNotification40.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCCA92891430D00CDFF47 /* ipadNotification40.png */; };
 		47403EE429910C68005EFBA7 /* ZipArchive in Frameworks */ = {isa = PBXBuildFile; productRef = 47403EE329910C68005EFBA7 /* ZipArchive */; };
-		47403EE729910ED7005EFBA7 /* ProgressIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 47403EE629910ED7005EFBA7 /* ProgressIndicatorView */; };
 		474CFEBA287551170000BF85 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 474CFEB9287551170000BF85 /* README.md */; };
 		4758321A29912309007CB0E3 /* perkinspingdoorvoer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4758321829912308007CB0E3 /* perkinspingdoorvoer.mp3 */; };
 		4758321B29912309007CB0E3 /* perkinsping.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4758321929912309007CB0E3 /* perkinsping.mp3 */; };
@@ -173,10 +173,10 @@
 				472B107F29AD25EC00EC685C /* SwiftSpeech in Frameworks */,
 				47B09A26298805250030B9CF /* Alamofire in Frameworks */,
 				4766E4CB28B3519A00852495 /* StepperView in Frameworks */,
-				47403EE729910ED7005EFBA7 /* ProgressIndicatorView in Frameworks */,
 				47EBF808286200F700E8F230 /* Lottie in Frameworks */,
 				3667B97670EB45DDEB1DB8EE /* Pods_Dots.framework in Frameworks */,
 				4765614029ABF13100658927 /* SwiftProgress in Frameworks */,
+				4730964C2AD3D5EE009D9F58 /* ProgressIndicatorView in Frameworks */,
 				47403EE429910C68005EFBA7 /* ZipArchive in Frameworks */,
 				47F4C02629BA0CB200CA5D25 /* SwiftyBeaver in Frameworks */,
 			);
@@ -415,10 +415,10 @@
 				4766E4CA28B3519A00852495 /* StepperView */,
 				47B09A25298805250030B9CF /* Alamofire */,
 				47403EE329910C68005EFBA7 /* ZipArchive */,
-				47403EE629910ED7005EFBA7 /* ProgressIndicatorView */,
 				4765613F29ABF13100658927 /* SwiftProgress */,
 				472B107E29AD25EC00EC685C /* SwiftSpeech */,
 				47F4C02529BA0CB200CA5D25 /* SwiftyBeaver */,
+				4730964B2AD3D5EE009D9F58 /* ProgressIndicatorView */,
 			);
 			productName = Dots;
 			productReference = 47192A0B2858893C004FD2F3 /* Dots.app */;
@@ -499,10 +499,10 @@
 				4766E4C928B3519A00852495 /* XCRemoteSwiftPackageReference "StepperView" */,
 				47B09A24298805250030B9CF /* XCRemoteSwiftPackageReference "Alamofire" */,
 				47403EE229910C68005EFBA7 /* XCRemoteSwiftPackageReference "ZipArchive" */,
-				47403EE529910ED7005EFBA7 /* XCRemoteSwiftPackageReference "ProgressIndicatorView.git" */,
-				4765613E29ABF13100658927 /* XCRemoteSwiftPackageReference "SwiftProgress.git" */,
+				4765613E29ABF13100658927 /* XCRemoteSwiftPackageReference "SwiftProgress" */,
 				472B107D29AD25EC00EC685C /* XCRemoteSwiftPackageReference "SwiftSpeech" */,
-				47F4C02429BA0CB200CA5D25 /* XCRemoteSwiftPackageReference "SwiftyBeaver.git" */,
+				47F4C02429BA0CB200CA5D25 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
+				4730964A2AD3D5EE009D9F58 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */,
 			);
 			productRefGroup = 47192A0C2858893C004FD2F3 /* Products */;
 			projectDirPath = "";
@@ -1017,6 +1017,14 @@
 				kind = branch;
 			};
 		};
+		4730964A2AD3D5EE009D9F58 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/ProgressIndicatorView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.4;
+			};
+		};
 		47403EE229910C68005EFBA7 /* XCRemoteSwiftPackageReference "ZipArchive" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ZipArchive/ZipArchive";
@@ -1025,15 +1033,7 @@
 				kind = branch;
 			};
 		};
-		47403EE529910ED7005EFBA7 /* XCRemoteSwiftPackageReference "ProgressIndicatorView.git" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/exyte/ProgressIndicatorView.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		4765613E29ABF13100658927 /* XCRemoteSwiftPackageReference "SwiftProgress.git" */ = {
+		4765613E29ABF13100658927 /* XCRemoteSwiftPackageReference "SwiftProgress" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/EnesKaraosman/SwiftProgress.git";
 			requirement = {
@@ -1065,7 +1065,7 @@
 				minimumVersion = 3.0.0;
 			};
 		};
-		47F4C02429BA0CB200CA5D25 /* XCRemoteSwiftPackageReference "SwiftyBeaver.git" */ = {
+		47F4C02429BA0CB200CA5D25 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyBeaver/SwiftyBeaver.git";
 			requirement = {
@@ -1081,19 +1081,19 @@
 			package = 472B107D29AD25EC00EC685C /* XCRemoteSwiftPackageReference "SwiftSpeech" */;
 			productName = SwiftSpeech;
 		};
+		4730964B2AD3D5EE009D9F58 /* ProgressIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4730964A2AD3D5EE009D9F58 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */;
+			productName = ProgressIndicatorView;
+		};
 		47403EE329910C68005EFBA7 /* ZipArchive */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 47403EE229910C68005EFBA7 /* XCRemoteSwiftPackageReference "ZipArchive" */;
 			productName = ZipArchive;
 		};
-		47403EE629910ED7005EFBA7 /* ProgressIndicatorView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 47403EE529910ED7005EFBA7 /* XCRemoteSwiftPackageReference "ProgressIndicatorView.git" */;
-			productName = ProgressIndicatorView;
-		};
 		4765613F29ABF13100658927 /* SwiftProgress */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4765613E29ABF13100658927 /* XCRemoteSwiftPackageReference "SwiftProgress.git" */;
+			package = 4765613E29ABF13100658927 /* XCRemoteSwiftPackageReference "SwiftProgress" */;
 			productName = SwiftProgress;
 		};
 		4766E4CA28B3519A00852495 /* StepperView */ = {
@@ -1113,7 +1113,7 @@
 		};
 		47F4C02529BA0CB200CA5D25 /* SwiftyBeaver */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 47F4C02429BA0CB200CA5D25 /* XCRemoteSwiftPackageReference "SwiftyBeaver.git" */;
+			package = 47F4C02429BA0CB200CA5D25 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
 			productName = SwiftyBeaver;
 		};
 /* End XCSwiftPackageProductDependency section */

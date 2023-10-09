@@ -41,7 +41,7 @@ install_framework()
 
   if [ -L "${source}" ]; then
     echo "Symlinked..."
-    source="$(readlink -f "${source}")" //aangepast 5 september
+    source="$(readlink  "${source}")" //aangepast 5 september
   fi
 
   if [ -d "${source}/${BCSYMBOLMAP_DIR}" ]; then
