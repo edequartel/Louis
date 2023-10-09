@@ -5,6 +5,7 @@
 //  Created by Eric de Quartel on 03/06/2022.
 //
 
+
 import SwiftUI
 import Soundable
 import Alamofire
@@ -18,8 +19,6 @@ struct SplashScreenView: View {
     @Environment(\.locale) private var locale
     
     let dataURL = "https://www.eduvip.nl/VSOdigitaal/louis/methods-demo.json"
-    //    let dataURL = "https://raw.githubusercontent.com/edequartel/Louis/refactor/Documents/methods-demo.json"
-    //    let dataURL = "https://github.com/edequartel/Louis/blob/main/Documents/methods-demo.json"
     // let dataURL = "https://raw.githubusercontent.com/edequartel/braillemethods/main/Documents/methods-demo.json"
     
     //    @State private var errorMessage: String?
