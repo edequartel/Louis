@@ -6,6 +6,10 @@
 //
 
 
+//let player = AudioPlayer()
+//let audioItem = DefaultAudioItem(audioUrl: "someUrl", sourceType: .stream)
+//player.load(item: audioItem, playWhenReady: true) // Load the item and start playing when the player is ready.
+
 import SwiftUI
 import Soundable
 import Alamofire
@@ -47,6 +51,8 @@ struct SplashScreenView: View {
                 print(getDocumentDirectory().path)
                 audioDownloaded = (countVisibleSubdirectoriesInDocumentsDirectory() != 0)
                 if (audioDownloaded) { log.verbose("audioDownloaded != 0") }
+                
+                
                 let sound = Sound(fileName: "perkinsping.mp3")
                 sound.play()
                 //

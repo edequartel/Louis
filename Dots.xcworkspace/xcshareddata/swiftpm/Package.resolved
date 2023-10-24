@@ -37,6 +37,15 @@
       }
     },
     {
+      "identity" : "swiftaudioex",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/doublesymmetry/SwiftAudioEx",
+      "state" : {
+        "revision" : "23fdb9b9db4b759cf99390ae8c5381dc7a21a0ae",
+        "version" : "0.15.3"
+      }
+    },
+    {
       "identity" : "swiftprogress",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/EnesKaraosman/SwiftProgress.git",

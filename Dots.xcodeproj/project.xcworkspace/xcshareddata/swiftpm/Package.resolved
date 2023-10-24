@@ -1,12 +1,30 @@
 {
   "pins" : [
     {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire",
+      "state" : {
+        "revision" : "b2fa556e4e48cbf06cf8c63def138c98f4b811fa",
+        "version" : "5.8.0"
+      }
+    },
+    {
       "identity" : "lottie-ios",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/airbnb/lottie-ios",
       "state" : {
         "revision" : "4a6058cbbdfe4f74aeae92c8bd51ad3b0de2a1ee",
         "version" : "3.3.0"
+      }
+    },
+    {
+      "identity" : "progressindicatorview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/exyte/ProgressIndicatorView.git",
+      "state" : {
+        "revision" : "4a4d888d7599ecd61f215f17cc1ceea5c8006ef3",
+        "version" : "0.0.4"
       }
     },
     {
@@ -19,12 +37,12 @@
       }
     },
     {
-      "identity" : "subsonic",
+      "identity" : "swiftaudioex",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/twostraws/Subsonic",
+      "location" : "https://github.com/doublesymmetry/SwiftAudioEx",
       "state" : {
-        "revision" : "156c5742279df5d2315e29534a2410f418c8a772",
-        "version" : "0.2.0"
+        "revision" : "23fdb9b9db4b759cf99390ae8c5381dc7a21a0ae",
+        "version" : "0.15.3"
       }
     },
     {
@@ -32,8 +50,35 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/EnesKaraosman/SwiftProgress.git",
       "state" : {
-        "revision" : "9e086877c1f4813d5cab8435311ffd288c90fb63",
-        "version" : "0.0.5"
+        "branch" : "master",
+        "revision" : "9e086877c1f4813d5cab8435311ffd288c90fb63"
+      }
+    },
+    {
+      "identity" : "swiftspeech",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Cay-Zhang/SwiftSpeech",
+      "state" : {
+        "branch" : "master",
+        "revision" : "6e41f289f5ccc1751ef5674972d46b48b326c4c6"
+      }
+    },
+    {
+      "identity" : "swiftybeaver",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftyBeaver/SwiftyBeaver.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "d60a21a3878c487db07ec1e2df697fa24839918b"
+      }
+    },
+    {
+      "identity" : "ziparchive",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ZipArchive/ZipArchive",
+      "state" : {
+        "branch" : "master",
+        "revision" : "1d2c7b604c74b9eef0b99bfc83f07f4c29216e13"
       }
     }
   ],

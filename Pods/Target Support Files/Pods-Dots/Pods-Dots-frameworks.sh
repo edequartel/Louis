@@ -41,7 +41,8 @@ install_framework()
 
   if [ -L "${source}" ]; then
     echo "Symlinked..."
-    source="$(readlink  "${source}")" //aangepast 5 september
+#    source="$(readlink "${source}")"
+    source="$(readlink  -f "${source}")"  #aangepast 5 september
   fi
 
   if [ -d "${source}/${BCSYMBOLMAP_DIR}" ]; then
@@ -67,7 +68,8 @@ install_framework()
   elif [ -L "${binary}" ]; then
     echo "Destination binary is symlinked..."
     dirname="$(dirname "${binary}")"
-    binary="${dirname}/$(readlink "${binary}")"
+#    binary="${dirname}/$(readlink "${binary}")"
+    binary="${dirname}/$(readlink -f "${binary}")" #edq
   fi
 
   # Strip invalid architectures so "fat" simulator / device frameworks work on device
