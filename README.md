@@ -1,68 +1,71 @@
 # Louis
 
-Platform to learn Braille while using VoiceOver and a refreshable Braille display. Louis is using the accesible features which comes with iOS. Louis can be used by people with sight to learn visual braille.
+Platform om Braille te leren terwijl je VoiceOver en een Braille-leesregel gebruikt. Louis maakt gebruik van de toegankelijke functies die bij iOS horen. Louis kan  ook worden gebruikt door mensen met zicht om visueel braille te leren.
 
-## Refreshable braille display
+## Braille-leesregel
+Dit is een apparaat dat via Bluetooth is verbonden met een iOS-apparaat en braille weergeeft. Door de VoiceOver-functionaliteit kunnen alle items worden gehoord en benaderd.
 
-This is a device that is connected by bluetooth with an iOS device and shows braille. By using the voiceOver utility all items can be heared and accessed. 
+![Braille Display](screenshots/brailledisplay.png)
 
-![](screenshots/brailledisplay.png)
+## Methoden
+Deze software is ontwikkeld in Nederland.
 
-## Methods
-This software is developed in the Netherlands, therefore Dutch methods are implemented.
+* Met punt op pad (kinderen)
+* Maréchal (volwassenen)
 
-* Met punt op pad (children)
-* Maréchal (adult)
+<!--
+## Lokalisatie
+Methoden bevinden zich op een server. Daarom kunnen deze eenvoudig worden gewijzigd en toegevoegd wanneer dat nodig is. De audiobestanden moeten eenmalig worden gedownload. Bij het installeren van de app worden Engelse of Nederlandse bestanden gedownload.
+-->
 
-## Localisation
-Methods are on a server. Therefore these can be easily changed and added when neccesary. The audio-files have to be downloaded once. When installing the app English or Dutch file are downloading.
+## Hoe te gebruiken
+1. Verbind het vernieuwbare Braille-display.
+2. Zet het geluid uit.
+3. Pas het volumeniveau aan.
+4. Schakel VoiceOver in.
+5. Zet het Braille-display aan en zorg ervoor dat er een verbinding is met je iOS-apparaat. Zo niet, ga dan naar de toegankelijkheidsinstellingen van je apparaat.
+6. Pas de instellingen aan.
+7. Focus op tekst.
 
-## How to use
-1. Connect refreshable Braille display
-2. Turn mute off.
-2. Adjust the volume level.
-3. Turn on VoiceOver
-4. Turn on brailledisplay and make sure there is a brailledisoplay connected with your iOS device. If not go to the accesiblity settings of your device.
-5. Adjust the Settings.
-6. Focus on text.
+## Screenshots
+![App Screenshots](screenshots/screenshot.png)
 
-## Screenhots
-![](screenshots/screenshot.png)
-
-## Video (Dutch)
+## Video 
 [Video met overzicht](https://vimeo.com/810543898)
 
-## Settings
+## Instellingen
 
-### Method
-1. Method
-2. Lesson: letters in a specific order
+### Methode
+1. Methode
+2. Les: letters in een specifieke volgorde
 
-### Activity
-1. Activity: recognise a letter or word
-2. Chop: divide word in bits
-3. Read word: listen to sound of letter/word
-4. Pause: time between each activity 
-5. Speech: how the letters are spoken 
+### Activiteit
+1. Activiteit: herken een letter of woord
+2. Hak: verdeel een woord in stukjes
+3. Lees woord: luister naar het geluid van letter/woord
+4. Pauze: tijd tussen elke activiteit
+5. Spraak: hoe de letters worden uitgesproken
 
-### General
+### Algemeen
 
-1. Trys: number of trys
-2. Conditional: whether you type the letter/word on braille display or go with a button to the next word.
-3. Reading: audio before/after/not on braille display 
+1. Pogingen: aantal pogingen
+2. Voorwaardelijk: of je de letter/het woord op het Braille-display typt of met een knop naar het volgende woord gaat.
+3. Lezen: audio voor/na/niet op Braille-display
 
-## Test in testFlight
+## Test in TestFlight
 
-Sent a mail to edequartel@barttimeus.nl and you will be added to the testflight team. 
-
-or scan.
+Stuur een e-mail naar edequartel@barttimeus.nl en je wordt toegevoegd aan het TestFlight-team,  
+of scan de QR-code
 
 ![QR-code](screenshots/louis-testflight.png)
 
-## Localisation
 
-If you are interested in Louis and want to localise it to your language you need.  
+<!--
+## Lokalisatie
 
-1. **audio files** with spoken words,
-2. files for individual characters and signs,
-3. a **method** for learning braille (the order in   which you provide braille)
+Als je geïnteresseerd bent in Louis en het wilt lokaliseren naar jouw taal, heb je nodig:
+
+1. **audiobestanden** met gesproken woorden,
+2. bestanden voor individuele tekens en tekens,
+3. een **methode** voor het leren van braille (de volgorde waarin je braille verstrekt)
+4. -->
