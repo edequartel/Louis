@@ -50,16 +50,23 @@ Methods are on a server. Therefore these can be easily changed and added when ne
 3. Reading: audio before/after/not on braille display 
 4. Font: font to be shown
 
+<!-- 
 ## Installation soundable
 In folder and terminal
 
 1. pod init
 2. pod install
 3. pos update
+-->
 
 ## Test in testFlight
 
 Sent a mail to edequartel@protonmail.com and you will be added to the testflight team. 
+or 
+scan QR-code
+![Qr-code testflight](louis-testflight.png)
+
+
 
 ## Localisation
 
