@@ -55,6 +55,10 @@ Methods are on a server. Therefore these can be easily changed and added when ne
 
 Sent a mail to edequartel@barttimeus.nl and you will be added to the testflight team. 
 
+or scan.
+
+![QR-code](screenshots/louis-testflight.png)
+
 ## Localisation
 
 If you are interested in Louis and want to localise it to your language you need.  

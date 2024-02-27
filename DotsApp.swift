@@ -55,6 +55,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct DotsApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     @StateObject var viewModel = LouisViewModel()
     
     var body: some Scene {
