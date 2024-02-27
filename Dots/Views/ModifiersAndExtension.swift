@@ -88,6 +88,20 @@ enum positionReadingEnum: Int, CaseIterable {
     }
 }
 
+enum caseConversionEnum: Int, CaseIterable {
+    case lowerCase = 0
+    case upperCase = 1
+    case capitalisation = 2
+    
+    func stringValue() -> String {
+        switch(self) {
+        case .lowerCase: return "lowercase"
+        case .upperCase: return "uppercase"
+        case .capitalisation: return "capitalisation"
+        }
+    }
+}
+
 //enum fontEnum: Int, CaseIterable {
 //    case text = 0
 //    case dots8 = 1
@@ -148,3 +162,20 @@ struct Border: ViewModifier {
             .cornerRadius(5)
     }
 }
+
+// Define separators for long sounds
+//Issue 45 these longSound separators are now only for Dutch has to be implemented in the JSON file
+//let separators = ["eeuw", "ieuw", "sch", "eeu", "aai", "oei", "ooi", "ij", "aa", "ui", "oo", "eu", "ei", "ee", "ie", "ou", "au", "oe", "ai",
+//                  "EEUW", "IEUW", "SCH", "EEU", "AAI", "OEI", "OOI", "IJ", "AA", "UI", "OO", "EU", "EI", "EE", "IE", "OU", "AU", "OE", "AI",
+//                  "Eeuw", "Ieuw", "Sch", "Eeu", "Aai", "Oei", "Ooi", "Ij", "Aa", "Ui", "Oo", "Eu", "Ei", "Ee", "Ie", "Ou", "Au", "Oe", "Ai" ]
+
+//let seperatorsStr = "eeuw ieuw sch eeu aai oei ooi ij aa ui oo eu ei ee ie ou au oe ai EEUW IEUW SCH EEU AAI OEI OOI IJ AA UI OO EU EI EE IE OU AU OE AI Eeuw Ieuw Sch Eeu Aai Oei Ooi Ij Aa Ui Oo Eu Ei Ee Ie Ou Au Oe Ai"
+
+extension Array {
+    subscript(safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
+
+
+

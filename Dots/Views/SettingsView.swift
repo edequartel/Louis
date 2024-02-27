@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Soundable
+import SwiftyBeaver
 
 
 struct SettingsView: View {
@@ -33,6 +34,7 @@ struct SettingsView: View {
 
 struct overviewMethodsView : View {
     @EnvironmentObject var viewModel: LouisViewModel
+    let log = SwiftyBeaver.self
     let maxHeight: CGFloat = 100
     
     var body: some View {
@@ -61,38 +63,46 @@ struct overviewMethodsView : View {
             .frame(height: 40)
             .onChange(of: viewModel.indexMethod) { tag in
                 viewModel.indexLesson = 0
-                viewModel.updateViewData = true
                 viewModel.count = 0
+                viewModel.updateViewData = true
             }
-            
-            Picker("lesson".localized(), selection: $viewModel.indexLesson) {
-                ForEach(viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson, id: \.id) { lesson in
-                    Text(lesson.name).tag(lesson.id)
+
+            //
+            if let language = viewModel.Languages[safe: viewModel.indexLanguage],
+               let method = language.method[safe: viewModel.indexMethod]
+            {
+                Picker("lesson".localized(), selection: $viewModel.indexLesson) {
+                    ForEach(method.lesson, id: \.id) { lesson in
+                        Text(lesson.name).tag(lesson.id)
+                    }
                 }
-            }
-            .onChange(of: viewModel.indexLesson) { tag in
-                viewModel.updateViewData = true
-                viewModel.count = 0
-            }
-            
-            if (viewModel.activityType == .character) {
-                Text(viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].letters)
-                    .frame(maxHeight: maxHeight)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .font(.footnote)
-                    .foregroundColor(.gray)
+                .onChange(of: viewModel.indexLesson) { tag in
+                    viewModel.updateViewData = true
+                    viewModel.count = 0
+                }
             } else {
-                Text(viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].letters)
-                    .frame(maxHeight: maxHeight)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .font(.footnote)
-                    .foregroundColor(.gray)
-                Text(getMP3Files(atPath: "dutch/words",
-                                 containingCharacters: viewModel.Languages[viewModel.indexLanguage].method[viewModel.indexMethod].lesson[viewModel.indexLesson].letters,
+                Text("No lessons available").foregroundColor(.red)
+            }
+            //
+            
+            
+            //
+            Text(viewModel.getLetters())
+                .frame(maxHeight: maxHeight)
+                .fixedSize(horizontal: false, vertical: true)
+                .font(.footnote)
+                .foregroundColor(.bart_green)
+
+//
+            if (viewModel.activityType == .word) {
+                Text(getMP3Files(atPath: "\(viewModel.Languages[viewModel.indexLanguage].zip)/words",
+                                 containingCharacters: viewModel.getLetters(),
                                  minLength: 0,
                                  maxLength: 30)
                     .joined(separator: " ")
                 )
+                .frame(maxHeight: maxHeight)
+                .fixedSize(horizontal: false, vertical: true)
                 .font(.footnote)
                 .foregroundColor(.gray)
             }
@@ -122,8 +132,10 @@ struct overviewActivityView : View {
                 }
             }
             .onChange(of: viewModel.activityType) { tag in
-//                print("change in indexActivity  \(tag)")
                 viewModel.updateViewData = true
+                if viewModel.activityType == .character {
+                    viewModel.conversionType = .lowerCase
+                }
             }
             
             if (viewModel.activityType == .word) {
@@ -177,6 +189,19 @@ struct overviewGeneralView : View {
                     Text(positionReadingType.stringValue().localized())//.tag(pronounceType)
                 }
             }
+            
+            Picker("caseconversion", selection: $viewModel.conversionType) {
+                if (viewModel.activityType == .character) {
+                    ForEach(caseConversionEnum.allCases.prefix(2), id: \.self) { conversionType in
+                        Text(conversionType.stringValue().localized().prefix(1))
+                    }
+                } else {
+                    ForEach(caseConversionEnum.allCases, id: \.self) { conversionType in
+                        Text(conversionType.stringValue().localized())
+                    }
+                }
+            }
+            .pickerStyle(SegmentedPickerStyle())
         }
     }
 }

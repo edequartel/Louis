@@ -10,6 +10,8 @@
 "assist" = "Hilfe";
 "before" = "Vor";
 "brailleText" = "Braille-Text";
+"capitalisation" = "Wort";
+"caseconversion" = "Zeichen";
 "character" = "Zeichen";
 "child" = "Kind";
 "chop" = "Hauen";
@@ -31,6 +33,7 @@
 "keyboard" = "Tastatur";
 "lesson" = "Lektion";
 "louisOnline" = "Louis online-handbuch";
+"lowercase" = "wort";
 "meaning" = "Forme-Erwachsene";
 "messageNoAudio" = "Es gibt keinen audio. \nLaden Sie eine Sprache herunter, bevor Sie den Louis verwenden.\n\nInformationen > Sprachen herunterladen > Sprache zum Herunterladen auswählen";
 "method" = "Method";
@@ -53,4 +56,5 @@
 "talkword" = "Wort lesen";
 "text" = "Woter";
 "update" = "Aktualisieren";
+"uppercase" = "WORT";
 "word" = "Wort";

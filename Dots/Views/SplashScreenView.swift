@@ -5,6 +5,11 @@
 //  Created by Eric de Quartel on 03/06/2022.
 //
 
+
+//let player = AudioPlayer()
+//let audioItem = DefaultAudioItem(audioUrl: "someUrl", sourceType: .stream)
+//player.load(item: audioItem, playWhenReady: true) // Load the item and start playing when the player is ready.
+
 import SwiftUI
 import Soundable
 import Alamofire
@@ -12,32 +17,31 @@ import ZipArchive
 import SwiftyBeaver
 
 struct SplashScreenView: View {
+    @Environment(\.scenePhase) private var scenePhase
     @EnvironmentObject var viewModel: LouisViewModel
     let log = SwiftyBeaver.self
     @Environment(\.locale) private var locale
     
-//    let dataURL = "https://www.eduvip.nl/VSOdigitaal/louis/methods-demo.json"
-//    let dataURL = "https://raw.githubusercontent.com/edequartel/Louis/refactor/Documents/methods-demo.json"
-//    let dataURL = "https://github.com/edequartel/Louis/blob/main/Documents/methods-demo.json"
-    let dataURL = "https://raw.githubusercontent.com/edequartel/braillemethods/main/Documents/methods-demo.json"
-
-//    @State private var errorMessage: String?
+    let dataURL = "https://www.eduvip.nl/VSOdigitaal/louis/methods-demo.json"
+    // let dataURL = "https://raw.githubusercontent.com/edequartel/braillemethods/main/Documents/methods-demo.json"
+    
+    //    @State private var errorMessage: String?
     @State private var isActive = false
     @State private var isDownloaded = false
     @State private var audioDownloaded = false
     @State private var size = 0.8
     @State private var opacity = 0.5
-//    @State private var message = ""
+    //    @State private var message = ""
     @State private var progress: CGFloat = 0
     
     var body: some View {
         if (isActive) && (isDownloaded) && (audioDownloaded) {
-              ContentView()
+            ContentView()
         } else {
             VStack {
                 LottieView(lottieFile: "bartimeusbigb")
                     .frame(width: 150, height: 150)
-//                Spacer()
+                //                Spacer()
                 if (countVisibleSubdirectoriesInDocumentsDirectory() == 0) {
                     Text("\(String(format: "%.0f", progress * 100))%")
                 }
@@ -47,6 +51,8 @@ struct SplashScreenView: View {
                 print(getDocumentDirectory().path)
                 audioDownloaded = (countVisibleSubdirectoriesInDocumentsDirectory() != 0)
                 if (audioDownloaded) { log.verbose("audioDownloaded != 0") }
+                
+                
                 let sound = Sound(fileName: "perkinsping.mp3")
                 sound.play()
                 //
@@ -62,7 +68,13 @@ struct SplashScreenView: View {
                         viewModel.indexLanguage = 1
                     }
                 }
+                
                 //
+//                viewModel.indexLanguage = 0
+//                viewModel.indexMethod = 0
+//                viewModel.indexLesson = 0
+                //
+                
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     withAnimation {
@@ -144,7 +156,7 @@ struct SplashScreenView: View {
         }
         return count
     }
-
+    
     
     func getDocumentDirectory() -> URL {
         let fileManager = FileManager.default
@@ -187,7 +199,7 @@ struct SplashScreenView: View {
                 log.debug("remove item")
                 log.debug(fileURL.absoluteString)
                 audioDownloaded = true
-//                folderExists = checkIfFolderExists(value: value)
+                //                folderExists = checkIfFolderExists(value: value)
             } catch {
                 log.error("Error deleting file")
             }
@@ -195,8 +207,8 @@ struct SplashScreenView: View {
             log.error("Error unzipping file")
         }
     }
- 
-
+    
+    
 }
 
 struct SplashScreenView_Previews: PreviewProvider {

@@ -1,0 +1,107 @@
+# Canvas Louis
+
+![screenshots Louis](screenshotlouis.png)
+
+
+## 1. Achtergrond
+Bartiméus onderwijs heeft een voorbereidende fase afgerond voor de ontwikkeling van een innovatieve Louis Braille app. De app maakt gebruik van de ingebouwde toegankelijkheidsmogelijkheden van Apple iOS, zoals VoiceOver en een lijst van veelgebruikte braille leesregels, en is bedoeld om zowel kinderen als volwassenen te helpen bij het leren van Braille met behulp van een braille leesregel. Het doel van het project is om een effectief en toegankelijk leermiddel voor braille te bieden aan mensen die willen leren lezen en schrijven. Dit project is een waardevolle toevoeging aan het bestaande aanbod van software die braille leren ondersteunen.
+
+## 2. Probleem/Uitdaging
+Het leren van braille is een uitdaging, vooral het herkennen van de karakters en het interpreteren van hun betekenis. Om het proces van het leren van braille effectiever te maken, kunnen stap voor stap letters, woorden en zinnen worden aangeleerd met behulp van een iPhone. Er zijn momenteel verschillende leermiddelen beschikbaar voor het leren van braille, waaronder zowel klassieke papieren methoden als digitale hulpmiddelen zoals BrailleStudio en BraillePi.
+
+## 3. Doelen
+Een iOS-app wordt ontwikkeld om het leren van braille gemakkelijker te maken voor zowel kinderen als volwassenen. De app maakt gebruik van bestaande toegankelijkheidsmogelijkheden van iOS-apparaten, zoals VoiceOver en braille leesregels. Twee veelgebruikte methoden voor het aanleren van braille worden aangeboden en er wordt gebruik gemaakt van klankzuivere audio-bestanden en vermijdt TTS-technieken. De app is beschikbaar in het Nederlands, en wordt ingericht voor het Engels en Duits. De software is open source beschikbaar gesteld onder de MIT-licentie, zodat andere ontwikkelaars kunnen bijdragen.
+
+## 4. Resultaat
+**Louis** een iOS-app die ontwikkeld is om kinderen en volwassenen te helpen bij het leren van Braille met behulp van een braille leesregel. De app biedt twee veelgebruikte methoden voor het aanleren van Braille en maakt gebruik van klankzuivere audio-bestanden en toegankelijkheidsmogelijkheden van iOS-apparaten. De app zal beschikbaar zijn in het Nederlands en mogelijk gratis worden aangeboden door Bartiméus, een kennisorganisatie die zich inzet voor het welzijn en de onafhankelijkheid van mensen met een visuele beperking. De app zal beschikbaar zijn in de App Store.
+
+## 5. Afbakening 
+Een iOS-app genaamd Louis zal het leren van braille met behulp van een braille leesregel gemakkelijker maken voor kinderen en volwassenen. De app zal eerst beschikbaar zijn voor de iPhone en later voor de iPad. De ontwikkeling zal de weg van idee, ontwikkeling, testen, terugkoppeling, eerste versie, pilot, definitieve versie, plaatsen op app store en verspreiden binnen belanghebbenden volgen, met gebruik van Github en communicatie via nieuwsbrieven, social media en e-mail.
+
+## 6. Opdrachtgever
+Bartiméus onderwijs en Bartiméus fonds.
+
+## 7. Belanghebbenden
+* Kinderen die moeten leren lezen en schrijven in braille
+* Volwassenen die al kunnen lezen en schrijven en aangewezen worden op braille.
+* Leraren en onderwijsinstellingen die betrokken zijn bij het braille-onderwijs
+* Stichting accesibility
+* Eventuele partners in Engeland en Duitsland voor het inrichten van andere talen
+* Bartiméus medewerkers klantgroep Kind en Jeugd / Volwassenen
+
+## 8. Projectteam
+* Ontwikkelaars
+* Testers
+* Eventuele partners in Engeland en Duitsland
+
+## 9. Aanpak:
+Hieronder volgt een gefaseerde aanpak voor het ontwikkelen van de iOS-app om braille te leren met een braille leesregel:
+
+### Fase 1: Plannen en Voorbereiding
+* De ontwikkeling van een pre-pilot app voor het leren van Braille met functionaliteit die gebruikers laat zien hoe Braille werkt, heeft plaatsgevonden en vormt nu de basis voor dit canvas.
+* Doe marktonderzoek om de verschillende Braille-leesregels te bepalen die in de app worden gebruikt.
+* Maak een lijst van benodigde functies en kenmerken en bepaal de prioriteiten.
+* Stel een projectteam samen, wijs taken en verantwoordelijkheden toe.
+* Plan de ontwikkelingsfase met een tijdlijn.
+
+### Fase 2: Ontwerp en Ontwikkeling
+* Ontwerp de gebruikersinterface en de gebruikerservaring van de app.
+* Ontwikkel de app op basis van de vastgestelde functies en kenmerken.
+* Integreer de ingebouwde toegankelijkheidsmogelijkheden van Apple iOS, zoals VoiceOver.
+* Ontwikkel de twee oefeningen (lezen en lezen en typen) op basis van de braille methodes, "Met Punt Op Pad" voor kinderen en "Marécha"l voor volwassenen).
+* Gebruik klankzuivere audiobestanden in plaats van TTS-technieken voor de oefeningen.
+* Bouw de app eerst in het Nederlands, maar stel deze ook in voor het Engels en Duits. 
+* Zorg dat er kennis via partners beschikbaar is. Denk hierbij aan methodes en audio-bestanden.
+
+### Fase 3: Testen en Evaluatie
+De ontwikkeling van de Louis-app zal verschillende fasen doorlopen, waaronder het testen van de app via TestFlight van Apple om feedback te verzamelen van testgebruikers. De feedback zal vervolgens worden geanalyseerd en indien nodig wijzigingen worden aangebracht in de app. Daarna zal de app grondig worden getest en worden onderworpen aan QA-tests om eventuele bugs te identificeren. Tot slot zal de app worden beoordeeld op basis van de vastgestelde doelen en doelstellingen.
+
+### Fase 4: Lancering en Onderhoud
+De app moet worden gepubliceerd in de App Store en worden gepromoot op sociale media, websites en braille-gerelateerde gemeenschappen. De prestaties van de app moeten worden gemonitord en feedback van gebruikers verzameld. Reguliere updates moeten worden uitgevoerd om de app te verbeteren en bugs op te lossen. Verdere ontwikkeling van de app moet worden overwogen, zoals het toevoegen van nieuwe talen of meer brailleleesregels.
+
+## 10. Risico's
+* Risico's bij het ontwikkelen van een toegankelijke app:
+	- Het risico dat de app nog steeds ontoegankelijk is voor sommige gebruikers, omdat de ontwikkelaars niet alle mogelijke beperkingen hebben overwogen.
+	- Een ander risico is dat de app toegankelijk is bij de lancering, maar na updates of veranderingen onbedoeld ontoegankelijk wordt.
+	- Het risico dat de app niet voldoet aan de toegankelijkheidsnormen of -richtlijnen van Apple of andere organisaties, waardoor gebruikers met beperkingen de app nog steeds niet kunnen gebruiken.
+	- Mogelijke beperkingen of uitdagingen bij het gebruik van de ingebouwde toegankelijkheidsmogelijkheden van Apple iOS: 
+		- Ondanks de ingebouwde toegankelijkheidsmogelijkheden van Apple iOS, kunnen sommige gebruikers met specifieke beperkingen, zoals visuele of motorische beperkingen, nog steeds moeite hebben om de app te gebruiken als deze niet goed is ontworpen.
+		- Het gebruik van sommige toegankelijkheidsmogelijkheden kan de prestaties van de app beïnvloeden en de gebruikerservaring negatief beïnvloeden.
+		- Ontwikkelaars moeten ook rekening houden met de verschillende toegankelijkheidsnormen en -richtlijnen van andere organisaties en landen.
+* Mogelijke problemen bij het vinden van partners in Engeland en Duitsland
+* Mogelijke beperkingen in het beschikbare budget
+
+## 11. Afhankelijkheden
+* Beschikbaarheid van TestFlight van Apple
+* Mogelijke samenwerking met partners in Engeland en Duitsland
+
+## 12. Randvoorwaarden
+Om een iOS-app te ontwikkelen, zijn een Mac-computer, Xcode, een Apple-ontwikkelaarsaccount, een iOS-apparaat of simulator, kennis van Swift of Objective-C en grafisch ontwerpvaardigheden nodig. Het is handig om voldoende gekwalificeerd personeel te hebben. Een iOS-apparaat is handig om te testen tijdens het ontwikkelproces en het hebben van een goede kennis van de programmeertalen en grafisch ontwerpvaardigheden zijn belangrijk om een aantrekkelijke en gebruiksvriendelijke app te ontwikkelen.
+
+## 13. Kwaliteit 
+Om een succesvolle app te ontwikkelen voor braille-leerlingen, is het belangrijk om te zorgen voor klankzuivere audiobestanden, toegankelijkheid en gebruiksgemak voor braille-leerlingen, open source-ontwikkeling en samenwerking met andere ontwikkelaars, geautomatiseerde testtools te gebruiken en zorgvuldig gebruikersfeedback te beoordelen en problemen op te lossen. Een goede kwaliteit van de audiobestanden en toegankelijkheid voor braille-leerlingen zullen de gebruikerservaring verbeteren, terwijl open source-ontwikkeling en samenwerking bijdragen aan een hogere kwaliteit van de app. Het gebruik van geautomatiseerde testtools en zorgvuldige beoordeling van gebruikersfeedback helpen om problemen op te lossen en de kwaliteit van de app te verbeteren.
+
+
+## 14. Tijd:
+Ontwikkeling van iOS-app met 18 maanden doorlooptijd:
+1-3 maanden: Ideeën en conceptontwikkeling, marktonderzoek, samenstellen projectteam
+4-5 maanden: Voorbereiding pre-pilot app, UI/UX-ontwerp, ontwikkeling functionaliteiten
+6-9 maanden: App-ontwikkeling, integratie toegankelijkheidsmogelijkheden, ontwikkeling braille-oefeningen
+10-12 maanden: Testen op toegankelijkheid en gebruiksvriendelijkheid, oplossen bugs, TestFlight-testen
+13-15 maanden: App-lancering, communicatie en promotie, monitoren prestaties en feedback verzamelen
+16-18 maanden: Doorontwikkeling op basis van feedback, onderhoud en optimalisatie voor verschillende iOS-versies, voorbereiding lancering in Engels en Duits.
+
+## 15. Geld:
+- Ontwikkelingskosten: Dit omvat kosten voor het inhuren van een ontwikkelingsteam of een ontwikkelaar, evenals kosten voor softwarelicenties en -tools die nodig zijn voor de ontwikkeling van de app.
+- Ontwerp- en gebruikerservaring (UX) kosten: Dit omvat kosten voor het inhuren van een ontwerpteam om de visuele uitstraling en functionaliteit van de app te bepalen, inclusief de gebruikerservaring en interface-ontwerp.
+- Server- en infrastructuurkosten: Dit omvat kosten voor het hosten van de app op een server, kosten voor het verkrijgen van een domeinnaam, kosten voor cloudservices (zoals Amazon Web Services) en andere infrastructuur gerelateerde kosten.
+- Testen en kwaliteitsborging (QA) kosten: Dit omvat kosten voor het uitvoeren van testen en controles om te zorgen dat de app functioneert zoals verwacht en voldoet aan kwaliteitsnormen. Dit kan handmatig of geautomatiseerd testen omvatten.
+- App Store kosten: Dit omvat kosten voor het aanmaken van een ontwikkelaarsaccount en het indienen van de app in de App Store, kosten voor het updaten van de app en eventuele kosten voor het gebruik van App Store-promotie- en marketingtools.
+- Onderhoudskosten: Dit omvat kosten voor het onderhoud van de app, zoals het oplossen van bugs, het toevoegen van nieuwe functies of het verbeteren van bestaande functies, en eventuele kosten voor klantenondersteuning.
+- Marketingkosten: Dit omvat kosten voor het promoten van de app.
+
+
+
+
+
+

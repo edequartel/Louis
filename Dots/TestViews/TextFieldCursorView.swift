@@ -14,12 +14,12 @@ struct TextFieldCursorView: View {
     var body: some View {
         VStack {
             Text("Cursor Position: \(cursorPosition ?? 0)")
+            Text("Text: \(text)")
+            Text("")
             TextView(text: text, cursorPosition: cursorPosition)
-            UITextViewWrapper(text: $text, cursorPosition: $cursorPosition)
+            UITextViewWrapper(text: $text, cursorPos: $cursorPosition)
                 .border(Color.black)
                 .padding(10)
-Spacer()
-//            TextStringView(text: text, cursorPosition: cursorPosition)
         }
     }
 }
@@ -30,10 +30,42 @@ struct TextView: View {
     
     var body: some View {
         VStack {
-            Text("Text at cursor: \(textAtIndex(index: cursorPosition))")
-            Spacer()
+            Text("Char at cursor: \(textAtIndex(index: cursorPosition))")
+            Text("Text at cursor: \(getWordFromIndex(from: text, position: cursorPosition ?? 0))")
         }
     }
+    func getWordFromIndex(from inputString: String, position: Int) -> String {
+        let unwantedChars: Set<Character> = [",", "!", "?"]
+        
+        func createIndexArray(from inputString: String) -> [Int] {
+            var indexArray = [Int]()
+            var currentIndex = 0
+            
+            for char in inputString {
+                if char == " " {
+                    indexArray.append(-1)
+                    currentIndex += 1
+                } else {
+                    indexArray.append(currentIndex)
+                }
+            }
+            return indexArray
+        }
+        
+        let array = createIndexArray(from: inputString)
+        let words = inputString.components(separatedBy: " ")
+        
+        var word = ""
+        if position >= 0 && position < array.count {
+            let index = array[position]
+            if index >= 0 && index < words.count {
+                word = words[index]
+            }
+        }
+        
+        return String(word.filter { !unwantedChars.contains($0) })
+    }
+    
     
     private func textAtIndex(index: Int?) -> String {
         guard let index = index, index >= 0, index < text.count else {
@@ -42,6 +74,10 @@ struct TextView: View {
         let i = text.index(text.startIndex, offsetBy: index)
         return String(text[i])
     }
+    
+    
+    
+    
 }
 
 struct TextStringView: View {
@@ -66,7 +102,7 @@ struct TextStringView: View {
 
 struct UITextViewWrapper: UIViewRepresentable {
     @Binding var text: String
-    @Binding var cursorPosition: Int?
+    @Binding var cursorPos: Int?
     
     func makeUIView(context: Context) -> UITextView {
         let textView = UITextView()
@@ -78,9 +114,9 @@ struct UITextViewWrapper: UIViewRepresentable {
         uiView.text = text
         if let selectedRange = uiView.selectedTextRange {
             let cursorPosition = uiView.offset(from: uiView.beginningOfDocument, to: selectedRange.start)
-            self.cursorPosition = cursorPosition
+            self.cursorPos = cursorPosition
         } else {
-            self.cursorPosition = nil
+            self.cursorPos = nil
         }
     }
     
@@ -102,9 +138,9 @@ struct UITextViewWrapper: UIViewRepresentable {
         func textViewDidChangeSelection(_ textView: UITextView) {
             if let selectedRange = textView.selectedTextRange {
                 let cursorPosition = textView.offset(from: textView.beginningOfDocument, to: selectedRange.start)
-                parent.cursorPosition = cursorPosition
+                parent.cursorPos = cursorPosition
             } else {
-                parent.cursorPosition = nil
+                parent.cursorPos = nil
             }
         }
     }

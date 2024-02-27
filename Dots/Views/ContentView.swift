@@ -28,24 +28,6 @@ struct ContentView: View {
                         Image(systemName: "info.circle.fill")
                         Text("information".localized())
                     }
-                //--VV testViews
-                AudioListView()
-                    .tabItem {
-                        Image(systemName: "pencil.circle")
-                        Text("AudioList".localized())
-                    }
-                LibLouisView()
-                    .tabItem {
-                        Image(systemName: "pencil.circle")
-                        Text("libLouis".localized())
-                    }
-                TextFieldCursorView()
-                    .tabItem {
-                        Image(systemName: "pencil.circle")
-                        Text("TextFieldCursor".localized())
-                    }
-                
-                
             }
 //            .onAppear {
 //                SwiftSpeech.requestSpeechRecognitionAuthorization()

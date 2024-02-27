@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/exyte/ProgressIndicatorView.git",
       "state" : {
-        "branch" : "master",
-        "revision" : "cb5bbf7faaee2aeb27d9ed2d14864c97bbd076de"
+        "revision" : "4a4d888d7599ecd61f215f17cc1ceea5c8006ef3",
+        "version" : "0.0.4"
       }
     },
     {
@@ -34,6 +34,15 @@
       "state" : {
         "revision" : "c66fb84c640fbc312f4eead0b7ae2a77f93e0839",
         "version" : "1.6.7"
+      }
+    },
+    {
+      "identity" : "swiftaudioex",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/doublesymmetry/SwiftAudioEx",
+      "state" : {
+        "revision" : "23fdb9b9db4b759cf99390ae8c5381dc7a21a0ae",
+        "version" : "0.15.3"
       }
     },
     {

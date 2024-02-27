@@ -56,7 +56,7 @@ struct PlaygroundView: View {
                 }
                 
                 if (viewModel.positionReadingType == .before) {
-                    viewModel.Talk(value : viewModel.item.lowercased())
+                    viewModel.talk(value : viewModel.item.lowercased())
                 }
                 else //nextone
                 {
@@ -166,12 +166,11 @@ struct assistView : View {
     
     var body: some View {
         HStack {
-            Text(viewModel.showString().replacingOccurrences(of: " ", with: ""))
+            Text(viewModel.getAssistWord())
             Spacer()
             Text(textFieldText)
                 .lineLimit(1)
                 .truncationMode(.tail)
-            
         }
     }
 }
@@ -224,7 +223,7 @@ struct activityView : View {
                         let result = viewModel.check(input: textFieldText)
                         if (result > -1) { viewModel.indexLesson = result }
                     }) {
-                        if viewModel.showString().count == 1 {
+                        if (viewModel.activityType == .character) { //(viewModel.showString().count == 1) &&
                             Text(viewModel.showString())
                                 .font(Font.custom("bartimeus8dots", size: 64))
                                 .foregroundColor(.bart_green)

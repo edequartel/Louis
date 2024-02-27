@@ -21,7 +21,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         file.logFileURL = URL(fileURLWithPath: "/tmp/app_info.log")
 
         console.format = "EDQ: $Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c: $M"
-        console.minLevel = .debug
+        console.minLevel = .info
         
         log.addDestination(console)
         log.addDestination(file)
@@ -55,6 +55,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct DotsApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     @StateObject var viewModel = LouisViewModel()
     
     var body: some Scene {

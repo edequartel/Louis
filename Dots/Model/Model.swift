@@ -23,8 +23,9 @@ struct Method: Identifiable, Codable {
 // MARK: - Lesson
 struct Lesson: Identifiable, Codable {
     let id: Int
-    let name, letters: String
-    let allwords: String
+    let name : String
+    let letters: String?
+//    let allwords: String
     let sentence: [String]
     let comments: String
     let information: String
