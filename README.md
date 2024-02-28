@@ -19,13 +19,14 @@ Methoden bevinden zich op een server. Daarom kunnen deze eenvoudig worden gewijz
 -->
 
 ## Hoe te gebruiken
-1. Verbind het vernieuwbare Braille-display.
-2. Zet het geluid uit.
+1. Verbind de braille-leesregel, via bluetooth. Zet de braille-leesregel aan en zorg ervoor dat er een verbinding is met je iOS-apparaat.
+2. Zet de stilte mode uit (linker schuifknop op iPhone)
 3. Pas het volumeniveau aan.
 4. Schakel VoiceOver in.
-5. Zet het Braille-display aan en zorg ervoor dat er een verbinding is met je iOS-apparaat. Zo niet, ga dan naar de toegankelijkheidsinstellingen van je apparaat.
-6. Pas de instellingen aan.
+5. Zet de stem van VoiceOver uit (dubbeltap met drievingers op scherm)
+5.  Zo niet, ga dan naar de toegankelijkheidsinstellingen van je apparaat. Zie video.
 7. Focus op tekst.
+
 
 ## Screenshots
 ![App Screenshots](screenshots/screenshot.png)
@@ -52,6 +53,10 @@ Methoden bevinden zich op een server. Daarom kunnen deze eenvoudig worden gewijz
 2. Voorwaardelijk: of je de letter/het woord op het Braille-display typt of met een knop naar het volgende woord gaat.
 3. Lezen: audio voor/na/niet op Braille-display
 
+## Website Louis
+
+![QR-code](screenshots/louisweb.png)
+
 ## Test in TestFlight
 
 Stuur een e-mail naar edequartel@barttimeus.nl en je wordt toegevoegd aan het TestFlight-team,  
@@ -59,6 +64,10 @@ of scan de QR-code
 
 ![QR-code](screenshots/louis-testflight.png)
 
+## VoiceOver en iPhone
+
+Wil je meer weten over de bediening van bediening van je iPhone met een leesregel ga dan naar.
+[VoiceOver uitleg](https://edequartel.github.io/ict4vip/voiceover.html)
 
 <!--
 ## Lokalisatie
