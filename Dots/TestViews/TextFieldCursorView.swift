@@ -8,32 +8,60 @@
 import SwiftUI
 
 struct TextFieldCursorView: View {
-    @State private var text = ""
+    @State private var text = "bal kam aap bal kam aap"
     @State private var cursorPosition: Int? = nil
     
+    let fontSize = CGFloat(16)
+    
     var body: some View {
-        VStack {
-            Text("Cursor Position: \(cursorPosition ?? 0)")
-            Text("Text: \(text)")
+        VStack(alignment: .leading) {
+            
+            VStack(alignment: .leading) {
+                Text("Cursor Position: \(cursorPosition ?? 0)")
+                Text("\(text)")
+                    .font(.custom("Menlo", size: fontSize))
+                    .lineLimit(1)
+                Text(text)
+                    .font(Font.custom("bartimeus8dots", size: fontSize))
+                    .lineLimit(1)
+            
+            
             Text("")
+//
             TextView(text: text, cursorPosition: cursorPosition)
+                
+            }
+            .padding()
+            .border(Color.red)
+            
             UITextViewWrapper(text: $text, cursorPos: $cursorPosition)
-                .border(Color.black)
+                .border(Color.blue)
                 .padding(10)
+                .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+            
+            Spacer()
         }
+        .padding()
     }
 }
 
 struct TextView: View {
     var text: String
     var cursorPosition: Int?
+    let fontSize = CGFloat(16)
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text("Char at cursor: \(textAtIndex(index: cursorPosition))")
-            Text("Text at cursor: \(getWordFromIndex(from: text, position: cursorPosition ?? 0))")
+            Text("\(getWordFromIndex(from: text, position: cursorPosition ?? 0))")
+                .font(.custom("Menlo", size: fontSize))
+                .lineLimit(1)
+            Text("\(getWordFromIndex(from: text, position: cursorPosition ?? 0))")
+                .font(Font.custom("bartimeus8dots", size: fontSize))
+                .lineLimit(1)
         }
     }
+    
     func getWordFromIndex(from inputString: String, position: Int) -> String {
         let unwantedChars: Set<Character> = [",", "!", "?"]
         
@@ -87,7 +115,6 @@ struct TextStringView: View {
     var body: some View {
         VStack {
             Text("Text at cursor: \(stringUpToCursor)")
-            Spacer()
         }
     }
     
