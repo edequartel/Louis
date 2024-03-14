@@ -4,9 +4,9 @@
 ////
 ////  Created by Eric de Quartel on 14/03/2022.
 ////
-//
-//import SwiftUI
-//
+
+import SwiftUI
+
 //struct InformationView: View {
 //    @Environment(\.accessibilityVoiceOverEnabled) var voEnabled: Bool
 //    
@@ -65,11 +65,11 @@
 //                }
 //            }
 //            .navigationBarTitle(Text("information".localized()), displayMode: .inline)
-//            .navigationBarItems(trailing:
-//                                    NavigationLink(destination: TestView()) {
-//                Image(systemName: "testtube.2")
-//                    .accessibilityLabel("test".localized())
-//            })
+////            .navigationBarItems(trailing:
+////                                    NavigationLink(destination: TestView()) {
+////                Image(systemName: "testtube.2")
+////                    .accessibilityLabel("test".localized())
+////            })
 //            .navigationBarItems(trailing:
 //                                    NavigationLink(destination: AudioListView()) {
 //                Image(systemName: "headphones")
@@ -100,14 +100,14 @@
 //        InformationView()
 //    }
 //}
-//
 
-//
+
+
 //  ManualView.swift
 //  Ravens
 //
 //  Created by Eric de Quartel on 15/01/2024.
-//
+
 
 import SwiftUI
 import WebKit
@@ -142,14 +142,32 @@ struct WebViewContainer: UIViewRepresentable {
 }
 
 struct InformationView: View {
+    @Environment(\.locale) private var locale
+    
     var body: some View {
         NavigationView {
-            WebViewContainer(urlString: "https://edequartel.github.io/Louis/")
+            VStack {
+                WebViewContainer(urlString: "https://edequartel.github.io/Louis/")
+                Section() {
+                    Text(version())
+                    Text(locale.description)
+                    //                        Text(voEnabled ? "Voiceover on" : "Voiceover off")
+                }
+                .font(.footnote)
+            }
         }
     }
+    
+    func version() -> String {
+        let dictionary = Bundle.main.infoDictionary!
+        let version = dictionary["CFBundleShortVersionString"] as! String
+        let build = dictionary["CFBundleVersion"] as! String
+        return "Version \(version) build \(build)"
+    }
 }
+
+
 
 #Preview {
     InformationView()
 }
-

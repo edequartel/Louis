@@ -53,18 +53,18 @@ Methoden bevinden zich op een server. Daarom kunnen deze eenvoudig worden gewijz
 2. Voorwaardelijk: of je de letter/het woord op het Braille-display typt of met een knop naar het volgende woord gaat.
 3. Lezen: audio voor/na/niet op Braille-display
 
-## Website Louis
+### Website Louis
 
 ![QR-code](screenshots/louisweb.png)
 
-## Test in TestFlight
+### Test in TestFlight
 
 Stuur een e-mail naar edequartel@barttimeus.nl en je wordt toegevoegd aan het TestFlight-team,  
 of scan de QR-code
 
 ![QR-code](screenshots/louis-testflight.png)
 
-## VoiceOver en iPhone
+### VoiceOver en iPhone
 
 Wil je meer weten over de bediening van bediening van je iPhone met een leesregel ga dan naar.
 [VoiceOver uitleg](https://edequartel.github.io/ict4vip/voiceover.html)
