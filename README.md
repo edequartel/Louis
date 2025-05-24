@@ -1,80 +1,80 @@
 # Louis
+[Dutch version](READMDnl.md)
 
-Platform om Braille te leren terwijl je VoiceOver en een Braille-leesregel gebruikt. Louis maakt gebruik van de toegankelijke functies die bij iOS horen. Louis kan  ook worden gebruikt door mensen met zicht om visueel braille te leren.
+Platform for learning Braille while using VoiceOver and a Braille display. Louis utilizes the accessibility features built into iOS. Louis can also be used by sighted individuals to visually learn Braille.
 
-## Braille-leesregel
-Dit is een apparaat dat via Bluetooth is verbonden met een iOS-apparaat en braille weergeeft. Door de VoiceOver-functionaliteit kunnen alle items worden gehoord en benaderd.
+## Braille Display
+This is a device connected via Bluetooth to an iOS device that displays Braille. Through VoiceOver functionality, all items can be heard and accessed.
 
 ![Braille Display](screenshots/brailledisplay.png)
 
-## Methoden
-Deze software is ontwikkeld in Nederland.
+## Methods
+This software was developed in the Netherlands.
 
-* Met punt op pad (kinderen)
-* Maréchal (volwassenen)
+* Met punt op pad (for children)
+* Maréchal (for adults)
 
 <!--
-## Lokalisatie
-Methoden bevinden zich op een server. Daarom kunnen deze eenvoudig worden gewijzigd en toegevoegd wanneer dat nodig is. De audiobestanden moeten eenmalig worden gedownload. Bij het installeren van de app worden Engelse of Nederlandse bestanden gedownload.
+## Localization
+Methods are stored on a server. Therefore, they can easily be modified or added when needed. The audio files must be downloaded once. During installation, English or Dutch files are downloaded.
 -->
 
-## Hoe te gebruiken
-1. Verbind de braille-leesregel, via bluetooth. Zet de braille-leesregel aan en zorg ervoor dat er een verbinding is met je iOS-apparaat.
-2. Zet de stilte mode uit (linker schuifknop op iPhone)
-3. Pas het volumeniveau aan.
-4. Schakel VoiceOver in.
-5. Zet de stem van VoiceOver uit (dubbeltap met drievingers op scherm)
-5.  Zo niet, ga dan naar de toegankelijkheidsinstellingen van je apparaat. Zie video.
-7. Focus op tekst.
-
+## How to Use
+1. Connect the Braille display via Bluetooth. Turn on the Braille display and ensure it’s connected to your iOS device.
+2. Turn off silent mode (left switch on iPhone).
+3. Adjust the volume level.
+4. Enable VoiceOver.
+5. Mute the VoiceOver voice (double-tap with three fingers on the screen).
+6. If that doesn't work, go to your device's accessibility settings. See the video.
+7. Focus on text.
 
 ## Screenshots
 ![App Screenshots](screenshots/screenshot.png)
 
-## Video 
-[Video met overzicht](https://vimeo.com/810543898)
+## Video
+[Overview Video](https://vimeo.com/810543898)
 
-## Instellingen
+## Settings
 
-### Methode
-1. Methode
-2. Les: letters in een specifieke volgorde
+### Method
+1. Method
+2. Lesson: letters in a specific order
 
-### Activiteit
-1. Activiteit: herken een letter of woord
-2. Hak: verdeel een woord in stukjes
-3. Lees woord: luister naar het geluid van letter/woord
-4. Pauze: tijd tussen elke activiteit
-5. Spraak: hoe de letters worden uitgesproken
+### Activity
+1. Activity: recognize a letter or word
+2. Segment: break a word into parts
+3. Read word: listen to the sound of the letter/word
+4. Pause: time between each activity
+5. Speech: how letters are pronounced
 
-### Algemeen
+### General
 
-1. Pogingen: aantal pogingen
-2. Voorwaardelijk: of je de letter/het woord op het Braille-display typt of met een knop naar het volgende woord gaat.
-3. Lezen: audio voor/na/niet op Braille-display
+1. Attempts: number of tries
+2. Conditional: whether you type the letter/word on the Braille display or use a button to move to the next word.
+3. Reading: audio before/after/not on Braille display
 
-### Website Louis
+### Louis Website
 
-![QR-code](screenshots/louisweb.png)
+![QR Code](screenshots/louisweb.png)
 
-### Test in TestFlight
+### Test on TestFlight
 
-Stuur een e-mail naar edequartel@barttimeus.nl en je wordt toegevoegd aan het TestFlight-team,  
-of scan de QR-code
+Send an email to edequartel@barttimeus.nl to be added to the TestFlight team,  
+or scan the QR code
 
-![QR-code](screenshots/louis-testflight.png)
+![QR Code](screenshots/louis-testflight.png)
 
-### VoiceOver en iPhone
+### VoiceOver and iPhone
 
-Wil je meer weten over de bediening van bediening van je iPhone met een leesregel ga dan naar.
-[VoiceOver uitleg](https://edequartel.github.io/ict4vip/voiceover.html)
+Want to know more about operating your iPhone with a Braille display? Visit:  
+[VoiceOver Explanation](https://edequartel.github.io/ict4vip/voiceover.html)
 
 <!--
-## Lokalisatie
+## Localization
 
-Als je geïnteresseerd bent in Louis en het wilt lokaliseren naar jouw taal, heb je nodig:
+If you’re interested in Louis and want to localize it to your language, you will need:
 
-1. **audiobestanden** met gesproken woorden,
-2. bestanden voor individuele tekens en tekens,
-3. een **methode** voor het leren van braille (de volgorde waarin je braille verstrekt)
-4. -->
+1. **audio files** with spoken words,
+2. files for individual characters and symbols,
+3. a **method** for learning Braille (the order in which Braille is taught)
+-->

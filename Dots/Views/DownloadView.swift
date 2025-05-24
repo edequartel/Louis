@@ -113,10 +113,10 @@ struct ListItemView: View {
     }
     
     func downloadZipFile(value: String) {
-        log.debug("downloadZipFile() \(value)")
+        log.error("downloadZipFile() \(value)")
         self.progress = 0
-        let url = URL(string: "https://www.eduvip.nl/VSOdigitaal/louis/audio/"+value+".zip")!
-        log.debug("downloading... \(value)")
+        let url = URL(string: endPoint + "audio/"+value+".zip")!
+        log.error("downloading... \(value) \(url)")
         let destination: DownloadRequest.Destination = { _, _ in
             let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             let fileURL = documentsURL.appendingPathComponent(value+".zip")

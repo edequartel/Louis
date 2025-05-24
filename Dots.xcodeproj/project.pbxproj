@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -65,6 +65,8 @@
 		476A36D128F06CDC00F3909B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 476A36D328F06CDC00F3909B /* Localizable.strings */; };
 		4783B12D299CBA5C001A6027 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4783B12C299CBA5C001A6027 /* DownloadView.swift */; };
 		4783B130299CC103001A6027 /* AudioListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4783B12F299CC103001A6027 /* AudioListView.swift */; };
+		4789419F2CDCF04700D4682E /* ChatGPT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4789419E2CDCF04700D4682E /* ChatGPT.swift */; };
+		478FD7DD2DE0ACF700188B33 /* READMDnl.md in Resources */ = {isa = PBXBuildFile; fileRef = 478FD7DC2DE0ACF700188B33 /* READMDnl.md */; };
 		47A24DB6296B456700BA287B /* ModifiersAndExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A24DB5296B456700BA287B /* ModifiersAndExtension.swift */; };
 		47A24DBB296C13D200BA287B /* LouisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A24DBA296C13D200BA287B /* LouisViewModel.swift */; };
 		47ACE3F1292222C100020519 /* bartimeus8dots.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47ACE3F0292222C100020519 /* bartimeus8dots.ttf */; };
@@ -155,6 +157,8 @@
 		476A36D728F076D500F3909B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4783B12C299CBA5C001A6027 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		4783B12F299CC103001A6027 /* AudioListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioListView.swift; sourceTree = "<group>"; };
+		4789419E2CDCF04700D4682E /* ChatGPT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPT.swift; sourceTree = "<group>"; };
+		478FD7DC2DE0ACF700188B33 /* READMDnl.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = READMDnl.md; sourceTree = "<group>"; };
 		47A24DB5296B456700BA287B /* ModifiersAndExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifiersAndExtension.swift; sourceTree = "<group>"; };
 		47A24DBA296C13D200BA287B /* LouisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LouisViewModel.swift; sourceTree = "<group>"; };
 		47ACE3F0292222C100020519 /* bartimeus8dots.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bartimeus8dots.ttf; sourceTree = "<group>"; };
@@ -165,6 +169,10 @@
 		47F4C06729BC90BD00CA5D25 /* TextFieldCursorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCursorView.swift; sourceTree = "<group>"; };
 		6A0F2F6A7B27A14325C27112 /* Pods-Dots.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dots.debug.xcconfig"; path = "Target Support Files/Pods-Dots/Pods-Dots.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		478784E62D82FBD0000165DA /* Tactile Reading */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Tactile Reading"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		47192A082858893C004FD2F3 /* Frameworks */ = {
@@ -215,6 +223,7 @@
 			children = (
 				476A36D328F06CDC00F3909B /* Localizable.strings */,
 				47192A0E2858893C004FD2F3 /* DotsApp.swift */,
+				47192A102858893C004FD2F3 /* ContentView.swift */,
 				47192A0D2858893C004FD2F3 /* Dots */,
 				47192A1E2858893D004FD2F3 /* DotsTests */,
 				47192A282858893D004FD2F3 /* DotsUITests */,
@@ -238,6 +247,7 @@
 		47192A0D2858893C004FD2F3 /* Dots */ = {
 			isa = PBXGroup;
 			children = (
+				478784E62D82FBD0000165DA /* Tactile Reading */,
 				47F4C06429BC902C00CA5D25 /* TestViews */,
 				47583217299122F1007CB0E3 /* Audio */,
 				472226DE28D83708002BF9E0 /* FinishedViews */,
@@ -285,6 +295,7 @@
 				472C7C13290F0E5500DA12E9 /* bartimeusbigb.json */,
 				472C7C11290F0E0D00DA12E9 /* bartimeusb.json */,
 				470917A128E6064F008E598C /* Sono-Regular.ttf */,
+				478FD7DC2DE0ACF700188B33 /* READMDnl.md */,
 				474CFEB9287551170000BF85 /* README.md */,
 				47192A5A2858CAD6004FD2F3 /* bartimeus6dots.ttf */,
 				47EBF80B2862031200E8F230 /* dotsloader.json */,
@@ -295,9 +306,9 @@
 		472226DD28D836D3002BF9E0 /* NotUsedNow */ = {
 			isa = PBXGroup;
 			children = (
-				4766E4CC28B351B200852495 /* ProgressView.swift */,
 				47192A452858C086004FD2F3 /* AudioView.swift */,
 				47192A432858C07B004FD2F3 /* SearchWordView.swift */,
+				4766E4CC28B351B200852495 /* ProgressView.swift */,
 			);
 			path = NotUsedNow;
 			sourceTree = "<group>";
@@ -351,7 +362,7 @@
 				47A24DBA296C13D200BA287B /* LouisViewModel.swift */,
 				47192A382858BE7D004FD2F3 /* SplashScreenView.swift */,
 				47192A3F2858C065004FD2F3 /* InformationView.swift */,
-				47192A102858893C004FD2F3 /* ContentView.swift */,
+				4789419E2CDCF04700D4682E /* ChatGPT.swift */,
 				47192A3D2858C057004FD2F3 /* SettingsView.swift */,
 				472226E128D84628002BF9E0 /* SheetView.swift */,
 				47A24DB5296B456700BA287B /* ModifiersAndExtension.swift */,
@@ -410,6 +421,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				478784E62D82FBD0000165DA /* Tactile Reading */,
 			);
 			name = Dots;
 			packageProductDependencies = (
@@ -471,7 +485,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					47192A0A2858893C004FD2F3 = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -558,6 +572,7 @@
 				4758321B29912309007CB0E3 /* perkinsping.mp3 in Resources */,
 				47192A132858893D004FD2F3 /* Assets.xcassets in Resources */,
 				473DCCB82891430D00CDFF47 /* Contents.json in Resources */,
+				478FD7DD2DE0ACF700188B33 /* READMDnl.md in Resources */,
 				473DCCB62891430D00CDFF47 /* mac128.png in Resources */,
 				472C7C14290F0E5500DA12E9 /* bartimeusbigb.json in Resources */,
 				473DCCC32891430D00CDFF47 /* ipadNotification40.png in Resources */,
@@ -635,6 +650,7 @@
 				47192A112858893C004FD2F3 /* ContentView.swift in Sources */,
 				472226E228D84628002BF9E0 /* SheetView.swift in Sources */,
 				47192A3E2858C057004FD2F3 /* SettingsView.swift in Sources */,
+				4789419F2CDCF04700D4682E /* ChatGPT.swift in Sources */,
 				47192A0F2858893C004FD2F3 /* DotsApp.swift in Sources */,
 				47A24DB6296B456700BA287B /* ModifiersAndExtension.swift in Sources */,
 				47F4C06629BC904300CA5D25 /* TestView.swift in Sources */,
@@ -699,6 +715,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -733,6 +750,7 @@
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -761,6 +779,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -795,6 +814,7 @@
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -821,10 +841,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 71;
+				CURRENT_PROJECT_VERSION = 72;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = 278BFDM8KA;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Dots/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Louis;
@@ -837,7 +858,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -862,10 +883,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 71;
+				CURRENT_PROJECT_VERSION = 72;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = 278BFDM8KA;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Dots/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Louis;
@@ -878,7 +900,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -898,7 +920,6 @@
 		47192A332858893D004FD2F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -918,7 +939,6 @@
 		47192A342858893D004FD2F3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -938,7 +958,6 @@
 		47192A362858893D004FD2F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 278BFDM8KA;
@@ -956,7 +975,6 @@
 		47192A372858893D004FD2F3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 278BFDM8KA;

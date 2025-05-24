@@ -8,41 +8,66 @@
 import SwiftUI
 
 struct TextFieldCursorView: View {
-    @State private var text = "bal kam aap bal kam aap"
-    @State private var cursorPosition: Int? = nil
-    
-    let fontSize = CGFloat(16)
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            
-            VStack(alignment: .leading) {
-                Text("Cursor Position: \(cursorPosition ?? 0)")
-                Text("\(text)")
-                    .font(.custom("Menlo", size: fontSize))
-                    .lineLimit(1)
-                Text(text)
-                    .font(Font.custom("bartimeus8dots", size: fontSize))
-                    .lineLimit(1)
-            
-            
-            Text("")
-//
-            TextView(text: text, cursorPosition: cursorPosition)
-                
-            }
-            .padding()
-            .border(Color.red)
-            
-            UITextViewWrapper(text: $text, cursorPos: $cursorPosition)
-                .border(Color.blue)
-                .padding(10)
-                .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
-            
-            Spacer()
-        }
+  @State private var text = "bal kam aap"
+  @State private var cursorPosition: Int? = nil
+  @State private var lastKey: String?
+
+  let fontSize = CGFloat(16)
+
+  var body: some View {
+    VStack(alignment: .leading, spacing: 15) {
+
+      // Cursor Position Display
+      VStack(alignment: .leading, spacing: 5) {
+        Text("Cursor Position: \(cursorPosition ?? 0)")
+        Text("Last key typed: \(lastKey ?? "None")")
+      }
+      .frame(maxWidth: .infinity, alignment: .leading) // Ensures left alignment
+      .padding(.horizontal)
+      .accessibility(hidden: true)
+
+      // Text Display Area
+      VStack(alignment: .leading, spacing: 5) {
+        Text(text)
+          .font(.custom("Menlo", size: fontSize))
+          .lineLimit(1)
+          .padding(.vertical, 4)
+
+        Text(text)
+          .font(Font.custom("bartimeus8dots", size: fontSize))
+          .lineLimit(1)
+          .padding(.vertical, 4)
+      }
+      .padding()
+      .frame(maxWidth: .infinity, alignment: .leading) // Ensures left alignment
+      .background(Color(UIColor.systemGray6))
+      .cornerRadius(8)
+      .overlay(
+        RoundedRectangle(cornerRadius: 8)
+          .stroke(Color.red, lineWidth: 1)
+      )
+      .accessibility(hidden: true)
+
+      // Custom TextView for Cursor Positioning
+      TextView(text: text, cursorPosition: cursorPosition)
+        .accessibility(hidden: true)
+
+      // Editable TextView
+      UITextViewWrapper(text: $text, cursorPos: $cursorPosition, lastKey: $lastKey)
+        .font(.caption)
+        .frame(height: 100)
         .padding()
+        .background(Color.white)
+        .cornerRadius(8)
+        .overlay(
+          RoundedRectangle(cornerRadius: 8)
+            .stroke(Color.blue, lineWidth: 1)
+        )
+
+      Spacer()
     }
+    .padding()
+  }
 }
 
 struct TextView: View {
@@ -52,13 +77,32 @@ struct TextView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Char at cursor: \(textAtIndex(index: cursorPosition))")
-            Text("\(getWordFromIndex(from: text, position: cursorPosition ?? 0))")
-                .font(.custom("Menlo", size: fontSize))
-                .lineLimit(1)
-            Text("\(getWordFromIndex(from: text, position: cursorPosition ?? 0))")
-                .font(Font.custom("bartimeus8dots", size: fontSize))
-                .lineLimit(1)
+
+          VStack {
+            HStack {
+              Text("\(textAtIndex(index: cursorPosition))")
+                Spacer()
+            }
+            VStack(alignment: .leading) {
+                Text("\(getWordFromIndex(from: text, position: cursorPosition ?? 0))")
+                    .font(.custom("Menlo", size: fontSize))
+                    .lineLimit(1)
+                Text("\(getWordFromIndex(from: text, position: cursorPosition ?? 0))")
+                    .font(Font.custom("bartimeus8dots", size: fontSize))
+                    .lineLimit(1)
+                Spacer()
+            }
+            .frame(maxWidth: .infinity, alignment: .leading) // Ensures VStack aligns left
+          }
+          .padding()
+          .frame(maxWidth: .infinity)
+          .frame(height: 140)
+          .background(Color.white)
+          .cornerRadius(8)
+          .overlay(
+              RoundedRectangle(cornerRadius: 8)
+                  .stroke(Color.blue, lineWidth: 1)
+          )
         }
     }
     
@@ -124,52 +168,6 @@ struct TextStringView: View {
         }
         let endIndex = text.index(text.startIndex, offsetBy: cursorPosition)
         return String(text[..<endIndex])
-    }
-}
-
-struct UITextViewWrapper: UIViewRepresentable {
-    @Binding var text: String
-    @Binding var cursorPos: Int?
-    
-    func makeUIView(context: Context) -> UITextView {
-        let textView = UITextView()
-        textView.delegate = context.coordinator
-        return textView
-    }
-    
-    func updateUIView(_ uiView: UITextView, context: Context) {
-        uiView.text = text
-        if let selectedRange = uiView.selectedTextRange {
-            let cursorPosition = uiView.offset(from: uiView.beginningOfDocument, to: selectedRange.start)
-            self.cursorPos = cursorPosition
-        } else {
-            self.cursorPos = nil
-        }
-    }
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-    
-    class Coordinator: NSObject, UITextViewDelegate {
-        var parent: UITextViewWrapper
-        
-        init(_ parent: UITextViewWrapper) {
-            self.parent = parent
-        }
-        
-        func textViewDidChange(_ textView: UITextView) {
-            parent.text = textView.text
-        }
-        
-        func textViewDidChangeSelection(_ textView: UITextView) {
-            if let selectedRange = textView.selectedTextRange {
-                let cursorPosition = textView.offset(from: textView.beginningOfDocument, to: selectedRange.start)
-                parent.cursorPos = cursorPosition
-            } else {
-                parent.cursorPos = nil
-            }
-        }
     }
 }
 

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Soundable
+//import Soundable
 import SwiftProgress
 import AVFoundation
 import SwiftSpeech
@@ -262,7 +262,7 @@ struct SpeechView: View {
                 .onRecognizeLatest(includePartialResults: true, update: $text)
                 .printRecognizedText(includePartialResults: true)
         }
-        .onChange(of: text) { newValue in
+        .onChange(of: text) { //newValue in
             lastWord = lastSpoken(value: text)
             
             if (lastWord != "none") {

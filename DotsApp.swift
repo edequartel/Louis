@@ -14,17 +14,17 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         let console = ConsoleDestination()  // log to Xcode Console
         
-        let file = FileDestination()
-        file.format = "$Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c: $M"  // full datetime, colored log level and message
-        file.minLevel = .verbose
-        file.levelString.error = "Beaver Love!"
-        file.logFileURL = URL(fileURLWithPath: "/tmp/app_info.log")
+//        let file = FileDestination()
+//        file.format = "$Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c: $M"  // full datetime, colored log level and message
+//        file.minLevel = .verbose
+//        file.levelString.error = "Beaver Love!"
+//        file.logFileURL = URL(fileURLWithPath: "/tmp/app_info.log")
 
         console.format = "EDQ: $Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c: $M"
         console.minLevel = .info
         
         log.addDestination(console)
-        log.addDestination(file)
+//        log.addDestination(file)
         
         return true
     }

@@ -28,6 +28,9 @@ extension View {
     }
 }
 
+//let endPoint = "https://www.eduvip.nl/VSOdigitaal/louis/"
+let endPoint = "https://www.bartimeusvso.com/software/louis/"
+
 extension Color {
     static let bart_green = Color(red: 0 / 255, green: 130 / 255, blue: 69 / 255)
     static let bart_purple = Color(red: 130 / 255, green: 0 / 255, blue: 62 / 255)

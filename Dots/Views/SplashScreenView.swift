@@ -22,7 +22,7 @@ struct SplashScreenView: View {
     let log = SwiftyBeaver.self
     @Environment(\.locale) private var locale
     
-    let dataURL = "https://www.eduvip.nl/VSOdigitaal/louis/methods-demo.json"
+    let dataURL = endPoint + "methods-demo.json"
     // let dataURL = "https://raw.githubusercontent.com/edequartel/braillemethods/main/Documents/methods-demo.json"
     
     //    @State private var errorMessage: String?
@@ -59,7 +59,7 @@ struct SplashScreenView: View {
                 loadData()
                 //
                 if (countVisibleSubdirectoriesInDocumentsDirectory() == 0) {
-                    if (locale.languageCode == "nl") {
+                  if (locale.language.languageCode?.identifier ?? "nl" == "nl") {
                         downloadZipFile(value: "dutch")
                         viewModel.indexLanguage = 0
                     }
@@ -166,7 +166,7 @@ struct SplashScreenView: View {
     func downloadZipFile(value: String) {
         log.debug("downloadZipFile() \(value)")
         self.progress = 0
-        let url = URL(string: "https://www.eduvip.nl/VSOdigitaal/louis/audio/"+value+".zip")!
+        let url = URL(string:  endPoint + "audio/"+value+".zip")!
         let destination: DownloadRequest.Destination = { _, _ in
             let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             let fileURL = documentsURL.appendingPathComponent(value+".zip")

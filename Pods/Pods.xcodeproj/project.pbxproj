@@ -43,15 +43,15 @@
 		3AF65CCA6D821DD9B4C7790CFEAFC939 /* Pods-Dots-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Dots-dummy.m"; sourceTree = "<group>"; };
 		44C9C529DD915348DC7BF1FAEC9B7829 /* Soundable.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Soundable.modulemap; sourceTree = "<group>"; };
 		45CB42BA117A5A608418D9B884CE5F3C /* Pods-Dots-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Dots-Info.plist"; sourceTree = "<group>"; };
-		4D6C9847F9FEC71625E57CC04A12825E /* Pods-Dots */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Dots"; path = Pods_Dots.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D6C9847F9FEC71625E57CC04A12825E /* Pods_Dots.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dots.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DFED7879EB7CA9F273EEAF330A38608 /* Pods-Dots-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Dots-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5666626270FE72892546B679492F5125 /* Pods-Dots.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Dots.debug.xcconfig"; sourceTree = "<group>"; };
 		6B9102346C93213BC9F61BED4DD62AF5 /* Playable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Playable.swift; path = Source/Playable.swift; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		7CBF95D58B6AF7CC0CA85A101FF3318F /* Soundable */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Soundable; path = Soundable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CBF95D58B6AF7CC0CA85A101FF3318F /* Soundable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Soundable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		804268D4A51B05A50FBA419AE0BB11AB /* Soundable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Soundable.release.xcconfig; sourceTree = "<group>"; };
 		999543942D973C93C2E12FC965B1E2DE /* Soundable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Soundable.debug.xcconfig; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9FFD6B97A3E514B1072B1EFF45961BA9 /* Pods-Dots.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Dots.modulemap"; sourceTree = "<group>"; };
 		BF2BCE311EB0078F6F3369FA1B703306 /* Pods-Dots-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Dots-frameworks.sh"; sourceTree = "<group>"; };
 		CA7DCA87BE96F4DEAEC56385C7E87086 /* Soundable-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Soundable-Info.plist"; sourceTree = "<group>"; };
@@ -81,8 +81,8 @@
 		2DAB0E862CD12CD300F49D177BD52F3C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4D6C9847F9FEC71625E57CC04A12825E /* Pods-Dots */,
-				7CBF95D58B6AF7CC0CA85A101FF3318F /* Soundable */,
+				4D6C9847F9FEC71625E57CC04A12825E /* Pods_Dots.framework */,
+				7CBF95D58B6AF7CC0CA85A101FF3318F /* Soundable.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,7 +145,6 @@
 				1660CA28C0A8C435BEE25014A06434F1 /* SoundsQueue.swift */,
 				2F74B470B04F0EAF703CF922959B27A8 /* Support Files */,
 			);
-			name = Soundable;
 			path = Soundable;
 			sourceTree = "<group>";
 		};
@@ -214,7 +213,7 @@
 			);
 			name = "Pods-Dots";
 			productName = Pods_Dots;
-			productReference = 4D6C9847F9FEC71625E57CC04A12825E /* Pods-Dots */;
+			productReference = 4D6C9847F9FEC71625E57CC04A12825E /* Pods_Dots.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		D6B92D59ECC88698F1116F4E25C11A01 /* Soundable */ = {
@@ -232,7 +231,7 @@
 			);
 			name = Soundable;
 			productName = Soundable;
-			productReference = 7CBF95D58B6AF7CC0CA85A101FF3318F /* Soundable */;
+			productReference = 7CBF95D58B6AF7CC0CA85A101FF3318F /* Soundable.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -329,7 +328,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Soundable/Soundable-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Soundable/Soundable-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -364,7 +363,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Soundable/Soundable-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Soundable/Soundable-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
