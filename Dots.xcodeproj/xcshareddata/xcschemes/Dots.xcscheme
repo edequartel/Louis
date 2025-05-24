@@ -70,13 +70,6 @@
             ReferencedContainer = "container:Dots.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "OPENAI_API_KEY"
-            value = "Bearer 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"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
       <LocationScenarioReference
          identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
          referenceType = "1">
