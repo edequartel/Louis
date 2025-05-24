@@ -38,7 +38,7 @@ class OpenAIViewModel: ObservableObject {
 
   let choiceVvoice = "com.apple.speech.synthesis.voice.GoodNews"
 
-  func fetchResponse(prompt: String, message: String) {
+  func fetchResponse(prompt: String, message: String, apiKey: String) {
     let url = URL(string: "https://api.openai.com/v1/chat/completions")!
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
@@ -75,11 +75,13 @@ class OpenAIViewModel: ObservableObject {
 
 struct OpenAIView: View {
   @StateObject private var viewModel = OpenAIViewModel()
+  @EnvironmentObject var viewSettingsModel: LouisViewModel
+
   let log = SwiftyBeaver.self
   let synthesizer = AVSpeechSynthesizer()
 
-  @State private var prompt: String = "You can see into the future and are a visionary."
-  @State private var message: String = "What does the future of braille learning look like in five years, combined with the use of an iPhone and AI technologies? Describe how AI and mobile technologies can enhance braille education and accessibility for blind and visually impaired individuals. Max 100 words."//"wat eet een paard?"
+  @State private var prompt: String = "You are a visionary."
+  @State private var message: String = "What will braille learning look like in five years with iPhone and AI integration? Describe how AI and mobile technology can improve braille education and accessibility for blind and visually impaired users. (Max 50 words)"//"wat eet een paard?"
 
   var body: some View {
     VStack {
@@ -115,32 +117,35 @@ struct OpenAIView: View {
           )
 
         Spacer()
-        Button(action: {
-          speak(message)
-        }) {
-          Image(systemName: "play.fill")
-            .padding()
+        VStack {
+          Button(action: {
+            speak(message)
+          }) {
+            Image(systemName: "play.fill")
+              .padding()
+          }
+
+          Button(action: {
+            hideKeyboard() // Hide keyboard
+            viewModel.fetchResponse(
+              prompt: prompt,
+              message: message,
+//              apiKey: apiKey)
+              apiKey: viewSettingsModel.apiKey)
+          }) {
+            Image(systemName: "questionmark")
+              .padding()
+              .foregroundColor(.red)
+          }
         }
       }
       .font(.caption)
-
-
-      Button(action: {
-        hideKeyboard() // Hide keyboard
-        viewModel.fetchResponse(prompt: prompt, message: message)
-      }) {
-        Text("Answer")
-          .padding()
-          .background(Color.blue)
-          .foregroundColor(.white)
-          .cornerRadius(8)
-      }
 
       HStack {
         ScrollView {
           Text(viewModel.responseText)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding()
+            .padding(4)
         }
         .overlay(
           RoundedRectangle(cornerRadius: 8)

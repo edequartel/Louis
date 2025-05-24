@@ -30,7 +30,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
 }
 
-
 //// Now let’s log!
 //log.verbose("not so important")  // prio 1, VERBOSE in silver
 //log.debug("something to debug")  // prio 2, DEBUG in green

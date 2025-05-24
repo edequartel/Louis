@@ -16,6 +16,7 @@ final class LouisViewModel: ObservableObject {
 
   @Published var Languages: [Item] = []
 
+
   @AppStorage("INDEX_LANGUAGE") var indexLanguage = 0
   @AppStorage("INDEX_METHOD") var indexMethod = 0
   @AppStorage("INDEX_LESSON") var indexLesson = 0
@@ -28,6 +29,9 @@ final class LouisViewModel: ObservableObject {
   @AppStorage("TALK_WORD") var talkWord = false
 
   @AppStorage("AIACTIVE") var aiActive = false
+
+//  @Published var apiKey = ""
+  @AppStorage("APIKEY") var apiKey = ""
 
   @AppStorage("ACTIVITY_TYPE") var activityTypeRawValue = 1
   var activityType: activityEnum {

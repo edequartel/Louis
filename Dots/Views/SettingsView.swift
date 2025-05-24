@@ -217,7 +217,11 @@ struct resetModelView : View {
       } label : {
         Text("reset".localized())
       }
+
       Toggle("AI".localized(), isOn: $viewModel.aiActive)
+
+      TextField("API Key", text: $viewModel.apiKey)
+        .foregroundColor(.red)
     }
   }
   
