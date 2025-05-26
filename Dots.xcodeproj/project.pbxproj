@@ -307,8 +307,10 @@
 			isa = PBXGroup;
 			children = (
 				47192A452858C086004FD2F3 /* AudioView.swift */,
+				4789419E2CDCF04700D4682E /* ChatGPT.swift */,
 				47192A432858C07B004FD2F3 /* SearchWordView.swift */,
 				4766E4CC28B351B200852495 /* ProgressView.swift */,
+				47192A3F2858C065004FD2F3 /* InformationView.swift */,
 			);
 			path = NotUsedNow;
 			sourceTree = "<group>";
@@ -361,8 +363,6 @@
 				47192A412858C073004FD2F3 /* PlaygroundView.swift */,
 				47A24DBA296C13D200BA287B /* LouisViewModel.swift */,
 				47192A382858BE7D004FD2F3 /* SplashScreenView.swift */,
-				47192A3F2858C065004FD2F3 /* InformationView.swift */,
-				4789419E2CDCF04700D4682E /* ChatGPT.swift */,
 				47192A3D2858C057004FD2F3 /* SettingsView.swift */,
 				472226E128D84628002BF9E0 /* SheetView.swift */,
 				47A24DB5296B456700BA287B /* ModifiersAndExtension.swift */,

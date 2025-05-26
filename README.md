@@ -1,5 +1,5 @@
 # Louis
-[Dutch version](READMDnl.md)
+
 
 Platform for learning Braille while using VoiceOver and a Braille display. Louis utilizes the accessibility features built into iOS. Louis can also be used by sighted individuals to visually learn Braille.
 
@@ -31,8 +31,10 @@ Methods are stored on a server. Therefore, they can easily be modified or added 
 ## Screenshots
 ![App Screenshots](screenshots/screenshot.png)
 
+<!--
 ## Video
 [Overview Video](https://vimeo.com/810543898)
+-->
 
 ## Settings
 
@@ -53,21 +55,21 @@ Methods are stored on a server. Therefore, they can easily be modified or added 
 2. Conditional: whether you type the letter/word on the Braille display or use a button to move to the next word.
 3. Reading: audio before/after/not on Braille display
 
+<!--
 ### Louis Website
-
 ![QR Code](screenshots/louisweb.png)
+-->
 
 ### Test on TestFlight
 
-Send an email to edequartel@barttimeus.nl to be added to the TestFlight team,  
-or scan the QR code
+Send an email to edequartel@barttimeus.nl to be added to the TestFlight team.
 
-![QR Code](screenshots/louis-testflight.png)
-
+<!--
 ### VoiceOver and iPhone
 
 Want to know more about operating your iPhone with a Braille display? Visit:  
 [VoiceOver Explanation](https://edequartel.github.io/ict4vip/voiceover.html)
+-->
 
 <!--
 ## Localization

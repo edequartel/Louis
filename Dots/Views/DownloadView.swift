@@ -181,8 +181,5 @@ struct DownloadView_Previews: PreviewProvider {
 }
 
 
-//                Button("Print bundle") {
-//                    print(getDocumentDirectory().path)
-//                }
-//                .padding(10)
+
 

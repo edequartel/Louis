@@ -38,13 +38,13 @@ struct ContentView: View {
 //          Text("BrailleDisplay")
 //        }
 //
-      if viewModel.aiActive {
-        OpenAIView()
-          .tabItem {
-            Image(systemName: "atom")
-            Text("AI")
-          }
-      }
+//      if viewModel.aiActive {
+//        OpenAIView()
+//          .tabItem {
+//            Image(systemName: "atom")
+//            Text("AI")
+//          }
+//      }
     }
     //            .onAppear {
     //                SwiftSpeech.requestSpeechRecognitionAuthorization()
