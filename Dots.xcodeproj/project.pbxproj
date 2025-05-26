@@ -28,7 +28,6 @@
 		472C7C12290F0E0D00DA12E9 /* bartimeusb.json in Resources */ = {isa = PBXBuildFile; fileRef = 472C7C11290F0E0D00DA12E9 /* bartimeusb.json */; };
 		472C7C14290F0E5500DA12E9 /* bartimeusbigb.json in Resources */ = {isa = PBXBuildFile; fileRef = 472C7C13290F0E5500DA12E9 /* bartimeusbigb.json */; };
 		4730964C2AD3D5EE009D9F58 /* ProgressIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 4730964B2AD3D5EE009D9F58 /* ProgressIndicatorView */; };
-		4730964F2AD3DBEB009D9F58 /* SwiftAudioEx in Frameworks */ = {isa = PBXBuildFile; productRef = 4730964E2AD3DBEB009D9F58 /* SwiftAudioEx */; };
 		473DCCAA2891430D00CDFF47 /* spotlight120.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCC902891430D00CDFF47 /* spotlight120.png */; };
 		473DCCAB2891430D00CDFF47 /* ipad76.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCC912891430D00CDFF47 /* ipad76.png */; };
 		473DCCAC2891430D00CDFF47 /* notification40.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCC922891430D00CDFF47 /* notification40.png */; };
@@ -187,7 +186,6 @@
 				4765614029ABF13100658927 /* SwiftProgress in Frameworks */,
 				4730964C2AD3D5EE009D9F58 /* ProgressIndicatorView in Frameworks */,
 				47403EE429910C68005EFBA7 /* ZipArchive in Frameworks */,
-				4730964F2AD3DBEB009D9F58 /* SwiftAudioEx in Frameworks */,
 				47F4C02629BA0CB200CA5D25 /* SwiftyBeaver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,7 +433,6 @@
 				472B107E29AD25EC00EC685C /* SwiftSpeech */,
 				47F4C02529BA0CB200CA5D25 /* SwiftyBeaver */,
 				4730964B2AD3D5EE009D9F58 /* ProgressIndicatorView */,
-				4730964E2AD3DBEB009D9F58 /* SwiftAudioEx */,
 			);
 			productName = Dots;
 			productReference = 47192A0B2858893C004FD2F3 /* Dots.app */;
@@ -520,7 +517,6 @@
 				472B107D29AD25EC00EC685C /* XCRemoteSwiftPackageReference "SwiftSpeech" */,
 				47F4C02429BA0CB200CA5D25 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
 				4730964A2AD3D5EE009D9F58 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */,
-				4730964D2AD3DBEB009D9F58 /* XCRemoteSwiftPackageReference "SwiftAudioEx" */,
 			);
 			productRefGroup = 47192A0C2858893C004FD2F3 /* Products */;
 			projectDirPath = "";
@@ -1047,14 +1043,6 @@
 				minimumVersion = 0.0.4;
 			};
 		};
-		4730964D2AD3DBEB009D9F58 /* XCRemoteSwiftPackageReference "SwiftAudioEx" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/doublesymmetry/SwiftAudioEx";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.15.3;
-			};
-		};
 		47403EE229910C68005EFBA7 /* XCRemoteSwiftPackageReference "ZipArchive" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ZipArchive/ZipArchive";
@@ -1115,11 +1103,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4730964A2AD3D5EE009D9F58 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */;
 			productName = ProgressIndicatorView;
-		};
-		4730964E2AD3DBEB009D9F58 /* SwiftAudioEx */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4730964D2AD3DBEB009D9F58 /* XCRemoteSwiftPackageReference "SwiftAudioEx" */;
-			productName = SwiftAudioEx;
 		};
 		47403EE329910C68005EFBA7 /* ZipArchive */ = {
 			isa = XCSwiftPackageProductDependency;
