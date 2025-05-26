@@ -517,6 +517,7 @@
 				472B107D29AD25EC00EC685C /* XCRemoteSwiftPackageReference "SwiftSpeech" */,
 				47F4C02429BA0CB200CA5D25 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
 				4730964A2AD3D5EE009D9F58 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */,
+				476988CA2DE4652F0094D7A8 /* XCRemoteSwiftPackageReference "SwiftAudioEx" */,
 			);
 			productRefGroup = 47192A0C2858893C004FD2F3 /* Products */;
 			projectDirPath = "";
@@ -1065,6 +1066,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
+			};
+		};
+		476988CA2DE4652F0094D7A8 /* XCRemoteSwiftPackageReference "SwiftAudioEx" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/doublesymmetry/SwiftAudioEx";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
 			};
 		};
 		47B09A24298805250030B9CF /* XCRemoteSwiftPackageReference "Alamofire" */ = {

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftyBeaver
+import SwiftAudioEx
 
 
 struct SettingsView: View {
