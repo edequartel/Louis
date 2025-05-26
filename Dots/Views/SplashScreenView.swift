@@ -15,7 +15,6 @@ import Soundable
 import Alamofire
 import ZipArchive
 import SwiftyBeaver
-import SwiftAudioEx
 
 struct SplashScreenView: View {
     @Environment(\.scenePhase) private var scenePhase
@@ -53,12 +52,7 @@ struct SplashScreenView: View {
                 audioDownloaded = (countVisibleSubdirectoriesInDocumentsDirectory() != 0)
                 if (audioDownloaded) { log.verbose("audioDownloaded != 0") }
                 
-
-                //
-//              let player = AudioPlayer()
-//              let audioItem = DefaultAudioItem(audioUrl: "perkinsping.mp3", sourceType: .file)
-//              try player.load(item: audioItem, playWhenReady: true)
-
+                
                 let sound = Sound(fileName: "perkinsping.mp3")
                 sound.play()
                 //

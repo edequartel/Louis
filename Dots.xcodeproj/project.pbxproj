@@ -28,6 +28,7 @@
 		472C7C12290F0E0D00DA12E9 /* bartimeusb.json in Resources */ = {isa = PBXBuildFile; fileRef = 472C7C11290F0E0D00DA12E9 /* bartimeusb.json */; };
 		472C7C14290F0E5500DA12E9 /* bartimeusbigb.json in Resources */ = {isa = PBXBuildFile; fileRef = 472C7C13290F0E5500DA12E9 /* bartimeusbigb.json */; };
 		4730964C2AD3D5EE009D9F58 /* ProgressIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 4730964B2AD3D5EE009D9F58 /* ProgressIndicatorView */; };
+		4730964F2AD3DBEB009D9F58 /* SwiftAudioEx in Frameworks */ = {isa = PBXBuildFile; productRef = 4730964E2AD3DBEB009D9F58 /* SwiftAudioEx */; };
 		473DCCAA2891430D00CDFF47 /* spotlight120.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCC902891430D00CDFF47 /* spotlight120.png */; };
 		473DCCAB2891430D00CDFF47 /* ipad76.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCC912891430D00CDFF47 /* ipad76.png */; };
 		473DCCAC2891430D00CDFF47 /* notification40.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCC922891430D00CDFF47 /* notification40.png */; };
@@ -56,7 +57,6 @@
 		473DCCC32891430D00CDFF47 /* ipadNotification40.png in Resources */ = {isa = PBXBuildFile; fileRef = 473DCCA92891430D00CDFF47 /* ipadNotification40.png */; };
 		47403EE429910C68005EFBA7 /* ZipArchive in Frameworks */ = {isa = PBXBuildFile; productRef = 47403EE329910C68005EFBA7 /* ZipArchive */; };
 		474CFEBA287551170000BF85 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 474CFEB9287551170000BF85 /* README.md */; };
-		4758321A29912309007CB0E3 /* perkinspingdoorvoer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4758321829912308007CB0E3 /* perkinspingdoorvoer.mp3 */; };
 		4758321B29912309007CB0E3 /* perkinsping.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4758321929912309007CB0E3 /* perkinsping.mp3 */; };
 		4765614029ABF13100658927 /* SwiftProgress in Frameworks */ = {isa = PBXBuildFile; productRef = 4765613F29ABF13100658927 /* SwiftProgress */; };
 		4766E4CB28B3519A00852495 /* StepperView in Frameworks */ = {isa = PBXBuildFile; productRef = 4766E4CA28B3519A00852495 /* StepperView */; };
@@ -148,7 +148,6 @@
 		473DCCA82891430D00CDFF47 /* ipadSettings58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipadSettings58.png; sourceTree = "<group>"; };
 		473DCCA92891430D00CDFF47 /* ipadNotification40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipadNotification40.png; sourceTree = "<group>"; };
 		474CFEB9287551170000BF85 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		4758321829912308007CB0E3 /* perkinspingdoorvoer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = perkinspingdoorvoer.mp3; sourceTree = "<group>"; };
 		4758321929912309007CB0E3 /* perkinsping.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = perkinsping.mp3; sourceTree = "<group>"; };
 		4766E4CC28B351B200852495 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		476A36D228F06CDC00F3909B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -186,6 +185,7 @@
 				4765614029ABF13100658927 /* SwiftProgress in Frameworks */,
 				4730964C2AD3D5EE009D9F58 /* ProgressIndicatorView in Frameworks */,
 				47403EE429910C68005EFBA7 /* ZipArchive in Frameworks */,
+				4730964F2AD3DBEB009D9F58 /* SwiftAudioEx in Frameworks */,
 				47F4C02629BA0CB200CA5D25 /* SwiftyBeaver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,7 +372,6 @@
 			isa = PBXGroup;
 			children = (
 				4758321929912309007CB0E3 /* perkinsping.mp3 */,
-				4758321829912308007CB0E3 /* perkinspingdoorvoer.mp3 */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -433,6 +432,7 @@
 				472B107E29AD25EC00EC685C /* SwiftSpeech */,
 				47F4C02529BA0CB200CA5D25 /* SwiftyBeaver */,
 				4730964B2AD3D5EE009D9F58 /* ProgressIndicatorView */,
+				4730964E2AD3DBEB009D9F58 /* SwiftAudioEx */,
 			);
 			productName = Dots;
 			productReference = 47192A0B2858893C004FD2F3 /* Dots.app */;
@@ -517,7 +517,7 @@
 				472B107D29AD25EC00EC685C /* XCRemoteSwiftPackageReference "SwiftSpeech" */,
 				47F4C02429BA0CB200CA5D25 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
 				4730964A2AD3D5EE009D9F58 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */,
-				476988CA2DE4652F0094D7A8 /* XCRemoteSwiftPackageReference "SwiftAudioEx" */,
+				4730964D2AD3DBEB009D9F58 /* XCRemoteSwiftPackageReference "SwiftAudioEx" */,
 			);
 			productRefGroup = 47192A0C2858893C004FD2F3 /* Products */;
 			projectDirPath = "";
@@ -556,7 +556,6 @@
 				473DCCBB2891430D00CDFF47 /* ipadSpotlight40.png in Resources */,
 				473DCCB22891430D00CDFF47 /* ipad152.png in Resources */,
 				473DCCBD2891430D00CDFF47 /* notification60.png in Resources */,
-				4758321A29912309007CB0E3 /* perkinspingdoorvoer.mp3 in Resources */,
 				47EBF80C2862031200E8F230 /* dotsloader.json in Resources */,
 				473DCCB12891430D00CDFF47 /* ipadPro167.png in Resources */,
 				47192A5B2858CB8F004FD2F3 /* bartimeus6dots.ttf in Resources */,
@@ -1044,6 +1043,14 @@
 				minimumVersion = 0.0.4;
 			};
 		};
+		4730964D2AD3DBEB009D9F58 /* XCRemoteSwiftPackageReference "SwiftAudioEx" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/doublesymmetry/SwiftAudioEx";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.15.3;
+			};
+		};
 		47403EE229910C68005EFBA7 /* XCRemoteSwiftPackageReference "ZipArchive" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ZipArchive/ZipArchive";
@@ -1066,14 +1073,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
-			};
-		};
-		476988CA2DE4652F0094D7A8 /* XCRemoteSwiftPackageReference "SwiftAudioEx" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/doublesymmetry/SwiftAudioEx";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.0;
 			};
 		};
 		47B09A24298805250030B9CF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
@@ -1112,6 +1111,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4730964A2AD3D5EE009D9F58 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */;
 			productName = ProgressIndicatorView;
+		};
+		4730964E2AD3DBEB009D9F58 /* SwiftAudioEx */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4730964D2AD3DBEB009D9F58 /* XCRemoteSwiftPackageReference "SwiftAudioEx" */;
+			productName = SwiftAudioEx;
 		};
 		47403EE329910C68005EFBA7 /* ZipArchive */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -1,5 +1,4 @@
 {
-  "originHash" : "7b06f3a509e77b5a1995b24c39ae82bb2ff6cc334811f0b34a10a684135bf0fc",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -42,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/doublesymmetry/SwiftAudioEx",
       "state" : {
-        "revision" : "7b506bebabd68b542256c0e1e55519fab5f4c092",
-        "version" : "1.1.0"
+        "revision" : "23fdb9b9db4b759cf99390ae8c5381dc7a21a0ae",
+        "version" : "0.15.3"
       }
     },
     {
@@ -83,5 +82,5 @@
       }
     }
   ],
-  "version" : 3
+  "version" : 2
 }
