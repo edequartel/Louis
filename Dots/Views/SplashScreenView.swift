@@ -68,7 +68,9 @@ struct SplashScreenView: View {
                         viewModel.indexLanguage = 1
                     }
                 }
-                
+//              downloadZipFile(value: "dutch")
+//              downloadZipFile(value: "english")
+
                 //
 //                viewModel.indexLanguage = 0
 //                viewModel.indexMethod = 0

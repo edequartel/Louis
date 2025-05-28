@@ -79,36 +79,65 @@ final class LouisViewModel: ObservableObject {
 
   //get random a new item from selected lesson
   func Shuffle() {
+    // Guard clause: check if indexLanguage is valid
+    guard Languages.indices.contains(indexLanguage) else {
+      log.error("indexLanguage \(indexLanguage) is out of range for Languages array")
+      return
+    }
 
+    print("---- shuffle ----")
     previousItem = item
 
-    log.debug("Shuffle() items: \(items) item: \(item)")
+    log.error("\(indexLanguage)")
+    let str = (activityType == .character) ? getLetters() :
+    getMP3Files(atPath: "\(Languages[indexLanguage].zip)/words", containingCharacters: getLetters(), minLength: 0, maxLength: 30).joined(separator: " ")
+    items = cleanUpString(str)
+    // Filter out the previous item from the list
+    let availableItems = items.filter { $0 != previousItem }
 
-    while (item==items[0]) {
-      let str = (activityType == .character) ? getLetters() :
-      getMP3Files(atPath: "\(Languages[indexLanguage].zip)/words", containingCharacters: getLetters(), minLength: 0, maxLength: 30).joined(separator: " ")
+    // If all items are the same, fallback to the original list
+    let candidates = availableItems.isEmpty ? items : availableItems
 
+    // Pick a new item at random
+    item = candidates.randomElement() ?? previousItem
 
-      items = cleanUpString(str)
+    log.info("Shuffle() items: \(items) item: \(item)")
+    log.info("< items[0] \(items.first ?? "")")
 
-
-      log.debug("indexLanguage \(indexLanguage)")
-      log.debug("indexMethod \(indexMethod)")
-      log.debug("indexLesson \(indexLesson)")
-      log.debug("str \(str)")
-      log.debug("items \(items)")
-      log.debug("item \(item) = \(items[0])")
-      //
-
-      // Check if the items array has at least one element
-      if items.count <= 0 {
-        // Handle the case where the items array is empty
-        log.error("error handling: there are no items")
-        break
-      }
-    }
-    item = items[0]
+    print("item: \(item)")
   }
+  //get random a new item from selected lesson
+//  func Shuffle() {
+//
+//    previousItem = item
+//
+//    log.debug("Shuffle() items: \(items) item: \(item)")
+//
+//    while (item==items[0]) {
+//      let str = (activityType == .character) ? getLetters() :
+//      getMP3Files(atPath: "\(Languages[indexLanguage].zip)/words", containingCharacters: getLetters(), minLength: 0, maxLength: 30).joined(separator: " ")
+//
+//
+//      items = cleanUpString(str)
+//
+//
+//      log.debug("indexLanguage \(indexLanguage)")
+//      log.debug("indexMethod \(indexMethod)")
+//      log.debug("indexLesson \(indexLesson)")
+//      log.debug("str \(str)")
+//      log.debug("items \(items)")
+//      log.debug("item \(item) = \(items[0])")
+//      //
+//
+//      // Check if the items array has at least one element
+//      if items.count <= 0 {
+//        // Handle the case where the items array is empty
+//        log.error("error handling: there are no items")
+//        break
+//      }
+//    }
+//    item = items[0]
+//  }
 
   func sortAndSpaceCharacters(in string: String) -> String {
     var characters = string.map { String($0) } // convert string to array of characters

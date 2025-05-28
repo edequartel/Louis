@@ -25,7 +25,7 @@ Methods are stored on a server. Therefore, they can easily be modified or added 
 3. Adjust the volume level.
 4. Enable VoiceOver.
 5. Mute the VoiceOver voice (double-tap with three fingers on the screen).
-6. If that doesn't work, go to your device's accessibility settings. See the video.
+6. If that doesn't work, go to your device's accessibility settings. 
 7. Focus on text.
 
 ## Screenshots
@@ -62,7 +62,11 @@ Methods are stored on a server. Therefore, they can easily be modified or added 
 
 ### Test on TestFlight
 
-Send an email to edequartel@barttimeus.nl to be added to the TestFlight team.
+Send an email to edequartel@barttimeus.nl to be added to the TestFlight team, or go to https://testflight.apple.com/join/tN73kP2E
+
+**When the app crashes, delete it and reinstall the app through TestFlight**.
+
+![QR Code TestFligth](louis-testflight.png)
 
 <!--
 ### VoiceOver and iPhone
