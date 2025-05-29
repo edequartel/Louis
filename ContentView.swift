@@ -26,11 +26,21 @@ struct ContentView: View {
           Image(systemName: "gearshape.fill")
           Text("settings".localized())
         }
+
+      if viewModel.aiActive {
+        OpenAIView()
+          .tabItem {
+            Image(systemName: "atom")
+            Text("AI")
+          }
+      }
+
       InformationView()
         .tabItem {
           Image(systemName: "info.circle.fill")
           Text("information".localized())
         }
+
 
 //      TextFieldCursorView()
 //        .tabItem {
@@ -38,13 +48,7 @@ struct ContentView: View {
 //          Text("BrailleDisplay")
 //        }
 //
-//      if viewModel.aiActive {
-//        OpenAIView()
-//          .tabItem {
-//            Image(systemName: "atom")
-//            Text("AI")
-//          }
-//      }
+
     }
     //            .onAppear {
     //                SwiftSpeech.requestSpeechRecognitionAuthorization()
