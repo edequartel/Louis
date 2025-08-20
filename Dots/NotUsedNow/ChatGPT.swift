@@ -85,16 +85,23 @@ struct OpenAIView: View {
 //and accessibility for blind and visually impaired users. (Max 50 words)
 //"""
 
+//  @State private var prompt: String = """
+//  You are a teacher braille for a child of 8 years old.
+//  """
+//  @State private var message: String = """
+//  Write a fairy tale, 
+//  in the style of Hans Christian Anderson,
+//  about princes, prince and a frog, 
+//  Not more 100 words. Words length < 8. Sentence length < 10 words. 
+//  No capitals, no interpunction. 
+//  Dot is allowed. Lines under each other.
+//  """
+
   @State private var prompt: String = """
-  You are a teacher braille for a child of 8 years old.
+  Act like a teacher braille and AI researcher with 15 years’ experience designing inclusive, gamified learning systems. Expert in AI, braille, tactile tech, and accessibility for visually impaired learners to enhance educational impact.
   """
   @State private var message: String = """
-  Write a fairy tale, 
-  in the style of Hans Christian Anderson,
-  about princes, prince and a frog, 
-  Not more 100 words. Words length < 8. Sentence length < 10 words. 
-  No capitals, no interpunction. 
-  Dot is allowed. Lines under each other.
+  Create a creative, practical, imaginative AI-powered concept on an iPhone to help young learners who are blind to learn Braille faster and more enjoyably using smart tech like personalization, voice, or computer vision. Answer in less than 100 words. And focus here on the activities.
   """
 
   var body: some View {
@@ -106,7 +113,7 @@ struct OpenAIView: View {
       HStack {
         TextEditor(text: $prompt)
         //          .padding()
-          .frame(height: 60) // Adjust height as needed
+          .frame(height: 180) // Adjust height as needed
           .overlay(
             RoundedRectangle(cornerRadius: 8)
               .stroke(Color.gray, lineWidth: 1)
@@ -119,12 +126,12 @@ struct OpenAIView: View {
             .padding()
         }
       }
-      .font(.caption)
+      .font(.callout)
 
       HStack {
         TextEditor(text: $message)
         //          .padding()
-          .frame(height: 120) // Adjust height as needed
+          .frame(height: 200) // Adjust height as needed
           .overlay(
             RoundedRectangle(cornerRadius: 8)
               .stroke(Color.gray, lineWidth: 1)
@@ -153,7 +160,7 @@ struct OpenAIView: View {
           }
         }
       }
-      .font(.caption)
+      .font(.callout)
 
       HStack {
         ScrollView {
@@ -182,7 +189,7 @@ struct OpenAIView: View {
 
         }
       }
-      .font(.caption)
+      .font(.callout)
 
       Spacer()
     }
